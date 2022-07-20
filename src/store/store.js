@@ -10,6 +10,7 @@ import tokenOwnerSlice from "./tokenOwnerSlice";
 import topWalletSlice from "./topWalletSlice";
 import bscLiquidityScanSlice from './bscLiquidityScanSlice'
 import bSCTrasactionSlice from './bSCTrasactionSlice'
+import tokenListSlice from './tokenListSlice'
 export const store = configureStore({
     reducer: {
         contractAddress: contractAddressSlice,
@@ -23,5 +24,6 @@ export const store = configureStore({
         topWallet: topWalletSlice,
         bscLiquidityScan: bscLiquidityScanSlice,
         bSCTrasaction: bSCTrasactionSlice,
+        tokenList: tokenListSlice
     },
 })

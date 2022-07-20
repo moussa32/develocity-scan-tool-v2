@@ -90,7 +90,6 @@ export function Token() {
                             <div className='col-lg-6 col-md-12'>
                                 <div className='wallets_table'>
                                     <TokenOwner tokenOwnerData={tokenOwnerData} />
-
                                 </div>
 
                             </div>
