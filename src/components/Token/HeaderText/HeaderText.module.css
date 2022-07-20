@@ -1,0 +1,19 @@
+.container_header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container_header .header {
+    font-size: 16px;
+    font-family: "SF Pro Display Medium";
+    margin: 0;
+    padding: 0;
+
+}
+.container_header .InfoLogo{
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+}

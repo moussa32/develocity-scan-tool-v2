@@ -1,0 +1,73 @@
+{
+    "totalHolder": 53869,
+    "shrinkHolders": 28,
+    "airdropHolders": 47652,
+    "realholders": 6189,
+    "topTenHolder": [
+        {
+            "_id": "62d275b93f72b23cd4d2d8d4",
+            "TokenHolderAddress": "0x6e8b088279d1676b244440c523af0566c4e80f0c",
+            "TokenHolderQuantity": "310000000000",
+            "percentage": "34.47391385755869"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8d5",
+            "TokenHolderAddress": "0x30d6ece93834f5ad948615c3a34a4a9a6d4ecd69",
+            "TokenHolderQuantity": "124448423091.00667",
+            "percentage": "13.839432959188327"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8d6",
+            "TokenHolderAddress": "0x328130164d0f2b9d7a52edc73b3632e713ff0ec6",
+            "TokenHolderQuantity": "53099846313.42104",
+            "percentage": "5.905030734382201"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8d7",
+            "TokenHolderAddress": "0xd0591d5ac583a6058231792870e6ac5dadff209c",
+            "TokenHolderQuantity": "49999999999.99999",
+            "percentage": "5.560308686703014"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8d8",
+            "TokenHolderAddress": "0x0895ed3e298d69d31edf469d76442ed86a5a12f2",
+            "TokenHolderQuantity": "27235616399.38227",
+            "percentage": "3.0287686890639263"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8d9",
+            "TokenHolderAddress": "0x6e0607c224f9e7940b2a4eaf3a6e088f911c2c1f",
+            "TokenHolderQuantity": "19592529582.9016",
+            "percentage": "2.1788102486858714"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8da",
+            "TokenHolderAddress": "0xc3eebe0e1ef2a64e761f4336437d4662ea030b0c",
+            "TokenHolderQuantity": "18500000000.000072",
+            "percentage": "2.0573142140801237"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8db",
+            "TokenHolderAddress": "0x3b7ce09ffc53f9b45b05fbe17069deea47bd0995",
+            "TokenHolderQuantity": "11927243168.290823",
+            "percentage": "1.326383075941333"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8dc",
+            "TokenHolderAddress": "0x615173533d4b309467ee1ef513b24658d73643bc",
+            "TokenHolderQuantity": "8133233153.896424",
+            "percentage": "0.9044657391318248"
+        },
+        {
+            "_id": "62d275b93f72b23cd4d2d8dd",
+            "TokenHolderAddress": "0x3be5a08cfe0ed59f4c654aa0da0fb3adc421040f",
+            "TokenHolderQuantity": "7477015420.999999",
+            "percentage": "0.8314902759199738"
+        }
+    ],
+    "shrinkHoldersPercentage": 0.051977946499842206,
+    "airdropHoldersPercentage": 88.4590395218029,
+    "realholdersPercentage": 11.488982531697266,
+    "scanStatus.isBSCholderScan": true,
+    "contractType": "Binance"
+}
