@@ -1,0 +1,73 @@
+.breadCrumbBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 33px;
+}
+.breadCrumb{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin:0;
+    padding: 0;
+}
+.breadCrumb li{
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #888;
+    margin-right: 10px;
+}
+.breadCrumb li:after{
+    content: ">";
+    margin-left: 10px;
+}
+.breadCrumb li:last-child{
+    margin-right: 0;
+}
+.breadCrumb li:last-child:after{
+    content: " ";
+    margin-left: 0;
+
+}
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.btns button{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border:1px solid #25292C;
+    text-transform: capitalize;
+    color: #333333;
+    font-size: 14px;
+    font-weight: 400;
+    transition: 0.5s;
+    padding: 15px 10px;
+}
+.btns button:hover{
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #25292C;
+}
+.btns button:first-child{
+    margin-right: 10px;
+}
+.shareIcon{
+   margin-left: 8px;
+}
+
+
+@media only screen and (max-width: 991px){
+    .breadCrumbBar{
+        flex-wrap: wrap;
+    }
+    .btns button{
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
