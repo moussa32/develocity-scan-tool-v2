@@ -31,12 +31,13 @@ export function ListGroup({ listdata, title }) {
                         <>
                             {listdata.map((i) =>
                             (
-                                <div className={`d-flex justify-content-between px-3 py-2 border-bottom  ${styles.listitemcontainer} `}>
+                                <div className={`d-flex justify-content-between  px-3 py-2 border-bottom  ${styles.listitemcontainer} `}>
                                     {(i.value  || i.value==0) ?  <>
                                         {i.name}
-                                        {title=='Slippage' &&  <span>{i.value}%</span>  }
-                                        {title=='Gas Fee' &&  <span>${i.value}</span>  }
-                                        {title=='Liquidity' &&  <span>{i.value}%</span>  }
+                                        {title=='Slippage'||title=='السيولة' &&  <span className="">{i.value}%</span>  }
+                                        {title=='Gas Fee'||title=='رسوم الغاز' &&  <span>${i.value}</span>  }
+                                        {title=='Liquidity'||title=='الانزلاق/ الضريبة' &&  <span>{i.value}%</span>  }
+                                       
                                     </>:
                                     <>
                                         <Placeholder styling={stylingdata}/>
