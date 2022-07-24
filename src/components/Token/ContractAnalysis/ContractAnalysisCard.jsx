@@ -69,7 +69,7 @@ export function ContractAnalysisCard(){
               {data.map( (item)=>{
                   return ( 
                       <div className="list-group-item rounded-0 " >
-                          <div className={` d-flex w-100 justify-content-between   ${styles.listitem}`}  >
+                          <div className={` d-flex w-100 justify-content-between text-start  ${styles.listitem}`}  >
                               <div className="align-items-center d-flex h-100" >{item.name}</div>
                               <div className="align-items-center d-flex h-100 ">
                                 {item.value===true?
