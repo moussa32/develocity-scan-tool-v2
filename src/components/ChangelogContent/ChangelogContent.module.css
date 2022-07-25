@@ -1,0 +1,248 @@
+.changelogTabs{
+    display: flex;
+   margin: 0 auto 46px;
+   justify-content: center;
+   align-items: center;
+}
+.tabLink{
+    padding: 7px 10px;
+    border-radius: 2px;
+    margin: 5px;
+}
+.tabLink button{
+    padding: 7px 10px;
+    font-size: 13px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px !important;
+}
+
+
+
+.step {
+  
+    padding: 10px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    
+    background-color: cream;
+  }
+  
+  .vStepper {
+    position: relative;
+  /*   visibility: visible; */
+  }
+  
+  
+  /* regular step */
+  .step.company .circle {
+    visibility: visible;
+    background-color: #9F4AE8;
+    border-color: #9F4AE8;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+  }
+  
+  .step.product .line {
+    border-left: 1px solid #888;
+    position: absolute;
+    left: 50%;
+    
+    height: 100%;
+  }
+  
+  .step.announce .circle {
+    visibility: visible;
+    background-color: #F5A341;
+    border-color: #F5A341;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+  }
+  
+  .step.announce .line {
+    border-left: 1px solid #888;
+    position: absolute;
+    left: 50%;
+    height: 100%;
+   
+  }
+  
+  .step.product .circle {
+  visibility: visible;
+  background-color: #3861FB;
+  border-color: #3861FB;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  }
+  
+  .step.bug .circle {
+    visibility: visible;
+    background-color: #16C784;
+    border-color: #16C784;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+  }
+  
+  .step.bug .line {
+    border-left: 1px solid #888;
+    position: absolute;
+    left: 50%;
+    height: 100%;
+  }
+  
+  
+  .step.company .line {
+    border-left: 1px solid #888;
+    position: absolute;
+    left: 50%;
+    height: 100%;
+  }
+  
+  .content_ltr {
+    margin-left: 20px;
+    display: inline-block;
+  }
+  .content_rtl {
+    margin-right: 20px;
+    display: inline-block;
+  }
+  .tabContent{
+    width: 784px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .typeAnnounce{
+    color: #F5A341;
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 11px;
+    text-transform: capitalize;
+    font-weight: 500;
+    background-color: rgba(245,163,65,0.15);
+  }
+  .typeProduct{
+    color: #3861FB;
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 11px;
+    text-transform: capitalize;
+    font-weight: 500;
+    background-color: rgba(56,97,251,0.15);
+  }
+  .typeBug{
+    color: #16C784;
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 11px;
+    text-transform: capitalize;
+    font-weight: 500;
+    background-color: rgba(22,199,132,0.15);
+  }
+  .typeCompany{
+    color: #9F4AE8;
+    font-size: 12px;
+    margin: 0;
+    padding: 2px 11px;
+    text-transform: capitalize;
+    font-weight: 500;
+    background-color: rgba(159,74,232,0.15);
+  }
+  .date{
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    margin: 5px 0;
+    font-weight: 400;
+  }
+  .typeDate_ltr{
+    margin-right: 11px;
+    
+  }
+  .typeDate_rtl{
+    margin-left: 11px;
+    
+  }
+  .title{
+    font-size: 24px;
+    font-weight: 400;
+    color: #333;
+    margin: 0;
+  }
+  .content p{
+    font-size: 14px;
+    color: #888;
+    margin: 9px 0;
+  }
+  .typeBlock{
+    width:40%;
+  }
+  .navLink{
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    border:1px solid #E8EAEC !important;
+    border-radius: 2px;
+    padding: 7px 10px;
+  }
+  .changelogTabs .all.active, .changelogTabs .show>.all{
+    background-color: #EFF2F5 !important;
+    color: #888 !important;
+  }
+  
+
+
+
+
+  @media only screen and (max-width: 991px){
+    .reAdv{
+        width: 100%;
+    }
+    .changelogTabs{
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+    }
+    .tabContent{
+        width: 100%;
+    }
+    .title{
+        font-size: 17px;
+    }
+    .content p{
+        font-size: 12px;
+    }
+    .typeBlock{
+        width: auto;
+    }
+    .typeAnnounce{
+        font-size: 9px;
+    }
+    .typeCompany{
+        font-size: 9px;
+    }
+    .typeBug{
+        font-size: 9px;
+    }
+    .typeProduct{
+        font-size: 9px;
+    }
+    .step{
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+    }
+    .tabLink{
+        white-space: nowrap;
+    }
+  }
