@@ -3,7 +3,8 @@ import contractAddressSlice from './contractAddressSlice'
 import SearchReducer from './../Pages/DataFetch/FetchSearchData'
 import GetBSCdataReducer from './../Services/FetchBSCData'
 import GettokeninfodataReducer from './../Services/FetchTokenInfo'
-import GetBuySellBSCdataReducer from './../Services/FetchBuySellBSC'
+import GetBuySellBSCdataReducer from './../Services/FetchBuySellBSC';
+import GetListNewsdataReducer from './../Services/FetchListNews'
 import ScoreReducer from "../Pages/DataFetch/FetchTrustScoreData";
 import DistReducer from "../Pages/DataFetch/FetchDistributionData";
 import tokenOwnerSlice from "./tokenOwnerSlice";
@@ -24,6 +25,7 @@ export const store = configureStore({
         topWallet: topWalletSlice,
         bscLiquidityScan: bscLiquidityScanSlice,
         bSCTrasaction: bSCTrasactionSlice,
-        tokenList: tokenListSlice
+        tokenList: tokenListSlice,
+        GetListNewsdata:GetListNewsdataReducer
     },
 })

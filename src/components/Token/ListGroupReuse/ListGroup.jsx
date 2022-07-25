@@ -34,9 +34,9 @@ export function ListGroup({ listdata, title }) {
                                 <div className={`d-flex justify-content-between  px-3 py-2 border-bottom  ${styles.listitemcontainer} `}>
                                     {(i.value  || i.value==0) ?  <>
                                         {i.name}
-                                        {title=='Slippage'||title=='السيولة' &&  <span className="">{i.value}%</span>  }
-                                        {title=='Gas Fee'||title=='رسوم الغاز' &&  <span>${i.value}</span>  }
-                                        {title=='Liquidity'||title=='الانزلاق/ الضريبة' &&  <span>{i.value}%</span>  }
+                                        {title==t("token:slippage") &&  <span className="">{i.value}%</span>  }
+                                        {title==t("token:gas_fee") &&  <span>${i.value}</span>  }
+                                        {title==t("token:liquidity") &&  <span>{i.value}%</span>  }
                                        
                                     </>:
                                     <>
