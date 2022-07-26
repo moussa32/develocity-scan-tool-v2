@@ -1,0 +1,14 @@
+{"result":[{
+    "_id":"62dc71b18d5745367491a270",
+    "category":"product",
+    "news":[
+        {"status":"ACTIVE","_id":"62dc71f58d5745367491a316","title":"test Product","description":"string","updatedAt":"2022-07-23T22:11:01.880Z","createdAt":"2022-07-23T22:11:01.880Z"}]
+    }
+        ,
+        {"_id":"62dc71b18d5745367491a271","category":"company",
+        "news":[{"status":"ACTIVE","_id":"62dc720b8d5745367491a34a","title":"test Company","description":"string","updatedAt":"2022-07-23T22:11:23.346Z","createdAt":"2022-07-23T22:11:23.346Z"}]},
+        {"_id":"62dc71b18d5745367491a272","category":"announcement","news":[{"status":"ACTIVE","_id":"62dc721a8d5745367491a370","title":"test Announcement","description":"string","updatedAt":"2022-07-23T22:11:38.076Z","createdAt":"2022-07-23T22:11:38.076Z"}]},
+        {"_id":"62de5f59139571a322e6406e","category":"bug fix","news":[{"status":"ACTIVE","_id":"62de613350cfc324f81d1d40","title":"test Bug Fix","description":"Bug Fix description","updatedAt":"2022-07-25T09:24:03.200Z","createdAt":
+"2022-07-25T09:24:03.200Z"}]}],
+"responseMessage":"Data found successfully",
+"responseCode":200}
