@@ -14,17 +14,18 @@ const WalletsSection = ({ walletsData, topWalletData, bSCTrasaction }) => {
         <>
             <Tabs defaultActiveKey={Active} id="uncontrolled-tab-example" >
                 {
-                    topWalletData?.ownerInfo?.top10LiquidityHolder.length > 0 &&
-                    <Tab eventKey="TopWallets" title={t("token:top10wallets")}>
-                        <Wallet10Top topWalletData={topWalletData} />
-                    </Tab>
-                }
-                {
                     walletsData?.ownerInfo?.top10LiquidityHolder.length > 0 &&
                     <Tab eventKey="LiquidityWallets" title={t("token:top10liquiditywallets")}>
                         <WalletsTable walletsData={walletsData} />
                     </Tab>
                 }
+                {/* {
+                    topWalletData?.topTenHolder?.length > 0 &&
+                    <Tab eventKey="TopWallets" title={t("token:top10wallets")}>
+                        <Wallet10Top topWalletData={topWalletData} />
+                    </Tab>
+                } */}
+
                 {
                     bSCTrasaction?.tokenTransaction?.length > 0 &&
                     <Tab eventKey="TokenTransactions" title={t("token:tokenTransactions")}>

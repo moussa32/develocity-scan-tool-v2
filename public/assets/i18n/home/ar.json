@@ -1,10 +1,10 @@
 {
-    "popular_today": "الاكثر شعبية اليوم",
+    "popular_today": "الاكثر بحثا اليوم",
     "scans": "عدد البحث",
     "score": "النقاط",
     "last_scan": "اخر بحث",
-    "highest_score": "النقاط الاعلى",
-    "token": "الرمز",
+    "highest_score": "اعلي النتائج",
+    "token": "هاش العمليه",
     "BETA_STAGE":"النسخة التجريبية",
 	"Become_a_PRO_in_Crypto_Investments": "بامكانك ان تصبح محترف في استثمار العملات الرقمية",
 	"We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC": "نحن متشوقون لمشاركة نسختنا التجريبية من أداة ديڤيلوستي متعددة الوظائف التي تعمل على الـ BSC."

@@ -29,7 +29,7 @@ export function Trading() {
             // value:'two'
         },
         {
-            name: t("token:gas_fee"),
+            name: t("token:gas"),
             value: buySellBSCdata ? buySellBSCdata.tranferGasFeeUSD : null,
             // value:'three'
         },

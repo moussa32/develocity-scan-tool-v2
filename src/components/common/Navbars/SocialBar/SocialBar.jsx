@@ -39,7 +39,6 @@ const SocialBar = () => {
 
   useEffect(() => {
     document.body.dir = currentLanguage.dir
-    console.log("direction", currentLanguage.code)
   }, [currentLanguage])
 
   const handleOnclick = (e) => {
