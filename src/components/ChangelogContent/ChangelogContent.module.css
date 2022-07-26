@@ -130,6 +130,26 @@
     font-weight: 500;
     background-color: rgba(245,163,65,0.15);
   }
+  .btnAnnounce{
+    color: #F5A341 !important;
+    background-color: rgba(245,163,65,0.15) !important;
+    border:0 !important;
+  }
+  .btnBug{
+    color: #16C784 !important;
+    background-color: rgba(22,199,132,0.15) !important;
+    border:0 !important;
+  }
+  .btnProduct{
+    color: #3861FB !important;
+    background-color: rgba(56,97,251,0.15) !important;
+    border:0 !important;
+  }
+  .btnCompany{
+    color: #9F4AE8 !important;
+    background-color: rgba(159,74,232,0.15) !important;
+    border:0 !important;
+  }
   .typeProduct{
     color: #3861FB;
     font-size: 12px;
@@ -177,6 +197,7 @@
     font-weight: 400;
     color: #333;
     margin: 0;
+    text-transform: capitalize;
   }
   .content p{
     font-size: 14px;
@@ -184,7 +205,7 @@
     margin: 9px 0;
   }
   .typeBlock{
-    width:40%;
+    width:30%;
   }
   .navLink{
     font-size: 14px;
@@ -194,11 +215,14 @@
     border-radius: 2px;
     padding: 7px 10px;
   }
-  .changelogTabs .all.active, .changelogTabs .show>.all{
+  .btnAll{
     background-color: #EFF2F5 !important;
     color: #888 !important;
+    border:0 !important;
   }
-  
+  .navLink:hover{
+    color: #333;
+  }
 
 
 
@@ -218,11 +242,11 @@
     .title{
         font-size: 17px;
     }
-    .content p{
-        font-size: 12px;
+    .content_ltr p{
+        font-size: 13px;
     }
     .typeBlock{
-        width: auto;
+        width: 135px;
     }
     .typeAnnounce{
         font-size: 9px;
@@ -238,8 +262,7 @@
     }
     .step{
         padding: 10px;
-        display: grid;
-        grid-template-columns: repeat(3,auto);
+       
     }
     .tabLink{
         white-space: nowrap;
