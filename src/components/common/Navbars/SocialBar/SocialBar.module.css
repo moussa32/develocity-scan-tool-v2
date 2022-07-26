@@ -145,7 +145,7 @@
   @media only screen and (max-width: 991px){
 .socialBar{
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 .socialBarNav{
     margin-top: 13px;

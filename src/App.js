@@ -10,6 +10,7 @@ import { About } from './Pages/About'
 import { Token } from './Pages/Token/Token'
 import './App.css';
 import Tokens from './Pages/Tokens/Tokens';
+import Changelog from './Pages/Changelog/Changelog';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route  path='token/:contractAddress' element={<Token />} />
           <Route path='tokens' element={<Tokens />} />
+          <Route path='Changelog' element={<Changelog />} />
         </Routes>
       </BrowserRouter>
     </React.Suspense>

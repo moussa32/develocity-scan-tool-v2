@@ -5,6 +5,7 @@ import { FaTwitter } from 'react-icons/fa';
 import { FaFacebookF } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io'
 import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
 
 const SocialBar = () => {
@@ -60,9 +61,9 @@ const SocialBar = () => {
           </ul>
           {/* start */}
           <ul className={styles.socialBarNav}>
-            {/* <li><a href="#">{t("common:advertise")}</a></li>
-    <li><a href="#">{t("common:changelog")}</a></li>
-    <li><a href="#">{t("common:whitepaper")}</a></li> */}
+            {/* <li><a href="#">{t("common:advertise")}</a></li>*/}
+    <li><Link to="Changelog">{t("common:changelog")}</Link></li>
+    {/*<li><a href="#">{t("common:whitepaper")}</a></li> */}
             {/* <li className={`${styles.dropdown} nav-item dropdown`}>
   <button data-bs-toggle="dropdown" className={styles.dropbtn} value='en' onClick={handleOnclick}>english<IoIosArrowDown/></button>
   <ul  className="dropdown-menu">
@@ -79,8 +80,8 @@ const SocialBar = () => {
               <select className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
                 <option value="en" selected={lang == 'en'}> {t("common:english")}</option>
                 <option value="ar" selected={lang == 'ar'}> {t("common:arabic")}</option>
-                <option value="ch" selected={lang == 'ch'}>{t("common:chinese")}</option>
-                <option value="tr" selected={lang == 'tr'}> {t("common:turkish")}</option>
+                {/*<option value="ch" selected={lang == 'ch'}>{t("common:chinese")}</option>
+                   <option value="tr" selected={lang == 'tr'}> {t("common:turkish")}</option>*/}
               </select>
             </li>
           </ul>
