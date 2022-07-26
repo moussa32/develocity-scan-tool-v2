@@ -81,8 +81,8 @@ const SocialBar = () => {
               <select className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
                 <option value="en" selected={lang == 'en'}> {t("common:english")}</option>
                 <option value="ar" selected={lang == 'ar'}> {t("common:arabic")}</option>
-                <option value="ch" selected={lang == 'ch'}>{t("common:chinese")}</option>
-                <option value="tr" selected={lang == 'tr'}> {t("common:turkish")}</option>
+                {/*<option value="ch" selected={lang == 'ch'}>{t("common:chinese")}</option>
+                   <option value="tr" selected={lang == 'tr'}> {t("common:turkish")}</option>*/}
               </select>
             </li>
           </ul>
