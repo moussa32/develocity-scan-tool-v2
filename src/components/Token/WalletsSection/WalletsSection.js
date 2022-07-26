@@ -19,12 +19,12 @@ const WalletsSection = ({ walletsData, topWalletData, bSCTrasaction }) => {
                         <WalletsTable walletsData={walletsData} />
                     </Tab>
                 }
-                {/* {
+                {
                     topWalletData?.topTenHolder?.length > 0 &&
                     <Tab eventKey="TopWallets" title={t("token:top10wallets")}>
                         <Wallet10Top topWalletData={topWalletData} />
                     </Tab>
-                } */}
+                }
 
                 {
                     bSCTrasaction?.tokenTransaction?.length > 0 &&
