@@ -17,8 +17,8 @@ const bscLiquidityScanSlice = createSlice({
     },
     extraReducers: {
         [fetchBscLiquidityScan.fulfilled]: (state, action) => {
-            state.bscLiquidity = action.payload
-            state.loading = 'success'
+            state.bscLiquidity = action.payload;
+            state.loading = 'success';
         },
         [fetchBscLiquidityScan.pending]: (state, action) => {
             state.loading = true
