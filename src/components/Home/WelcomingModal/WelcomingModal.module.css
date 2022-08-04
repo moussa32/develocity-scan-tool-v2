@@ -1,0 +1,64 @@
+.backDrop{
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top:0;
+    right:0;
+    left:0;
+    bottom: 0;
+    z-index: 9;
+    /* opacity: 0;
+    visibility: hidden; */
+    transition: 0.5s;
+}
+.overlay{
+    position: fixed;
+    /* top:50%;
+    left:50%;
+    transform: translate(-50%,-50%); */
+    bottom: 0;
+    padding: 50px 30px 28px;
+    background-color: #fff;
+    z-index: 99;
+    border-radius: 3px;
+    animation-name: showMessage;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    /* opacity: 0; */
+    /* visibility: hidden; */
+    transition: 0.5s;
+}
+@keyframes showMessage {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+.closeBtn_rtl,.closeBtn_ltr {
+    width: 56px !important;
+    height: 24px !important;
+    background: #E8EAEC !important;
+    /* border: 0 !important; */
+    outline: none !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #888888 !important;
+    border: 1px solid #cfc1c6;
+    position: absolute !important;
+    top: 7px !important; 
+}
+.closeBtn_ltr{
+    right: 10px !important;
+}
+.closeBtn_rtl{
+    left: 10px !important;
+}
+
+/* @media screen and (max-width: 600px) {
+    .overlay{
+        top:50%;
+        left:15%;
+        transform: translate(-8%,-50%);
+        padding: 50px 5px 5px;
+        overflow: auto;
+        
+     
+    }
+  } */
