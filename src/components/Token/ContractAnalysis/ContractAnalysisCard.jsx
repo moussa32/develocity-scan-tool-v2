@@ -1,5 +1,5 @@
 import styles from './ContractAnalysis.module.css'
-import React ,{ useEffect , useState} from "react";
+import React ,{ useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchBSCResult } from "../../../Services/FetchBSCData";
 import { Placeholder } from '../../common/Placeholder/Placeholder';
@@ -17,7 +17,7 @@ export function ContractAnalysisCard(){
     const dispatch = useDispatch ();
     useEffect(()=>{
         dispatch (fetchBSCResult (contractAddress));
-    },[contractAddress]);
+    },[contractAddress, dispatch]);
 
     const newbscdata = bscdata.result;
     let data=[

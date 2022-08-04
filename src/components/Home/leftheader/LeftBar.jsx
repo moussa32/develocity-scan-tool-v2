@@ -1,14 +1,14 @@
 import React from "react";
-import {ButtonComponent} from '../../common/ButtonComponent'
+// import {ButtonComponent} from '../../common/ButtonComponent'
 import styles from './leftbar.module.css'
 import { useTranslation } from 'react-i18next';
 export function LeftBar(){
     const {t}=useTranslation(['home'])
-    const buttondata={
-        text:'See how it works',
-        color:"white",
-        bg:"#9F4AE8"
-    }
+    // const buttondata={
+    //     text:'See how it works',
+    //     color:"white",
+    //     bg:"#9F4AE8"
+    // }
     return (
         <>
             <section className="mt-5 ">

@@ -36,8 +36,7 @@ const columns = [
 ];
 
 const LockedTokens = ({ LockedTokensData }) => {
-    const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     let LockedData = []
     if (LockedTokensData && LockedTokensData.ownerInfo && LockedTokensData.ownerInfo.lockedToken) {
         for (let i = 0; i < LockedTokensData.ownerInfo.lockedToken.length; i++) {

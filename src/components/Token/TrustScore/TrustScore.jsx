@@ -10,14 +10,10 @@ import { useTranslation } from 'react-i18next';
 const TrustScore =() =>{
   const param = useParams()
   const contractAddress = param.contractAddress;
- 
-  // console.log(param.contractAddress ,'=-=-===== >>>');
-
 
   const score = useSelector(state => state.Score.data)
-  // console.log(score)
   const statusTrust = useSelector(state => state.Score.status);
-  const { t, i18n } = useTranslation(["token"])
+  const { t } = useTranslation(["token"])
   const lang=localStorage.getItem("i18nextLng")
   const dispatch = useDispatch ();
   useEffect(()=>{
@@ -34,11 +30,6 @@ const TrustScore =() =>{
   }else{
     color="#16C784"
   }
-  // console.log(scoreData ,'========= Score data ')
-// console.log(fetchScore ({contractAddress}))
-
-
-
 
 
 

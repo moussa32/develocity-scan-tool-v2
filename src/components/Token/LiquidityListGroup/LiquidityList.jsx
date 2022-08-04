@@ -13,8 +13,7 @@ export function LiquidityList() {
     const dispatch = useDispatch();
     const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
     const statusLiquidity=useSelector(state => state.bscLiquidityScan.loading);
-    const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     // useEffect(() => {
     //     dispatch(fetchBscLiquidityScan(contractAddress));
 

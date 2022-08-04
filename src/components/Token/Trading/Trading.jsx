@@ -21,30 +21,27 @@ export function Trading() {
         {
             name: t("token:buy"),
             value: buySellBSCdata ? buySellBSCdata.buyGasFeeUSD : null,
-            // value:'one'
         },
         {
             name: t("token:sell"),
             value: buySellBSCdata ? buySellBSCdata.sellGasFeeUSD : null,
-            // value:'two'
         },
         {
             name: t("token:gas"),
             value: buySellBSCdata ? buySellBSCdata.tranferGasFeeUSD : null,
-            // value:'three'
         },
 
     ]
 
     return (
         <>
-            {(statusBSCapi=='success' || statusBSCapi=='loading')  &&
+            {(statusBSCapi==='success' || statusBSCapi==='loading')  &&
             <div className='col-12 col-md-6'>
                 <ListGroup listdata={data} title={t("token:gas_fee")}/>
             </div>}
 
 
-        {statusBSCapi=='failed' && ''}
+        {statusBSCapi==='failed' && ''}
 
         </>
     )

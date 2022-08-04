@@ -7,8 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 const LiquidtySection = ({ LiquidtyData, bSCTrasaction }) => {
     // console.log("bSCTrasaction", bSCTrasaction)
-    const { t, i18n } = useTranslation(["token"])
-    const lang = localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
 
 
     return (

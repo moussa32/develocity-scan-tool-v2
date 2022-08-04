@@ -48,8 +48,7 @@ export function ProgressCard({carddata}){
         },
         }
     );
-    const { t, i18n } = useTranslation(["common"])
-    const lang=localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["common"])
     return(
         <>
             <div className='px-2 pt-0 d-flex flex-column mb-2'   style={{width:'100%',height:'125px',backgroundColor:'#F3F2F7'}}>

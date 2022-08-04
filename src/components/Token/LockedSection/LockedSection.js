@@ -5,8 +5,7 @@ import LockedTokens from '../LockedTokens/LockedTokens'
 import { useTranslation } from 'react-i18next';
 
 const LockedSection = ({ LockedTokensData }) => {
-    const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     return (
         <Tabs defaultActiveKey={LockedTokensData?.ownerInfo?.lockedToken.length > 0 ? "LockedTokens" : "LockedLiquidity"} id="uncontrolled-tab-example" >
             {LockedTokensData?.ownerInfo?.lockedToken.length > 0 && <Tab eventKey="LockedTokens" title="Liquidty Tokens" >

@@ -1,19 +1,7 @@
 import styles from "./LeftBarToken.module.css";
-import {
-  FaPaperPlane,
-  FaTwitter,
-  FaFacebookF,
-  FaGithub,
-  FaFirefoxBrowser,
-  FaReddit,
-  FaMediumM,
-  FaLinkedinIn,
-  FaDiscord,
-} from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTokenInfoResult } from "../../../Services/FetchTokenInfo";
 import { useEffect, useState } from "react";
-import { AiFillWechat, AiTwotoneMail } from "react-icons/ai";
 import { IoCopy } from "react-icons/io5";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -21,23 +9,30 @@ import { Modal } from "./Modal/Modal";
 import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from 'react-i18next';
 import { IconContainer } from "./IconsContainer/IconContainer";
+import axios from "axios";
 export function LeftBarToken() {
   // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
   const params = useParams();
-
+  const [ipaddress, setIpAddress] = useState('');
   const contractAddress = params.contractAddress;
-  // console.log(contractAddress,'==================>>>>');
   const tokenData = useSelector((state) => state.Gettokeninfodata.data);
 
   const dispatch = useDispatch();
+  const getIp=async()=>{
+    const {data}=await axios.get("https://api.ipify.org?format=json");
+    setIpAddress(data.ip)
+    
+  }
+  useEffect( ()=>{
+    getIp();
+  },[ipaddress] )
+
   useEffect(() => {
-    dispatch(fetchTokenInfoResult(contractAddress));
-  }, [dispatch, contractAddress]);
+    dispatch(fetchTokenInfoResult({contractAddress:contractAddress,ipaddress:ipaddress}));
+  }, [dispatch, contractAddress, ipaddress]);
   const { t } = useTranslation(["token"])
   const tokeninfodata = tokenData.result;
-  // let iconCheck={
-  //     tokeninfodata:tokeninfodata && tokeninfodata.contractInfo.website
-  // }
+ 
 
   function foramtNumber(val) {
     return Number(val).toLocaleString("en-US", {
@@ -247,3 +242,7 @@ export function LeftBarToken() {
     </>
   );
 }
+
+
+
+

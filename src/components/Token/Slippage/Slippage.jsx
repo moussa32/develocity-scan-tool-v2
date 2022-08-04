@@ -1,6 +1,6 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState ,use} from 'react';
+import { useEffect} from 'react';
 import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
 import { useParams } from 'react-router-dom';
@@ -10,8 +10,7 @@ export function Slippage() {
     const contractAddress = param.contractAddress;
     const buySellBSCslippage = useSelector(state => state.GetBuySellBSCdata.data);
     const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
-    const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchBuySellBSCResult(contractAddress));
@@ -23,24 +22,22 @@ export function Slippage() {
         {
             name: t("token:buy"),
             value: buySellBSCdataslippage ? buySellBSCdataslippage.buyTax : null,
-            // value:'one'
         },
         {
             name: t("token:sell"),
             value: buySellBSCdataslippage ? buySellBSCdataslippage.sellTax : null,
-            // value:'two'
         },
 
     ]
 
     return (
         <>
-            {(statusSlippage=='success' || statusSlippage=='loading')  &&
+            {(statusSlippage==='success' || statusSlippage==='loading')  &&
             <div className='col-12 col-md-6'>
                 <ListGroup listdata={data} title={t("token:slippage")}/>
             </div>}
 
-        {statusSlippage=='failed' && ''}
+        {statusSlippage==='failed' && ''}
 
         </>
     )

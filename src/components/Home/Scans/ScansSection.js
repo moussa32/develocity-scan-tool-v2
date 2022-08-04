@@ -13,7 +13,7 @@ const ScansSection = () => {
     const [popularScans, setPopularScans] = useState([]);
     const [recentScans, setRecentScans] = useState([]);
     const [lastScans, setLastScans] = useState([]);
-    const { t, i18n } = useTranslation(["home"]);
+    const { t } = useTranslation(["home"]);
     const lang = localStorage.getItem("i18nextLng")
 
     useEffect(() => {

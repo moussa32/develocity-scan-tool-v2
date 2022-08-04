@@ -1,7 +1,7 @@
 import styles from './Honey.module.css'
 import { fetchBSCResult } from '../../../Services/FetchBSCData' 
 import {useDispatch, useSelector} from 'react-redux';
-import React ,{ useEffect , useState} from "react";
+import React ,{ useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -9,12 +9,11 @@ export function HoneypotCard(){
     const param = useParams()
     const contractAddress = param.contractAddress;
     const bscdata = useSelector(state => state.GetBSCdata.data)
-    const { t, i18n } = useTranslation(["token"])
-    const lang=localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     const dispatch = useDispatch ();
     useEffect(()=>{
         dispatch (fetchBSCResult (contractAddress));
-    },[contractAddress]);
+    },[contractAddress, dispatch]);
 
     const newhoney = bscdata.result;
 

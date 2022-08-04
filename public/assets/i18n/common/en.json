@@ -5,6 +5,7 @@
 	"language": "Language",
 	"english": "English",
 	"arabic":"Arabic",
+	"russian":"Russian",
 	"turkish":"Turkish",
 	"chinese":"Chinese",
 	"see_less": "see less",
@@ -26,14 +27,12 @@
 	"#": "#",
 	"Token": "Token",
 	"Scans": "Scans",
-	"Last Scan": "Last Scan",
 	"Score": "Score",
 	"Network": "Network",
 	"Bitcoin": "Bitcoin",
 	"Rank": "Rank",
 	"Recently Added": "Recently Added",
 	"Contract": "Contract",
-	"General": "General",
 	"Token ownership is not renounced": "Token ownership is not renounced",
 	"Percentage of Airdrop holders is too high (64%)": "Percentage of Airdrop holders is too high (64%)",
 	
@@ -45,12 +44,8 @@
 	"selling fee on this token is 20% which increase the chance for this token to be rugged": "selling fee on this token is 20% which increase the chance for this token to be rugged",
 	"Higher than 10%": "Higher than 10%",
 	"Not Rennounced": "Not Rennounced",
-	"Total Holders": "Total Holders",
+	"TotalHolders": "Total Holders",
 	
-	
-	
-	
-	"Name Tag": "Name Tag",
 	"Balance": "Balance",
 	"Percentage": "Percentage",
 	"Sr.No": "Sr.No",
@@ -58,12 +53,8 @@
 	"To": "To",
 	"Txn Hash": "Txn Hash",
 	"Liquidity Metrics": "Liquidity Metrics",
-	"Token Owner": "Token Owner",
-	"Holders Distribution": "Holders Distribution",
 	"Removed": "Removed",
 	"Locked": "Locked",
-	"Tokens are sent by the token owner": "Tokens are sent by the token owner",
-	"Token Transactions": "Token Transactions",
 	"Main": "Main",
 	"Average Score": "Average Score",
 	"PROBLEMS DETECTED": "PROBLEMS DETECTED",
@@ -99,8 +90,6 @@
 	"Whitepaper": "Whitepaper",
 	"Passed": "Passed",
 	"failed": "failed",
-	"Top 5 Wallets": "Top 5 Wallets",
-	"Top 5 Liquidity Wallets": "Top 5 Liquidity Wallets",
 	"Locked Tokens": "Locked Tokens",
 	"Copy Contract Address": "Copy Contract Address",
 	"VERIFIED": "VERIFIED",
@@ -123,11 +112,12 @@
 	"contract_address":"Contract Address",
 	"name":"Name",
 	"symbol":"Symbol",
-	" token_audited":" Is token audited?",
+	"token_audited":" Is token audited?",
 	"no":"No",
 	"yes":"Yes",
 	"check" :"By enter your token information you agree on ",
-	"terms_conditions":"Terms & Conditions Of Develocity",
+	"terms_conditions":"Terms & Conditions",
+	"privacyPolicy":"Privacy Policy",
 	"next":"Next Step",
 	"upload_logo":"Upload logo for token",
 	"browse":"Drag & Drop or Browse",
@@ -144,7 +134,8 @@
 	"reset":"Reset",
 	"enter_token":" Enter the token name or address then click scan ",
 	"sponsered":"SPONSERD",
-	"invest":"start to invest in bitcoin private with only 10$"
+	"invest":"start to invest in bitcoin private with only 10$",
+	"welcoming_notification":"The Content shared on this website is for technical purposes only and, thus, should not be considered financial advice. Trading/Investing is risky, Cryptocurrencies are risky. You alone assume the sole responsibility of evaluating the merits and risks associated with using any information or other Content on the Site before making any decisions based on such information or other Content"
 	
 	
 }

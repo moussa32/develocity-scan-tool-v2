@@ -7,8 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import './WalletsSection.css'
 const WalletsSection = ({ walletsData, topWalletData, bSCTrasaction }) => {
-    const { t, i18n } = useTranslation(["token"])
-    const lang = localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     let Active = topWalletData?.ownerInfo?.top10LiquidityHolder.length > 0 ? 'TopWallets' : 'LiquidityWallets'
     return (
         <>

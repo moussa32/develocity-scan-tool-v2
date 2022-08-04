@@ -18,7 +18,7 @@ const Distribution = () => {
   const contractAddress = param.contractAddress;
   const statusDist = useSelector(state => state.Dist.status);
   const dist = useSelector(state => state.Dist.data);
-  const { t, i18n } = useTranslation(["token"])
+  const { t } = useTranslation(["token"])
   const lang=localStorage.getItem("i18nextLng")
   const dispatch = useDispatch();
   useEffect(() => {

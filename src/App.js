@@ -11,9 +11,11 @@ import { Token } from './Pages/Token/Token'
 import './App.css';
 import Tokens from './Pages/Tokens/Tokens';
 import Changelog from './Pages/Changelog/Changelog';
+import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal';
 
 function App() {
   return (
+    <>
     <React.Suspense fallback={null} > 
       <BrowserRouter >
         <Routes >
@@ -24,7 +26,11 @@ function App() {
           <Route path='Changelog' element={<Changelog />} />
         </Routes>
       </BrowserRouter>
+
     </React.Suspense>
+    <WelcomingModal/>
+
+    </>
   );
 
 }

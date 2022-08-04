@@ -12,7 +12,7 @@ const CardScans = ({ popularScans, title }) => {
         <Header title={title} />
         {popularScans.length > 0
           ? popularScans.map((item, index) => {
-            console.log(item.contractInfo.name,item.contractAddress,'=****===>');
+            // console.log(item.contractInfo.name,item.contractAddress,'=****===>');
             return (
               (item?.contractInfo && index + 1 <= 5 && Object.keys(item.contractInfo).length !== 0) &&
               <RowScans

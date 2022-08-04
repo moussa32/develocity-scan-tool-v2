@@ -5,12 +5,11 @@ import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import styles from "./Search.module.css";
 import { FaCircle } from "react-icons/fa";
 import { BiBitcoin } from "react-icons/bi";
-import { BiCopy } from "react-icons/bi";
 import { BsArrowRight, BsFillPatchCheckFill } from "react-icons/bs";
 import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
 import { useTranslation } from 'react-i18next';
 const MySearch = () => {
-  const { t, i18n } = useTranslation(["common"])
+  const { t } = useTranslation(["common"])
   const lang=localStorage.getItem("i18nextLng")
 
   const [term, setTerm] = useState(null);
@@ -27,7 +26,7 @@ const MySearch = () => {
     if (term != null) {
       dispatch(fetchResult(term));
     }
-  }, [term]);
+  }, [dispatch, term]);
 
   function copyToClipboard(e) {
     e.preventDefault()

@@ -9,8 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const RemovedLiquidity = ({ LiquidtyData }) => {
-    const { t, i18n } = useTranslation(["token"])
-    const lang = localStorage.getItem("i18nextLng")
+    const { t } = useTranslation(["token"])
     const columns = [
         {
             dataField: "transaction",

@@ -2,9 +2,8 @@ import axios from "axios";
 import {createSlice , createAsyncThunk} from '@reduxjs/toolkit';
 
 export const fetchTokenInfoResult=createAsyncThunk('tokeninfo/fetchTokenInfoResult',
-    async(contractaddress)=>{
-        const response= await axios.get(`https://api.develocity.finance/api/v1/contract/tokenInfo?contractAddress=${contractaddress}&ipAddress=1.1.1.1&contractType=Binance`) 
-        
+    async({contractAddress,ipaddress},  { dispatch, getState })=>{
+        const response= await axios.get(`https://api.develocity.finance/api/v1/contract/tokenInfo?contractAddress=${contractAddress}&ipAddress=${ipaddress}&contractType=Binance`) 
         return response.data
     }
 );

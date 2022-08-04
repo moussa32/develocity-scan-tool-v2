@@ -28,6 +28,10 @@ const SocialBar = () => {
     {
       code: 'ch',
       dir: 'ltr'
+    },
+    {
+      code: 'ru',
+      dir: 'ltr'
     }
   ];
   const currentLanguage = languages.find((i) => i.code == lang)
@@ -35,7 +39,7 @@ const SocialBar = () => {
     if (localStorage.getItem("i18nextLng")?.length > 2) {
       i18n.changeLanguage('en');
     }
-  }, [])
+  }, [i18n, lang, language]);
 
 
   useEffect(() => {
@@ -62,8 +66,8 @@ const SocialBar = () => {
           {/* start */}
           <ul className={styles.socialBarNav}>
             {/* <li><a href="#">{t("common:advertise")}</a></li>*/}
-    <li><Link to="Changelog">{t("common:changelog")}</Link></li>
-    {/*<li><a href="#">{t("common:whitepaper")}</a></li> */}
+            <li><Link to="Changelog">{t("common:changelog")}</Link></li>
+            {/*<li><a href="#">{t("common:whitepaper")}</a></li> */}
             {/* <li className={`${styles.dropdown} nav-item dropdown`}>
   <button data-bs-toggle="dropdown" className={styles.dropbtn} value='en' onClick={handleOnclick}>english<IoIosArrowDown/></button>
   <ul  className="dropdown-menu">
@@ -80,8 +84,8 @@ const SocialBar = () => {
               <select className={styles.dropdown} onClick={handleOnclick} aria-label="Default select example">
                 <option value="en" selected={lang == 'en'}> {t("common:english")}</option>
                 <option value="ar" selected={lang == 'ar'}> {t("common:arabic")}</option>
-                {/*<option value="ch" selected={lang == 'ch'}>{t("common:chinese")}</option>
-                   <option value="tr" selected={lang == 'tr'}> {t("common:turkish")}</option>*/}
+                <option value="ru" selected={lang == 'ru'}>{t("common:russian")}</option>
+                <option value="tr" selected={lang == 'tr'}> {t("common:turkish")}</option> 
               </select>
             </li>
           </ul>

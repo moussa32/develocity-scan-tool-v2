@@ -28,7 +28,7 @@ const BackDrop =({close , show}) =>{
 }
 
 const Overlay =({show , close}) =>{
-  const { t, i18n } = useTranslation(["common"])
+  const { t } = useTranslation(["common"])
   const lang=localStorage.getItem("i18nextLng")
 
   const steps = [t("common:token_details"), t("common:logo"), t("common:short_bio") , t("common:social_media")];
