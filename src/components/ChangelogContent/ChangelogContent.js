@@ -55,28 +55,27 @@ const ChangelogContent =() =>{
 <li className={`${styles.tabLink}  nav-item`} role="presentation">
 <button 
 onClick={changecategory} value="Company"
-className={`${category=="Company" && styles.btnCompany} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-tabCompany" aria-selected="false">{t("changelog:company")}</button>
+className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-tabCompany" aria-selected="false">{t("changelog:company")}</button>
 </li>
 </ul>
 <div className={`${styles.tabContent} tab-content`} id="pills-tabContent">
   <div className="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
-  
   {/* start */}
 
     {listnewdata &&
      listnewdata.map( (el)=> (
-      <div className={`${styles.step} ${el.category=='announcement' && styles.announce  } 
-       ${el.category=='product' && styles.product  }  
-       ${el.category=='company' && styles.company  }  
-       ${el.category=='bug fix' && styles.bug  }
+      <div className={`${styles.step} ${el.category==='announcement' && styles.announce  } 
+       ${el.category==='product' && styles.product  }  
+       ${el.category==='company' && styles.company  }  
+       ${el.category==='bug fix' && styles.bug  }
       `}>
         {el.news.map( (ele=>(
            <div className={styles.typeBlock}>
-           <div className={lang=="ar"?styles.typeDate_rtl:styles.typeDate_ltr}>
-           <h1 className={`${el.category=="announcement" && styles.typeAnnounce}
-          ${el.category=="product" && styles.typeProduct}
-          ${el.category=="bug fix" && styles.typeBug}
-          ${el.category=="company" && styles.typeCompany}`}>{el.category}</h1>
+           <div className={lang==="ar"?styles.typeDate_rtl:styles.typeDate_ltr}>
+           <h1 className={`${el.category==="announcement" && styles.typeAnnounce}
+          ${el.category==="product" && styles.typeProduct}
+          ${el.category==="bug fix" && styles.typeBug}
+          ${el.category==="company" && styles.typeCompany}`}>{el.category}</h1>
            <p className={styles.date}>{ele.createdAt}</p>
            </div>
            </div>

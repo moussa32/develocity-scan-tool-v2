@@ -28,14 +28,14 @@ export function ListGroup({ listdata, title }) {
                 {
                     listdata  ?
                         <>
-                            {listdata.map((i) =>
+                            {listdata.map((i,index) =>
                             (
-                                <div className={`d-flex justify-content-between  px-3 py-2 border-bottom  ${styles.listitemcontainer} `}>
+                                <div key={index} className={`d-flex justify-content-between  px-3 py-2 border-bottom  ${styles.listitemcontainer} `}>
                                     {(i.value  || i.value==0) ?  <>
                                         {i.name}
-                                        {title==t("token:slippage") &&  <span className="">{i.value}%</span>  }
-                                        {title==t("token:gas_fee") &&  <span>${i.value}</span>  }
-                                        {title==t("token:liquidity") &&  <span>{i.value}%</span>  }
+                                        {title===t("token:slippage") &&  <span className="">{i.value}%</span>  }
+                                        {title===t("token:gas_fee") &&  <span>${i.value}</span>  }
+                                        {title===t("token:liquidity") &&  <span>{i.value}%</span>  }
                                        
                                     </>:
                                     <>

@@ -17,8 +17,6 @@ const Changelog =()=>{
 
 <ChangelogContent/>
 
-
-
         <CopyRight />
         </div>
     )

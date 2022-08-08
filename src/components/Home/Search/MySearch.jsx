@@ -28,10 +28,11 @@ const MySearch = () => {
     }
   }, [dispatch, term]);
 
-  function copyToClipboard(e) {
-    e.preventDefault()
+  function copyToClipboard(contractAddress,event) {
+    // event.preventDefault()
+    event.stopPropagation();
     setCopyAddress('Copied Address !')
-    navigator.clipboard.writeText('contractAddress')
+    navigator.clipboard.writeText(contractAddress)
 
     setTimeout(() => {
         setCopyAddress('Copy Address')
@@ -65,7 +66,7 @@ const MySearch = () => {
   return (
     <div className="w-100 ">
       <span className={styles.searchNote}>
-        <FaCircle className={lang=="ar"?styles.dot_rtl:styles.dot_ltr} />
+        <FaCircle className={lang==="ar"?styles.dot_rtl:styles.dot_ltr} />
        {t("common:enter_token")}
       </span>
 
@@ -80,21 +81,21 @@ const MySearch = () => {
            term.startsWith("0x") && term.length === 42 ? 
            window.location.href=`/token/${term}` : 
            window.location.href=`/`
-        }} className={lang=="ar"?styles.searchBtn_rtl:styles.searchBtn_ltr} disabled={disable}>
+        }} className={lang==="ar"?styles.searchBtn_rtl:styles.searchBtn_ltr} disabled={disable}>
         {t("common:Scan")}
         </button>
       </div>
       <div className={styles.searchNote2}>
         <span className={styles.note}>{t("common:sponsered")}</span>
         <span className={styles.note2}>
-          <BiBitcoin className={lang=="ar"?styles.bitcoin_rtl:styles.bitcoin_ltr} />
+          <BiBitcoin className={lang==="ar"?styles.bitcoin_rtl:styles.bitcoin_ltr} />
           {t("common:invest")}
         </span>
       </div>
 
       <div>
-        <div className= {(search.status=='success' || search.status=='loading')? styles.searchBlock:''}>
-          {search.status == "success" &&
+        <div className= {(search.status==='success' || search.status==='loading')? styles.searchBlock:''}>
+          {search.status === "success" &&
             dataGet &&
             dataGet.map((el) => (
               <div className={styles.resultRecord} 
@@ -132,7 +133,7 @@ const MySearch = () => {
                       { el.contractAddress.slice(0, 10)+'...'+el.contractAddress.slice(31, 41)}
 
                       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{copiedAddress}</Tooltip>}>
-                        <span onClick={copyToClipboard} className="d-inline-block" title={el.contractAddress}>
+                        <span onClick={(event) => {copyToClipboard(el.contractAddress, event)} } className="d-inline-block" title={el.contractAddress}>
                             <IoCopy disabled style={{color:'#888' ,marginLeft:'4px'}}/>    
                         </span>
                     </OverlayTrigger>
@@ -168,11 +169,11 @@ const MySearch = () => {
             ))}
           {/* end of success */}
 
-          {search.status == "loading" && <div>loading...</div>}
+          {search.status === "loading" && <div>loading...</div>}
         </div>
       </div>
 
-      {search.status == "failed" && ""}
+      {search.status === "failed" && ""}
     </div>
   );
 };

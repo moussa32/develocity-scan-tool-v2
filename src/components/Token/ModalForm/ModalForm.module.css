@@ -474,3 +474,46 @@
 .stepper_ltr{
     direction: ltr;
 }
+
+
+
+@media only screen and (max-width: 991px){
+    .overlay{
+        left:0;
+        right: 0;
+        top:10%;
+       
+        transform: translate(0);
+        padding: 50px 15px 28px;
+    }
+    .overlay span{
+        width: 40px;
+    }
+    .overlay button{
+        margin-top: 15px;
+    }
+    .inputs{
+        display: block;
+    }
+    .inputField2_rtl{
+        width: 100%;
+    }
+    .inputField2_ltr{
+        width: 100%;
+    }
+    input{
+        width: 100%;
+    }
+    .select_ltr{
+        width: 100%;
+    }
+    .select_rtl{
+        width: 100%;
+    }
+    .checkBox_ltr{
+        width: auto !important;
+    }
+    .checkBox_rtl{
+        width: auto !important;
+    }
+}

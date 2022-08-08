@@ -12,8 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const WalletsTable = ({ walletsData }) => {
-    const { t, i18n } = useTranslation(["token"])
-    const lang = localStorage.getItem("i18nextLng")
+    const { t, } = useTranslation(["token"])
     const columns = [
         {
             dataField: "rank",
@@ -45,7 +44,8 @@ const WalletsTable = ({ walletsData }) => {
             let rank = i + 1;
             let address = walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(0, 8) + '...' + walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(-6);
             let nameTag = 'N/A'
-            let balance = (walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).toLocaleString("en-US");
+            let balance = Number(walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).toLocaleString("en-US");
+            console.log("balance",typeof(balance))
             let percentage = `${Number(walletsData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2)}%`;
             wallet.push({ rank, address, nameTag, balance, percentage });
 

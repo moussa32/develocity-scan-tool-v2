@@ -62,13 +62,13 @@ export function ContractAnalysisCard(){
 
     return(
         <>
-            {(bscstatus=='success' )  &&
+            {(bscstatus==='success' )  &&
               <div className="" style={{width:'100%'}}>
               <h5 style={{fontFamily: 'SF Pro Display Medium'}} className=' pt-3 pb-2'>{t("token:contract_analysis")}</h5>
-              <div className={"list-group align-self-center border-0 " +(lang=="ar"?styles.listGroup_rtl:styles.listGroup_ltr)}  >
-              {data.map( (item)=>{
+              <div className={"list-group align-self-center border-0 " +(lang==="ar"?styles.listGroup_rtl:styles.listGroup_ltr)}  >
+              {data.map( (item,index)=>{
                   return ( 
-                      <div className="list-group-item rounded-0 " >
+                      <div key={index} className="list-group-item rounded-0 " >
                           <div className={` d-flex w-100 justify-content-between text-start  ${styles.listitem}`}  >
                               <div className="align-items-center d-flex h-100" >{item.name}</div>
                               <div className="align-items-center d-flex h-100 ">

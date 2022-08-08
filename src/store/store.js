@@ -12,6 +12,7 @@ import topWalletSlice from "./topWalletSlice";
 import bscLiquidityScanSlice from './bscLiquidityScanSlice'
 import bSCTrasactionSlice from './bSCTrasactionSlice'
 import tokenListSlice from './tokenListSlice'
+import GetIPReducer from './../Services/FetchIPAddress'
 export const store = configureStore({
     reducer: {
         contractAddress: contractAddressSlice,
@@ -26,6 +27,7 @@ export const store = configureStore({
         bscLiquidityScan: bscLiquidityScanSlice,
         bSCTrasaction: bSCTrasactionSlice,
         tokenList: tokenListSlice,
-        GetListNewsdata:GetListNewsdataReducer
+        GetListNewsdata:GetListNewsdataReducer,
+        GetIPAddress:GetIPReducer
     },
 })

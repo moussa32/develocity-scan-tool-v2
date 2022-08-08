@@ -71,23 +71,23 @@ const Overlay =({show , close}) =>{
           <label>{t("common:symbol")}</label>
           <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
-          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <div className={lang==="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
           <label>{t("common:Network")}</label>
-          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
+          <input type="text"  className={lang==="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
           </div>
           <div className={styles.inputs}>
-          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <div className={lang==="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
           <label>{t("common:token_audited")}</label>
-          <select className={lang=="ar"?styles.select_rtl:styles.select_ltr}>
+          <select className={lang==="ar"?styles.select_rtl:styles.select_ltr}>
           <option>{t("common:no")}</option>
           <option>{t("common:yes")}</option>
           </select>
           </div>
           
           </div>
-          <input type="checkbox" className={lang=="ar"? styles.checkBox_rtl:styles.checkBox_ltr} id="agreement" name="agreement" value="agreement"/>
-  <label for="agreement" className={lang=="ar"? styles.agree_rtl:styles.agree_ltr}> {t("common:check")}  <a href="#">{t("common:terms_conditions")}</a> </label>
+          <input type="checkbox" className={lang==="ar"? styles.checkBox_rtl:styles.checkBox_ltr} id="agreement" name="agreement" value="agreement"/>
+  <label htmlFor="agreement" className={lang==="ar"? styles.agree_rtl:styles.agree_ltr}> {t("common:check")}  <a href="#">{t("common:terms_conditions")}</a> </label>
           </Fragment>
         );
       case 1:

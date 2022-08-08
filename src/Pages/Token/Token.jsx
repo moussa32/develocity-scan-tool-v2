@@ -48,8 +48,8 @@ export function Token() {
                 <NavBar />
                 <section className='container '>
                     <div className='d-flex mt-4 flex-wrap align-items-center justify-content-between '>
-                        <div className='order-2 mt-5 order-md-1 col-12 col-lg-6'> <LeftBarToken /></div>
-                        <div className='order-1   order-md-2 '> <Search /></div>
+                        <div className='order-2 mt-5 order-lg-1 col-12 col-lg-6'> <LeftBarToken /></div>
+                        <div className='order-1 order-lg-2 '> <Search /></div>
                     </div>
                     <div><BreadCrumbBar /></div>
 

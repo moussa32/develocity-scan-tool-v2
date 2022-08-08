@@ -9,34 +9,43 @@ import { Modal } from "./Modal/Modal";
 import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from 'react-i18next';
 import { IconContainer } from "./IconsContainer/IconContainer";
-import axios from "axios";
+// import axios from "axios";
 export function LeftBarToken() {
   // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
   const params = useParams();
-  const [ipaddress, setIpAddress] = useState('');
+  // const [ipaddress, setIpAddress] = useState('');
   const contractAddress = params.contractAddress;
   const tokenData = useSelector((state) => state.Gettokeninfodata.data);
-
+  const tokenstatus = useSelector(state => state.Gettokeninfodata.status);
   const dispatch = useDispatch();
-  const getIp=async()=>{
-    const {data}=await axios.get("https://api.ipify.org?format=json");
-    setIpAddress(data.ip)
-    
-  }
-  useEffect( ()=>{
-    getIp();
-  },[ipaddress] )
+ 
+  // useEffect( ()=>{
+  //   async function getIp() {
+  //    await axios.get("https://api.ipify.org?format=json")
+  //    .then((res)=>{
+  //      setIpAddress(res.data.ip);
+  //      console.log("ipaddress",ipaddress)
+  //    } )
+  //    .then(()=>{dispatch(fetchTokenInfoResult({contractAddress:contractAddress,ipaddress:ipaddress}));
+  //    console.log("nooooooooooo")
+  //  } )
+  //    // await setIpAddress(data.ip)
+  //    // await dispatch(fetchTokenInfoResult({contractAddress:contractAddress,ipaddress:ipaddress}));
+  //   } 
+  //   getIp()
+  //  },[contractAddress, dispatch, ipaddress] )
 
-  useEffect(() => {
-    dispatch(fetchTokenInfoResult({contractAddress:contractAddress,ipaddress:ipaddress}));
-  }, [dispatch, contractAddress, ipaddress]);
+  useEffect(()=>{
+    dispatch (fetchTokenInfoResult (contractAddress));
+},[contractAddress, dispatch]);
+ 
   const { t } = useTranslation(["token"])
   const tokeninfodata = tokenData.result;
  
 
   function foramtNumber(val) {
     return Number(val).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
+      minimumFractionDigits: 2, 
       maximumFractionDigits: 2,
     });
   }
@@ -55,6 +64,7 @@ export function LeftBarToken() {
 
   return (
     <>
+     { (tokenstatus=='success' )  && <> 
     <ModalForm show={showModal} close={()=>setShowModal(false)}/>
       <div className="w-100">
         <div className="d-flex justify-content-between align-items-center flex-wrap">
@@ -239,6 +249,8 @@ export function LeftBarToken() {
           </div>
         </div>
       </div>
+      </>
+}
     </>
   );
 }
