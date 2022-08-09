@@ -1,5 +1,6 @@
 import styles from './Modal.module.css'
 import icon from '../../../../assets/images/popup.png'
+import { Placeholder } from '../../../common/Placeholder/Placeholder';
 import { useTranslation } from 'react-i18next';
 export function Modal({logo,name, symbol,isnotlisted}) {
   const {t}=useTranslation(['token'])
@@ -31,7 +32,7 @@ export function Modal({logo,name, symbol,isnotlisted}) {
             <div className="py-2">
             <span className="">
               {logo ? (
-                <img
+                <img alt={name}
                   className={styles.tokenImg}
                   src={logo}
                  
@@ -49,10 +50,10 @@ export function Modal({logo,name, symbol,isnotlisted}) {
               )}
             </span>
             <span className={`${styles.name}`}>
-              {name ? name : null}
+              {name ? name : <><Placeholder styling={ {width:'100px',height:'20px'}}/> </>}
             </span>
             <span className={`ms-2 px-2 h-50 fw-light me-2 ${styles.symbol}`}>
-              {symbol ? symbol : null}
+              {symbol ? symbol : <><Placeholder styling={ {width:'80px',height:'20px'}}/></>}
             </span>
             <span className="ms-2">
               {isnotlisted && isnotlisted? (

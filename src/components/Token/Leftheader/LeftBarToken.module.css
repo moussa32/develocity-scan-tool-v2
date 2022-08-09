@@ -69,4 +69,9 @@
         justify-content: space-between;
 
     }
+    .contractaddress{
+        font-size: 14px;
+        font-weight: bold;
+    
+    }
 }

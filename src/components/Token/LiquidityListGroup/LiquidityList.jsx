@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
+import { useEffect } from 'react';
+// import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
 import styles from './LiquidityList.module.css';
 import { useParams } from 'react-router-dom';
@@ -22,7 +22,7 @@ export function LiquidityList() {
         dispatch(fetchBscLiquidityScan(contractAddress));
 
     }, [dispatch, contractAddress]);
-    const bscLiquiditydata=bscLiquidityScan?.result
+    // const bscLiquiditydata=bscLiquidityScan?.result
     const data = [
         {
             name: t("token:burned_liquidity"),
@@ -43,12 +43,12 @@ export function LiquidityList() {
     return (
         <>
   
-            {(statusLiquidity=='success' || statusLiquidity==true)  &&
+            {(statusLiquidity==='success' || statusLiquidity==true)  &&
             <div className='col-12 col-md-6'>
                 <ListGroup listdata={data} title={t("token:liquidity")}/>
             </div>}
             {/* <ListGroup listdata={bscLiquidityScan} title="Liquidity" /> */}
-        {statusLiquidity==false && ''}
+        {statusLiquidity===false && ''}
 
         </>
     )

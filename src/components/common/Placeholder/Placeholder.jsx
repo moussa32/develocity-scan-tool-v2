@@ -2,7 +2,10 @@ export function Placeholder({styling}){
     let stylingdata={
         width:styling.width,
         height:styling.height,
-        marginTop:styling.padding
+        marginTop:styling.padding,
+        marginRight:styling.marginRight,
+        borderRadius:styling.borderRadius,
+        marginLeft:styling.marginLeft
     }
     return(
         <>

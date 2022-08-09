@@ -35,22 +35,22 @@ const ChangelogContent =() =>{
   <li className={`${styles.tabLink}  nav-item`} role="presentation">
     <button 
     onClick={changecategory} value="All"
-    className={`${category=="All" && styles.btnAll} ${styles.navLink} nav-link `}   type="button" role="tab" aria-controls="pills-all" aria-selected="true">{t("changelog:view")}</button>
+    className={`${category==="All" && styles.btnAll} ${styles.navLink} nav-link `}   type="button" role="tab" aria-controls="pills-all" aria-selected="true">{t("changelog:view")}</button>
   </li>
   <li className={`${styles.tabLink}  nav-item`} role="presentation">
     <button
     onClick={changecategory}  value="Announcement"
-    className={`${category=="Announcement" && styles.btnAnnounce} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-announcement" aria-selected="false">{t("changelog:announce")}</button>
+    className={`${category==="Announcement" && styles.btnAnnounce} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-announcement" aria-selected="false">{t("changelog:announce")}</button>
   </li>
   <li className={`${styles.tabLink}  nav-item`} role="presentation">
     <button
      onClick={changecategory} value="Bug Fix"
-    className={`${category=="Bug Fix" && styles.btnBug} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-bugFix" aria-selected="false">{t("changelog:bug")}</button>
+    className={`${category==="Bug Fix" && styles.btnBug} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-bugFix" aria-selected="false">{t("changelog:bug")}</button>
   </li>
   <li className={`${styles.tabLink}  nav-item`} role="presentation">
   <button 
   onClick={changecategory} value="Product"
-  className={`${category=="Product" && styles.btnProduct} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-tabProduct" aria-selected="false">{t("changelog:product")}</button>
+  className={`${category==="Product" && styles.btnProduct} ${styles.navLink} nav-link`}  type="button" role="tab" aria-controls="pills-tabProduct" aria-selected="false">{t("changelog:product")}</button>
 </li>
 <li className={`${styles.tabLink}  nav-item`} role="presentation">
 <button 
@@ -87,7 +87,7 @@ className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-l
       <div className={styles.line}></div>
     </div>
 
-    <div className={lang=="ar"?styles.content_rtl:styles.content_ltr}>
+    <div className={lang==="ar"?styles.content_rtl:styles.content_ltr}>
       {el.news.map ( (ele=>(
         <>
         <h2 className={styles.title}>{ele.title}</h2>

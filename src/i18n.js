@@ -12,7 +12,7 @@ i18n.use(LanguageDetector)
         // translation file path
         loadPath: "/assets/i18n/{{ns}}/{{lng}}.json",
       },
-      ns: ["common", "home", "token"],
+      ns: ["common", "home", "token","changelog"],
         fallbackLng:'en',
         debug:true,
        

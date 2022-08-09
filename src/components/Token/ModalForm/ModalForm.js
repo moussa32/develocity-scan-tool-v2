@@ -55,21 +55,21 @@ const Overlay =({show , close}) =>{
           <Fragment>
           <h1 className={styles.title}>{t("common:submit_token")}</h1>
           <p className={styles.subTitle}>{t("common:details_token")}</p>
-          <input type="text" placeholder={t("common:contract_address")} className={lang=="ar"?styles.inputField_rtl:styles.input_Field_ltr}/>
+          <input type="text" placeholder={t("common:contract_address")} className={lang==="ar"?styles.inputField_rtl:styles.input_Field_ltr}/>
           <div className={styles.inputs}>
-          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <div className={lang==="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
           <label>{t("common:name")}</label>
-          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
+          <input type="text"  className={lang==="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
-          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <div className={lang==="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
           <label>{t("common:current_price")}</label>
-          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
+          <input type="text"  className={lang==="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
           </div>
           <div className={styles.inputs}>
-          <div className={lang=="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
+          <div className={lang==="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
           <label>{t("common:symbol")}</label>
-          <input type="text"  className={lang=="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
+          <input type="text"  className={lang==="ar"?styles.inputField2_rtl:styles.inputField2_ltr}/>
           </div>
           <div className={lang==="ar"?styles.inputBlock_rtl:styles.inputBlock_ltr}>
           <label>{t("common:Network")}</label>
@@ -108,8 +108,8 @@ const Overlay =({show , close}) =>{
           <Fragment>
           <h1 className={styles.title}>{t("common:submit_token")}</h1>
           <p className={styles.subTitle}>{t("common:about_token")}</p>
-          <textarea className={lang=="ar"?styles.comment_rtl:styles.comment_ltr} placeholder={t("common:token_bio")}></textarea>
-          <p className={lang=="ar"?styles.note_rtl:styles.note_ltr}>{t("common:token_bio_condition")}</p>
+          <textarea className={lang==="ar"?styles.comment_rtl:styles.comment_ltr} placeholder={t("common:token_bio")}></textarea>
+          <p className={lang==="ar"?styles.note_rtl:styles.note_ltr}>{t("common:token_bio_condition")}</p>
           </Fragment>
         );
         case 3:
@@ -121,28 +121,28 @@ const Overlay =({show , close}) =>{
   <div className="input-group-prepend">
     <h6 className={` input-group-text ${styles.socialIcon} ${styles.fbIcon}`} id="basic-addon1"><FaFacebookF/></h6>
   </div>
-  <input type="text" className={`form-control ${styles.socialInput} ${styles.fb}`} placeholder="Facebook" aria-label="Username" aria-describedby="basic-addon1"/>
+  <input type="text" className={`form-control ${styles.socialInput} ${styles.fb}`} placeholder={t("common:facebook")} aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 <div className="input-group mb-3">
 <div className="input-group-prepend">
   <h6 className={` input-group-text ${styles.socialIcon} ${styles.youIcon}`} id="basic-addon1"><BsYoutube/></h6>
 </div>
-<input type="text" className={`form-control ${styles.socialInput} ${styles.you}`} placeholder=" Youtube" aria-label="Username" aria-describedby="basic-addon1"/>
+<input type="text" className={`form-control ${styles.socialInput} ${styles.you}`} placeholder={t("common:youtube")} aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 <div className="input-group mb-3">
 <div className="input-group-prepend">
   <h6 className={` input-group-text ${styles.socialIcon} ${styles.tweetIcon}`} id="basic-addon1"><BsTwitter/></h6>
 </div>
-<input type="text" className={`form-control ${styles.socialInput} ${styles.tweet}`} placeholder=" Twitter" aria-label="Username" aria-describedby="basic-addon1"/>
+<input type="text" className={`form-control ${styles.socialInput} ${styles.tweet}`} placeholder={t("common:twitter")} aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 <div className="input-group mb-3">
 <div className="input-group-prepend">
   <h6 className={` input-group-text ${styles.socialIcon} ${styles.teleIcon}`} id="basic-addon1"><FaTelegramPlane/></h6>
 </div>
-<input type="text" className={`form-control ${styles.socialInput} ${styles.tele}`} placeholder=" Telegram" aria-label="Username" aria-describedby="basic-addon1"/>
+<input type="text" className={`form-control ${styles.socialInput} ${styles.tele}`} placeholder={t("common:telegram")} aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
           </Fragment>
             

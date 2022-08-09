@@ -45,7 +45,6 @@ const WalletsTable = ({ walletsData }) => {
             let address = walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(0, 8) + '...' + walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(-6);
             let nameTag = 'N/A'
             let balance = Number(walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).toLocaleString("en-US");
-            console.log("balance",typeof(balance))
             let percentage = `${Number(walletsData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2)}%`;
             wallet.push({ rank, address, nameTag, balance, percentage });
 

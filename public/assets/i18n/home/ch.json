@@ -1,4 +1,14 @@
 {
-	"home": "Hogar",
-	"home2":"espanish"
+	"home": "家",
+	"popular_today": "今天很流行",
+	"from_address": "寄件人",
+	"scans": "扫描",
+	"score": "分数",
+	"last_scan": "最后一次扫描",
+	"highest_score": "最高分",
+	"token": "代币",
+	"BETA_STAGE":"贝塔阶段",
+	"Become_a_PRO_in_Crypto_Investments": "成为加密投资专家",
+	"We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC": "我们很高兴能分享我们在 BSC 上工作的 Develocity 多功能工具的 Beta 版"
+
 }

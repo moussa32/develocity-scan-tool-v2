@@ -117,6 +117,7 @@
     border: 0px;
     outline: 0px;
     background-color: transparent;
+    cursor:pointer
   }
   
   .dropdownContent {

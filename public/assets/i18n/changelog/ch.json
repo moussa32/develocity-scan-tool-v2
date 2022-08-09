@@ -1,4 +1,8 @@
 {
-	"home": "Hogar",
-	"home2":"espanish"
+	"view": "view All",
+	"announce":"Announcement",
+	"bug":"Bug Fix",
+	"product":"Product",
+	"company":"Company"
+	
 }

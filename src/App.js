@@ -4,7 +4,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Suspense } from 'react';
+// import { Suspense } from 'react';
 import { Home } from './Pages/Home/Home'
 import { About } from './Pages/About'
 import { Token } from './Pages/Token/Token'
@@ -14,15 +14,21 @@ import Changelog from './Pages/Changelog/Changelog';
 import { useTranslation } from 'react-i18next';
 import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal';
 import { SpinnerRoundFilled } from 'spinners-react';
-
+import { withNamespaces } from 'react-i18next';
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const {  i18n } = useTranslation(["common"]);
+  const {  i18n,ready   } = useTranslation(["common"]);
 
   let lang = localStorage.getItem("i18nextLng")
+  i18n.on('loaded', function(loaded) {
+  
+      console.log("loaded",loaded[lang]?.common)
+   
+  
+  })
   useEffect(() => {
-
+   
     let timer = setTimeout(() => setLoading(true), 2000);
 
     // this will clear Timeout
@@ -42,6 +48,7 @@ function App() {
 
   return (
     <>
+   
     <React.Suspense fallback={null} >
       {loading ? <BrowserRouter >
         <Routes >

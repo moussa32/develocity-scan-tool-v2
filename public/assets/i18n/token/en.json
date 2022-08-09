@@ -13,6 +13,7 @@
 	"gas_fee": "Gas Fee",
 	"buy": "Buy",
 	"sell": "Sell",
+	"gas":"Gas",
 	"transfer": "Transfer",
 	"trading": "Trading",
 	"liquidity": "Liquidity",
