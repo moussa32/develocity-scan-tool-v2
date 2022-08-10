@@ -63,6 +63,7 @@
 }
 .socialIcons_ltr li{
     margin-right: 8px;
+   
 }
 .socialIcons_ltr li:last-child{
     margin-right: 0;
@@ -89,6 +90,7 @@
     font-size: 12px;
     font-weight: 500;
     margin-right: 19px;
+    margin-left: 19px;
 }
 .socialBarNav li:last-child{
     margin-right: 0;

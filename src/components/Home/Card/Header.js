@@ -8,7 +8,7 @@ const Header = ({ title }) => {
         <div className={styles.header_title}>
             <div className={styles.sub_header}>
                 <h3 className={styles.header_number}>#</h3>
-                <h3 className={lang === "en" ? styles.header_number_left : styles.header_number_right}>{t("home:token")} </h3>
+                <h3 className={lang === "ar" ? styles.header_number_right : styles.header_number_left}>{t("home:token")} </h3>
             </div>
             <h3 className={styles.header_scans}>{title}</h3>
         </div>

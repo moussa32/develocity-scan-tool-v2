@@ -58,7 +58,7 @@
 .modalIcon{
     cursor: pointer;
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 480px) {
     .tokenImg{
         width: 30px;
     }
@@ -70,7 +70,7 @@
 
     }
     .contractaddress{
-        font-size: 14px;
+        font-size: 14px ;
         font-weight: bold;
     
     }

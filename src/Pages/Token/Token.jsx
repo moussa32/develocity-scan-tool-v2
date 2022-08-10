@@ -22,6 +22,7 @@ import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
 import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
+import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next'
 export function Token() {
     const dispatch = useDispatch();
@@ -86,7 +87,7 @@ export function Token() {
 
                     <div className='row mb-5'>
                         {
-                            (status == 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
+                            (status === 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
                             <div className='col-lg-6 col-md-12'>
                                 <div className='wallets_table'>
                                     <TokenOwner tokenOwnerData={tokenOwnerData} />
@@ -135,7 +136,7 @@ export function Token() {
 
                     <br />
                 </section>
-
+                            <CopyRight/>
             </div>
         </>
     )

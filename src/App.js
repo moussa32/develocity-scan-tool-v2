@@ -8,6 +8,7 @@ import {
 import { Home } from './Pages/Home/Home'
 import { About } from './Pages/About'
 import { Token } from './Pages/Token/Token'
+import { PrivacyPolicy } from './Pages/PrivacyPolicy/PrivacyPolicy';
 import './App.css';
 import Tokens from './Pages/Tokens/Tokens';
 import Changelog from './Pages/Changelog/Changelog';
@@ -57,6 +58,7 @@ function App() {
           <Route path='token/:contractAddress' element={<Token />} />
           <Route path='tokens' element={<Tokens />} />
           <Route path='Changelog' element={<Changelog />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         </Routes>
       </BrowserRouter> : <div className='d-flex justify-content-center align-items-center' style={{height:"100vh"}}><SpinnerRoundFilled color={"#000"}/></div>}
     </React.Suspense>

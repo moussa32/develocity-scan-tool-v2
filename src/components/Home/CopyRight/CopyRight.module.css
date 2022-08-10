@@ -6,8 +6,16 @@
 }
 
 .copy_right {
-    font-size: 12px;
+    font-size: 14px;
     color: #888888;
     padding-right: 20px;
     font-family: "SF Pro Display Medium";
+}
+.copy_right a{
+    list-style-type: none;
+    color: #888888;
+    text-decoration: none;
+}
+.copy_right:hover a{
+    text-decoration: underline;
 }
