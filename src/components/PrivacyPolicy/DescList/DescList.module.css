@@ -1,0 +1,13 @@
+
+
+dt {
+    font-weight: 400;
+  
+}
+.dtermheader{
+    color: rgba(0, 0, 0, .6);
+    font-weight: 700;
+}
+ul{
+    list-style-type: square;
+}

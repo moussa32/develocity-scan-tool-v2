@@ -9,11 +9,13 @@ import { Provider } from 'react-redux'
 import {store} from './store/store'
 import './i18n';
 
+
 import i18next from './i18n'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}> 
   <App />
+ 
   </Provider>
 );
 
