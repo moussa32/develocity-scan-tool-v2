@@ -64,7 +64,7 @@ export function Token() {
                                 <div className='col-12 col-md-4'><ContractAnalysisCard /></div>
                                 <div className='col-12 col-md-4'>
                                     <div className='col-12'> <HoneypotCard /></div>
-                                    <div className='col-12'> <RugpullCard /></div>
+                                    {/* <div className='col-12'> <RugpullCard /></div> */}
                                 </div>
                                 <div className='col-12 col-md-4'>
                                     <div className='col-12'><AdevertiseOne /></div>
@@ -90,7 +90,7 @@ export function Token() {
                             (status === 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
                             <div className='col-lg-6 col-md-12'>
                                 <div className='wallets_table'>
-                                    <TokenOwner tokenOwnerData={tokenOwnerData} />
+                                    {/* <TokenOwner tokenOwnerData={tokenOwnerData} /> */}
                                 </div>
 
                             </div>

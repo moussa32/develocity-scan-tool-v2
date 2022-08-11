@@ -59,9 +59,9 @@ const SocialBar = () => {
         <div className={styles.socialBar}>
 
           <ul className={lang === "ar" ? styles.socialIcons_rtl : styles.socialIcons_ltr}>
-            <li><a><FaPaperPlane /></a></li>
-            <li><a href="#"><FaTwitter /></a></li>
-            <li><a href="#"><FaFacebookF /></a></li>
+            <li><a href="https://t.me/develocity"><FaPaperPlane /></a></li>
+            <li><a href="https://twitter.com/deve_develocity"><FaTwitter /></a></li>
+            {/* <li><a href="#"><FaFacebookF /></a></li> */}
           </ul>
           {/* start */}
           <ul className={styles.socialBarNav}>

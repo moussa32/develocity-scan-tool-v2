@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 
 
 const Wallet10Top = ({ topWalletData }) => {
-    const { t, i18n } = useTranslation(["token"])
+    const { t } = useTranslation(["token"])
     const lang = localStorage.getItem("i18nextLng")
     const columns = [
         {

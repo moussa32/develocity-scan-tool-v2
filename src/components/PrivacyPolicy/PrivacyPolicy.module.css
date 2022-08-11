@@ -1,0 +1,21 @@
+
+  .large_table{
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+  
+  
+    .large_table  {
+      overflow: scroll;
+      display: block;
+      table-layout: auto;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .tokens_table .react-bootstrap-table table {
+      overflow: auto;
+      display: block;
+      table-layout: auto;
+    }
+  }

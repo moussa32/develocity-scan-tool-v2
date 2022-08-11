@@ -1,5 +1,7 @@
 import { DescList } from "./DescList/DescList"
 import { HeaderCaption } from "./HeaderCaption/HeaderCaption"
+import styles from './PrivacyPolicy.module.css'
+import BootstrapTable from "react-bootstrap-table-next"
 export default function PrivacyPolicy(){
     const summarylist=[
         {
@@ -117,6 +119,109 @@ export default function PrivacyPolicy(){
         'If the collection is solely for journalistic, artistic, or literary purposes ',
         'If the information is publicly available and is specified by the regulations '
     ]
+    const tbl_content_5_8=[
+        {
+            'header1':'5. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?',
+            'short':'In Short: ',
+            'short_msg':'We are not responsible for the safety of any information that you share with third parties that we may link to or who advertise on our Services, but are not affiliated with, our Services.',
+            'msg1':'The Services may link to third-party websites, online services, or mobile applications and/or contain advertisements from third parties that are not affiliated with us and which may link to other websites, services, or applications. Accordingly, we do not make any guarantee regarding any such third parties, and we will not be liable for any loss or damage caused by the use of such third-party websites, services, or applications. The inclusion of a link towards a third-party website, service, or application does not imply an endorsement by us. We cannot guarantee the safety and privacy of data you provide to any third parties. Any data collected by third parties is not covered by this privacy notice. We are not responsible for the content or privacy and security practices and policies of any third parties, including other websites, services, or applications that may be linked to or from the Services. You should review the policies of such third parties and contact them directly to respond to your questions. '
+            
+        },
+        {
+            'header1':'6. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES? ',
+            'short':'In Short: ',
+            'short_msg':'We may use cookies and other tracking technologies to collect and store your information. ',
+            'msg1':'We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice.  '
+        },
+        {
+            'header1':'7. HOW LONG DO WE KEEP YOUR INFORMATION? ',
+            'short':'In Short: ',
+            'short_msg':'We keep your information for as long as necessary to fulfil the purposes outlined in this privacy notice unless otherwise required by law.',
+            'msg1':" We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than the period of time in which users have an account with us. ",
+            'msg2':'When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymise such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible. '
+        },
+        {
+            'header1':'8. HOW DO WE KEEP YOUR INFORMATION SAFE? ',
+            'short':'In Short: ',
+            'short_msg':'We aim to protect your personal information through a system of organisational and technical security measures.',
+            'msg1':'We have implemented appropriate and reasonable technical and organisational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorised third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment. '
+        }
+
+    ]
+
+    const products = [ 
+        {
+            "category":'A. Identifiers ',
+            "exp":"Contact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account name ",
+            "collected":"NO "
+        },
+        {
+            "category":'B. Personal information categories listed in the California Customer Records statute ',
+            "exp":"Name, contact information, education, employment, employment history, and financial information  ",
+            "collected":"NO "
+        },
+        {
+            "category":'C. Protected classification characteristics under California or federal law ',
+            "exp":"Gender and date of birth  ",
+            "collected":"NO "
+        },
+        {
+            "category":'D. Commercial information ',
+            "exp":"Transaction information, purchase history, financial details, and payment information ",
+            "collected":"NO "
+        },
+        {
+            "category":'E. Biometric information ',
+            "exp":"Fingerprints and voiceprints  ",
+            "collected":"NO "
+        },
+        {
+            "category":'F. Internet or other similar network activity ',
+            "exp":"Browsing history, search history, online behaviour, interest data, and interactions with our and other websites, applications, systems, and advertisements  ",
+            "collected":"NO "
+        },
+        {
+            "category":'G. Geolocation data ',
+            "exp":"Device location ",
+            "collected":"NO "
+        },
+        {
+            "category":'H. Audio, electronic, visual, thermal, olfactory, or similar information ',
+            "exp":"Images and audio, video or call recordings created in connection with our business activities ",
+            "collected":"NO "
+        },
+        {
+            "category":'I. Professional or employment-related information ',
+            "exp":"Business contact details in order to provide you our Services at a business level or job title, work history, and professional qualifications if you apply for a job with us  ",
+            "collected":"NO "
+        },
+        {
+            "category":'J. Education Information ',
+            "exp":"Student records and directory information  ",
+            "collected":"NO "
+        },
+        {
+            "category":'K. Inferences drawn from other personal information  ',
+            "exp":"Inferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual’s preferences and characteristics   ",
+            "collected":"NO "
+        },
+
+     ];
+const columns = [{
+  dataField: 'category',
+  text: 'Category'
+}, {
+  dataField: 'exp',
+  text: 'Examples',
+  style: {
+    color: '#333',
+    fontSize: '18px',
+    width:'50px'
+  }
+}, {
+  dataField: 'collected',
+  text: 'Collected'
+}];
     return(
         <>
         <div className="container mt-5 ">
@@ -279,13 +384,193 @@ export default function PrivacyPolicy(){
                        stylingobj={{"marginTop":"15px"}} />
                 </li>
                </ul>
-               
-                
-                
-              
                      
             </div>
+           
+            {/* 5:8 */}
+            <div>
+                {
+                    tbl_content_5_8.map((item,index)=>(
+                        <>
+                         <h2 className="text-muted" key={index}>{item.header1}</h2>
+                <DescList dtermheader="In Short: " dterm={item.short_msg} ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+                <DescList dtermheader="" dterm={item.msg1}
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                        <DescList dtermheader="" dterm={item.msg2&&item.msg2}
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                        </>
+                    ) )
+                }
+                 </div>
+                 {/* 9 */}
+                 <div>
+                 <h2 className="text-muted" >9. WHAT ARE YOUR PRIVACY RIGHTS? </h2>
+                <DescList dtermheader="In Short: " dterm="In some regions, such as the European Economic Area (EEA), United Kingdom (UK), and Canada, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time" ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+               <p>In some regions (like the EEA, UK, and Canada), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. You can make such a request by contacting us by using the contact details provided in the section <span className="text-primary">'HOW CAN YOU CONTACT US ABOUT THIS NOTICE?'</span>below.</p>
+               <DescList dtermheader="" dterm="We will consider and act upon any request in accordance with applicable data protection laws. " ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+               <p>If you are located in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <a  href="https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.">https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.</a></p>
+                <p>If you are located in Switzerland, the contact details for the data protection authorities are available here: <a href="https://www.edoeb.admin.ch/edoeb/en/home.html">https://www.edoeb.admin.ch/edoeb/en/home.html.</a></p>
+                <p> <span className="yext-decoration-underline">Withdrawing your consent: </span>If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section '<span className="text-primary">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</span>'below or updating your preferences.</p>
+                <DescList dtermheader="" dterm="However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent. " ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+               <p><span className="text-decoration-underline">Opting out of marketing and promotional communications: </span>You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, replying 'STOP' or 'UNSUBSCRIBE' to the SMS messages that we send, or by contacting us using the details provided in the section ' <span>HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</span>'below. You will then be removed from the marketing lists. However, we may still communicate with you — for example, to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.</p>
+               <HeaderCaption data="Account Information  "/>
+               <DescList dtermheader="" dterm="If you would at any time like to review or change the information in your account or terminate your account, you can: " ddata={['Log in to your account settings and update your user account. ', 'Contact us using the contact information provided. ']}
+               stylingobj={{"marginTop":"15px"}}
+               />
+                 <DescList dtermheader="" dterm="Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements. " ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+               <p><span className="text-decoration-underline">Cookies and similar technologies: </span>Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services. To opt out of interest-based advertising by advertisers on our Services visit  <a href="http://www.aboutads.info/choices/">http://www.aboutads.info/choices/.</a></p>
+                <p>If you have questions or comments about your privacy rights, you may email us at  <span className="bg-white">info@develocity.finance.</span></p>
+                </div>
+                {/* 10 */}
+                <div>
+                <h2 className="text-muted" >10. CONTROLS FOR DO-NOT-TRACK FEATURES </h2>
+                <DescList dtermheader="" dterm="Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ('DNT') feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for recognising and implementing DNT signals has been finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice. "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                </div>
+                {/* 11 */}
+                <div>
+                <h2 className="text-muted" >11. DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS? </h2>
+                <DescList dtermheader="In Short: " dterm="Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information. "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                <DescList dtermheader="" dterm="California Civil Code Section 1798.83, also known as the 'Shine The Light' law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below. "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
 
+<DescList dtermheader="" dterm="If you are under 18 years of age, reside in California, and have a registered account with Services, you have the right to request removal of unwanted data that you publicly post on the Services. To request removal of such data, please contact us using the contact information provided below and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Services, but please be aware that the data may not be completely or comprehensively removed from all our systems (e.g. backups, etc.). "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                          <HeaderCaption data="CCPA Privacy Notice  "/>
+                          <dl>
+                            <dt>The California Code of Regulations defines a 'resident' as: </dt>
+                            <dd>
+                                <ol>
+                                    <li>every individual who is in the State of California for other than a temporary or transitory purpose.</li>
+                                    <li>every individual who is domiciled in the State of California who is outside the State of California for a temporary or transitory purpose.</li>
+                                </ol>
+                            </dd>
+                          </dl>
+                          <DescList dtermheader="" dterm="All other individuals are defined as 'non-residents'. "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                             <DescList dtermheader="" dterm="All other individuals are defined as 'non-residents'. "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                       <DescList dtermheader="" dterm="If this definition of 'resident' applies to you, we must adhere to certain rights and obligations regarding your personal information. "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+                       <h5>What categories of personal information do we collect? </h5>
+                       <DescList dtermheader="" dterm="We have collected the following categories of personal information in the past twelve (12) months:  "
+                        ddata={[]}
+                       stylingobj={{"marginTop":"15px"}} />
+<div className={`${styles.large_table} table-responsive  row col-6 d-flex`} style={{overflowX: 'auto'}}>
+<BootstrapTable keyField='id' data={ products } columns={ columns } hover={true}/>
+</div>
+
+<DescList dtermheader="" dterm="We may also collect other personal information outside of these categories instances where you interact with us in person, online, or by phone or mail in the context of: "
+ ddata={['Receiving help through our customer support channels.','Participation in customer surveys or contests.','Facilitation in the delivery of our Services and to respond to your inquiries. ']}
+               stylingobj={{"marginTop":"10px"}}
+              />
+              <h5>How do we use and share your personal information? </h5>
+              <p>More information about our data collection and sharing practices can be found in this privacy notice. </p>
+              <p>You may contact us by email at <span className="bg-white">info@develocity.finance</span>by visiting  <a href="https://develocity.finance/#contact">https://develocity.finance/#contact, </a>or by referring to the contact details at the bottom of this document.</p>
+
+              <DescList dtermheader="" dterm="If you are using an authorised agent to exercise your right to opt out we may deny a request if the authorised agent does not submit proof that they have been validly authorised to act on your behalf. "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              />  
+              <h5>Will your information be shared with anyone else? </h5>   
+              <DescList dtermheader="" dterm="We may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Each service provider is a for-profit entity that processes the information on our behalf.  "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              /> 
+                   <DescList dtermheader="" dterm="We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be 'selling' of your personal information.  "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              /> 
+                   <DescList dtermheader="" dterm="Develocity Finance Technology Company has not disclosed or sold any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. Develocity Finance Technology Company will not sell personal information in the future belonging to website visitors, users, and other consumers.  "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              />   
+              <h5>Your rights with respect to your personal data </h5>
+              <p className="text-decoration-underline">Right to request deletion of the data — Request to delete </p>
+              <DescList dtermheader="" dterm="You can ask for the deletion of your personal information. If you ask us to delete your personal information, we will respect your request and delete your personal information, subject to certain exceptions provided by law, such as (but not limited to) the exercise by another consumer of his or her right to free speech, our compliance requirements resulting from a legal obligation, or any processing that may be required to protect against illegal activities. "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              /> 
+              <p className="text-decoration-underline">Right to be informed — Request to know </p>
+              <DescList dtermheader="" dterm="Depending on the circumstances, you have a right to know: "
+ ddata={['whether we collect and use your personal information.', 'the categories of personal information that we collect.', 'the purposes for which the collected personal information is used.', 'whether we sell your personal information to third parties.', 'the categories of personal information that we sold or disclosed for a business purpose.', 'the categories of third parties to whom the personal information was sold or disclosed for a business purpose.', 'the business or commercial purpose for collecting or selling personal information. ']}
+               stylingobj={{"marginTop":"10px"}}
+              /> 
+                    <DescList dtermheader="" dterm="In accordance with applicable law, we are not obligated to provide or delete consumer information that is de-identified in response to a consumer request or to re-identify individual data to verify a consumer request.  "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              /> 
+              <p className="text-decoration-underline">Right to Non-Discrimination for the Exercise of a Consumer’s Privacy Rights </p>
+              <DescList dtermheader="" dterm="We will not discriminate against you if you exercise your privacy rights. "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              /> 
+              <p className="text-decoration-underline">Verification process </p>
+              <DescList dtermheader="" dterm="Upon receiving your request, we will need to verify your identity to determine you are the same person about whom we have the information in our system. These verification efforts require us to ask you to provide information so that we can match it with information you have previously provided us. For instance, depending on the type of request you submit, we may ask you to provide certain information so that we can match the information you provide with the information we already have on file, or we may contact you through a communication method (e.g. phone or email) that you have previously provided to us. We may also use other verification methods as the circumstances dictate. "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              />
+               <DescList dtermheader="" dterm="We will only use personal information provided in your request to verify your identity or authority to make the request. To the extent possible, we will avoid requesting additional information from you for the purposes of verification. However, if we cannot verify your identity from the information already maintained by us, we may request that you provide additional information for the purposes of verifying your identity and for security or fraud-prevention purposes. We will delete such additionally provided information as soon as we finish verifying you.  "
+ ddata={[]}
+               stylingobj={{"marginTop":"10px"}}
+              />
+              <p className="text-decoration-underline">Other privacy rights </p>
+               <DescList dtermheader="" dterm=" "
+ ddata={['You may object to the processing of your personal information. ','You may request correction of your personal data if it is incorrect or no longer relevant, or ask to restrict the processing of the information. ', 'You can designate an authorised agent to make a request under the CCPA on your behalf. We may deny a request from an authorised agent that does not submit proof that they have been validly authorised to act on your behalf in accordance with the CCPA. ','You may request to opt out from future selling of your personal information to third parties. Upon receiving an opt-out request, we will act upon the request as soon as feasibly possible, but no later than fifteen (15) days from the date of the request submission. ']}
+               stylingobj={{"marginTop":"10px"}}
+              />
+
+                <p>To exercise these rights, you can contact us by email at <span className="bg-white">info@develocity.finance</span>, by visiting <a href="https://develocity.finance/#contact">https://develocity.finance/#contact</a>, or by referring to the contact details at the bottom of this document. If you have a complaint about how we handle your data, we would like to hear from you.</p>
+                </div>
+                {/* 12 */}
+                <div>
+                <h2 className="text-muted" >12. DO WE MAKE UPDATES TO THIS NOTICE?  </h2>
+                <DescList dtermheader="In Short: " dterm="Yes, we will update this notice as necessary to stay compliant with relevant laws" ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+               <DescList dtermheader="In Short: " dterm="We may update this privacy notice from time to time. The updated version will be indicated by an updated 'Revised' date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information. " ddata={[]}
+               stylingobj={{"marginTop":"15px"}}
+               />
+                 </div>
+                 {/* 13 */}
+                 <div>
+                 <h2 className="text-muted" >13. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?  </h2>  
+                 <p>If you have questions or comments about this notice, you may email us at <span className="bg-white">info@develocity.finance</span>or by post to:</p>
+                 <ul style={{listStyleType:'none'}}>
+                    <li>Develocity Finance Technology Company </li>
+                    <li>DFC</li>
+                    <li>Dubai</li>
+                    <li>United Arab Emirates </li>
+                 </ul>
+                 </div>
+                 {/* 14 */}
+                 <div>
+                 <h2 className="text-muted" >14. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU? </h2>   
+                 <p>Based on the applicable laws of your country, you may have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please submit a request form by clicking <a href="https://develocity.finance/#contact">here</a></p>
+                 </div>
+               
+               
+           
 
         </div>
         </>
