@@ -14,7 +14,7 @@ const ChangelogContent =() =>{
   const lang = localStorage.getItem("i18nextLng")
 
   const changecategory=(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     setCategory(e.target.value);
     console.log(listnewdata)
 
