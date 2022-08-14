@@ -29,7 +29,7 @@ const Distribution = () => {
   const distData = dist.result;
 
   var options = {
-    series: [distData ? Math.round(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage): null],
+    series: [distData ? Math.floor(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage): null],
     labels:[t("token:Real_Holders") , t("token:Airdrop_holders") , t("token:Wallet_shrink")],
     dataLabels: {
       formatter: function (val) {

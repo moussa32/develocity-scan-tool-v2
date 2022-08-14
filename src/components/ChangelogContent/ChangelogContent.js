@@ -17,6 +17,9 @@ const ChangelogContent =() =>{
     // e.preventDefault();
     setCategory(e.target.value);
     console.log(listnewdata)
+  
+   
+
 
   }
 
@@ -64,7 +67,8 @@ className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-l
 
     {listnewdata &&
      listnewdata.map( (el)=> (
-      <div className={`${styles.step} ${el.category==='announcement' && styles.announce  } 
+      <div className={`${styles.step} 
+      ${el.category==='announcement' && styles.announce  } 
        ${el.category==='product' && styles.product  }  
        ${el.category==='company' && styles.company  }  
        ${el.category==='bug fix' && styles.bug  }
@@ -76,16 +80,18 @@ className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-l
           ${el.category==="product" && styles.typeProduct}
           ${el.category==="bug fix" && styles.typeBug}
           ${el.category==="company" && styles.typeCompany}`}>{el.category}</h1>
-           <p className={styles.date}>{ele.createdAt}</p>
+          <p className={styles.date}>{ele.createdAt.split("T")[0]}</p>
+          <p className={styles.date}>{(ele.createdAt.split("T")[1]).split(".")[0]}</p>
            </div>
            </div>
   
         )))}
    
-    <div className={styles.vStepper}>
+    {el.news.length !==0 ?<div className={styles.vStepper}>
       <div className={styles.circle}></div>
       <div className={styles.line}></div>
-    </div>
+    </div>:null}
+    {console.log(el.news)}
 
     <div className={lang==="ar"?styles.content_rtl:styles.content_ltr}>
       {el.news.map ( (ele=>(
