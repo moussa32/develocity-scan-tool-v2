@@ -225,7 +225,7 @@ const columns = [{
     return(
         <>
         <div className="container mt-5 ">
-            <h5>RIVACY NOTICE</h5>
+            <h5>PRIVACY NOTICE</h5>
             <h5 className="text-muted">Last updated August 08, 2022 </h5>
             <DescList dtermheader=" " dterm="This privacy notice for Develocity Finance Technology Company (doing business as DEVE) ('DEVE', 'we', 'us', or 'our',), describes how and why we might collect, store, use, and/or share ('process') your information when you use our services ('Services'), such as when you"
                ddata={['Visit our website at https://develocity.finance, or any website of ours that links to this privacy notice.','Engage with us in other related ways, including any sales, marketing, or events.']}

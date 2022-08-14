@@ -66,9 +66,9 @@ export function Token() {
                                     <div className='col-12'> <HoneypotCard /></div>
                                     {/* <div className='col-12'> <RugpullCard /></div> */}
                                 </div>
-                                <div className='col-12 col-md-4'>
+                                {/*<div className='col-12 col-md-4'>
                                     <div className='col-12'><AdevertiseOne /></div>
-                                </div>
+    </div>*/}
                             </div>
                         </div>
 
@@ -120,9 +120,9 @@ export function Token() {
                                 <Trading />
                                 <LiquidityList />
                             </div>
-                            <div className='d-md-flex  justify-content-center'>
+                            <div className='d-md-flex  justify-content-space-between'>
                                 <Slippage />
-                                <Advertisetwo />
+                                {/*<Advertisetwo />*/}
                             </div>
 
                         </div>

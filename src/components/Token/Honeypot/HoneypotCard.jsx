@@ -41,8 +41,8 @@ export function HoneypotCard(){
                         </span>
                         </div>
                         <div className="text-start ps-2 pt-1" >
-                        <h5>Honeypot Test Passed</h5>
-                        <p className="text-muted"> Trading simulation shows that trading is open which means token is not a honeypot</p>
+                        <h5>{t("token:honeypot_test_detected")}</h5>
+                        <p className="text-muted"> {t("token:Trading_simulation_shows_that_sell_is_closed_which_means_token_is_a_honeypot")}</p>
                     </div>
             </div>
             }

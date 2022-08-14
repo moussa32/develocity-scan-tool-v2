@@ -213,6 +213,7 @@ export function LeftBarToken() {
             <Modal
               logo={tokeninfodata?.contractInfo?.logo}
               name={tokeninfodata?.contractInfo?.name}
+              description={tokeninfodata?.contractInfo?.description}
               symbol={tokeninfodata?.contractInfo?.symbol}
               isnotlisted={tokeninfodata?.isNotListed}
 

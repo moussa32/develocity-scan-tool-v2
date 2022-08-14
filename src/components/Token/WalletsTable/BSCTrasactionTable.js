@@ -5,17 +5,14 @@ import { useTranslation } from 'react-i18next';
 
 
 
+
+
 const BSCTrasactionTable = ({ bSCTrasaction }) => {
     const { t } = useTranslation(["token"])
     const columns = [
         {
-            dataField: "id",
-            text: t("token:hash"),
-        },
-        {
             dataField: "hash",
-            text: "Hash",
-            hidden:true,
+            text: t("token:hash"),
         },
         {
             dataField: "fromAddress",
@@ -45,27 +42,14 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
             let toAddress = bSCTrasaction.tokenTransaction[i].to.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].to.substr(-4);
             let amount = Number(bSCTrasaction.tokenTransaction[i].value).toLocaleString("en-US");
             let tokenSymbol = bSCTrasaction.tokenTransaction[i].tokenSymbol
-            let id = bSCTrasaction.tokenTransaction[i].hash.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].hash.substr(-4)
-            let hash = bSCTrasaction.tokenTransaction[i].hash
-            bSCTrasactionData.push({ fromAddress, toAddress, amount, tokenSymbol, id,hash });
+            let hash = bSCTrasaction.tokenTransaction[i].hash.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].hash.substr(-4)
+            bSCTrasactionData.push({ fromAddress, toAddress, amount, tokenSymbol, hash });
         }
     }
-    const selectRow = {
-        mode: "radio",
-        clickToSelect: true,
-        style: {
-          backgroundColor: "rgba(5, 6, 70, 0.5)",
-          color: "white"
-        },
-        onSelect: (row, isSelect, rowIndex, e) => {
-          // eslint-disable-next-line no-restricted-globals
-        //   location.href=`https://bscscan.com/tx/${row.hash}`
-          window.open(`https://bscscan.com/tx/${row.hash}`, '_blank');
-        }
-      };
 
 
-    const pagination = paginationFactory({ 
+
+    const pagination = paginationFactory({
         page: 1,
         sizePerPage: 5,
         hideSizePerPage: true,
@@ -86,7 +70,6 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
                 loading={true}
                 pagination={pagination}
                 alwaysShowAllBtns={true}
-                selectRow={selectRow}
             />
         </div>
     )

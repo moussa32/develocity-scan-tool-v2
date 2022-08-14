@@ -20,7 +20,7 @@ const CardScans = ({ popularScans, title }) => {
                 number={index + 1}
                 image={item.contractInfo.logo}
                 nametoken={item.contractInfo.name}
-                scans={title === "Scans" ? (item.interest) : (item.contractScan).toFixed(0)}
+                scans={title == "Scans" ? (item.interest) : (item.contractScan).toFixed(0)}
                 contract={item.contractAddress}
                 sponsored="fales"
                 title={title}

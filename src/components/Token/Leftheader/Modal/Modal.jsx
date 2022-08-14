@@ -2,7 +2,7 @@ import styles from './Modal.module.css'
 import icon from '../../../../assets/images/popup.png'
 import { Placeholder } from '../../../common/Placeholder/Placeholder';
 import { useTranslation } from 'react-i18next';
-export function Modal({logo,name, symbol,isnotlisted}) {
+export function Modal({logo,name, symbol,isnotlisted , description}) {
   const {t}=useTranslation(['token'])
   return (
     <>
@@ -87,14 +87,12 @@ export function Modal({logo,name, symbol,isnotlisted}) {
               <h3 className='text-muted'>
                 About <span className='text-decoration-underline'>  {name && name} </span>
               </h3>
+              <br/>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
-                itaque laudantium, possimus alias odio, veritatis provident
-                assumenda corrupti consectetur soluta ducimus velit et.
-                Voluptatem cumque natus illum possimus officiis doloribus!
+               {description ? description :null}
               </p>
             </div>
-            <div class="modal-footer">
+            <div className={`${styles.modalFooter} modal-footer`}>
               <button
                 type="button"
                 class="btn btn-secondary"
