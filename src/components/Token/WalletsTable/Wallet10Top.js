@@ -4,6 +4,7 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import "./WalletsTable.css";
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -13,11 +14,18 @@ import { useTranslation } from 'react-i18next';
 
 const Wallet10Top = ({ topWalletData }) => {
     const { t } = useTranslation(["token"])
-    const lang = localStorage.getItem("i18nextLng")
+    const param = useParams()
+    const contractAddress = param.contractAddress;
+
     const columns = [
         {
-            dataField: "rank",
+            dataField: "id",
             text: t("token:rank"),
+        },
+        {
+            dataField: "walletaddress",
+            text: "wallet address",
+            hidden:true,
         },
         {
             dataField: "address",
@@ -41,16 +49,30 @@ const Wallet10Top = ({ topWalletData }) => {
     if (topWalletData && topWalletData.topTenHolder) {
 
         for (let i = 0; i < topWalletData.topTenHolder.length; i++) {
-            let rank = i + 1;
+            let id = i + 1;
+            let walletaddress = topWalletData.topTenHolder[i].TokenHolderAddress;
             let address = topWalletData.topTenHolder[i].TokenHolderAddress.substr(0, 8) + '...' + topWalletData.topTenHolder[i].TokenHolderAddress.substr(-6);
             let nameTag = 'N/A'
             let balance = Number(topWalletData.topTenHolder[i].TokenHolderQuantity).toLocaleString("en-US");;
             let percentage = `${(Number(topWalletData.topTenHolder[i].percentage)).toFixed(2)}%`;
-            wallet.push({ rank, address, nameTag, balance, percentage });
+            wallet.push({ id, walletaddress,address, nameTag, balance, percentage });
 
         }
     }
 
+    const selectRow = {
+        mode: "radio",
+        clickToSelect: true,
+        style: {
+          backgroundColor: "rgba(5, 6, 70, 0.5)",
+          color: "white"
+        },
+        onSelect: (row, isSelect, rowIndex, e) => {
+          // eslint-disable-next-line no-restricted-globals
+        //   location.href=`https://bscscan.com/token/${contractAddress}?a=${row.walletaddress}`
+          window.open(`https://bscscan.com/token/${contractAddress}?a=${row.walletaddress}`, '_blank');
+        }
+      };
 
     const pagination = paginationFactory({
         page: 1,
@@ -73,6 +95,7 @@ const Wallet10Top = ({ topWalletData }) => {
                 loading={true}
                 pagination={pagination}
                 alwaysShowAllBtns={true}
+                selectRow={selectRow}
             />
         </>
 
@@ -80,3 +103,5 @@ const Wallet10Top = ({ topWalletData }) => {
 }
 
 export default Wallet10Top
+
+

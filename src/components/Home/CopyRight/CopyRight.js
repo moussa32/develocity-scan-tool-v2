@@ -8,7 +8,7 @@ const CopyRight = () => {
         <div className='container mt-5'>
             <div className={styles.copy_right_container}>
                 <h6 className={styles.copy_right}>{t("common:copyright")} </h6>
-                <h6 className={styles.copy_right}>{t("common:terms_conditions")}</h6>
+                {/* <h6 className={styles.copy_right}>{t("common:terms_conditions")}</h6> */}
                 <h6 className={styles.copy_right}> <Link to="/privacy-policy">{t("common:privacyPolicy")}</Link> </h6> 
             </div>
         </div>
