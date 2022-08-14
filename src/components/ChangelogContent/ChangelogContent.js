@@ -80,7 +80,8 @@ className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-l
           ${el.category==="product" && styles.typeProduct}
           ${el.category==="bug fix" && styles.typeBug}
           ${el.category==="company" && styles.typeCompany}`}>{el.category}</h1>
-           <p className={styles.date}>{ele.createdAt}</p>
+          <p className={styles.date}>{ele.createdAt.split("T")[0]}</p>
+          <p className={styles.date}>{(ele.createdAt.split("T")[1]).split(".")[0]}</p>
            </div>
            </div>
   
