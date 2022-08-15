@@ -2,8 +2,7 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { useTranslation } from 'react-i18next';
-
-
+import { Link, Route } from "react-router-dom";
 
 const LiquidtyTable = ({ bSCTrasaction }) => {
     const { t } = useTranslation(["token"])
@@ -12,10 +11,24 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
         {
             dataField: "hash",
             text: t("token:hash"),
+            formatter: (cell, row) => {
+                return (
+                    <div className='locked_tokens_network'>
+                         
+                        <a href={`//Bscscsn.com/tx/${cell}`} target="_blank" rel="noreferrer">
+                            {cell}
+                        </a>
+              
+                    </div>
+                )
+            }
         },
         {
             dataField: "fromAddress",
             text: t("token:fromaddress"),
+            style: {
+                color: '#333',
+              }
         },
         {
             dataField: "toAddress",
@@ -66,6 +79,7 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
                 pagination={pagination}
                 alwaysShowAllBtns={true}
             />
+           
         </div>
     )
 }
