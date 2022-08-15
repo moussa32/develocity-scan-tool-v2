@@ -79,7 +79,12 @@ className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-l
            <h1 className={`${el.category==="announcement" && styles.typeAnnounce}
           ${el.category==="product" && styles.typeProduct}
           ${el.category==="bug fix" && styles.typeBug}
-          ${el.category==="company" && styles.typeCompany}`}>{el.category}</h1>
+          ${el.category==="company" && styles.typeCompany}`}>
+          {el.category ==="announcement" && t("changelog:announce")}
+          {el.category ==="product" && t("changelog:product")}
+          {el.category ==="bug fix" && t("changelog:bug")}
+          {el.category ==="company" && t("changelog:company")} 
+          </h1>
           <p className={styles.date}>{ele.createdAt.split("T")[0]}</p>
           <p className={styles.date}>{(ele.createdAt.split("T")[1]).split(".")[0]}</p>
            </div>

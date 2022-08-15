@@ -2,6 +2,7 @@ import { DescList } from "./DescList/DescList"
 import { HeaderCaption } from "./HeaderCaption/HeaderCaption"
 import styles from './PrivacyPolicy.module.css'
 import BootstrapTable from "react-bootstrap-table-next"
+import './../Token/WalletsTable/WalletsTable.css'
 export default function PrivacyPolicy(){
     const summarylist=[
         {

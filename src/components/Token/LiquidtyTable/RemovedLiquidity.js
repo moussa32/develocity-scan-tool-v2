@@ -14,10 +14,24 @@ const RemovedLiquidity = ({ LiquidtyData }) => {
         {
             dataField: "transaction",
             text: t("token:transactions"),
+            formatter: (cell, row) => {
+                return (
+                    <div className='locked_tokens_network'>
+                         
+                        <a href={`//Bscscsn.com/tx/${cell}`} target="_blank" rel="noreferrer">
+                            {cell}
+                        </a>
+              
+                    </div>
+                )
+            }
         },
         {
             dataField: "fromAddress",
             text: t("token:fromaddress"),
+            style: {
+                color: '#333',
+              }
         },
         {
             dataField: "toAddress",
