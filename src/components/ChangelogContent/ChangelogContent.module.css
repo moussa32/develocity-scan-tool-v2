@@ -128,12 +128,14 @@
     padding: 2px 11px;
     text-transform: capitalize;
     font-weight: 500;
+    text-align: center;
     background-color: rgba(245,163,65,0.15);
   }
   .btnAnnounce{
     color: #F5A341 !important;
     background-color: rgba(245,163,65,0.15) !important;
     border:0 !important;
+    
   }
   .btnBug{
     color: #16C784 !important;
@@ -157,12 +159,14 @@
     padding: 2px 11px;
     text-transform: capitalize;
     font-weight: 500;
+    text-align: center;
     background-color: rgba(56,97,251,0.15);
   }
   .typeBug{
     color: #16C784;
     font-size: 12px;
     margin: 0;
+    text-align: center;
     padding: 2px 11px;
     text-transform: capitalize;
     font-weight: 500;
@@ -175,6 +179,7 @@
     padding: 2px 11px;
     text-transform: capitalize;
     font-weight: 500;
+    text-align: center;
     background-color: rgba(159,74,232,0.15);
   }
   .date{
@@ -205,7 +210,10 @@
     margin: 9px 0;
   }
   .typeBlock{
-    width:30%;
+    width:35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .navLink{
     font-size: 14px;
