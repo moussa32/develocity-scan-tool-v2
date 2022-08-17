@@ -1,13 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
 import {createSlice , createAsyncThunk} from '@reduxjs/toolkit';
-import { useState, useEffect } from "react";
-
+import instance from '../../Network/axiosconfig';
 
 
 export const fetchResult =  createAsyncThunk('search/fetchResult',
 async (searchKey)=>{
-   
-    const response = await axios.get(`https://api.develocity.finance/api/v1/user/suggestion?name=${searchKey}`)
+    const response= await instance.get(`user/suggestion?name=${searchKey}`)
+    // const response = await axios.get(`https://api.develocity.finance/api/v1/user/suggestion?name=${searchKey}`)
     return response.data
    
     });

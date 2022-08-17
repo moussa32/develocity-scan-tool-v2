@@ -13,6 +13,7 @@ import bscLiquidityScanSlice from './bscLiquidityScanSlice'
 import bSCTrasactionSlice from './bSCTrasactionSlice'
 import tokenListSlice from './tokenListSlice'
 import GetIPReducer from './../Services/FetchIPAddress'
+import connectSliceReducer from '../Services/SoketIO'
 export const store = configureStore({
     reducer: {
         contractAddress: contractAddressSlice,
@@ -28,6 +29,7 @@ export const store = configureStore({
         bSCTrasaction: bSCTrasactionSlice,
         tokenList: tokenListSlice,
         GetListNewsdata:GetListNewsdataReducer,
-        GetIPAddress:GetIPReducer
+        GetIPAddress:GetIPReducer,
+        connectSlice:connectSliceReducer
     },
 })

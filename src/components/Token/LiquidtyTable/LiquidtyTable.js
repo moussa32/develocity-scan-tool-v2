@@ -2,7 +2,6 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { useTranslation } from 'react-i18next';
-import { Link, Route } from "react-router-dom";
 
 const LiquidtyTable = ({ bSCTrasaction }) => {
     const { t } = useTranslation(["token"])
@@ -15,8 +14,8 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
                 return (
                     <div className='locked_tokens_network'>
                          
-                        <a href={`//Bscscsn.com/tx/${cell}`} target="_blank" rel="noreferrer">
-                            {cell}
+                        <a href={`https://bscscan.com/tx/${cell}`} target="_blank" rel="noreferrer" style={{textDecoration:'none'}}>
+                        {`${cell.substr(0,3)} ... ${cell.substr(-4)}`}
                         </a>
               
                     </div>
@@ -51,7 +50,8 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
             let toAddress = bSCTrasaction.transactions[i].to.substr(0, 4) + '...' + bSCTrasaction.transactions[i].to.substr(-4);
             let amount = Number(bSCTrasaction.transactions[i].value).toLocaleString("en-US");
             let tokenSymbol = bSCTrasaction.transactions[i].tokenSymbol
-            let hash = bSCTrasaction.transactions[i].hash.substr(0, 4) + '...' + bSCTrasaction.transactions[i].hash.substr(-4)
+            let hash = bSCTrasaction.transactions[i].hash
+            // let hash = bSCTrasaction.transactions[i].hash.substr(0, 4) + '...' + bSCTrasaction.transactions[i].hash.substr(-4)
             bSCTrasactionData.push({ fromAddress, toAddress, amount, tokenSymbol, hash });
         }
     }

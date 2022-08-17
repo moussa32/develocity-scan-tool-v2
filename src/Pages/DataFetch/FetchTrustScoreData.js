@@ -1,13 +1,12 @@
-import axios from 'axios';
+// import axios from 'axios';
 import {createSlice , createAsyncThunk} from '@reduxjs/toolkit';
-import { useState, useEffect } from "react";
-
+import instance from '../../Network/axiosconfig';
 
 
 export const fetchScore =  createAsyncThunk('score/fetchScore',
 async (contractAddress)=>{
-   
-    const response = await axios.get(`https://api.develocity.finance/api/v1/contract/humanSummary/${contractAddress}`)
+    const response= await instance.get(`contract/humanSummary/${contractAddress}`)
+    // const response = await axios.get(`https://api.develocity.finance/api/v1/contract/humanSummary/${contractAddress}`)
     return response.data
       
     });

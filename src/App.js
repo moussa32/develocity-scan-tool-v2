@@ -15,11 +15,10 @@ import Changelog from './Pages/Changelog/Changelog';
 import { useTranslation } from 'react-i18next';
 import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal';
 import { SpinnerRoundFilled } from 'spinners-react';
-import { withNamespaces } from 'react-i18next';
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const {  i18n,ready   } = useTranslation(["common"]);
+  const {  i18n   } = useTranslation(["common"]);
 
   let lang = localStorage.getItem("i18nextLng")
   i18n.on('loaded', function(loaded) {

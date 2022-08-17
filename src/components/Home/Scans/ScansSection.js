@@ -8,19 +8,28 @@ import HeaderCard from '../HeaderCard/HeaderCard';
 import CardScans from '../Card/CardScans';
 import { io } from "socket.io-client";
 import { useTranslation } from 'react-i18next';
+import {  useDispatch } from 'react-redux'
+import {connectToio} from '../../../Services/SoketIO'
+import { useSelector } from 'react-redux/es/exports';
 
 const ScansSection = () => {
     const [popularScans, setPopularScans] = useState([]);
     const [recentScans, setRecentScans] = useState([]);
     const [lastScans, setLastScans] = useState([]);
+    const pop=useSelector((state)=>state.connectSlice.popularScan)
     const { t } = useTranslation(["home"]);
     const lang = localStorage.getItem("i18nextLng")
-
+    const dispatch = useDispatch()
     useEffect(() => {
-        const socket = io('https://api.develocity.finance');
+        // const socket2=dispatch(connectToio())
+        // const socket = io('https://api.develocity.finance');
+        const socket = io('http://20.218.124.106:1885');
+        // console.log('pop',pop)
+       
 
         socket.on("popularScan", (data) => {
             setPopularScans(data);
+            // console.log('data',data)
         })
         socket.on("highScore", (data) => {
 
@@ -58,6 +67,7 @@ const ScansSection = () => {
                     <CardScans popularScans={recentScans} title={t("home:score")} />
                 </Col>
             </Row>
+            {/* <button onClick={()=>dispatch(connectToio())}>click</button> */}
         </div>
     )
 }

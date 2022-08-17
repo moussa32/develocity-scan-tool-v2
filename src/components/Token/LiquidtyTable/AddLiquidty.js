@@ -18,13 +18,13 @@ const AddedLiquidity = ({ LiquidtyData }) => {
                 return (
                     <div className='locked_tokens_network'>
                          
-                        <a href={`//Bscscsn.com/tx/${cell}`} target="_blank" rel="noreferrer">
-                            {cell}
+                        <a href={`//Bscscan.com/tx/${cell}`} target="_blank" rel="noreferrer" style={{textDecoration:'none'}}>
+                            {`${cell.substr(0,3)} ... ${cell.substr(-4)}`}
                         </a>
               
                     </div>
                 )
-            }
+            },
         },
         {
             dataField: "fromAddress",
@@ -61,7 +61,8 @@ const AddedLiquidity = ({ LiquidtyData }) => {
                 amount = LiquidtyData.addLiquidityTransaction[i].amount.substr(0, 5)
             }
             if (LiquidtyData.addLiquidityTransaction[i].transaction) {
-                transaction = LiquidtyData.addLiquidityTransaction[i].transaction.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].transaction.substr(-4);
+                transaction = LiquidtyData.addLiquidityTransaction[i].transaction;
+                // transaction = LiquidtyData.addLiquidityTransaction[i].transaction.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].transaction.substr(-4);
             }
             if (LiquidtyData.addLiquidityTransaction[i].currency) {
                 currency = LiquidtyData.addLiquidityTransaction[i].currency

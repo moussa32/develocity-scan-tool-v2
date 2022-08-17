@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { LeftBarToken } from '../../components/Token/Leftheader/LeftBarToken'
 import { NavBar } from '../../components/Home/Header/NavBar'
 import Search from '../../components/Home/Search/MySearch'
@@ -23,6 +24,7 @@ import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
+import { io } from "socket.io-client";
 import { useTranslation } from 'react-i18next'
 export function Token() {
     const dispatch = useDispatch();
@@ -30,11 +32,30 @@ export function Token() {
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const status = useSelector(state => state.tokenOwner.loading);
     const { t } = useTranslation(["token"])
-
+    
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
     const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
-    const tokenAddress = params.contractAddress
+    const tokenAddress = params.contractAddress;
+
+    // const socket = io('https://api.develocity.finance');
+    // const subscribeToDateEvent = (interval = 1000) => {
+    //     socket.emit('subscribeToDateEvent', interval);
+    //   }
+
+    useEffect(() => {
+        
+        // const socket = io('http://20.218.124.106:1885');
+        // socket.on("popularScan", (data) => {
+        //     subscribeToDateEvent();
+        //     console.log('data',data)
+        // })
+        // socket.emit('subscribeToDateEvent');
+        // return () => {
+        //     // socket.off("popularScan");
+        //     socket.close();
+        // }
+    }, []);
 
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))

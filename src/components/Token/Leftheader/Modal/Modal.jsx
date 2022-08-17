@@ -25,9 +25,9 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header border-bottom-0 pt-5">
                 
             <div className="py-2">
             <span className="">
@@ -83,7 +83,7 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
                 aria-label="Close"
               >{t("token:close")} x</button>
             </div>
-            <div className={`modal-body ${styles.modalwrapper}`}>
+            <div className={`modal-body pb-5 ${styles.modalwrapper}`}>
               <h3 className='text-muted'>
                 About <span className='text-decoration-underline'>  {name && name} </span>
               </h3>
@@ -92,7 +92,7 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
                {description ? description :null}
               </p>
             </div>
-            <div className={`${styles.modalFooter} modal-footer`}>
+            {/* <div className={`${styles.modalFooter} modal-footer`}>
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -101,7 +101,7 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
                 {t("token:close")}
               </button>
              
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
