@@ -26,12 +26,14 @@ import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { io } from "socket.io-client";
 import { useTranslation } from 'react-i18next'
+// import { useSocket } from '../../hooks/usesocket'
 export function Token() {
     const dispatch = useDispatch();
     const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const status = useSelector(state => state.tokenOwner.loading);
     const { t } = useTranslation(["token"])
+    // let {emitEnterToken} =useSocket()
     
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
@@ -42,6 +44,16 @@ export function Token() {
     // const subscribeToDateEvent = (interval = 1000) => {
     //     socket.emit('subscribeToDateEvent', interval);
     //   }
+
+    useEffect(() => {
+    //   alert(tokenAddress )  //emit on event using socket
+    // emitEnterToken()
+
+        return () => {
+    //   alert(tokenAddress) //emit on event using socket
+            
+        }
+    }, [tokenAddress]);
 
     useEffect(() => {
         
