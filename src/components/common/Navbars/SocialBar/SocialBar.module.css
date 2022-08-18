@@ -31,6 +31,7 @@
 .langListGroup button> :first-child{
     display: inline-block;
     width: 80px;
+    cursor: pointer;
 }
 .socialIcons_rtl li a{
     color: #888;

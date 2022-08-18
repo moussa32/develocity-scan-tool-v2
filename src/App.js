@@ -42,12 +42,6 @@ function App() {
 
   }, [lang, i18n])
 
-  // useEffect( ()=>{
-  //   console.log("close")
-  //   return () => {
-  //     console.log("close")
-  // }
-  // } ,[])
 
 //   const dispatch = useDispatch();
 //   useEffect(()=>{

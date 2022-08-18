@@ -24,12 +24,10 @@ const ScansSection = () => {
             // console.log('data',data)
         })
         socket.on("highScore", (data) => {
-
             setRecentScans(data);
         }
         )
         socket.on("latestScan", (data) => {
-
             setLastScans(data);
 
         })

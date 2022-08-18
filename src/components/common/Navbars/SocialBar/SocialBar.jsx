@@ -51,6 +51,7 @@ const SocialBar = () => {
   const handleOnclick = (e) => {
     e.preventDefault();
     setLanguage(e.target.value);
+    console.log(e.target.value)
     i18n.changeLanguage(e.target.value);
     document.body.dir = "ltr"
   }
@@ -86,11 +87,11 @@ const SocialBar = () => {
   <MdLanguage size={20}/>
   </button>
   <ul class={`dropdown-menu ${styles.langListGroup}`}>
-    <li role="button"> <button className="dropdown-item fs-5 " value='en' onClick={handleOnclick}><span >English</span> <span className="fi fi-gb "></span></button></li>
-    <li role="button"> <button className="dropdown-item fs-5"  value='ar' onClick={handleOnclick}><span >Arabic</span> <span className="fi fi-sa "></span></button></li>
-    <li role="button"><button className="dropdown-item fs-5"  value='ch' onClick={handleOnclick}><span>Chinese</span> <span className="fi fi-ch "></span></button></li>
-    <li role="button"> <button className="dropdown-item fs-5"  value='ru' onClick={handleOnclick}><span>Russian</span>  <span className="fi fi-ru "></span></button></li>
-    <li role="button"> <button className="dropdown-item fs-5"  value='tr' onClick={handleOnclick}><span>Turkish</span>  <span className="fi fi-tr "></span></button></li>
+    <li role="button"><button className="dropdown-item fs-5" value='en' onClick={handleOnclick}><span role="button">English</span> <span className="fi fi-gb "></span></button></li>
+    <li role="button"><button className="dropdown-item fs-5" value='ar' onClick={handleOnclick}><span role="button">Arabic</span> <span className="fi fi-sa "></span></button></li>
+    <li role="button"><button className="dropdown-item fs-5" value='ch' onClick={handleOnclick}><span role="button">Chinese</span> <span className="fi fi-ch "></span></button></li>
+    <li role="button"><button className="dropdown-item fs-5" value='ru' onClick={handleOnclick}><span role="button">Russian</span>  <span className="fi fi-ru "></span></button></li>
+    <li role="button"><button className="dropdown-item fs-5" value='tr' onClick={handleOnclick}><span >Turkish</span>  <span className="fi fi-tr "></span></button></li>
   </ul>
 </div>
   </li>

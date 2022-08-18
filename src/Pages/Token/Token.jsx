@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { LeftBarToken } from '../../components/Token/Leftheader/LeftBarToken'
 import { NavBar } from '../../components/Home/Header/NavBar'
 import Search from '../../components/Home/Search/MySearch'
@@ -25,8 +24,8 @@ import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next'
-// import { useSocket } from '../../hooks/usesocket'
-import {socket} from '../../utils/socket'
+import {socket} from '../../utils/socket';
+
 export function Token() {
     const dispatch = useDispatch();
     const params = useParams();
@@ -44,10 +43,10 @@ export function Token() {
    
 
     useEffect(() => {
-        socket.emit('intoTokenPage', { contractAddress: tokenAddress });
-        return () => {
-            socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
-        }
+        socket.emit('currentLocation', { contractAddress: tokenAddress ,page:'token'});
+        // return () => {
+        //     socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
+        // }
     }, [tokenAddress]);
 
 
