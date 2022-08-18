@@ -17,6 +17,7 @@ import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal'
 import { SpinnerRoundFilled } from 'spinners-react';
 
 function App() {
+
   const [loading, setLoading] = useState(false);
   const {  i18n   } = useTranslation(["common"]);
 
@@ -40,6 +41,13 @@ function App() {
     };
 
   }, [lang, i18n])
+
+  // useEffect( ()=>{
+  //   console.log("close")
+  //   return () => {
+  //     console.log("close")
+  // }
+  // } ,[])
 
 //   const dispatch = useDispatch();
 //   useEffect(()=>{

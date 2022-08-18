@@ -7,7 +7,7 @@ import TokensTable from '../../components/Tokens/Table/TokensTable'
 import { fetchTokenList } from '../../store/tokenListSlice'
 import styles from './Tokens.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import CopyRight from '../../components/Home/CopyRight/CopyRight'
+// import CopyRight from '../../components/Home/CopyRight/CopyRight'
 
 const Tokens = () => {
     const dispatch = useDispatch();

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import styles from "./SocialBar.module.css";
 import { FaPaperPlane } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
+import { MdLanguage } from 'react-icons/md';
 import { FaFacebookF } from 'react-icons/fa';
 // import { IoIosArrowDown } from 'react-icons/io'
+import 'flag-icons/css/flag-icons.min.css'
 import { useTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 
@@ -47,7 +49,7 @@ const SocialBar = () => {
   }, [currentLanguage])
 
   const handleOnclick = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     setLanguage(e.target.value);
     i18n.changeLanguage(e.target.value);
     document.body.dir = "ltr"
@@ -78,18 +80,32 @@ const SocialBar = () => {
   </ul>
   </li> */}
 
-            <li>
+  <li>
+  <div class="dropdown">
+  <button className={`btn border-0  ${styles.langIcon}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <MdLanguage size={20}/>
+  </button>
+  <ul class={`dropdown-menu ${styles.langListGroup}`}>
+    <li role="button"> <button className="dropdown-item fs-5 " value='en' onClick={handleOnclick}><span >English</span> <span className="fi fi-gb "></span></button></li>
+    <li role="button"> <button className="dropdown-item fs-5"  value='ar' onClick={handleOnclick}><span >Arabic</span> <span className="fi fi-sa "></span></button></li>
+    <li role="button"><button className="dropdown-item fs-5"  value='ch' onClick={handleOnclick}><span>Chinese</span> <span className="fi fi-ch "></span></button></li>
+    <li role="button"> <button className="dropdown-item fs-5"  value='ru' onClick={handleOnclick}><span>Russian</span>  <span className="fi fi-ru "></span></button></li>
+    <li role="button"> <button className="dropdown-item fs-5"  value='tr' onClick={handleOnclick}><span>Turkish</span>  <span className="fi fi-tr "></span></button></li>
+  </ul>
+</div>
+  </li>
+
+            {/* <li>
 
 
               <select className={styles.dropdown} onChange={handleOnclick} aria-label="Default select example">
-               
-<option value="en" selected={lang === 'en'}> English</option>
+<option value="en" selected={lang === 'en'}> English </option>
 <option value="ar" selected={lang === 'ar'}> Arabic</option>
 <option value="ch" selected={lang === 'ch'}> Chinese</option> 
 <option value="ru" selected={lang === 'ru'}>Russian</option>
 <option value="tr" selected={lang === 'tr'}> Turkish</option>
               </select>
-            </li>
+            </li> */}
           </ul>
           {/* end */}
 

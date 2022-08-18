@@ -6,31 +6,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
 import HeaderCard from '../HeaderCard/HeaderCard';
 import CardScans from '../Card/CardScans';
-// import { io } from "socket.io-client";
 import { useTranslation } from 'react-i18next';
-import {  useDispatch } from 'react-redux'
-// import {connectToio} from '../../../Services/SoketIO'
-// import { useSelector } from 'react-redux/es/exports';
-import  {socket}  from '../../../hooks/usesocket';
-// import { useSocket } from '../../../hooks/usesocket';
+import  {socket}  from '../../../utils/socket';
+
 const ScansSection = () => {
-    // let {popularScans,recentScans, lastScans}=useSocket();
     
     const [popularScans, setPopularScans] = useState([]);
     const [recentScans, setRecentScans] = useState([]);
     const [lastScans, setLastScans] = useState([]);
-    // const pop=useSelector((state)=>state.connectSlice.popularScan)
     const { t } = useTranslation(["home"]);
     const lang = localStorage.getItem("i18nextLng")
     
-
-    //ahmed code
     useEffect(() => {
-        // const socket2=dispatch(connectToio())
-        // const socket = io('https://api.develocity.finance');
-        // const socket = io('http://20.218.124.106:1885');
-        // console.log('pop',pop)
-       
 
         socket.on("popularScan", (data) => {
             setPopularScans(data);
@@ -47,12 +34,7 @@ const ScansSection = () => {
 
         })
 
-        return () => {
-            socket.off("popularScan");
-            socket.off("highScore");
-            socket.off("latestScan");
-            socket.close();
-        }
+      
     }, []);
 
 

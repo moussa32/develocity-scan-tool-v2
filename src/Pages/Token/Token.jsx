@@ -24,50 +24,32 @@ import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
-import { io } from "socket.io-client";
 import { useTranslation } from 'react-i18next'
 // import { useSocket } from '../../hooks/usesocket'
+import {socket} from '../../utils/socket'
 export function Token() {
     const dispatch = useDispatch();
     const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
+    const ipAddress = useSelector(state => state.GetIPAddress.data);
+    console.log("ip", ipAddress)
     const status = useSelector(state => state.tokenOwner.loading);
     const { t } = useTranslation(["token"])
-    // let {emitEnterToken} =useSocket()
     
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
     const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
     const tokenAddress = params.contractAddress;
 
-    // const socket = io('https://api.develocity.finance');
-    // const subscribeToDateEvent = (interval = 1000) => {
-    //     socket.emit('subscribeToDateEvent', interval);
-    //   }
+   
 
     useEffect(() => {
-    //   alert(tokenAddress )  //emit on event using socket
-    // emitEnterToken()
-
+        socket.emit('intoTokenPage', { contractAddress: tokenAddress });
         return () => {
-    //   alert(tokenAddress) //emit on event using socket
-            
+            socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
         }
     }, [tokenAddress]);
 
-    useEffect(() => {
-        
-        // const socket = io('http://20.218.124.106:1885');
-        // socket.on("popularScan", (data) => {
-        //     subscribeToDateEvent();
-        //     console.log('data',data)
-        // })
-        // socket.emit('subscribeToDateEvent');
-        // return () => {
-        //     // socket.off("popularScan");
-        //     socket.close();
-        // }
-    }, []);
 
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))
