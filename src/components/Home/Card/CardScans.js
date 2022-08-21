@@ -3,7 +3,7 @@ import styles from "./CardScans.module.css";
 import Header from "./Header";
 import RowScans from "./RowScans";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
-import logo from "../../../assets/images/tron.png";
+// import logo from "../../../assets/images/tron.png";
 
 const CardScans = ({ popularScans, title }) => {
   return (

@@ -189,9 +189,6 @@
     margin:5px 0 8px;
 }
 .address{
-    
-  
-    
     border-radius: 2px;
     display: flex;
     justify-content: center;
@@ -217,7 +214,7 @@
     background-color: rgba(22,199,132,0.2);
    
     border-radius: 2px;
-    height: 35px;
+    /* height: 35px; */
     display: flex;
     align-items: center;
     margin-left: 10px;
@@ -231,7 +228,7 @@
     background-color: rgba(245,163,65,0.2);
    
     border-radius: 2px;
-    height: 35px;
+    /* height: 35px; */
     display: flex;
     align-items: center;
     margin-left: 10px;
@@ -245,7 +242,7 @@
     background-color: rgba(234,57,67,0.15);
    
     border-radius: 2px;
-    height: 35px;
+    /* height: 35px; */
     display: flex;
     align-items: center;
     margin-left: 10px;
@@ -295,7 +292,29 @@
 }
 
 
-
+.isScam{
+    background-color: #EA3943;
+    background-color: rgba(234, 57, 67, 0.2) !important;
+    color:#EA3943;
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 10px;
+    padding: 6px 8px;
+    text-align: center;
+    /* border: 1px solid #EA3943; */
+    font-family: 'SF Pro Display Regular';
+}
+.isNotScam{
+    color: #16c784;
+    background-color: rgba(22, 199, 132, 0.2) !important;
+    /* border: 1px solid #16c784; */
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 2px;
+    padding: 6px 8px;
+    text-align: center;
+    font-family: 'SF Pro Display Regular';
+}
 
 
 @media only screen and (max-width: 991px){

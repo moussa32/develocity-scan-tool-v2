@@ -20,10 +20,13 @@ const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title 
                         </div>
 
                     }
+                    
                     <h3 className={styles.header_token}>{nametoken.length > 36 ? nametoken.substring(0, 36) + "..." : nametoken}</h3>
+                    
                 </div>
 
             </div>
+            {sponsored? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>}
             <h3 className={styles.header_scans}>{
                 title === "Price" ? `$${scans}` : scans
             }</h3>

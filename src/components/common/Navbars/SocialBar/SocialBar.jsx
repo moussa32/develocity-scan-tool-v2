@@ -50,9 +50,10 @@ const SocialBar = () => {
 
   const handleOnclick = (e) => {
     e.preventDefault();
-    setLanguage(e.target.value);
-    console.log(e.target.value)
-    i18n.changeLanguage(e.target.value);
+    setLanguage(e.target.parentNode.value);
+    // console.log(e.target.getAttribute('data-lang'))
+    console.log(e.target.parentNode.value)
+    i18n.changeLanguage(e.target.parentNode.value);
     document.body.dir = "ltr"
   }
 
@@ -83,15 +84,15 @@ const SocialBar = () => {
 
   <li>
   <div class="dropdown">
-  <button className={`btn border-0  ${styles.langIcon}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
-  <MdLanguage size={20}/>
+  <button className={`btn border-0  ${styles.langIcon_ltr}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <MdLanguage size={25}/>
   </button>
-  <ul class={`dropdown-menu ${styles.langListGroup}`}>
-    <li role="button"><button className="dropdown-item fs-5" value='en' onClick={handleOnclick}><span role="button">English</span> <span className="fi fi-gb "></span></button></li>
-    <li role="button"><button className="dropdown-item fs-5" value='ar' onClick={handleOnclick}><span role="button">Arabic</span> <span className="fi fi-sa "></span></button></li>
-    <li role="button"><button className="dropdown-item fs-5" value='ch' onClick={handleOnclick}><span role="button">Chinese</span> <span className="fi fi-ch "></span></button></li>
-    <li role="button"><button className="dropdown-item fs-5" value='ru' onClick={handleOnclick}><span role="button">Russian</span>  <span className="fi fi-ru "></span></button></li>
-    <li role="button"><button className="dropdown-item fs-5" value='tr' onClick={handleOnclick}><span >Turkish</span>  <span className="fi fi-tr "></span></button></li>
+  <ul class={`dropdown-menu  ${lang==='ar'? styles.langListGroup_rtl:styles.langListGroup_ltr}`}>
+    <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='en' onClick={handleOnclick}><span data-lang="en"  >English</span><span className="fi fi-gb "></span></button></li>
+    <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='ar' onClick={handleOnclick}><span data-lang="ar">Arabic</span><span className="fi fi-sa "></span></button></li>
+    <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='ch' onClick={handleOnclick}><span>Chinese</span><span className="fi fi-cn "></span></button></li>
+    <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='ru' onClick={handleOnclick}><span>Russian</span><span className="fi fi-ru "></span></button></li>
+    <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='tr' onClick={handleOnclick}><span>Turkish</span><span className="fi fi-tr "></span></button></li>
   </ul>
 </div>
   </li>

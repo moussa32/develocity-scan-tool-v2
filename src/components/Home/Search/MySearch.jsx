@@ -38,6 +38,7 @@ const MySearch = () => {
         setCopyAddress('Copy Address')
     }, 2000);
 }
+
   useEffect(() => {
     if (term) {
       if (term.startsWith("0x") && term.length === 42) {
@@ -63,6 +64,7 @@ const MySearch = () => {
       // setdataGet(null);
     }
   }, [search, term]);
+  const isScam=true;
   return (
     <div className="w-100 ">
       <span className={styles.searchNote}>
@@ -159,6 +161,13 @@ const MySearch = () => {
                         Score:{Math.round(el.contractScan)}
                       </div>
                     )}
+
+                    <div className="mx-2">
+                      {
+                        isScam?<span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>
+                      }
+                      
+                    </div>
                   </div>
                 </div>
                 <button 

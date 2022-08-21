@@ -62,7 +62,7 @@ export function LeftBarToken() {
 
 
   const [showModal, setShowModal] = useState(false)
-
+  const isScam=true;
   return (
     <>
       {(tokenstatus === 'success') && <>
@@ -156,7 +156,7 @@ export function LeftBarToken() {
             </div>
           </div>
 
-          <div>
+          <div className={styles.contractInfo}>
             <span
               className="me-2 px-2 py-1  mt-2 w-auto"
               style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
@@ -209,6 +209,12 @@ export function LeftBarToken() {
               {t("token:added")}{" "}
               {tokeninfodata ? (tokeninfodata?.createdAt.split("T"))[0] : null}
             </span>
+
+            {
+               
+             isScam?<span className="isScam px-2 py-1 me-2">Scam</span>:<span className="isNotScam px-2 py-1 me-2">Scam</span>
+               
+            }
 
             <Modal
               logo={tokeninfodata?.contractInfo?.logo}

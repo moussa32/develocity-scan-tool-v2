@@ -28,11 +28,18 @@
 .socialIcons_rtl li:last-child{
     margin-left: 0;
 }
-.langListGroup button> :first-child{
+.langListGroup_ltr button> span:first-child,
+.langListGroup_rtl button> span:first-child
+{
     display: inline-block;
     width: 80px;
     cursor: pointer;
+   
 }
+.langListGroup_rtl button> span:first-child{
+    padding-left: 10px;  
+}
+
 .socialIcons_rtl li a{
     color: #888;
     width: 24px;
