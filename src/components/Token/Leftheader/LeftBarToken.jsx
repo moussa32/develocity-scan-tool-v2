@@ -92,9 +92,14 @@ export function LeftBarToken() {
               <span className={`${styles.name} `}>
                 {tokeninfodata ? tokeninfodata.contractInfo.name : null}
               </span>
-              <span className={`ms-2 px-2 h-50 fw-light me-2 ${styles.symbol}`}>
+              <span className={`ms-2 px-2 me-2 py-1 ${styles.symbol}`}>
                 {tokeninfodata ? tokeninfodata.contractInfo.symbol : null}
               </span>
+              {
+               
+               isScam?<span className="isScam px-2 py-1 me-2">Scam</span>:<span className="isNotScam px-2 py-1 me-2">Scam</span>
+                 
+              }
               {/* <span className="ms-2">
                 {tokeninfodata && tokeninfodata.isNotListed ? (
                   <>

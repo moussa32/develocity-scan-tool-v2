@@ -3,6 +3,7 @@ import styles from './RowScans.module.css';
 import { Link } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
 const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title }) => {
+    console.log("scam", typeof((scans)));
     const lang = localStorage.getItem("i18nextLng")
     return (
         <Link className={`text-decoration-none ${styles.container_row}`} to={`/token/${contract}`}>
@@ -26,7 +27,10 @@ const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title 
                 </div>
 
             </div>
-            {sponsored? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>}
+
+            {scans===0 && <span className="isScam">Scam</span>}
+            {/* {scans? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
+
             <h3 className={styles.header_scans}>{
                 title === "Price" ? `$${scans}` : scans
             }</h3>

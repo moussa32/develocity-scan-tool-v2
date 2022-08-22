@@ -21,15 +21,17 @@
     z-index: 99;
     border-radius: 3px;
     animation-name: showMessage;
-    animation-duration: 1s;
-    animation-delay: 3s;
+    animation-duration: 6s;
+    /* animation-delay: 3s; */
     /* opacity: 0; */
     /* visibility: hidden; */
     transition: 0.5s;
 }
 @keyframes showMessage {
-    from{opacity: 0;}
-    to{opacity: 1;}
+    0%{opacity: 0;}
+    50%{opacity: 0;}
+    70%{opacity: 0.3;}
+    100%{opacity: 1;}
 }
 .closeBtn_rtl,.closeBtn_ltr {
     width: 56px !important;
