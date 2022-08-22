@@ -4,6 +4,7 @@ import { Placeholder } from '../../../common/Placeholder/Placeholder';
 import { useTranslation } from 'react-i18next';
 export function Modal({logo,name, symbol,isnotlisted , description}) {
   const {t}=useTranslation(['token'])
+  const lang=localStorage.getItem("i18nextLng")
   return (
     <>
       <span
@@ -78,7 +79,7 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
 
               <button
                 type="button"
-                className={styles.closeBtn}
+                className={`${lang==='ar'?styles.closeBtn_rtl:styles.closeBtn_ltr}`}
                 data-bs-dismiss="modal"
                 aria-label="Close"
               >{t("token:close")} x</button>

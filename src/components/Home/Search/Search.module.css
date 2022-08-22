@@ -218,6 +218,7 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
+    margin-right: 10px;
     font-family: 'SF Pro Display Regular';
 }
 .scanYellow{
@@ -232,6 +233,7 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
+    margin-right: 10px;
     font-family: 'SF Pro Display Regular';
 }
 .scanRed{
@@ -246,9 +248,10 @@
     display: flex;
     align-items: center;
     margin-left: 10px;
+    margin-right: 10px;
     font-family: 'SF Pro Display Regular';
 }
-.arrowBtn{
+.arrowBtn_rtl, .arrowBtn_ltr{
     border: 0;
     background: rgba(136,136,136,0.8);
     width: 25px;
@@ -264,7 +267,9 @@
    opacity: 0;
     transition: 0.5s;
 }
-.resultRecord:hover .arrowBtn{
+.resultRecord:hover .arrowBtn_rtl,
+.resultRecord:hover .arrowBtn_ltr
+{
     visibility: visible;
     opacity: 1;
 }
@@ -328,12 +333,18 @@
         margin-top: 30px;
     }
     .searchBlock{
-        width: 85%;
+        width: 93%;
     }
-    .arrowBtn{
+    .arrowBtn_rtl, .arrowBtn_ltr{
         position: absolute;
-    right: 10px;
-    top: 20px;
+        top: 28px;
+    }
+    .arrowBtn_ltr{
+        right: 10px;
+
+    }
+    .arrowBtn_rtl{
+        left: 10px; 
     }
     .resultRecord{
         position: relative;

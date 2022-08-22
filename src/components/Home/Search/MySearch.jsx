@@ -4,8 +4,7 @@ import {IoCopy} from 'react-icons/io5';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import styles from "./Search.module.css";
 import { FaCircle } from "react-icons/fa";
-import { BiBitcoin } from "react-icons/bi";
-import { BsArrowRight, BsFillPatchCheckFill } from "react-icons/bs";
+import { BsArrowRight, BsFillPatchCheckFill ,BsArrowLeft} from "react-icons/bs";
 import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
 import { useTranslation } from 'react-i18next';
 const MySearch = () => {
@@ -162,17 +161,23 @@ const MySearch = () => {
                       </div>
                     )}
 
-                    <div className="mx-2">
+                    <div className="">
                       {
-                        isScam?<span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>
+                        (Math.round(el.contractScan))===0 &&(
+                          <span className="isScam">Scam</span>
+                        )
                       }
+                      {/* {
+                        isScam?<span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>
+                      } */}
                       
                     </div>
                   </div>
                 </div>
+                
                 <button 
-                     className={styles.arrowBtn}>
-                  <BsArrowRight />
+                     className={`${lang==='ar'? styles.arrowBtn_rtl:styles.arrowBtn_ltr}`}>
+                      {lang==='ar'? <BsArrowLeft />: <BsArrowRight />}
                 </button>
               </div>
             ))}

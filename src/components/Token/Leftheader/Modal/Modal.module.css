@@ -36,7 +36,7 @@
 .modalwrapper p{
     font-family: 'SF Pro Display Regular'    
 }
-.closeBtn{
+.closeBtn_rtl, .closeBtn_ltr{
     width: 56px;
     height: 24px;
     background: #E8EAEC;
@@ -45,9 +45,15 @@
     font-size: 12px;
     font-weight: 500;
     color: #888888;
-    /* position: absolute; */
+    position: absolute;
     /* right: 20px; */
-    /* top: 15px; */
+    top: 15px;
+}
+.closeBtn_rtl{
+ left: 20px;
+}
+.closeBtn_ltr{ 
+    right: 20px;
 }
 .modalFooter{
     border-top: 0;

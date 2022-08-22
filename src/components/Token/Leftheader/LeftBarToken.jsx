@@ -62,7 +62,6 @@ export function LeftBarToken() {
 
 
   const [showModal, setShowModal] = useState(false)
-  const isScam=true;
   return (
     <>
       {(tokenstatus === 'success') && <>
@@ -89,6 +88,7 @@ export function LeftBarToken() {
                   </div>
                 )}
               </span>
+              
               <span className={`${styles.name} `}>
                 {tokeninfodata ? tokeninfodata.contractInfo.name : null}
               </span>
@@ -96,10 +96,13 @@ export function LeftBarToken() {
                 {tokeninfodata ? tokeninfodata.contractInfo.symbol : null}
               </span>
               {
+                tokeninfodata?.interest===0 && <span className="isScam px-2  me-2">Scam</span>
+              }
+              {/* {
                
                isScam?<span className="isScam px-2 py-1 me-2">Scam</span>:<span className="isNotScam px-2 py-1 me-2">Scam</span>
                  
-              }
+              } */}
               {/* <span className="ms-2">
                 {tokeninfodata && tokeninfodata.isNotListed ? (
                   <>
@@ -215,20 +218,20 @@ export function LeftBarToken() {
               {tokeninfodata ? (tokeninfodata?.createdAt.split("T"))[0] : null}
             </span>
 
-            {
-               
-             isScam?<span className="isScam px-2 py-1 me-2">Scam</span>:<span className="isNotScam px-2 py-1 me-2">Scam</span>
-               
+           
+
+            { tokeninfodata?.contractInfo?.description &&<> 
+               <Modal
+               logo={tokeninfodata?.contractInfo?.logo}
+               name={tokeninfodata?.contractInfo?.name}
+               description={tokeninfodata?.contractInfo?.description}
+               symbol={tokeninfodata?.contractInfo?.symbol}
+               isnotlisted={tokeninfodata?.isNotListed}
+ 
+             />
+             </>
             }
-
-            <Modal
-              logo={tokeninfodata?.contractInfo?.logo}
-              name={tokeninfodata?.contractInfo?.name}
-              description={tokeninfodata?.contractInfo?.description}
-              symbol={tokeninfodata?.contractInfo?.symbol}
-              isnotlisted={tokeninfodata?.isNotListed}
-
-            />
+           
 
 
           </div>
