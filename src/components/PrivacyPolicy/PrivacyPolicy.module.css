@@ -1,7 +1,32 @@
-
+h2{
+  font-size: calc(0.9rem + .8vw);
+}
+h5{
+  font-size: 1rem;
+}
+a{
+  font-size: 13px;
+  font-family: "SF Pro Display Regular";
+}
+span{
+  font-size: 14px;
+  font-family: "SF Pro Display Regular";
+}
   .large_table{
     width: 100%;
   }
+
+  table, td, th, p{
+    font-size: 14px;
+    font-family: "SF Pro Display Regular";
+  }
+  @media (max-width: 500px) {
+    .wallets_table .react-bootstrap-table table {
+      overflow: auto;
+      display: block;
+      table-layout: auto;
+    }
+  } 
   @media (max-width: 800px) {
   
   
@@ -19,3 +44,4 @@
       table-layout: auto;
     }
   }
+  

@@ -216,8 +216,7 @@ const columns = [{
   text: 'Examples',
   style: {
     color: '#333',
-    fontSize: '18px',
-    width:'50px'
+    fontSize: '14px',
   }
 }, {
   dataField: 'collected',
@@ -419,7 +418,7 @@ const columns = [{
                />
                <p>If you are located in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: <a  href="https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.">https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.</a></p>
                 <p>If you are located in Switzerland, the contact details for the data protection authorities are available here: <a href="https://www.edoeb.admin.ch/edoeb/en/home.html">https://www.edoeb.admin.ch/edoeb/en/home.html.</a></p>
-                <p> <span className="yext-decoration-underline">Withdrawing your consent: </span>If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section '<span className="text-primary">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</span>'below or updating your preferences.</p>
+                <p> <span className="text-decoration-underline">Withdrawing your consent: </span>If we are relying on your consent to process your personal information, which may be express and/or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section '<span className="text-primary">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</span>'below or updating your preferences.</p>
                 <DescList dtermheader="" dterm="However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent. " ddata={[]}
                stylingobj={{"marginTop":"15px"}}
                />
@@ -477,7 +476,7 @@ const columns = [{
                        <DescList dtermheader="" dterm="We have collected the following categories of personal information in the past twelve (12) months:  "
                         ddata={[]}
                        stylingobj={{"marginTop":"15px"}} />
-<div className={`${styles.large_table} table-responsive  row col-6 d-flex`} style={{overflowX: 'auto'}}>
+<div className={`${styles.wallets_table} table-responsive`} >
 <BootstrapTable keyField='id' data={ products } columns={ columns } hover={true}/>
 </div>
 

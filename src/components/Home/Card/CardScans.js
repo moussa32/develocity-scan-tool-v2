@@ -14,7 +14,7 @@ const CardScans = ({ popularScans, title }) => {
           ? popularScans.map((item, index) => {
             // console.log(item.contractInfo.name,item.contractAddress,'=****===>');
             return (
-              (item?.contractInfo && index + 1 <= 5 && Object.keys(item.contractInfo).length !== 0) &&
+              (item?.contractInfo && index + 1 <= 5 && Object.keys(item.contractInfo).length !== 0) && <>
               <RowScans
                 key={index}
                 number={index + 1}
@@ -25,6 +25,8 @@ const CardScans = ({ popularScans, title }) => {
                 sponsored="fales"
                 title={title}
               />
+             
+               </>
             )
           }
 
