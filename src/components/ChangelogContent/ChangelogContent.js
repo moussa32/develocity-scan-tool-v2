@@ -100,11 +100,11 @@ className={`${category==="Company" && styles.btnCompany} ${styles.navLink} nav-l
 
     <div className={lang==="ar"?styles.content_rtl:styles.content_ltr}>
       {el.news.map ( (ele=>(
-        <>
+        <div className={styles.details}>
         <h2 className={styles.title}>{ele.title}</h2>
-        <p>{ele.description}. </p>
+        <p >{ele.description}. </p>
         
-        </>
+        </div>
       )) )}
       
     </div>

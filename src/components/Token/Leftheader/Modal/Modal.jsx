@@ -20,7 +20,8 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
         {t("token:view_more")} <img src={icon} height="18" alt="" />
       </span>
       <div
-        className={`modal fade ${styles.fade2}`}
+        className={`modal fade ${styles.fade2} ${lang==='ar'?styles.left:styles.no}`}
+        style={{paddingRight: "1px"}}
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
