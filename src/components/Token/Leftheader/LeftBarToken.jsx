@@ -322,8 +322,8 @@ export function LeftBarToken() {
           </div>
 
           <div className={`d-flex justify-content-between flex-wrap`}>
-          <Placeholder styling={ {width:'150px',height:'20px'}}/>
-          <Placeholder styling={ {width:'150px',height:'20px'}}/>
+          <Placeholder styling={ {width:'120px',height:'20px'}}/>
+          <Placeholder styling={ {width:'120px',height:'20px'}}/>
           </div>
 
           <div className="d-flex flex-wrap ">
@@ -348,16 +348,16 @@ export function LeftBarToken() {
           <div
             className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}>
             <div>
-              <Placeholder styling={ {width:'130px',height:'20px'}}/>
-              <Placeholder styling={ {width:'130px',height:'20px'}}/>
+              <Placeholder styling={ {width:'100px',height:'20px'}}/>
+              <Placeholder styling={ {width:'100px',height:'20px'}}/>
             </div>
             <div>
-              <Placeholder styling={ {width:'130px',height:'20px'}}/>
-              <Placeholder styling={ {width:'130px',height:'20px'}}/>
+              <Placeholder styling={ {width:'100px',height:'20px'}}/>
+              <Placeholder styling={ {width:'100px',height:'20px'}}/>
             </div>
             <div>
-              <Placeholder styling={ {width:'130px',height:'20px'}}/>
-              <Placeholder styling={ {width:'130px',height:'20px'}}/>
+              <Placeholder styling={ {width:'100px',height:'20px'}}/>
+              <Placeholder styling={ {width:'100px',height:'20px'}}/>
             </div>
           </div>
         </div>

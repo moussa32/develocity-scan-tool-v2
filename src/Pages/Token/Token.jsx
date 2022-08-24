@@ -58,7 +58,7 @@ export function Token() {
 
     return (
         <>
-            <div className="bg-white" style={{width:'280px'}}>
+            <div className="bg-white" >
 
                 <NavBar />
                 <section className='container '>
