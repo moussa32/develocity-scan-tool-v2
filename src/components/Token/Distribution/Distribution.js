@@ -10,7 +10,7 @@ import { Placeholder } from "../../common/Placeholder/Placeholder";
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import { useTranslation } from 'react-i18next';
-
+import { ChartLoader } from "../../common/Placeholder/ChartLoader";
 
 
 const Distribution = () => {
@@ -123,14 +123,14 @@ const Distribution = () => {
           </div>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
-              <h6><FaCircle className={lang=="ar"?styles.circleIconTwo_rtl:styles.circleIconTwo_ltr} />{t("token:Airdrop_holders")}</h6>
+              <h6><FaCircle className={lang==="ar"?styles.circleIconTwo_rtl:styles.circleIconTwo_ltr} />{t("token:Airdrop_holders")}</h6>
               <span className={styles.chartNumber}>{distData ? distData.airdropHolders : null}</span>
             </div>
             <p>{t("token:sent_token")}</p>
           </div>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
-              <h6><FaCircle className={lang=="ar"?styles.circleIconThree_rtl:styles.circleIconThree_ltr} />{t("token:Wallet_shrink")}</h6>
+              <h6><FaCircle className={lang==="ar"?styles.circleIconThree_rtl:styles.circleIconThree_ltr} />{t("token:Wallet_shrink")}</h6>
               <span className={styles.chartNumber}>{distData ? distData.shrinkHolders : null}</span>
             </div>
             <p>{t("token:Wallets_with_small_amounts_after_selling")}</p>
@@ -138,11 +138,12 @@ const Distribution = () => {
         </div>
         <div className={styles.chart} id="chart">
           <ReactApexChart options={options} series={options.series} type="donut" />
+
         </div>
         </>
         }
 
-        {statusDist=='loading' &&<>
+        {statusDist==='loading' &&<>
          <div className={styles.chartInfo}>
          <div className={styles.infoRecord}>
            <div className={styles.infoTitle}>
@@ -168,7 +169,12 @@ const Distribution = () => {
          </div>
        </div>
        <div className={styles.chart} id="chart">
-       <Placeholder styling={ {width:'150px',height:'150px'}}/>
+       {/* <Placeholder styling={ {width:'150px',height:'150px', borderRadius:'50%'}}/> */}
+       <ChartLoader styling={{outerwidth:'150px', outerheight:'150px',innerwidth:'110px', innerheight:'110px', bginner:'#fff'}}/>
+
+
+
+
         </div>
        </>
         }
@@ -180,7 +186,7 @@ const Distribution = () => {
       </div>
     </div>
 
-    {statusDist=='failed' &&''}
+    {statusDist==='failed' &&''}
     </>
   )
 }

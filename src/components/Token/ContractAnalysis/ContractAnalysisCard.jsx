@@ -88,7 +88,7 @@ export function ContractAnalysisCard(){
         
         }
 
-        {bscstatus=='loading' && 
+        {bscstatus==='loading' && 
                          <div className="" style={{width:'100%'}}>
                          <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>{t("token:contract_address")}</h5>
                          <div className={`list-group align-self-center border-0  ${styles.listGroup} `} >

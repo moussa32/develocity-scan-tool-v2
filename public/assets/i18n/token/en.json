@@ -41,7 +41,7 @@
 	"transaction": "Transaction",
 	"hash": "Hash",
 	"top10wallets": "Top 10 Wallets",
-	"tokentransactions": "Total Transactions",
+	"tokenTransactions":"Token Transactions",
 	"rank": "Rank",
 	"nametag": "Name Tag",
 	"balance": "Balance",

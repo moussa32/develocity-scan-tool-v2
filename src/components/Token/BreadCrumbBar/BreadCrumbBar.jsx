@@ -34,7 +34,7 @@ const BreadCrumbBar = () => {
   return (
     <div className="container">
       <div className={styles.breadCrumbBar}>
-        <ul className={lang=="ar"?styles.breadCrumb_rtl:styles.breadCrumb_ltr}>
+        <ul className={lang==="ar"?styles.breadCrumb_rtl:styles.breadCrumb_ltr}>
           <li>{t("token:home")}</li>
           <li>{t("token:scanner")}</li>
           <li>{tokeninfodata ? (tokeninfodata.contractInfo.name) : null}</li>
@@ -53,7 +53,7 @@ const BreadCrumbBar = () => {
             }
           }}
 
-          >{t("token:Share")}<AiOutlineUpload className={lang=="ar"?styles.shareIcon_rtl:styles.shareIcon_ltr} /></button>
+          >{t("token:Share")}<AiOutlineUpload className={lang==="ar"?styles.shareIcon_rtl:styles.shareIcon_ltr} /></button>
         </div>
       </div>
 

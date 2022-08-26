@@ -94,6 +94,7 @@
     display: block;
     table-layout: auto;
   }
+  
 }
 
 @media (max-width: 800px) {
@@ -103,6 +104,9 @@
     overflow: auto;
     display: block;
     table-layout: auto;
+  }
+  .wallet_table_td_width td{
+    min-width: 100px;
   }
 }
 

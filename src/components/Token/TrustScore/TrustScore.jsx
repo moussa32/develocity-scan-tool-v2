@@ -6,7 +6,7 @@ import { fetchScore } from "../../../Pages/DataFetch/FetchTrustScoreData";
 import { useParams } from "react-router-dom";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
 import { useTranslation } from 'react-i18next';
-
+import { ChartLoader } from "../../common/Placeholder/ChartLoader";
 const TrustScore =() =>{
   const param = useParams()
   const contractAddress = param.contractAddress;
@@ -84,13 +84,14 @@ const TrustScore =() =>{
 
     return(
         <>
-        <div className={lang =="ar"?styles.trustScoreBlock_rtl:styles.trustScoreBlock_ltr} >
-          {statusTrust=='success' && <>
+        <div className={lang ==="ar"?styles.trustScoreBlock_rtl:styles.trustScoreBlock_ltr} >
+          {statusTrust==='success' && <>
           <div >
         <span className={styles.blockTitle}>{t("token:trust_score")}</span>
 
 
         <div className={styles.chart} id="chart" >
+
         <ReactApexChart options={options} series={options.series} type="radialBar" height={250} width={350}/>
       </div>
       <h2 className={styles.title}>{t("token:moderate")}</h2>
@@ -108,13 +109,16 @@ const TrustScore =() =>{
         </div>
           </>}
 
-          {statusTrust=='loading' && <>
+          {statusTrust==='loading' && <>
           <div className={styles.trustScoreBlock}>
         <span className={styles.blockTitle}>trust score</span>
 
 
         <div className={styles.chart} id="chart" >
-          <Placeholder styling={ {width:'160px',height:'150px'}}/>
+          {/* <Placeholder styling={ {width:'160px',height:'150px', borderRadius:'50%'}}/> */}
+          <ChartLoader styling={{outerwidth:'150px', outerheight:'150px',innerwidth:'120px', innerheight:'120px',bginner:'#000', bgouter:'white'}}/>
+      
+
       </div>
       <h2 className={styles.title}>moderate</h2>
 
@@ -133,7 +137,7 @@ const TrustScore =() =>{
  
         </div>
 
-        {statusTrust=='failed' &&''}
+        {statusTrust==='failed' &&''}
 </>
 
     )

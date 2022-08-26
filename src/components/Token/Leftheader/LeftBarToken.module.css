@@ -72,9 +72,15 @@
         justify-content: space-between;
 
     }
-    .contractaddress{
-        font-size: 14px ;
-        font-weight: bold;
     
+   
+    .contractaddress{
+        font-weight: bold;
+        display: inline-block;
+        font-size: 12px;
+
+    }
+    .name, .symbol{
+        font-size: 12px;
     }
 }

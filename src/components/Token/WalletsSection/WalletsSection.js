@@ -14,7 +14,7 @@ const WalletsSection = ({ walletsData, topWalletData, bSCTrasaction }) => {
             <Tabs defaultActiveKey={Active} id="uncontrolled-tab-example" >
                 {
                     walletsData?.ownerInfo?.top10LiquidityHolder.length > 0 &&
-                    <Tab eventKey="LiquidityWallets" title={t("token:top10liquiditywallets")}>
+                    <Tab eventKey="LiquidityWallets" title={t("token:top10liquiditywallets")} className="h-50">
                         <WalletsTable walletsData={walletsData} />
                     </Tab>
                 }

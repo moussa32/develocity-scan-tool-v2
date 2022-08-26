@@ -145,8 +145,8 @@ export function LeftBarToken() {
             <div>
               <span
                 value={contractAddress}
-                className={`text-primary ms-2 ${styles.contractaddress}`}
-                style={{ fontFamily: "SF Pro Display Medium" }}
+                className={`text-primary pb-1 ms-2 ${styles.contractaddress}`}
+                style={{ fontFamily: "SF Pro Display Medium" ,fontSize:"10px"}}
               >
                 {contractAddress
                   ? `${contractAddress.slice(0, 10)}...${contractAddress.slice(

@@ -23,7 +23,8 @@ import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
+import { TableLoader } from '../../components/common/TableLoader'
 import {socket} from '../../utils/socket';
 
 export function Token() {
@@ -32,7 +33,11 @@ export function Token() {
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const ipAddress = useSelector(state => state.GetIPAddress.data);
     console.log("ip", ipAddress)
-    const status = useSelector(state => state.tokenOwner.loading);
+    const tokenOwner_isLoading = useSelector(state => state.tokenOwner.loading);
+    const tokenList_isLoading = useSelector(state => state.tokenList.loading);
+    const topWallet_isLoading = useSelector(state => state.topWallet.loading);
+    const bscLiquidity_isLoading = useSelector(state => state.bscLiquidityScan.loading);
+    const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
     const { t } = useTranslation(["token"])
     
     const topWalletData = useSelector(state => state.topWallet.topWallet);
@@ -93,15 +98,24 @@ export function Token() {
                             <Distribution />
                         </div>
                         <div className='col-lg-6 col-md-12'>
-                            <div className='wallets_table'>
+                            
+                            {
+                              (topWallet_isLoading ==='success' || tokenOwner_isLoading === 'success' ||bscTransaction_isLoading==='success')?
+                              <div className='wallets_table'>
                                 <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} bSCTrasaction={bSCTrasaction} />
-                            </div>
+                            </div>  :
+                            ( (topWallet_isLoading || tokenOwner_isLoading || bscTransaction_isLoading)? <TableLoader/>:null )
+
+                            
+                            }
+
+                            
                         </div>
                     </div>
 
                     <div className='row mb-5'>
                         {
-                            (status === 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
+                            (tokenOwner_isLoading === 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
                             <div className='col-lg-6 col-md-12'>
                                 <div className='wallets_table'>
                                     {/* <TokenOwner tokenOwnerData={tokenOwnerData} /> */}
@@ -121,7 +135,6 @@ export function Token() {
 
                         <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
-
                                 <LockedSection LockedTokensData={tokenOwnerData} />
                             </div>
                         </div>
@@ -141,9 +154,14 @@ export function Token() {
 
                         </div>
                         <div className='col-12 col-lg-6'>
-                            <div className='wallets_table'>
+                        {
+                              (bscLiquidity_isLoading ==='success' ||bscTransaction_isLoading==='success')?
+                              <div className='wallets_table wallet_table_td_width'>
                                 <LiquidtySection LiquidtyData={bscLiquidityScan} bSCTrasaction={bSCTrasaction} />
-                            </div>
+                            </div>  :
+                            ( (bscLiquidity_isLoading || bscTransaction_isLoading)? <TableLoader/>:null )
+
+                            }
                         </div>
                     </div>
 
