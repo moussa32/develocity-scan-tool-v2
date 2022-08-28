@@ -37,6 +37,7 @@
     align-items: center;
     margin-bottom: 28px;
     flex-wrap: wrap;
+    width: 100%;
 }
 .infoTitle{
     display: flex;

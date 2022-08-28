@@ -22,12 +22,16 @@ span{
     font-size: 14px;
     font-family: "SF Pro Display Regular";
   }
+  td{
+    min-width: 200px;
+  }
   @media (max-width: 500px) {
     .wallets_table .react-bootstrap-table table {
       overflow: auto;
       display: block;
       table-layout: auto;
     }
+     
   } 
   @media (max-width: 800px) {
   
