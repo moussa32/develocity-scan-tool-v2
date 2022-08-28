@@ -85,3 +85,4 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
 }
 
 export default LiquidtyTable
+

@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import './WalletsSection.css'
 const WalletsSection = ({ walletsData, topWalletData, bSCTrasaction }) => {
     const { t } = useTranslation(["token"])
-    let Active = topWalletData?.ownerInfo?.top10LiquidityHolder.length > 0 ? 'TopWallets' : 'LiquidityWallets'
+    let Active = topWalletData?.ownerInfo?.top10LiquidityHolder.length > 0 ? 'LiquidityWallets' : (topWalletData?.topTenHolder?.length > 0 ?'TokenTransactions':'TopWallets') 
     return (
         <>
             <Tabs defaultActiveKey={Active} id="uncontrolled-tab-example" >
