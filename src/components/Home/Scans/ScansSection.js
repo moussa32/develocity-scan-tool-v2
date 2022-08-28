@@ -18,7 +18,6 @@ const ScansSection = () => {
     const lang = localStorage.getItem("i18nextLng")
     
     useEffect(() => {
-
         socket.on("popularScan", (data) => {
             setPopularScans(data);
             // console.log('data',data)

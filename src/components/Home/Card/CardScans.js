@@ -6,6 +6,7 @@ import { Placeholder } from "../../common/Placeholder/Placeholder";
 // import logo from "../../../assets/images/tron.png";
 
 const CardScans = ({ popularScans, title }) => {
+  // console.log("popularScans",popularScans)
   return (
     <div className={styles.container_card}>
       <div className={styles.card}>
@@ -14,7 +15,7 @@ const CardScans = ({ popularScans, title }) => {
           ? popularScans.map((item, index) => {
             // console.log(item.contractInfo.name,item.contractAddress,'=****===>');
             return (
-              (item?.contractInfo && index + 1 <= 5 && Object.keys(item.contractInfo).length !== 0) && <>
+              (item?.contractInfo  && Object.keys(item.contractInfo).length !== 0) && <>
               <RowScans
                 key={index}
                 number={index + 1}

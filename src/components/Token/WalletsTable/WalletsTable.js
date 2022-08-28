@@ -65,6 +65,7 @@ const WalletsTable = ({ walletsData }) => {
             let nameTag = 'N/A'
             let balance = Number(walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).toLocaleString("en-US");
             let percentage = `${Number(walletsData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2)}%`;
+            // let lockedLiquidityPercentage=walletsData.ownerInfo.top10LiquidityHolder[i].lockedLiquidityTokenPercentage;
             wallet.push({ id, address,walletaddress, nameTag, balance, percentage });
 
         }
