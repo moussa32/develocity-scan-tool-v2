@@ -10,7 +10,6 @@ import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from 'react-i18next';
 import { IconContainer } from "./IconsContainer/IconContainer";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
-import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
 // import axios from "axios";
 export function LeftBarToken() {
   // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
@@ -19,15 +18,13 @@ export function LeftBarToken() {
   const contractAddress = params.contractAddress;
   const tokenData = useSelector((state) => state.Gettokeninfodata.data);
   const tokenstatus = useSelector(state => state.Gettokeninfodata.status);
-  const search = useSelector((state) => state.Search);
-  const myData = search.data.payload?.result;
-  
+  const score = useSelector(state => state.Score.data)
+
+  const scoreData = score.result;
+
+  console.log("ll",scoreData)
   const dispatch = useDispatch();
-  //  console.log(search.status =="success" && search.data.payload)
-  useEffect(() => {
-    
-      dispatch(fetchResult(contractAddress));
-  }, [dispatch, contractAddress]);
+
   // console.log("scam",myData)
   
 
@@ -106,15 +103,12 @@ export function LeftBarToken() {
               <span className={`ms-2 px-2 me-2 py-1 ${styles.symbol}`}>
                 {tokeninfodata ? tokeninfodata.contractInfo.symbol : null}
               </span>
-              
               {
-                myData[0]?.contractScan===0 && <span className= {`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>
+                (scoreData?.contractScan)===0&&<span className= {`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>
               }
-              {/* {
-               
-               isScam?<span className="isScam px-2 py-1 me-2">Scam</span>:<span className="isNotScam px-2 py-1 me-2">Scam</span>
-                 
-              } */}
+              
+              
+             
               {/* <span className="ms-2">
                 {tokeninfodata && tokeninfodata.isNotListed ? (
                   <>
