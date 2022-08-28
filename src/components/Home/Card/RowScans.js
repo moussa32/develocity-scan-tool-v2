@@ -28,7 +28,7 @@ const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title 
 
             </div>
 
-            {scans===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px'}}>Scam</span>}
+            {scans===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>}
             {/* {scans? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
 
             <h3 className={styles.header_scans}>{
