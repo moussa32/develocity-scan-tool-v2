@@ -123,10 +123,10 @@ const TrustScore =() =>{
       <h2 className={styles.title}>moderate</h2>
 
       <ul className={styles.chartList}>
-      <li className={styles.critical}>critical issues<span> <Placeholder styling={ {width:'50px',height:'20px'}}/> </span></li>
+      {/* <li className={styles.critical}>critical issues<span> <Placeholder styling={ {width:'50px',height:'20px'}}/> </span></li>
       <li>{t("token:important_issues")}<span className={styles.important}><Placeholder styling={ {width:'50px',height:'20px'}}/></span></li>
       <li>informational issues<span className={styles.information}><Placeholder styling={ {width:'50px',height:'20px'}}/></span></li>
-     
+      */}
       </ul>
 
        
