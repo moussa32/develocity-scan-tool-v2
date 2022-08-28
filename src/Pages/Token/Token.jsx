@@ -62,7 +62,7 @@ export function Token() {
     }, [dispatch, tokenAddress]);
 
     return (
-        <>
+      
             <div className="bg-white" >
 
                 <NavBar />
@@ -170,6 +170,6 @@ export function Token() {
                 </section>
                             <CopyRight/>
             </div>
-        </>
+       
     )
 }

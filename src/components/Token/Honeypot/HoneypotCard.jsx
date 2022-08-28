@@ -19,7 +19,7 @@ export function HoneypotCard(){
 
     return(
         <div>
-            <h5 className=' pt-3 pb-2' style={{fontFamily: 'SF Pro Display Medium'}}>{t("token:honeypot")}</h5>
+            <h5 className=' ' style={{fontFamily: 'SF Pro Display Medium'}}>{t("token:honeypot")}</h5>
             <div className={`d-flex  pt-0 ` } >
             {
                 newhoney && newhoney.honeypotTest==="PASS"?

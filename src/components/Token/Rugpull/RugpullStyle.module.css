@@ -6,6 +6,26 @@
     display: flex;
     
 }
+.cardYellow{
+    width: 100%; 
+    border: 1px solid #F5A341;
+    padding: 10px;
+    display: flex; 
+}
+.cardYellow h5{
+    color: #F5A341;
+}
+.rgIcon{
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    background-color: #F5A341;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    border-radius: 2px;
+
+}
 .cardRed{
     width: 100%;
     border: 1px solid #EA3943;

@@ -7,7 +7,7 @@
     align-items: center;
 }
 .socialIcons li{
-    margin-right: 8px;
+    margin-right: 2px;
 }
 .socialIcons li:last-child{
     margin-right: 0;

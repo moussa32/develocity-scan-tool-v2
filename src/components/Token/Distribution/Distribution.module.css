@@ -67,6 +67,10 @@
     color: #EC6666;
     margin-right: 10px;
 }
+.circleIconFour_ltr{
+    margin-right: 10px;
+    color: #5b70c2;
+}
 .chartNumber{
     font-size: 16px;
     font-weight: 500;
@@ -85,6 +89,11 @@
 .circleIconThree_rtl{
     color: #EC6666;
     margin-left: 10px;
+}
+.circleIconFour_rtl{
+    margin-left: 10px;
+    color: #5b70c2;
+
 }
 .infoRecord p{
     color: #888;

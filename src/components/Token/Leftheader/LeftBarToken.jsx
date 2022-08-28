@@ -65,7 +65,7 @@ export function LeftBarToken() {
   return (
     <>
       {(tokenstatus === 'success') && <>
-        <ModalForm show={showModal} close={() => setShowModal(false)} />
+        {/* <ModalForm show={showModal} close={() => setShowModal(false)} /> */}
         <div className="w-100">
           <div className="d-flex justify-content-between align-items-center flex-wrap">
             <div className="py-2">

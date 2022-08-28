@@ -64,7 +64,7 @@ export function ContractAnalysisCard(){
         <>
             {(bscstatus==='success' )  &&
               <div className="" style={{width:'100%'}}>
-              <h5 style={{fontFamily: 'SF Pro Display Medium'}} className=' pt-3 pb-2'>{t("token:contract_analysis")}</h5>
+              <h5 style={{fontFamily: 'SF Pro Display Medium'}} className=' '>{t("token:contract_analysis")}</h5>
               <div className={"list-group align-self-center border-0 " +(lang==="ar"?styles.listGroup_rtl:styles.listGroup_ltr)}  >
               {data.map( (item,index)=>{
                   return ( 
@@ -90,7 +90,7 @@ export function ContractAnalysisCard(){
 
         {bscstatus==='loading' && 
                          <div className="" style={{width:'100%'}}>
-                         <h5 style={{fontFamily: 'SF Pro Display Medium'}} className='text-start pt-3 pb-2'>{t("token:contract_address")}</h5>
+                         <h5 style={{fontFamily: 'SF Pro Display Medium'}} className={`text-start ${styles.contractAddress}`  }>{t("token:contract_address")}</h5>
                          <div className={`list-group align-self-center border-0  ${styles.listGroup} `} >
                          {data.map( (item)=>{
                              return ( 

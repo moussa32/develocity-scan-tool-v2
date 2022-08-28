@@ -12,6 +12,7 @@
 .listGroup >div{
    height: 40px; 
 }
+
 .detected{
     background-color: #EA3943;
     background-color: rgba(234, 57, 67, 0.2) !important;

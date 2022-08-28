@@ -111,11 +111,18 @@ const Distribution = () => {
       
       <div className={styles.distChartDiv}>
         {
-          statusDist=='success' &&<>
+          statusDist==='success' &&<>
           <div className={styles.chartInfo}>
           <div className={styles.infoRecord}>
             <div className={styles.infoTitle}>
-              <h6><FaCircle className={lang=="ar"?styles.circleIconOne_rtl:styles.circleIconOne_ltr} />{t("token:Real_Holders")}</h6>
+              <h6><FaCircle className={lang==="ar"?styles.circleIconFour_rtl:styles.circleIconFour_ltr} />{t("token:totalHolder")}</h6>
+              <span className={styles.chartNumber}>{distData ? distData.totalHolder : null}</span>
+            </div>
+            {/* <p>{t("token:Wallets_with_small_amounts_after_selling")}</p> */}
+          </div>
+          <div className={styles.infoRecord}>
+            <div className={styles.infoTitle}>
+              <h6><FaCircle className={lang==="ar"?styles.circleIconOne_rtl:styles.circleIconOne_ltr} />{t("token:Real_Holders")}</h6>
               <span className={styles.chartNumber}>{distData ? distData.realholders : null}</span>
             </div>
             <p>{t("token:The_actual_number_of_token_holders")} </p>
@@ -135,6 +142,7 @@ const Distribution = () => {
             </div>
             <p>{t("token:Wallets_with_small_amounts_after_selling")}</p>
           </div>
+         
         </div>
         <div className={styles.chart} id="chart">
           <ReactApexChart options={options} series={options.series} type="donut" />
@@ -166,6 +174,13 @@ const Distribution = () => {
              <span className={styles.chartNumber}><Placeholder styling={ {width:'50px',height:'20px'}}/> </span>
            </div>
            <p>wallets with small amounts after selling</p>
+         </div>
+         <div className={styles.infoRecord}>
+           <div className={styles.infoTitle}>
+             <h6><FaCircle className={styles.circleIconThree} />wallet shrink</h6>
+             <span className={styles.chartNumber}><Placeholder styling={ {width:'50px',height:'20px'}}/> </span>
+           </div>
+           {/* <p>wallets with small amounts after selling</p> */}
          </div>
        </div>
        <div className={styles.chart} id="chart">
