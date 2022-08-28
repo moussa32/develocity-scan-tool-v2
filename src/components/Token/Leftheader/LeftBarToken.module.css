@@ -61,6 +61,16 @@
 .modalIcon{
     cursor: pointer;
 }
+
+.isScam{
+    background-color: #EA3943;
+  background-color: rgba(234, 57, 67, 0.2) !important;
+  color:#EA3943;
+  border-radius: 2px;
+  text-align: center;
+  /* border: 1px solid #EA3943; */
+  font-family: 'SF Pro Display Regular';
+}
 @media only screen and (max-width: 480px) {
     .tokenImg{
         width: 30px;
@@ -80,7 +90,8 @@
         font-size: 12px;
 
     }
-    .name, .symbol{
+    .name, .symbol, .isScam{
         font-size: 12px;
     }
 }
+

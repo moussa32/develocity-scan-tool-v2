@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './RowScans.module.css';
 import { Link } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
-const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title }) => {
+const RowScans = ({ number, image, nametoken, scans,scam, sponsored, contract, title }) => {
     // console.log("scam", typeof((scans)));
     const lang = localStorage.getItem("i18nextLng")
     return (
@@ -28,7 +28,7 @@ const RowScans = ({ number, image, nametoken, scans, sponsored, contract, title 
 
             </div>
 
-            {scans===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>}
+            {scam===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>}
             {/* {scans? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
 
             <h3 className={styles.header_scans}>{

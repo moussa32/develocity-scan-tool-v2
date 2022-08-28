@@ -63,7 +63,6 @@ const MySearch = () => {
       // setdataGet(null);
     }
   }, [search, term]);
-  const isScam=true;
   return (
     <div className="w-100 ">
       <span className={styles.searchNote}>

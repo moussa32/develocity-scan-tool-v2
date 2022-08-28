@@ -18,13 +18,15 @@ const Changelog =()=>{
         <div className={styles.wholeBg}>
         <NavBar />
 
-<div className={styles.reAdv}>
-<span>[ad space]</span>
+<div className={styles.reAdv} >
+{/* <span>[ad space]</span> */}
 </div>
 
 <ChangelogContent/>
-
+        <div className={styles.copyRight}>
         <CopyRight />
+
+        </div>
         </div>
     )
 }

@@ -1,10 +1,12 @@
 .wholeBg{
     background-color: #fff;
+    height: 100vh;
+    position: relative;
 }
 .reAdv{
-    width: 590px;
+    width: 390px;
     height: 82px;
-    background-color: #D0D0D0;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +17,10 @@
     font-size: 12px;
 }
 
-
+.copyRight{
+    position: absolute;
+    bottom: 0;
+}
 @media only screen and (max-width: 991px){
     .reAdv{
         width: 90%;

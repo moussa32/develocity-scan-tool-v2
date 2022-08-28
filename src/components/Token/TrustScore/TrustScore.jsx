@@ -23,11 +23,15 @@ const TrustScore =() =>{
   const scoreData = score.result;
   let color='#fff'
 
-  if(scoreData?.contractScan<59){
+  if((Math.round(scoreData?.contractScan))===0){
+    color="transparent"
+  }
+  else if(scoreData?.contractScan<59){
     color="#EC6666"
   } else if(scoreData?.contractScan>=60 && scoreData?.contractScan<85){
     color="#F5A341" 
-  }else{
+  }
+  else{
     color="#16C784"
   }
 
@@ -71,7 +75,7 @@ const TrustScore =() =>{
     },
     fill: {
       type: "solid",
-      colors: [color,color,color]
+      colors: [color]
     },
     stroke: {
       lineCap: "round",
