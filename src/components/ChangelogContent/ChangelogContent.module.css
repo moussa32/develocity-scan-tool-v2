@@ -23,15 +23,19 @@
 
 .step {
   
-    padding: 10px;
+    /* padding: 10px; */
     
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: flex-start;
     
     background-color: cream;
   }
-  
+  .wrapper{
+    display: flex;
+    margin-top: 26px;
+  }
   .vStepper {
     position: relative;
   /*   visibility: visible; */
@@ -107,11 +111,11 @@
   }
   
   .content_ltr {
-    margin-left: 2px;
+    margin-left: 12px;
     display: inline-block;
   }
   .content_rtl {
-    margin-right: 2px;
+    margin-right: 12px;
     display: inline-block;
 
   }
@@ -119,6 +123,7 @@
     width: 784px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0 auto;
   }
@@ -127,6 +132,7 @@
     font-size: 12px;
     margin: 0;
     padding: 2px 11px;
+    margin-bottom: 5px;
     text-transform: capitalize;
     font-weight: 500;
     text-align: center;
@@ -158,6 +164,8 @@
     font-size: 12px;
     margin: 0;
     padding: 2px 11px;
+    margin-bottom: 5px;
+
     text-transform: capitalize;
     font-weight: 500;
     text-align: center;
@@ -169,6 +177,8 @@
     margin: 0;
     text-align: center;
     padding: 2px 11px;
+    margin-bottom: 5px;
+
     text-transform: capitalize;
     font-weight: 500;
     background-color: rgba(22,199,132,0.15);
@@ -177,6 +187,7 @@
     color: #9F4AE8;
     font-size: 12px;
     margin: 0;
+    margin-bottom: 5px;
     padding: 2px 11px;
     text-transform: capitalize;
     font-weight: 500;
@@ -187,7 +198,7 @@
     font-size: 14px;
     color: #888;
     text-align: center;
-    margin: 5px 0;
+    margin: 0px 0 0px 0px;
     font-weight: 400;
   }
   .typeDate_ltr{
@@ -215,6 +226,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
   .navLink{
     font-size: 14px;
@@ -280,7 +292,7 @@
         font-size: 9px;
     }
     .step{
-        padding: 10px;
+        /* padding: 10px; */
        
     }
     .tabLink{

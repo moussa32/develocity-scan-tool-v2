@@ -71,6 +71,9 @@
   /* border: 1px solid #EA3943; */
   font-family: 'SF Pro Display Regular';
 }
+.copiedaddress{
+    font-size: 14px;
+}
 @media only screen and (max-width: 480px) {
     .tokenImg{
         width: 30px;
@@ -92,6 +95,9 @@
     }
     .name, .symbol, .isScam{
         font-size: 12px;
+    }
+    .copiedaddress{
+        font-size: 10px;
     }
 }
 
