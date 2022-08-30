@@ -63,7 +63,7 @@ const ChangelogContent = () => {
         <div className={` ${styles.tabContent} tab-content`} id="pills-tabContent">
           <div className="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
             {/* start */}
-{bscstatus==='success'&&
+{bscstatus==='success'&&  
 <>
 {listnewdata &&
               listnewdata.map((el) => (
