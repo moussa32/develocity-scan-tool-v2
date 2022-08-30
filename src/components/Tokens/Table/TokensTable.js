@@ -18,12 +18,13 @@ const columns = [
         formatter: (cell, row) => {
             return (
                 <div className={styles.container_token}>
-                    {row.contractInfo.logo ? <img src={row.contractInfo.logo} alt={row.token} style={{ width: '24px', height: '24px' }} /> :
+                  
+                    {row?.contractInfo?.logo ? <img src={row?.contractInfo?.logo} alt={row.token} style={{ width: '24px', height: '24px' }} /> :
                         <div className={styles.icon_token_letter}>
-                            <h6 className={styles.icon_token_text}>{row.contractInfo.name.charAt(0)}</h6>
+                            <h6 className={styles.icon_token_text}>{row.contractInfo?.name.charAt(0)}</h6>
                         </div>
                     }
-                    <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo.name}</span>
+                    <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo?.name}</span>
                     {/* <img src={require('../../../assets/images/verification.png')} alt={row.token} style={{ width: '16px', height: '16px' }} /> */}
 
                 </div>
@@ -96,7 +97,7 @@ const columns = [
         formatter: (cell, row) => {
             return (
                 <div >
-                    <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo.market_cap.toLocaleString("en-US")}</span>
+                    <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.market_cap?.toLocaleString("en-US")}</span>
 
                 </div>
             )
@@ -108,7 +109,7 @@ const columns = [
         formatter: (cell, row) => {
             return (
                 <div >
-                    <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo.total_supply}</span>
+                    <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.totalSupply}</span>
 
                 </div>
             )
@@ -133,10 +134,11 @@ const columns = [
         dataField: "fullReport",
         text: "Full Report",
         formatter: (cell, row) => {
+            console.log(row)
             return (
-                <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo.current_price}</span>
-
-                // <img src={require('../../../assets/images/arrowRight.png')} alt={row.fullReport} style={{ width: '9px', height: '7px', marginLeft: "15px" }} />
+                <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo?.current_price}</span>
+                
+            //     // <img src={require('../../../assets/images/arrowRight.png')} alt={row.fullReport} style={{ width: '9px', height: '7px', marginLeft: "15px" }} />
 
             )
         }

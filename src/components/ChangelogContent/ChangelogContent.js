@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchListNewsdata } from './../../Services/FetchListNews';
 import styles from "./ChangelogContent.module.css";
 import { Placeholder } from "../common/Placeholder/Placeholder";
-
+import logo from '../../assets/images/emptypng.png'
 
 const ChangelogContent = () => {
   const listnewdata = useSelector(state => state.GetListNewsdata.data)
@@ -112,7 +112,9 @@ const ChangelogContent = () => {
                   )
 
                   }
-        </>:<>{(category !=='All')? <h2>no news</h2>:null}
+        </>:<>{(category !=='All')? <>
+        <img src={logo} alt="empty" width={100}/>
+        <h2>no news</h2></>:null}
        </>}
                   
 

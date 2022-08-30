@@ -21,12 +21,9 @@ function App() {
   const [loading, setLoading] = useState(false);
   const {  i18n   } = useTranslation(["common"]);
 
-  let lang = localStorage.getItem("i18nextLng")
+  let lang = localStorage.getItem("i18nextLng")||''
   i18n.on('loaded', function(loaded) {
-  
       console.log("loaded",loaded[lang]?.common)
-   
-  
   })
   useEffect(() => {
    
@@ -63,7 +60,7 @@ function App() {
         </Routes>
       </BrowserRouter> : <div className='d-flex justify-content-center align-items-center' style={{height:"100vh"}}><SpinnerRoundFilled color={"#000"}/></div>}
     </React.Suspense>
-    {/* <WelcomingModal/> */}
+    <WelcomingModal/>
     </>
   );
 

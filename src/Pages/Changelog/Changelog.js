@@ -27,6 +27,7 @@ const Changelog =()=>{
         <CopyRight />
 
         </div>
+        
         </div>
     )
 }
