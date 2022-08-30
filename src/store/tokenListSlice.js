@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-// import axios from 'axios'
+import axios from 'axios'
 import instance from '../Network/axiosconfig'
 
 export const fetchTokenList = createAsyncThunk('tokenList/fetchTokenList', async (network) => {

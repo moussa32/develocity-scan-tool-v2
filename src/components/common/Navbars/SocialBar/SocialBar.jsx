@@ -36,7 +36,7 @@ const SocialBar = () => {
       dir: 'ltr'
     }
   ];
-  const currentLanguage = languages.find((i) => i.code === lang)
+  const currentLanguage = languages.find((i) => i.code === lang)||'ltr'
   useEffect(() => {
     if (localStorage.getItem("i18nextLng")?.length > 2) {
       i18n.changeLanguage('en');
