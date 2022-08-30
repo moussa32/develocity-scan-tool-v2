@@ -63,7 +63,7 @@ function App() {
         </Routes>
       </BrowserRouter> : <div className='d-flex justify-content-center align-items-center' style={{height:"100vh"}}><SpinnerRoundFilled color={"#000"}/></div>}
     </React.Suspense>
-    <WelcomingModal/>
+    {/* <WelcomingModal/> */}
     </>
   );
 

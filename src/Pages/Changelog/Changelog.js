@@ -15,15 +15,15 @@ const Changelog =()=>{
         // }
     }, []);
     return(
-        <div className={styles.wholeBg}>
+        <div className={` ${styles.wholeBg}`}>
         <NavBar />
 
-<div className={styles.reAdv} >
-{/* <span>[ad space]</span> */}
-</div>
+{/* <div className={styles.reAdv} >
+<span>[ad space]</span>
+</div> */}
 
 <ChangelogContent/>
-        <div className={styles.copyRight}>
+        <div className={`container  ${styles.copyRight}`}>
         <CopyRight />
 
         </div>

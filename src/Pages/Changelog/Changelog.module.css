@@ -1,6 +1,7 @@
 .wholeBg{
     background-color: #fff;
-    height: 100vh;
+    /* height: 100%; */
+    /* padding-bottom: 200px; */
     position: relative;
 }
 .reAdv{
@@ -18,8 +19,10 @@
 }
 
 .copyRight{
-    position: absolute;
-    bottom: 0;
+    padding-top: 30px;
+    /* position: absolute;
+   bottom: 0px;
+   left: 20%; */
 }
 @media only screen and (max-width: 991px){
     .reAdv{

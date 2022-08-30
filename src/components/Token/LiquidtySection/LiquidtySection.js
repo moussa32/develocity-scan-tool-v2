@@ -6,10 +6,8 @@ import RemovedLiquidity from '../LiquidtyTable/RemovedLiquidity'
 import { useTranslation } from 'react-i18next';
 
 const LiquidtySection = ({ LiquidtyData, bSCTrasaction }) => {
-    // console.log("bSCTrasaction", bSCTrasaction)
     const { t } = useTranslation(["token"])
     let Active = bSCTrasaction?.tokenTransaction?.length !== 0 ? 'LiquidtyTransactions' : (LiquidtyData?.addLiquidityTransaction?.length !== 0 ?'AddedLiquidity':'RemovedLiquidity')
-    console.log("nn",bSCTrasaction)
 
     return (
         <>

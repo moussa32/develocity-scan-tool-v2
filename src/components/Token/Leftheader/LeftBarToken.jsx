@@ -22,10 +22,8 @@ export function LeftBarToken() {
 
   const scoreData = score.result;
 
-  console.log("ll",scoreData)
   const dispatch = useDispatch();
 
-  // console.log("scam",myData)
   
 
   // useEffect( ()=>{
@@ -151,8 +149,8 @@ export function LeftBarToken() {
             <div>
               <span
                 value={contractAddress}
-                className={`text-primary pb-1 ms-2 ${styles.contractaddress}`}
-                style={{ fontFamily: "SF Pro Display Medium" ,fontSize:"10px"}}
+                className={`text-primary pb-1 ms-2 ${styles.contractaddress} ${styles.copiedaddress}`}
+                style={{ fontFamily: "SF Pro Display Medium" }}
               >
                 {contractAddress
                   ? `${contractAddress.slice(0, 10)}...${contractAddress.slice(
