@@ -42,11 +42,11 @@ export function NavDisplay() {
                                     <li className="nav-item px-3">
                                         <a href="https://www.develocity.finance/#about" className={`nav-link text-black ${styles.linkitem}`} target="_blank" rel="noreferrer">{t("common:about")}</a>
                                     </li>
-                                    {/* <li className="nav-item px-3">
-                                        <Link className={`nav-link text-black ${styles.linkitem}`} to="token">Token</Link>
+                                    <li className="nav-item px-3">
+                                        <Link className={`nav-link text-black ${styles.linkitem}`} to="/tokens">Tokens</Link>
 
                                     </li>
-                                    <li className="nav-item px-3">
+                                    {/* <li className="nav-item px-3">
                                         <a className={`nav-link text-black ${styles.linkitem}`}>Academy</a>
                                     </li> */}
                                     <li className="nav-item px-3">

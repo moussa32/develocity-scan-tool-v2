@@ -5,21 +5,19 @@ import styles from './WelcomingModal.module.css'
 
 export function WelcomingModal(){
     const {t}=useTranslation(['common'])
-    // const [isOpen,setIsOpen]=useState(false)
-    let isOpen=localStorage.getItem('isOpen')||true
+    const [isOpen,setIsOpen]=useState(false)
+    let isLogin=localStorage.getItem('islogin')||false
     const lang=localStorage.getItem("i18nextLng")
 
-    // useEffect( ()=>{
-    //    if(!isLogin){
-    //     setIsOpen(true)
-    //    }
+    useEffect( ()=>{
+       if(!isLogin){
+        setIsOpen(true)
+       }
 
-    // },[isLogin] )
-
+    },[isLogin] )
     function hideNotification(){
-        // setIsOpen(false)
-        console.log("mmmmmmmmmm")
-        localStorage.setItem("isOpen",false)
+        setIsOpen(false)
+        localStorage.setItem("islogin",true)
     }
     return (
       
@@ -28,7 +26,7 @@ export function WelcomingModal(){
                 ReactDOM.createPortal(
                     <>
                     {
-                        !isOpen &&
+                        isOpen &&
                         <>
                         <div className={styles.backDrop}/>
                         <div className={` ${styles.overlay}`}>
@@ -50,4 +48,3 @@ export function WelcomingModal(){
     
     ) 
 }
-

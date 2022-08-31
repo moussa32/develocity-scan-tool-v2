@@ -49,7 +49,7 @@ const SocialBar = () => {
     document.body.dir = currentLanguage.dir
     }
     else{
-    document.body.dir = 'en'
+    document.body.dir = 'rtl'
 
     }
   }, [currentLanguage])
@@ -57,8 +57,6 @@ const SocialBar = () => {
   const handleOnclick = (e) => {
     e.preventDefault();
     setLanguage(e.target.parentNode.value);
-    // console.log(e.target.getAttribute('data-lang'))
-    console.log(e.target.parentNode.value)
     i18n.changeLanguage(e.target.parentNode.value);
     document.body.dir = "ltr"
   }
