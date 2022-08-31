@@ -21,19 +21,28 @@
     color: #888888;
 }
 
-.verified_btn {
+.notverified_btn, .verified_btn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 160px;
     height: 38px;
-    background-color: #F5F5F5;
-    border: 1px solid #E8EAEC;
+    
     border-radius: 4px;
     font-size: 14px;
     font-family: SF Pro Display Regular;
-    color: #888888;
+   
     margin-left: 10px
+}
+.notverified_btn{
+    background-color: #F5F5F5;
+    border: 1px solid #E8EAEC;
+    color: #888888;
+}
+.verified_btn{
+    background-color: #F5F5F5;
+    border: 1px solid #9F4AE8;
+    color: #9F4AE8;  
 }
 
 .live_btn {
