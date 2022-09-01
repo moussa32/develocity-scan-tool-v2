@@ -54,7 +54,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path='token/:contractAddress' element={<Token />} />
-          <Route path='tokens' element={<Tokens />} />
+          {/* <Route path='tokens' element={<Tokens />} /> */}
           <Route path='Changelog' element={<Changelog />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         </Routes>
