@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 import styles from './TokenTable.module.css'
 import "../../Token/WalletsTable/WalletsTable.css";
 import { useState } from 'react';

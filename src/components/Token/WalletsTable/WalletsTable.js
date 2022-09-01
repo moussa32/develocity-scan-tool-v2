@@ -33,12 +33,15 @@ const WalletsTable = ({ walletsData }) => {
         {
             dataField: "address",
             text: t("token:address"),
-            searchable: false
+            searchable: false,
+            style:{
+                cursor:'pointer'
+            }
         },
         {
             dataField: "nameTag",
             text: t("token:nametag"),
-            search: true
+            search: false
         },
         {
             dataField: "balance",
@@ -73,10 +76,12 @@ const WalletsTable = ({ walletsData }) => {
 
   const selectRow = {
   mode: "radio",
+  hideSelectColumn: true,
   clickToSelect: true,
   style: {
-    backgroundColor: "rgba(5, 6, 70, 0.5)",
-    color: "white"
+    backgroundColor: "#ebeded",
+    color: "#000",
+    
   },
   onSelect: (row) => {
     // eslint-disable-next-line no-restricted-globals

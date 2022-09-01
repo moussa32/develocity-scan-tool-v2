@@ -108,6 +108,7 @@
   .wallet_table_td_width td{
     min-width: 100px;
   }
+ 
 }
 
 @media (max-width: 900px) {
