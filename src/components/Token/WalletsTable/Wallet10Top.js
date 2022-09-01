@@ -30,6 +30,9 @@ const Wallet10Top = ({ topWalletData }) => {
         {
             dataField: "address",
             text: t("token:address"),
+            style:{
+                cursor:'pointer'
+            }
         },
         {
             dataField: "nameTag",
@@ -62,10 +65,11 @@ const Wallet10Top = ({ topWalletData }) => {
 
     const selectRow = {
         mode: "radio",
+        hideSelectColumn: true,
         clickToSelect: true,
         style: {
-          backgroundColor: "rgba(5, 6, 70, 0.5)",
-          color: "white"
+          backgroundColor: "#ebeded",
+          color: "#000"
         },
         onSelect: (row, isSelect, rowIndex, e) => {
           // eslint-disable-next-line no-restricted-globals

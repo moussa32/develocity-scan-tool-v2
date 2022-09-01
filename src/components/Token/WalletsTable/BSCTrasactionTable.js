@@ -11,28 +11,47 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
         {
             dataField: "id",
             text: t("token:hash"),
+            style:{
+                cursor:'pointer'
+            }
         },
         {
             dataField: "hash",
             text: "Hash",
             hidden:true,
+            style:{
+                cursor:'pointer'
+            }
         },
         {
             dataField: "fromAddress",
             text: t("token:fromaddress"),
+            style:{
+                color:'#000',
+                cursor:'pointer'
+            }
         },
         {
             dataField: "toAddress",
             text:   t("token:toaddress"),
+            style:{
+                cursor:'pointer'
+            }
         },
 
         {
             dataField: "amount",
-            text: t("token:amount")
+            text: t("token:amount"),
+            style:{
+                cursor:'pointer'
+            }
         },
         {
             dataField: "tokenSymbol",
-            text: t("token:tokenSymbol")
+            text: t("token:tokenSymbol"),
+            style:{
+                cursor:'pointer'
+            }
         }
     ];
 
@@ -52,10 +71,11 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
     }
     const selectRow = {
         mode: "radio",
+        hideSelectColumn: true,
         clickToSelect: true,
         style: {
-          backgroundColor: "rgba(5, 6, 70, 0.5)",
-          color: "white"
+        //   backgroundColor: "#ebeded",
+          color: "#000"
         },
         onSelect: (row, isSelect, rowIndex, e) => {
           // eslint-disable-next-line no-restricted-globals

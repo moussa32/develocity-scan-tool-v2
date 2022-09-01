@@ -1,4 +1,4 @@
-dt {
+.descDt {
     font-weight: 400;
     font-family: "SF Pro Display Regular";
 }
@@ -12,12 +12,12 @@ dt {
 ul{
     list-style-type: square;
 }
-li{
+.descLi{
     font-size: 14px;
     font-family: "SF Pro Display Regular";
 }
 @media screen and (max-width: 600px) {
-    dt, li{
+    .descDt, .descLi{
         font-size: 14px;
         /* line-height: 15px; */
     }

@@ -333,7 +333,7 @@
         margin-top: 30px;
     }
     .searchBlock{
-        width: 93%;
+        width: 83%;
     }
     .arrowBtn_rtl, .arrowBtn_ltr{
         position: absolute;
@@ -349,4 +349,10 @@
     .resultRecord{
         position: relative;
     }
+}
+@media only screen and (max-width: 767px){
+    .searchBlock{
+        width: 93%;
+    }
+  
 }

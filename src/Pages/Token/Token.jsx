@@ -101,7 +101,7 @@ export function Token() {
                             
                             {
                               (topWallet_isLoading ==='success' || tokenOwner_isLoading === 'success' ||bscTransaction_isLoading==='success')?
-                              <div className='wallets_table'>
+                              <div className='wallets_table wallet_table_td_width'>
                                 <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} bSCTrasaction={bSCTrasaction} />
                             </div>  :
                             ( (topWallet_isLoading || tokenOwner_isLoading || bscTransaction_isLoading)? <TableLoader/>:null )
