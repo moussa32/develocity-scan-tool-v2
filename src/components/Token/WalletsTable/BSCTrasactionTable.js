@@ -2,6 +2,7 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { useTranslation } from 'react-i18next';
+import "./WalletsTable.css";
 
 
 
@@ -96,7 +97,7 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
     });
 
     return (
-        <div className='large_table'>
+        <div >
             <BootstrapTable
                 keyField="id"
                 data={bSCTrasactionData}
