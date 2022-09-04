@@ -19,6 +19,7 @@
     font-size: 14px;
     font-family: SF Pro Display Regular;
     color: #888888;
+    outline: none;
 }
 
 .notverified_btn, .verified_btn {
@@ -48,18 +49,22 @@
 .live_btn {
     width: 160px;
     height: 38px;
+    display: inline-block;
     background-color: #F5F5F5;
     border: 1px solid #9F4AE8;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 12px;
     font-family: SF Pro Display Regular;
     color: #9F4AE8;
 }
 
 @media (max-width: 500px) {
-    .live_btn, .verified_btn, .select_btn {
+    .live_btn, .verified_btn, .select_btn, .notverified_btn {
+        font-size: 12px;
+        white-space: nowrap;
         width: 120px;
-        font-size: 13px;
+
+
     }
     .live_btn {
         margin-left: 10px;

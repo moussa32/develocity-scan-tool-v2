@@ -8,7 +8,7 @@ import { fetchTokenList } from '../../store/tokenListSlice'
 import styles from './Tokens.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 
-// import CopyRight from '../../components/Home/CopyRight/CopyRight'
+import CopyRight from '../../components/Home/CopyRight/CopyRight'
 
 const Tokens = () => {
     const dispatch = useDispatch();
@@ -59,7 +59,7 @@ const filters = {
 
 
     return (
-        <div>
+        <div >
             <NavBar />
 
             <div style={{ backgroundColor: "#F3F2F7", padding: "25px 0px 35px" }}>
@@ -73,7 +73,7 @@ const filters = {
             </div>
 
 
-            <div style={{ backgroundColor: "#FFFFFF", padding: "40px 0px" }}>
+            <div style={{ backgroundColor: "#FFFFFF", padding: "40px 0px 0px 0px" }}>
 
                 <div className='container' >
                     <div className='row'>
@@ -140,10 +140,11 @@ const filters = {
                         </div>
                     </div>
                 </div>
+       <CopyRight/>
+
             </div>
 
            
-       
         </div >
         
     )
