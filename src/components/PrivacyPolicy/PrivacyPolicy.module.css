@@ -18,7 +18,7 @@ a{
     width: 100%;
   }
 
-  table, td, th, p{
+  .privacyWrapper table, .privacyWrapper td, .privacyWrapper th,.privacyWrapper p{
     font-size: 14px;
     font-family: "SF Pro Display Regular";
   }

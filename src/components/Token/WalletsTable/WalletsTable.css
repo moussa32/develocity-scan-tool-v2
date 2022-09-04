@@ -83,7 +83,7 @@
 }
 
 .tokens_table .react-bootstrap-table table tbody tr {
-  font-size: 14px;
+  font-size: 12px;
   font-family: "SF Pro Display Medium";
   color: #333333;
   flex-wrap: nowrap;
@@ -97,7 +97,9 @@
 .tokens_table tr>td{
   min-width: 80px ;
 }
-
+.tokens_table .react-bootstrap-table table{
+  vertical-align:middle;
+}
 
 @media (max-width: 500px) {
   .wallets_table .react-bootstrap-table table {

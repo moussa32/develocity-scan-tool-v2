@@ -23,11 +23,11 @@ export function NavDisplay() {
     return (
         <>
             <nav className={"navbar navbar-expand-lg " } style={{ backgroundColor: '#F3F2F7' }}>
-                <div className={"container align-items-center " +(lang=="ar"&&styles.navbar_rtl)} style={{ marginTop: '15px', marginBottom: '15px'}}>
-                    <Link className="navbar-brand" to='/'>
+                <div className={"container align-items-center " +(lang==="ar"&&styles.navbar_rtl)} style={{ marginTop: '15px', marginBottom: '15px'}}>
+                    <Link className="navbar-brand" to='/' style={{zIndex:'10'}}>
                         <img width="45" src={logo} alt="logo" />
                     </Link>
-                    <button className="navbar-toggler  " style={{ boxShadow: 'none' }} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button className="navbar-toggler  " style={{ boxShadow: 'none',zIndex:'10' }} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon">
                            
                         </span>
@@ -43,7 +43,7 @@ export function NavDisplay() {
                                         <a href="https://www.develocity.finance/#about" className={`nav-link text-black ${styles.linkitem}`} target="_blank" rel="noreferrer">{t("common:about")}</a>
                                     </li>
                                     <li className="nav-item px-3">
-                                        <Link className={`nav-link text-black ${styles.linkitem}`} to="/tokens">Tokens</Link>
+                                        <Link className={`nav-link text-black ${styles.linkitem}`} to="/tokens">{t("common:tokens")}</Link>
 
                                     </li>
                                     {/* <li className="nav-item px-3">
