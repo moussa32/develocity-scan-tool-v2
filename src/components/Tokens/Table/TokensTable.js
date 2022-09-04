@@ -211,7 +211,7 @@ const columns = [
         formatter: (cell, row) => {
             return (
                 // <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.contractInfo?.current_price}</span>
-                <button className='btn border-0' onClick={() => navigate(`/token/${row?.contractAddress}`)}>
+                <button className={`btn border-0 ${styles.btn_fullreport}`} onClick={() => navigate(`/token/${row?.contractAddress}`)}>
                  <img 
                  src={require('../../../assets/images/arrowRight.png')} alt={row?.contractInfo?.name} style={{ width: '9px', height: '7px' ,marginLeft: "15px"}} 
                  

@@ -46,6 +46,9 @@
   font-family: 'SF Pro Display Regular';
   font-size: 12px;
 }
+.btn_fullreport{
+    padding: 0px;
+}
 @media screen and (max-width:575px) {
     .info img, .icon_token_letter{
         width: 20px;

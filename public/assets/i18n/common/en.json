@@ -139,7 +139,9 @@
 	"enter_token":"Enter the token name or address then click scan",
 	"sponsered":"sponsered",
 	"invest":"start to invest in bitcoin private with only 10$",
-	"welcoming_notification":"The Content shared on this website is for technical purposes only and, thus, should not be considered financial advice. Trading/Investing is risky, Cryptocurrencies are risky. You alone assume the sole responsibility of evaluating the merits and risks associated with using any information or other Content on the Site before making any decisions based on such information or other Content"
+	"welcoming_notification":"The Content shared on this website is for technical purposes only and, thus, should not be considered financial advice. Trading/Investing is risky, Cryptocurrencies are risky. You alone assume the sole responsibility of evaluating the merits and risks associated with using any information or other Content on the Site before making any decisions based on such information or other Content",
+	"tokens": "Tokens"
+
 	
 	
 }

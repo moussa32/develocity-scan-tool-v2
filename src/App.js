@@ -15,7 +15,7 @@ import Changelog from './Pages/Changelog/Changelog';
 import { useTranslation } from 'react-i18next';
 import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal';
 import { SpinnerRoundFilled } from 'spinners-react';
-
+import { ScrollToTop } from './components/common/ScrollToTop';
 function App() {
 
   const [loading, setLoading] = useState(false);
@@ -50,6 +50,7 @@ function App() {
    
     <React.Suspense fallback={null} >
       {loading ? <BrowserRouter >
+      <ScrollToTop/>
         <Routes >
           <Route exact path="/" element={<Home />} />
           <Route path="about" element={<About />} />

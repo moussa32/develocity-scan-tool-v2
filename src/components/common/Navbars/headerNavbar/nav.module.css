@@ -30,6 +30,7 @@
 }
 .navbar-collapse{
     transition: all 2s;
+
 }
 .navbar-nav{
     margin-left: 46px;
@@ -45,7 +46,7 @@
         margin-left: 0;
     }
 
-    .listGroup{
+    .navbar-collapse{
         margin-top: -40px;
        
     }

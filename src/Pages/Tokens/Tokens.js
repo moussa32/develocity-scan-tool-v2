@@ -95,7 +95,7 @@ const filters = {
                                         
                                         </select>
                                     </div>
-                                    <button className={` ${isVerifyied===true ? styles.verified_btn : styles.notverified_btn}`} onClick={handleclick}>
+                                    <button className={` ${isVerifyied ? styles.verified_btn : styles.notverified_btn}`} onClick={handleclick}>
                                         <span>Verified Tokens</span>
                                         {
                                             isVerifyied?
