@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-items: center;
+    align-items: center;
     justify-content: space-between;
 }
 .icon_token_letter {
@@ -15,6 +16,10 @@
     align-items: center;
 
 }
+.info img{
+    width: 24px;
+    height: 24px;
+}
 .icon_token_text{
     font-size: 12px;
     padding: 0;
@@ -22,4 +27,28 @@
 }
 .info{
     display: flex;
+}
+.name{
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 24px;
+    margin-left: 7px;
+    font-size: 12px;
+    margin-right: 0px;
+}
+.isScam{
+    background-color: #EA3943;
+  background-color: rgba(234, 57, 67, 0.2) !important;
+  color:#EA3943;
+  border-radius: 2px;
+  text-align: center;
+  /* border: 1px solid #EA3943; */
+  font-family: 'SF Pro Display Regular';
+  font-size: 12px;
+}
+@media screen and (max-width:575px) {
+    .info img, .icon_token_letter{
+        width: 20px;
+        height: 20px;
+    }
 }

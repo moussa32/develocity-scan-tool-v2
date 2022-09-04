@@ -60,6 +60,7 @@
 
 .tokens_table .react-bootstrap-table table {
   table-layout: auto;
+  width: 100%;
 }
 
 
@@ -87,6 +88,16 @@
   color: #333333;
   flex-wrap: nowrap;
 }
+
+.tokens_table td, .tokens_table tr, .tokens_table thead, .tokens_table th, .tokens_table .react-bootstrap-table table thead tr{
+  border: none;
+  border-bottom: 0px;
+}
+
+.tokens_table tr>td{
+  min-width: 80px ;
+}
+
 
 @media (max-width: 500px) {
   .wallets_table .react-bootstrap-table table {
@@ -117,4 +128,15 @@
     display: block;
     table-layout: auto;
   }
+  
+  
+}
+@media (max-width: 1200px) {
+  .tokens_table .react-bootstrap-table table {
+    overflow: auto;
+    display: block;
+    table-layout: auto;
+  }
+  
+  
 }

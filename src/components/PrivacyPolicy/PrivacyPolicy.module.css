@@ -10,7 +10,7 @@ a{
   word-wrap: break-word;
   -ms-word-wrap: break-word;
 }
-span{
+.privacyWrapper span{
   font-size: 14px;
   font-family: "SF Pro Display Regular";
 }

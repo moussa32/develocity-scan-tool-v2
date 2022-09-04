@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 const LiquidtySection = ({ LiquidtyData, bSCTrasaction }) => {
     const { t } = useTranslation(["token"])
-    let Active = bSCTrasaction?.tokenTransaction?.length !== 0 ? 'LiquidtyTransactions' : (LiquidtyData?.addLiquidityTransaction?.length !== 0 ?'AddedLiquidity':'RemovedLiquidity')
+    let Active = bSCTrasaction?.tokenTransaction?.length > 0 ? 'LiquidtyTransactions' : (LiquidtyData?.addLiquidityTransaction?.length > 0 ?'AddedLiquidity':'RemovedLiquidity')
 
     return (
         <>
