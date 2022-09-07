@@ -27,9 +27,8 @@ export function NavDisplay() {
                     <Link className="navbar-brand" to='/' style={{zIndex:'10'}}>
                         <img width="45" src={logo} alt="logo" />
                     </Link>
-                    <button className="navbar-toggler  " style={{ boxShadow: 'none',zIndex:'10' }} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon">
-                           
+                    <button className={`navbar-toggler ${styles.navToggler} `}  style={{ boxShadow: 'none',zIndex:'10' }} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"> 
                         </span>
                     </button>
                     <div className={`collapse navbar-collapse text-center ${styles['navbar-collapse']}`} id="navbarSupportedContent">

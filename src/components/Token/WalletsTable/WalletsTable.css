@@ -101,6 +101,7 @@
   vertical-align:middle;
 }
 
+
 @media (max-width: 500px) {
   .wallets_table .react-bootstrap-table table {
     overflow: auto;
@@ -124,7 +125,7 @@
  
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .tokens_table .react-bootstrap-table table {
     overflow: auto;
     display: block;
@@ -134,11 +135,11 @@
   
 }
 @media (max-width: 1200px) {
-  .tokens_table .react-bootstrap-table table {
+  /* .tokens_table .react-bootstrap-table table {
     overflow: auto;
     display: block;
     table-layout: auto;
-  }
+  } */
   
   
 }

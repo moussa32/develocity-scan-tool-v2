@@ -66,15 +66,15 @@ const ChangelogContent = () => {
 {bscstatus==='success'&&  
 <>
 {listnewdata &&
-              listnewdata.map((el) => (
-                <div className={` ${styles.step} 
+              listnewdata.map((el,index) => (
+                <div key={index} className={` ${styles.step} 
       ${el.category === 'announcement' && styles.announce} 
        ${el.category === 'product' && styles.product}  
        ${el.category === 'company' && styles.company}  
        ${el.category === 'bug fix' && styles.bug}
       `}>
         {el.news.length>0?<>
-          {el.news.map((ele => (<section className={` ${styles.wrapper}`}>
+          {el.news.map(((ele, index) => (<section className={` ${styles.wrapper}`} key={index}>
                     
                     <div className={` ${styles.typeBlock}`}>
                       <div className={lang === "ar" ? styles.typeDate_rtl : styles.typeDate_ltr}>

@@ -239,8 +239,8 @@ const columns = [{
             <div>
                 <h2 className="mb-4">SUMMARY OF KEY POINTS.</h2>
                 {
-                    summarylist.map((item)=>(
-                        <DescList dtermheader={item.dtermheader} dterm={item.dterm} ddata={[]} stylingobj={{"marginTop":"15px"}}/>
+                    summarylist.map((item, index)=>(
+                        <DescList key={index} dtermheader={item.dtermheader} dterm={item.dterm} ddata={[]} stylingobj={{"marginTop":"15px"}}/>
                     ) )
                 }
             </div>

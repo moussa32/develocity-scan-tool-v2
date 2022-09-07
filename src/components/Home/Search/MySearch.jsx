@@ -4,6 +4,7 @@ import {IoCopy} from 'react-icons/io5';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import styles from "./Search.module.css";
 import { FaCircle } from "react-icons/fa";
+import { BiBitcoin } from "react-icons/bi";
 import { BsArrowRight, BsFillPatchCheckFill ,BsArrowLeft} from "react-icons/bs";
 import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
 import { useTranslation } from 'react-i18next';
@@ -97,8 +98,9 @@ const MySearch = () => {
         <div className= {(search.status==='success' || search.status==='loading')? styles.searchBlock:''}>
           {search.status === "success" &&
             dataGet &&
-            dataGet.map((el) => (
+            dataGet.map((el, index) => (
               <div className={styles.resultRecord} 
+              key={index}
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href=`/token/${el.contractAddress}`;

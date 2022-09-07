@@ -87,11 +87,11 @@ const SocialBar = () => {
   </li> */}
 
   <li>
-  <div class="dropdown">
+  <div className="dropdown">
   <button className={`btn border-0  ${styles.langIcon_ltr}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
   <MdLanguage size={25}/>
   </button>
-  <ul class={`dropdown-menu  ${lang==='ar'? styles.langListGroup_rtl:styles.langListGroup_ltr}`}>
+  <ul className={`dropdown-menu  ${lang==='ar'? styles.langListGroup_rtl:styles.langListGroup_ltr}`}>
     <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='en' onClick={handleOnclick}><span data-lang="en"  >English</span><span className="fi fi-gb "></span></button></li>
     <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='ar' onClick={handleOnclick}><span data-lang="ar">Arabic</span><span className="fi fi-sa "></span></button></li>
     <li role="button" className="d-flex justify-content-between"><button className="dropdown-item fs-5" value='ch' onClick={handleOnclick}><span>Chinese</span><span className="fi fi-cn "></span></button></li>

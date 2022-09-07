@@ -39,23 +39,30 @@
     background-color: #F5F5F5;
     border: 1px solid #E8EAEC;
     color: #888888;
+
 }
 .verified_btn{
-    background-color: #F5F5F5;
     border: 1px solid #9F4AE8;
     color: #9F4AE8;  
+    background-color: rgba(159,74,232,0.15);
 }
 
 .live_btn {
     width: 160px;
     height: 38px;
     display: inline-block;
-    background-color: #F5F5F5;
-    border: 1px solid #9F4AE8;
     border-radius: 4px;
     font-size: 12px;
     font-family: SF Pro Display Regular;
-    color: #9F4AE8;
+    /* color: #9F4AE8;
+    background-color: rgba(159,74,232,0.15);
+    border: 1px solid #9F4AE8; */
+
+    background:  #fff;
+    color: #ccc;
+    border: 1px solid #ccc; 
+
+    cursor: no-drop;
 }
 
 @media (max-width: 500px) {
@@ -68,6 +75,11 @@
     }
     .live_btn {
         margin-left: 10px;
+    }
+    .verified_btn{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .container_btn{
         overflow-x: scroll;
