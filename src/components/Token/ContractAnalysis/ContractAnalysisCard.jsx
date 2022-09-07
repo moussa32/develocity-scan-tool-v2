@@ -92,9 +92,9 @@ export function ContractAnalysisCard(){
                          <div className="" style={{width:'100%'}}>
                          <h5 style={{fontFamily: 'SF Pro Display Medium'}} className={`text-start ${styles.contractAddress}`  }>{t("token:contract_address")}</h5>
                          <div className={`list-group align-self-center border-0  ${styles.listGroup} `} >
-                         {data.map( (item)=>{
+                         {data.map( (item, index)=>{
                              return ( 
-                                 <div className="list-group-item rounded-0 " >
+                                 <div className="list-group-item rounded-0 "  key={index}>
                                      <div className={` d-flex w-100 justify-content-between text-start  ${styles.listitem}`}  >
                                          <p className="align-items-center d-flex h-100" ><Placeholder  styling={ {width:'100px',height:'20px'}} /> </p>
                                          <p className="align-items-center d-flex h-100 "> <Placeholder  styling={ {width:'50px',height:'20px'}} /> </p>

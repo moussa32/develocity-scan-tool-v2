@@ -26,7 +26,7 @@ const Tokens = () => {
     
 // console.log("tokenList", tokenList)
     const handleChange = (event) => {
-        setValue([event.target.selectedOptions[0].getAttribute('data-network'), event.target.selectedOptions[0].getAttribute('data-quary'), event.target.selectedOptions[0].getAttribute('data-filter')]);
+        setValue([event.target.selectedOptions[0].getAttribute('data-network'), event.target.selectedOptions[0].getAttribute('data-quary'), event.target.selectedOptions[0].getAttribute('data-filter'), event.target.selectedOptions[0].getAttribute('data-contactScam')]);
         dispatch(fetchTokenList(value));
         setIsVerifyied('all')
 
@@ -87,11 +87,11 @@ const filters = {
                             <div className={styles.container_btn}>
                                 <div className={styles.container_left}>
                                     <div>
-                                        <select className={styles.select_btn} value={value} onChange={handleChange} >
-                                            <option data-network="Binance" data-quary="score" data-filter="High"  >Trust Score</option>
-                                            <option data-network="Binance" data-quary="interest" data-filter="High" >Popular Scans</option>
-                                            <option data-network="Binance" data-quary="age" data-filter="High">Last Scans</option>
-                                            <option >Scam</option>
+                                        <select className={styles.select_btn} value={value} onChange={handleChange} multiple={false}>
+                                            <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="" >Trust Score</option>
+                                            <option data-network="Binance" data-quary="interest" data-filter="High" data-contactScam="" >Popular Scans</option>
+                                            <option data-network="Binance" data-quary="age" data-filter="High" data-contactScam="" >Last Scans</option>
+                                            <option  data-network="Binance" data-quary="score" data-filter="High" data-contactScam="0" >Scam</option>
                                         
                                         </select>
                                     </div>
@@ -125,7 +125,7 @@ const filters = {
                                         {/* <img src={require('../../assets/images/verificationblack.png')} alt='verification' style={{ width: '16px', height: '16px' }} /> */}
                                     </button>
                                 </div>
-                                <button className={styles.live_btn}>
+                                <button className={styles.live_btn} disabled>
                                     <span>Live New Pairs</span>
                                 </button>
 

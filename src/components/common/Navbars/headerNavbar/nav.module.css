@@ -36,7 +36,15 @@
     margin-left: 46px;
 }
 
-
+.navToggler{
+    width: 45px;
+    padding: 0px !important;
+    height: 40px;
+}
+.navToggler span{
+    width: 1.3em;
+    height: 1.3em;
+}
 
 @media only screen and (max-width: 991px){
    nav{

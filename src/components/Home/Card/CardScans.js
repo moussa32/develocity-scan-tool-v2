@@ -34,8 +34,8 @@ const CardScans = ({ popularScans, title }) => {
 
           )
           : <>
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div className="d-flex justify-content-between align-items-center">
+            {[1, 2, 3, 4, 5].map((i, index) => (
+              <div key={index} className="d-flex justify-content-between align-items-center">
                 <Placeholder styling={{ width: '150px', height: '20px', padding: '15px' }} />
                 <Placeholder styling={{ width: '30px', height: '20px', padding: '15px' }} />
               </div>

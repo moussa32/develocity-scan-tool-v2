@@ -334,14 +334,14 @@ export function LeftBarToken() {
             {
               lang==='ar' ?
               <>
-               {[1,1,1,1].map(()=>(
-               <Placeholder styling={ {width:'100px',height:'20px',marginLeft:'8px'}}/>
+               {[1,1,1,1].map((item, index)=>(
+               <Placeholder styling={ {width:'100px',height:'20px',marginLeft:'8px'}} key={index}/>
             ) )}
               </>:
               
               <>
-               {[1,1,1,1].map(()=>(
-               <Placeholder styling={ {width:'100px',height:'20px',marginRight:'8px'}}/>
+               {[1,1,1,1].map((item ,index)=>(
+               <Placeholder key={index} styling={ {width:'100px',height:'20px',marginRight:'8px'}}/>
             ) )}
               </>
             }
