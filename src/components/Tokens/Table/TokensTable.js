@@ -38,9 +38,11 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
                                         {
                                             (row?.contractScan) === 0 && <span className={`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>
                                         }
+                                        {row?.sponsor && <div className={styles.ribbon}><span className={styles.sponsoredFlag}></span></div>}
+                                        
                                         {
 
-                                            row?.sponsor && <div className={styles.ribbon}><span className={styles.sponsoredNote}>sponsered</span></div>
+                                            row?.sponsor && <span className={styles.sponsoredNote}>sponsered</span> 
                                         }
 
 
@@ -184,7 +186,8 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             formatter: (cell, row) => {
                 return (
                     <div >
-                        <span style={{ marginRight: '10px' }}>{row?.contractInfo?.market_cap?.toLocaleString("en-US")}</span>
+                        {/* <span style={{ marginRight: '10px' }}>{row?.contractInfo?.market_cap?.toLocaleString("en-US")}</span> */}
+                        <span style={{ marginRight: '10px' }}>{Number(row?.contractInfo?.market_cap)?.toFixed(0).toLocaleString("en-US")}</span>
 
                     </div>
                 )
@@ -282,7 +285,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
                 data={arr}
                 columns={columns}
                 hover={true}
-                striped={true}
+                // striped={true}
                 bordered={false}
                 loading={true}
                 alwaysShowAllBtns={true}
@@ -290,6 +293,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
                 sort={{ dataField: 'scans', order: 'asc' }}
 
             />
+           
 
         </div>
 

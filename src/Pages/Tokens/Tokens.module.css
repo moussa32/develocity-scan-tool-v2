@@ -64,6 +64,16 @@
 
     cursor: no-drop;
 }
+.disabled_verified_btn{
+    background:  #fff;
+    color: #ccc;
+    border: 1px solid #ccc; 
+
+    cursor: no-drop;
+}
+.disabled_verified_btn svg{
+    fill: #ccc;
+}
 
 @media (max-width: 500px) {
     .live_btn, .verified_btn, .select_btn, .notverified_btn {
