@@ -7,6 +7,7 @@ import TokensTable from '../../components/Tokens/Table/TokensTable'
 import { fetchTokenList } from '../../store/tokenListSlice'
 import styles from './Tokens.module.css'
 import { useDispatch, useSelector } from 'react-redux';
+import { TableLoader } from '../../components/common/TableLoader'
 
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 
@@ -148,7 +149,7 @@ const handleChange2=(e)=>{
                         }
                         {
                             tokenList_loading===true?<div className='col-12'>
-                            <h1>loading........</h1>
+                            <TableLoader/>
                         </div>:null
                         }
             
