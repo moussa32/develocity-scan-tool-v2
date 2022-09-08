@@ -12,23 +12,24 @@ import CopyRight from '../../components/Home/CopyRight/CopyRight'
 
 const Tokens = () => {
     const dispatch = useDispatch();
-    const [value, setValue] = useState(['Binance', 'score', 'High']);
+    const [value, setValue] = useState(['Binance', 'score', 'High','']);
     const [isVerifyied,setIsVerifyied]=useState('all')
-    let [arr,setArr]=useState([])
-    useEffect(()=>{
-        filteredTokenList();
-    },[isVerifyied])
+  
     useEffect(() => {
+        console.log("value", value)
         dispatch(fetchTokenList(value));
+       
     }, [dispatch, value]);
 
     let tokenList = useSelector(state => state.tokenList.tokenList);
-    
-// console.log("tokenList", tokenList)
+    let tokenList_loading = useSelector(state => state.tokenList.loading);
+
+console.log("tokenList", tokenList)
     const handleChange = (event) => {
         setValue([event.target.selectedOptions[0].getAttribute('data-network'), event.target.selectedOptions[0].getAttribute('data-quary'), event.target.selectedOptions[0].getAttribute('data-filter'), event.target.selectedOptions[0].getAttribute('data-contactScam')]);
-        dispatch(fetchTokenList(value));
-        setIsVerifyied('all')
+        // setValue([event.target.getAttribute('data-network'), event.target.getAttribute('data-quary'), event.target.getAttribute('data-filter'), event.target.getAttribute('data-contactScam')]);
+        // dispatch(fetchTokenList(value));
+        setIsVerifyied('all') 
 
     };
 
@@ -37,24 +38,14 @@ const handleclick=(e)=>{
    
 }
 
-const filters = {
-    all: (tokenList) => tokenList,
-    verified: (tokenList) => tokenList?.filter((item) => item.isNotListed),
-    notVerified: (tokenList) => tokenList?.filter((item) => !item.isNotListed)
-  }
-//   let arr=[];
-  function filteredTokenList() {
-    if(isVerifyied){
-    setArr( filters['verified'](tokenList))
 
-    }
-    else{
-    setArr( filters['notVerified'](tokenList))
-
-    }
+const handleChange2=(e)=>{
+    console.log("hello")
    
-    // console.log("arr", arr)
-  }
+}
+
+
+
 
 
 
@@ -86,8 +77,17 @@ const filters = {
                         <div className='col-12'>
                             <div className={styles.container_btn}>
                                 <div className={styles.container_left}>
-                                    <div>
-                                        <select className={styles.select_btn} value={value} onChange={handleChange} multiple={false}>
+                                    {/* <div>
+                                    <select className={styles.select_btn} value={value} onChange={handleChange} multiple={false}>
+                                            <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="" >Trust Score</option>
+                                            <option data-network="Binance" data-quary="interest" data-filter="High" data-contactScam="" >Popular Scans</option>
+                                            <option data-network="Binance" data-quary="age" data-filter="High" data-contactScam="" >Last Scans</option>
+                                            <option  data-network="Binance" data-quary="score" data-filter="High" data-contactScam="0" >Scam</option>
+                                        
+                                        </select>
+                                    </div> */}
+                                     <div>
+                                    <select className={styles.select_btn} onChange={handleChange} multiple={false}>
                                             <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="" >Trust Score</option>
                                             <option data-network="Binance" data-quary="interest" data-filter="High" data-contactScam="" >Popular Scans</option>
                                             <option data-network="Binance" data-quary="age" data-filter="High" data-contactScam="" >Last Scans</option>
@@ -95,7 +95,12 @@ const filters = {
                                         
                                         </select>
                                     </div>
-                                    <button className={` ${isVerifyied ? styles.verified_btn : styles.notverified_btn}`} onClick={handleclick}>
+
+                                    {/* test */}
+
+
+
+                                    <button className={` ${isVerifyied ? styles.verified_btn : styles.notverified_btn}  ${value[3]?styles.disabled_verified_btn:''}`} onClick={handleclick} disabled={value[3]}>
                                         <span>Verified Tokens</span>
                                         {
                                             isVerifyied?
@@ -135,9 +140,19 @@ const filters = {
                     </div>
 
                     <div className='row'>
-                        <div className='col-12'>
+
+                        {
+                            tokenList_loading==='success'?<div className='col-12'>
                             {tokenList && <TokensTable tokenList={tokenList?tokenList:null}  isVerifyied={isVerifyied}/>}
-                        </div>
+                        </div>:null
+                        }
+                        {
+                            tokenList_loading===true?<div className='col-12'>
+                            <h1>loading........</h1>
+                        </div>:null
+                        }
+            
+                        
                     </div>
                 </div>
        <CopyRight/>

@@ -88,7 +88,9 @@
   color: #333333;
   flex-wrap: nowrap;
 }
-
+.tokens_table tr:nth-child(even) td{
+  background-color: #eee;
+}
 .tokens_table td, .tokens_table tr, .tokens_table thead, .tokens_table th, .tokens_table .react-bootstrap-table table thead tr{
   border: none;
   border-bottom: 0px;
@@ -97,6 +99,7 @@
 .tokens_table tr>td{
   min-width: 80px ;
 }
+
 .tokens_table .react-bootstrap-table table{
   vertical-align:middle;
 }
