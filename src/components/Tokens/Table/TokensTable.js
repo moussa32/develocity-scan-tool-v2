@@ -175,6 +175,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             }
 
         },
+
         // // {
         // //     dataField: "rank",
         // //     text: "Rank"
