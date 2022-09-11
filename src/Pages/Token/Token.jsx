@@ -38,11 +38,15 @@ export function Token() {
     const topWallet_isLoading = useSelector(state => state.topWallet.loading);
     const bscLiquidity_isLoading = useSelector(state => state.bscLiquidityScan.loading);
     const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
+
     const { t } = useTranslation(["token"])
     
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
     const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
+    const statusBSCapi = useSelector(state => state.GetBuySellBSCdata.status);
+    const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
+
     const tokenAddress = params.contractAddress;
 
    
@@ -142,7 +146,7 @@ export function Token() {
                     </div>
                     <div className='row'>
                         <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>
-                        <h2 className='text-muted mx-2' style={{ fontFamily: 'SF Pro Display Medium', fontSize: '26px' }}>{t("token:trading")}</h2>
+                            {(statusBSCapi==='success' ||statusSlippage==='success') && <h2 className='text-muted mx-2' style={{ fontFamily: 'SF Pro Display Medium', fontSize: '26px' }}>{t("token:trading")}</h2>}
                             <div className='d-md-flex justify-content-center'>
                                 <Trading />
                                 <LiquidityList />

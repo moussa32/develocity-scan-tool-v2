@@ -43,7 +43,7 @@ export function LiquidityList() {
     return (
         <>
   
-            {(statusLiquidity==='success' || statusLiquidity==true)  &&
+            {(statusLiquidity==='success' || statusLiquidity===true)  &&
             <div className='col-12 col-md-6'>
                 <ListGroup listdata={data} title={t("token:liquidity")}/>
             </div>}

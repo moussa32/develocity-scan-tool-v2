@@ -21,7 +21,27 @@
     color: #888888;
     outline: none;
 }
+.category_ntn{
+    width: 160px;
+    height: 38px;
+    background-color: #F5F5F5;
+    border: 1px solid #E8EAEC !important;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: SF Pro Display Regular;
+    color: #888888;
+    outline: none; 
+    margin-left: 10px
 
+}
+.category_ntn:hover{
+    background-color: #F5F5F5;
+    color: #888888;
+
+}
+.category_ntn:active{
+    background-color: #F5F5F5;
+}
 .notverified_btn, .verified_btn {
     display: flex;
     justify-content: space-between;
@@ -33,7 +53,8 @@
     font-size: 14px;
     font-family: SF Pro Display Regular;
    
-    margin-left: 10px
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .notverified_btn{
     background-color: #F5F5F5;

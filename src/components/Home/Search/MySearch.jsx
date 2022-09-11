@@ -8,6 +8,8 @@ import { BiBitcoin } from "react-icons/bi";
 import { BsArrowRight, BsFillPatchCheckFill ,BsArrowLeft} from "react-icons/bs";
 import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
 import { useTranslation } from 'react-i18next';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const MySearch = () => {
   const { t } = useTranslation(["common"])
   const lang=localStorage.getItem("i18nextLng")
@@ -19,7 +21,20 @@ const MySearch = () => {
 
   const search = useSelector((state) => state.Search);
   const [copiedAddress,setCopyAddress] = useState('Copy Address');
+  const search_status = useSelector((state) => state.Search?.status);
 
+  const notify = () => (
+    toast.error(' Invalid ContactAddress!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
+  );
+  
   const dispatch = useDispatch();
   //  console.log(search.status =="success" && search.data.payload)
   useEffect(() => {
@@ -66,6 +81,17 @@ const MySearch = () => {
   }, [search, term]);
   return (
     <div className="w-100 ">
+       <div>
+            <ToastContainer position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover />
+          </div>
       <span className={styles.searchNote}>
         <FaCircle className={lang==="ar"?styles.dot_rtl:styles.dot_ltr} />
        {t("common:enter_token")}
@@ -79,10 +105,10 @@ const MySearch = () => {
           value={term}
         />
         <button onClick={()=> {
-           term.startsWith("0x") && term.length === 42 ? 
-           window.location.href=`/token/${term}` : 
-           window.location.href=`/`
-        }} className={lang==="ar"?styles.searchBtn_rtl:styles.searchBtn_ltr} disabled={disable}>
+           // eslint-disable-next-line no-unused-expressions
+           term.startsWith("0x") && term.length === 42 ? (search_status==='success'?window.location.href=`/token/${term}` :notify() ):(window.location.href=`/`)
+        }}
+         className={lang==="ar"?styles.searchBtn_rtl:styles.searchBtn_ltr} disabled={disable}>
         {t("common:Scan")}
         </button>
       </div>

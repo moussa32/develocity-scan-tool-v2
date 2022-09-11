@@ -19,11 +19,11 @@ const LiquidtySection = ({ LiquidtyData, bSCTrasaction }) => {
                     </Tab>
                 }
 
-                {LiquidtyData?.addLiquidityTransaction?.length !== 0 &&
+                {LiquidtyData?.addLiquidityTransaction?.length > 0 &&
                     <Tab eventKey="AddedLiquidity" title={t("token:added_liquidity")}>
                         <AddedLiquidity LiquidtyData={LiquidtyData} />
                     </Tab>}
-                {LiquidtyData?.removeLiquidityTransaction?.length !== 0 && 
+                {LiquidtyData?.removeLiquidityTransaction?.length > 0 && 
                 <Tab eventKey="RemovedLiquidity" title={t("token:removed_liquidity")}>
                     <RemovedLiquidity LiquidtyData={LiquidtyData} />
                 </Tab>}

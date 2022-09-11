@@ -102,12 +102,15 @@ const Distribution = () => {
   return (
     <>
     <div >
+      {statusDist==='success' && <> 
       <h1 className={styles.title}>{t("token:dist_title")}</h1>
       <h6 className={styles.secondTitle}>{t("token:holders_title")}
       <Tooltip className={styles.tooltip} title={t("token:holders_tooltip")} arrow>
       <Button> <AiFillInfoCircle className={styles.infoIcon} /></Button>
     </Tooltip>
    </h6>
+      </>}
+      
       
       <div className={styles.distChartDiv}>
         {
