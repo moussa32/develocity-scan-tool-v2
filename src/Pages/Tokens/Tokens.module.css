@@ -20,6 +20,7 @@
     font-family: SF Pro Display Regular;
     color: #888888;
     outline: none;
+    margin-right: 10px;
 }
 
 .notverified_btn, .verified_btn {

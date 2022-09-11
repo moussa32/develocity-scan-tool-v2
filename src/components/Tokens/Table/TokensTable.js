@@ -90,6 +90,25 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             }
 
         },
+        //coin type
+        {
+            dataField: "Type",
+            text: "Type",
+            formatter: (cell, row) => {
+                return (
+                    <div className={styles.scans}>
+
+                        {row?.interest &&
+                            <div className={styles.scans}>
+                                <h6 className={styles.icon_token_text} style={{color: "lightsalmon"}}>BTC</h6>
+                            </div>
+                        }
+
+                    </div>
+                )
+            }
+
+        },
         {
             dataField: "score",
             text: "Score",
@@ -156,6 +175,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             }
 
         },
+
         // // {
         // //     dataField: "rank",
         // //     text: "Rank"

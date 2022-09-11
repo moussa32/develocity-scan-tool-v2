@@ -34,6 +34,11 @@ console.log("tokenList", tokenList)
 
     };
 
+    // On change category handler
+    const categoryChange = ()=>{
+
+    }
+
 const handleclick=(e)=>{
     setIsVerifyied((current)=>!current )
    
@@ -98,8 +103,18 @@ const handleChange2=(e)=>{
                                     </div>
 
                                     {/* test */}
-
-
+                                    <div>
+                                    <select className={styles.select_btn} onChange={categoryChange} multiple={false}>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="" hidden selected >Category</option>
+                                            <option data-network="" data-quary="interest" data-filter="High" data-contactScam="" >Digital Currency</option>
+                                            <option data-network="" data-quary="age" data-filter="High" data-contactScam="" >Exchange Tokens</option>
+                                            <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Financial Crypto Assets</option>
+                                            <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Infrastructure</option>
+                                            <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >NFTs</option>
+                                            <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Stablecoins</option>
+                                            <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Store of Value</option>  
+                                        </select>
+                                    </div>
 
                                     <button className={` ${isVerifyied ? styles.verified_btn : styles.notverified_btn}  ${value[3]?styles.disabled_verified_btn:''}`} onClick={handleclick} disabled={value[3]}>
                                         <span>Verified Tokens</span>
