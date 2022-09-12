@@ -25,7 +25,7 @@ const topWalletSlice = createSlice({
             state.topWallet = action.payload
         },
         [fetchWallet.rejected]: (state, action) => {
-            state.loading = false
+            state.loading = "failed" 
             state.error = action.payload
         }
 

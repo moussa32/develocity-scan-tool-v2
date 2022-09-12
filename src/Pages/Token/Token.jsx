@@ -26,6 +26,7 @@ import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
 import {socket} from '../../utils/socket';
+import {Navigate} from 'react-router-dom';
 
 export function Token() {
     const dispatch = useDispatch();
@@ -33,6 +34,7 @@ export function Token() {
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     const ipAddress = useSelector(state => state.GetIPAddress.data);
     console.log("ip", ipAddress)
+    console.log("data",tokenOwnerData)
     const tokenOwner_isLoading = useSelector(state => state.tokenOwner.loading);
     const tokenList_isLoading = useSelector(state => state.tokenList.loading);
     const topWallet_isLoading = useSelector(state => state.topWallet.loading);
@@ -64,6 +66,7 @@ export function Token() {
         dispatch(fetchWallet(tokenAddress))
         dispatch(fetchBSCTrasaction(tokenAddress))
     }, [dispatch, tokenAddress]);
+
 
     return (
       
@@ -108,9 +111,8 @@ export function Token() {
                               <div className='wallets_table wallet_table_td_width'>
                                 <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} bSCTrasaction={bSCTrasaction} />
                             </div>  :
-                            ( (topWallet_isLoading || tokenOwner_isLoading || bscTransaction_isLoading)? <TableLoader/>:null )
-
-                            
+                            ( (topWallet_isLoading === "failed" || tokenOwner_isLoading === "failed" || bscTransaction_isLoading === "failed" )? <Navigate to="/404"/> : 
+                            <TableLoader/>)   
                             }
 
                             
@@ -163,7 +165,8 @@ export function Token() {
                               <div className='wallets_table wallet_table_td_width'>
                                 <LiquidtySection LiquidtyData={bscLiquidityScan} bSCTrasaction={bSCTrasaction} />
                             </div>  :
-                            ( (bscLiquidity_isLoading || bscTransaction_isLoading)? <TableLoader/>:null )
+                            ( (bscLiquidity_isLoading || bscTransaction_isLoading)? <TableLoader/>:null 
+                            )
 
                             }
                         </div>

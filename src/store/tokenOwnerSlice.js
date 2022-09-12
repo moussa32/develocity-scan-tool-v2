@@ -29,7 +29,7 @@ const tokenOwnerSlice = createSlice({
             state.tokenOwner = action.payload
         },
         [fetchTokenOwner.rejected]: (state, action) => {
-            state.loading = false
+            state.loading = "failed"
             state.error = action.payload
         }
 
