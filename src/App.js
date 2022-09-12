@@ -58,7 +58,7 @@ function App() {
       <React.Suspense fallback={null} >
         {loading ? <BrowserRouter >
           <ScrollToTop />
-        
+         
           <Routes >
             <Route exact path="/" element={<Home />} />
             <Route path="about" element={<About />} />
