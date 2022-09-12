@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal';
 import { SpinnerRoundFilled } from 'spinners-react';
 import { ScrollToTop } from './components/common/ScrollToTop';
+import NotFound from './Pages/NotFound/NotFound';
 
 
 
@@ -62,10 +63,12 @@ function App() {
           <Routes >
             <Route exact path="/" element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path='token/:contractAddress' element={<Token />} />
             <Route path='tokens' element={<Tokens />} />
             <Route path='Changelog' element={<Changelog />} />
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+            <Route path='/404' element={<NotFound/>} />
+            <Route path='token/:contractAddress' element={<Token />} />
+            <Route path='*' element={<NotFound/>}/>
           </Routes>
 
         </BrowserRouter> : <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}><SpinnerRoundFilled color={"#000"} /></div>}

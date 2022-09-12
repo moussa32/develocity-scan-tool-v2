@@ -28,7 +28,7 @@ const bSCTrasactionSlice = createSlice({
             state.bSCTrasaction = action.payload
         },
         [fetchBSCTrasaction.rejected]: (state, action) => {
-            state.loading = false
+            state.loading = "failed" 
             state.error = action.payload
         }
 
