@@ -67,8 +67,8 @@ function App() {
             <Route path='Changelog' element={<Changelog />} />
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path='/404' element={<NotFound/>} />
-            <Route path='*' element={<NotFound/>}/>
             <Route path='token/:contractAddress' element={<Token />} />
+            <Route path='*' element={<NotFound/>}/>
           </Routes>
 
         </BrowserRouter> : <div className='d-flex justify-content-center align-items-center' style={{ height: "100vh" }}><SpinnerRoundFilled color={"#000"} /></div>}
