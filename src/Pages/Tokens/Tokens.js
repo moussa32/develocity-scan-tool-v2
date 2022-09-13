@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Ads from '../../components/common/Ads/Ads'
 import { NavBar } from '../../components/Home/Header/NavBar'
