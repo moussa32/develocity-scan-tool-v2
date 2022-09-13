@@ -90,6 +90,25 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             }
 
         },
+          //coin type
+          {
+            dataField: "category",
+            text: "Category",
+            formatter: (cell, row) => {
+                return (
+                    <div className={styles.scans}>
+
+                        {row?.interest &&
+                            <div className={styles.scans}>
+                                <h6 className={styles.icon_token_text} style={{color: "lightsalmon"}}>BTC</h6>
+                            </div>
+                        }
+
+                    </div>
+                )
+            }
+
+        },
         {
             dataField: "score",
             text: "Score",
@@ -156,6 +175,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             }
 
         },
+
         // // {
         // //     dataField: "rank",
         // //     text: "Rank"
@@ -199,27 +219,28 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             formatter: (cell, row) => {
                 return (
                     <div >
-                        <span style={{ marginRight: '10px' }}>{Number(row.totalSupply)?.toFixed(0).toLocaleString("en-US")}</span>
+                        <span style={{ marginRight: '10px' }}>{Number(row.totalSupply)?.toLocaleString("en-US")}</span>
+                        {/* <span style={{ marginRight: '10px' }}>{Number(row.contractInfo?.totalSupply)?.toLocaleString("en-US")}</span> */}
 
                     </div>
                 )
             }
 
         },
-        // // {
-        // //     dataField: "network",
-        // //     text: "Network",
+        // {
+        //     dataField: "network",
+        //     text: "Network",
 
-        // //     formatter: (cell, row) => {
-        // //         return (
-        // //             <div>
-        // //                 <img src={require('../../../assets/images/tron.png')} alt={row.token} style={{ width: '24px', height: '24px' }} />
-        // //                 <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.token}</span>
-        // //             </div>
-        // //         )
-        // //     }
+        //     formatter: (cell, row) => {
+        //         return (
+        //             <div>
+        //                 <img src={require('../../../assets/images/tron.png')} alt={row.token} style={{ width: '24px', height: '24px' }} />
+        //                 <span style={{ marginLeft: '7px', marginRight: '10px' }}>{row.token}</span>
+        //             </div>
+        //         )
+        //     }
 
-        // // },
+        // },
         {
             dataField: "fullReport",
             text: "Full Report",
