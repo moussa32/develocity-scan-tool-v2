@@ -170,7 +170,7 @@ export function LeftBarToken() {
 
           <div className={styles.contractInfo}>
             <span
-              className="me-2 px-2 py-1  mt-2 w-auto"
+              className="me-2 px-2 py-1  mt-2 w-auto d-inline-block"
               style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
             >
               {tokeninfodata && tokeninfodata.contractInfo.logo ? (
@@ -179,6 +179,7 @@ export function LeftBarToken() {
                   width={18}
                   src={tokeninfodata.contractInfo.logo}
                   alt={tokeninfodata.contractInfo}
+                  style={{marginTop:'-2px'}}
                 />
               ) : (
                 <div className="d-inline-block">

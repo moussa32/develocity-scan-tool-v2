@@ -24,7 +24,7 @@ const MySearch = () => {
   const search_status = useSelector((state) => state.Search?.status);
 
   const notify = () => (
-    toast.error(' Invalid ContactAddress!', {
+    toast.error(' Invalid Contract Address!', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -102,7 +102,8 @@ const MySearch = () => {
           type="text"
           className={styles.searchInput}
           onChange={(e) => setTerm(e.target.value)}
-          value={term}
+          // value={term}
+          value={term===null?'':term}
         />
         <button onClick={()=> {
            // eslint-disable-next-line no-unused-expressions

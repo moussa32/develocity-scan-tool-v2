@@ -27,7 +27,7 @@ import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
 import { socket } from '../../utils/socket';
 import { Navigate, useNavigate } from 'react-router-dom';
-import { fetchResult, fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData'
+import {  fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData'
 
 export function Token() {
     const dispatch = useDispatch();
@@ -52,7 +52,7 @@ export function Token() {
     const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
     const search_params = useSelector((state) => state.Search?.statusParams);
     // rejected message=Request failed with status code 404
-    console.log("search_data: ", search_params)
+    console.log("search_data: ", search_params?.responseCode)
     const tokenAddress = params.contractAddress;
     //navigate to 404
     useEffect(() => {
@@ -77,7 +77,7 @@ export function Token() {
         if (search_params === 'loading' || search_params === null) {
             return
         }
-        else if (search_params?.responseCode !== 200) {
+        else if (search_params?.responseCode === 400) {
             navigate('/404')
         }
     }, [navigate, search_params]);

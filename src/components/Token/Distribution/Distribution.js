@@ -75,7 +75,7 @@ const Distribution = () => {
               color: undefined,
               offsetY: 16,
               formatter: function (val) {
-                return val
+                return `${val}%`
               }
             },
             total: {
@@ -85,7 +85,8 @@ const Distribution = () => {
               color: '#373d3f',
               formatter: function (w) {
                 return w.globals.seriesTotals.reduce((a, b) => {
-                  return a + b
+                  const totalPercentage=parseInt(a)+parseInt(b);
+                  return `${totalPercentage} %`
                 }, 0)
               }
             }
