@@ -52,7 +52,7 @@ export function Token() {
     const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
     const search_params = useSelector((state) => state.Search?.statusParams);
     // rejected message=Request failed with status code 404
-    console.log("search_data: ", search_params?.responseCode)
+    // console.log("search_params: ", search_params)
     const tokenAddress = params.contractAddress;
     //navigate to 404
     useEffect(() => {

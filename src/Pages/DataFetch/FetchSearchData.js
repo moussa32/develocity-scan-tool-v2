@@ -5,10 +5,14 @@ import instance from '../../Network/axiosconfig';
 
 export const fetchResult = createAsyncThunk('search/fetchResult',
     async (searchKey) => {
-        const response = await instance.get(`user/suggestion?name=${searchKey}`)
-        // const response = await axios.get(`https://api.develocity.finance/api/v1/user/suggestion?name=${searchKey}`)
-        console.log("response_Search: ", response.data)
-        return response.data
+        try{
+            const response = await instance.get(`user/suggestion?name=${searchKey}`)
+            // const response = await axios.get(`https://api.develocity.finance/api/v1/user/suggestion?name=${searchKey}`)
+            return response.data
+        }catch(error){
+            return error.response.data
+        }
+        
 
     });
 
@@ -16,11 +20,9 @@ export const fetchSearchParams = createAsyncThunk('search/fetchSearchParams',
     async (searchKey) => {
         try {
             const responseSuggest = await instance.get(`user/suggestion?name=${searchKey}`)
-            console.log("reSearch", responseSuggest)
             return responseSuggest.data
 
         } catch (err) {
-            console.log("err", err.response.data)
 
             return err.response.data
         }
@@ -38,6 +40,7 @@ const Search = createSlice({
     initialState: {
         data: [],
         status: null,
+        searchCode:null,
         suggestParamsData:[],
         statusParams:null
 
@@ -45,46 +48,32 @@ const Search = createSlice({
     extraReducers: {
         [fetchResult.fulfilled]: (state, payload) => {
             state.data = payload;
-            console.log("new:", payload)
+            // console.log("new:", payload)
             state.status = "success";
-
+            state.searchCode=payload.payload?.responseCode
         },
-        [fetchResult.pending]: (state) => {
+        [fetchResult.pending]: (state, payload) => {
             state.status = "loading";
+            state.searchCode=payload.payload?.responseCode
 
         },
-        [fetchResult.rejected]: (state) => {
+        [fetchResult.rejected]: (state, payload) => {
             state.status = "failed";
-
-
+            state.searchCode=payload.payload?.responseCode
         },
         // suggest for params
         [fetchSearchParams.fulfilled]: (state, {payload}) => {
             // ['responseCode', 'responseMessage']
-            console.log("payload: ",payload)
-
+            // console.log("payload fill: ",payload)
             state.statusParams=payload
-          
-
         },
         [fetchSearchParams.pending]: (state, { payload }) => {
-            console.log("payload: ",payload)
-
+            // console.log("payload: ",payload)
             state.statusParams='loading'
-
-
-
-
-
         },
         [fetchSearchParams.rejected]: (state,{payload}) => {
-            console.log("payload: ",payload)
+            // console.log("payload reject: ",payload)
             state.statusParams=payload
-
-
-
-
-
         },
 
     }
