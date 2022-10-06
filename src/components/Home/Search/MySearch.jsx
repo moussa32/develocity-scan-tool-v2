@@ -91,8 +91,12 @@ const MySearch = () => {
       //   // window.location.href=`/token/${term}` 
       //   navigate(`/token/${term}`)
       // }
-      else{
+      else if(searchCode===400){
         notify() 
+      }
+      else if(searchCode===404){
+        navigate(`/token/${term}`)
+
       }
     }else{
       // window.location.href=`/`

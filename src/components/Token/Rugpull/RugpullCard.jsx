@@ -19,7 +19,6 @@ export function RugpullCard() {
     }, [contractAddress, dispatch]);
 
     const percentage = Math.round(LPtokenBalance_percentage?.ownerInfo?.LPtokenBalance_percentage);
-
     return (
 
         <div>
@@ -37,7 +36,11 @@ export function RugpullCard() {
                                     </svg></span>
                                     <div className="px-2 pt-1" >
                                         <h5 className=''>{t("token:rugpull_test_notdetected")}</h5>
+                                        { !isNaN(percentage) && 
                                         <p> {t("token:rugpull_test_notdetected_msg", { percentage })}</p>
+
+                                        }
+                                        {/* <p> {t("token:rugpull_test_notdetected_msg", { percentage })}</p> */}
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +58,12 @@ export function RugpullCard() {
                                     </div>
                                     <div className="text-start ps-2 pt-1" >
                                         <h5 >{t("token:rugpull_test_detected")}</h5>
+                                        {
+                                             !isNaN(percentage) && 
                                         <p className="text-muted"> {t("token:Taken_owners_has_only_7_of_liquidity_which_increase_risk_of_Rugpull", { percentage })}</p>
+
+                                        }
+                                        {/* <p className="text-muted"> {t("token:Taken_owners_has_only_7_of_liquidity_which_increase_risk_of_Rugpull", { percentage })}</p> */}
                                     </div>
                                 </div>
                             </div>
