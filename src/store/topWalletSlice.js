@@ -4,6 +4,7 @@ import instance from '../Network/axiosconfig'
 
 export const fetchWallet = createAsyncThunk('wallet/fetchWallet', async (tokenAddress) => {
     // const response = await axios.get(`https://api.develocity.finance/api/v1/contract/BSCholderScan?contractAddress=${tokenAddress}`)
+
     // const response= await instance.get(`contractt/BSCholderScan?contractAddress=${tokenAddress}`)
     const response= await instance.get(`contract/BSCholderScan?contractAddress=${tokenAddress}`)
     return response.data.result
