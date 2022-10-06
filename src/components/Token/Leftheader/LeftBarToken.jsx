@@ -171,7 +171,7 @@ export function LeftBarToken() {
           <div className={styles.contractInfo}>
             <span
               className="me-2 px-2 py-1  mt-2 w-auto d-inline-block"
-              style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
+              style={{ backgroundColor: "rgba(136, 136, 136,0.2)" , height: '29px'}}
             >
               {tokeninfodata && tokeninfodata.contractInfo.logo ? (
                 <img
@@ -208,7 +208,7 @@ export function LeftBarToken() {
             </span>
             <span
               className="px-2 py-1 me-2 mt-2 d-inline-block"
-              style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
+              style={{ backgroundColor: "rgba(136, 136, 136,0.2)" ,fontFamily: "SF Pro Display Medium"}}
             >
               {t("token:launched")}{" "}
               {tokeninfodata

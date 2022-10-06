@@ -84,14 +84,20 @@ const MySearch = () => {
   const searchContractaddress=()=>{
     console.log("searchCode: ", searchCode)
     if( term.startsWith("0x") && term.length === 42 ){
-      if(search_status==='success'){
-        // window.location.href=`/token/${term}` 
+      if(searchCode===200){
         navigate(`/token/${term}`)
-      }else{
+      }
+      // if(search_status==='success'){
+      //   // window.location.href=`/token/${term}` 
+      //   navigate(`/token/${term}`)
+      // }
+      else{
         notify() 
       }
     }else{
-      window.location.href=`/`
+      // window.location.href=`/`
+      navigate(`/`)
+
     }
   }
   return (

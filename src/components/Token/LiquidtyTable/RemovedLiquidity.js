@@ -52,7 +52,7 @@ const RemovedLiquidity = ({ LiquidtyData }) => {
         for (let i = 0; i < LiquidtyData.removeLiquidityTransaction.length; i++) {
             let fromAddress = LiquidtyData.removeLiquidityTransaction[i].sender.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].sender.substr(-4);
             let toAddress = LiquidtyData.removeLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].receiver.substr(-4);
-            let amount = LiquidtyData.removeLiquidityTransaction[i].amount.substr(0, 5)
+            let amount = LiquidtyData.removeLiquidityTransaction[i].amount?.toString().substr(0, 5)
             let transaction = LiquidtyData.removeLiquidityTransaction[i].transaction;
             // let transaction = LiquidtyData.removeLiquidityTransaction[i].transaction.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].transaction.substr(-4);
             let currency = LiquidtyData.removeLiquidityTransaction[i].currency;
