@@ -4,8 +4,9 @@ import instance from '../Network/axiosconfig'
 
 export const fetchBSCTrasaction= createAsyncThunk('bSCTrasaction/fetchBSCTrasaction', async (tokenAddress) => {
     // const response = await axios.get(`https://api.develocity.finance/api/v1/contract/getBSCTrasaction?contractAddress=${tokenAddress}`)
-   // const response= await instance.get(`contractt/getBSCTrasaction?contractAddress=${tokenAddress}`)
-     const response= await instance.get(`contract/getBSCTrasaction?contractAddress=${tokenAddress}`)
+
+    // const response= await instance.get(`contractt/getBSCTrasaction?contractAddress=${tokenAddress}`)
+    const response= await instance.get(`contract/getBSCTrasaction?contractAddress=${tokenAddress}`)
     return response.data.result
 })
 

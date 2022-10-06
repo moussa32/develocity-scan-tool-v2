@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {IoCopy} from 'react-icons/io5';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import styles from "./Search.module.css";
@@ -17,14 +18,15 @@ const MySearch = () => {
   const [term, setTerm] = useState(null);
   const [dataGet, setdataGet] = useState(null);
   const [disable, setDisable] = useState(true);
-  
+  const navigate=useNavigate()
 
   const search = useSelector((state) => state.Search);
   const [copiedAddress,setCopyAddress] = useState('Copy Address');
   const search_status = useSelector((state) => state.Search?.status);
+  const searchCode = useSelector((state) => state.Search?.searchCode);
 
   const notify = () => (
-    toast.error(' Invalid ContactAddress!', {
+    toast.error(' Invalid Contract Address!', {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -79,6 +81,19 @@ const MySearch = () => {
       // setdataGet(null);
     }
   }, [search, term]);
+  const searchContractaddress=()=>{
+    console.log("searchCode: ", searchCode)
+    if( term.startsWith("0x") && term.length === 42 ){
+      if(search_status==='success'){
+        // window.location.href=`/token/${term}` 
+        navigate(`/token/${term}`)
+      }else{
+        notify() 
+      }
+    }else{
+      window.location.href=`/`
+    }
+  }
   return (
     <div className="w-100 ">
        <div>
@@ -102,12 +117,15 @@ const MySearch = () => {
           type="text"
           className={styles.searchInput}
           onChange={(e) => setTerm(e.target.value)}
-          value={term}
+          // value={term}
+          value={term===null?'':term}
         />
-        <button onClick={()=> {
-           // eslint-disable-next-line no-unused-expressions
-           term.startsWith("0x") && term.length === 42 ? (search_status==='success'?window.location.href=`/token/${term}` :notify() ):(window.location.href=`/`)
-        }}
+        <button onClick={searchContractaddress}
+        
+        // onClick={()=> {
+        //    // eslint-disable-next-line no-unused-expressions
+        //    (term.startsWith("0x") && term.length === 42) ? (search_status==='success'?window.location.href=`/token/${term}` :notify() ):(window.location.href=`/`)
+        // }}
          className={lang==="ar"?styles.searchBtn_rtl:styles.searchBtn_ltr} disabled={disable}>
         {t("common:Scan")}
         </button>

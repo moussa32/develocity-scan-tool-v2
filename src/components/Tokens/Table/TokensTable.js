@@ -219,8 +219,8 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
             formatter: (cell, row) => {
                 return (
                     <div >
-                        <span style={{ marginRight: '10px' }}>{Number(row.totalSupply)?.toLocaleString("en-US")}</span>
-                        {/* <span style={{ marginRight: '10px' }}>{Number(row.contractInfo?.totalSupply)?.toLocaleString("en-US")}</span> */}
+                        {/* <span style={{ marginRight: '10px' }}>{Number(row.totalSupply)?.toLocaleString("en-US")}</span> */}
+                        <span style={{ marginRight: '10px' }}>{Number(row.contractInfo?.totalSupply)?.toLocaleString("en-US")}</span>
 
                     </div>
                 )
