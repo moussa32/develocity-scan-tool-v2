@@ -45,7 +45,7 @@ export function LiquidityList() {
   
             {(statusLiquidity==='success' || statusLiquidity===true)  &&
             <div className='col-12 col-md-6'>
-                <ListGroup listdata={data} title={t("token:liquidity")}/>
+                <ListGroup listdata={data} title={t("token:liquidity")} info={t("token:infoDescription.liquidityInfo")}/>
             </div>}
             {/* <ListGroup listdata={bscLiquidityScan} title="Liquidity" /> */}
         {statusLiquidity===false && ''}

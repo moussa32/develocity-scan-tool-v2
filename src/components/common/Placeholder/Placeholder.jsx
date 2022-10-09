@@ -5,11 +5,11 @@ export function Placeholder({styling}){
         marginTop:styling.padding,
         marginRight:styling.marginRight,
         borderRadius:styling.borderRadius,
-        marginLeft:styling.marginLeft
+        marginLeft:styling.marginLeft,
     }
     return(
         <>
-            <div className="placeholder-glow">
+            <div className="placeholder-glow" style={{display:`${styling.display? styling.display:'block'}`}}>
                 <p className="placeholder bg-secondary" style={stylingdata}></p>
             </div>
         </>

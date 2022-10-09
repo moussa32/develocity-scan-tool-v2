@@ -75,10 +75,23 @@
     "honeypot_test_detected": "لم يتم اجتياز خطورة ايقاف البيع بنجاح",
     "Trading_simulation_shows_that_trading_is_open_which_means_token_is_not_a_honeypot": "تظهر محاكاة التداول إن التداول مفتوح مما يعني أن البيع في هذه العملة مسموح",
     "Trading_simulation_shows_that_sell_is_closed_which_means_token_is_a_honeypot":"تظهر محاكاة التداول إن التداول مغلق مما يعني أن البيع في هذه العملة  غير مسموح",
-    "rugpull_test_notdetected_msg": "مُلَّاك العملة يمتلكون  {{percentage}}% من حوض السيولة مما يزيد من خطورة النصب والاحتيال",
+    "rugpullTest":{
+		"takingOwners":"مُلَّاك العملة يمتلكون",
+		"detected":" من حوض السيولة مما يقلل من خطورة النصب والاحتيال",
+		"notdetected":" من حوض السيولة مما يزيد من خطورة النصب والاحتيال"
+	},
+    "rugpull_test_notdetected_msg":{
+		"part1":"مُلَّاك العملة يمتلكون",
+		"part2":" من حوض السيولة مما يزيد من خطورة النصب والاحتيال" 
+	},
     "Taken_owners_has_only_7_of_liquidity_which_increase_risk_of_Rugpull": "مُلَّاك العملة يمتلكون  {{percentage}}% من حوض السيولة مما يقلل من خطورة النصب والاحتيال",
     "view_more": "عرض المزيد",
     "close": "إغلاق",
     "general": "عام",
-    "copyContractAddress": "نسخ عنوان العقد"
+    "copyContractAddress": "نسخ عنوان العقد",
+    "infoDescription":{
+		"slippageInfo":"slippage",
+		"gasFeeInfo":"gas fee",
+		"liquidityInfo":"liquidity"
+	}
 }

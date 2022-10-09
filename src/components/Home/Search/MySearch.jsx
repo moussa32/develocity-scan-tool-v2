@@ -95,7 +95,7 @@ const MySearch = () => {
         notify() 
       }
       else if(searchCode===404){
-        navigate(`/token/${term}`)
+                navigate(`/token/${term}`)
 
       }
     }else{

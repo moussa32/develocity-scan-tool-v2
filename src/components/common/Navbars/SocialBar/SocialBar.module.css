@@ -28,6 +28,7 @@
 .socialIcons_rtl li:last-child{
     margin-left: 0;
 }
+
 .langListGroup_ltr button> span:first-child,
 .langListGroup_rtl button> span:first-child
 {
@@ -39,7 +40,41 @@
 .langListGroup_rtl button> span:first-child{
     padding-left: 10px;  
 }
+.langListGroup_rtl li:last-child button,
+.langListGroup_ltr li:last-child button{
+    width: auto;
+}
+.dropdownLang li button{
+    border-color: #fff;
+    border-style: solid;
+    border-bottom-width: 0px;
+}
+.dropdownLang li:hover button{
+    border-bottom-width: 2px;
+    border-color: #fff;
+    border-style: solid;
+    background-color: #fff;
 
+ }
+.langListGroup_ltr button> span, .langListGroup_rtl button> span{
+    font-size: 13px;
+    font-family: 'SF Pro Display Medium';
+    color: #888;
+}
+.langListGroup_rtl{
+    transform: translate3d(-10px, 52px, 0px) !important;
+}
+.langListGroup_ltr{
+    transform: translate3d(0px, 52px, 0px) !important;
+
+}
+.dropdownLang{
+    background-color: rgb(243, 242, 247) !important;
+}
+
+.dropdownLang button:hover{
+    background-color: transparent;
+}
 .socialIcons_rtl li a{
     color: #888;
     width: 24px;
@@ -104,9 +139,9 @@
     margin-right: 19px;
     margin-left: 19px;
 }
-.socialBarNav li:last-child{
+/* .socialBarNav li:last-child{
     margin-right: 0;
-}
+} */
 .socialBarNav li a{
     color: #888;
     text-decoration: none;

@@ -73,7 +73,7 @@ const Distribution = () => {
               fontSize: '16px',
 
               color: undefined,
-              offsetY: 16,
+              offsetY: 8,
               formatter: function (val) {
                 return `${val}%`
               }

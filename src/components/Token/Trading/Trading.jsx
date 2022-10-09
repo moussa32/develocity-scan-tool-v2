@@ -37,7 +37,7 @@ export function Trading() {
         <>
             {(statusBSCapi==='success' || statusBSCapi==='loading')  &&
             <div className='col-12 col-md-6'>
-                <ListGroup listdata={data} title={t("token:gas_fee")}/>
+                <ListGroup listdata={data} title={t("token:gas_fee")}  info={t("token:infoDescription.gasFeeInfo")}/>
             </div>}
 
 

@@ -34,7 +34,7 @@ export function Slippage() {
         <>
             {(statusSlippage==='success' || statusSlippage==='loading')  &&
             <div className='col-12 col-md-6'>
-                <ListGroup listdata={data} title={t("token:slippage")}/>
+                <ListGroup listdata={data} title={t("token:slippage")} info={t("token:infoDescription.slippageInfo")}/>
             </div>}
 
         {statusSlippage==='failed' && ''}

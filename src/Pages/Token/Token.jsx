@@ -27,7 +27,7 @@ import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
 import { socket } from '../../utils/socket';
 import { Navigate, useNavigate } from 'react-router-dom';
-import {  fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData'
+import { fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData'
 
 export function Token() {
     const dispatch = useDispatch();
@@ -59,7 +59,7 @@ export function Token() {
         dispatch(fetchSearchParams(tokenAddress))
     }, [dispatch, tokenAddress])
 
-   
+
 
     // useEffect(() => {
     //     let timer = setTimeout(() => {
@@ -128,9 +128,9 @@ export function Token() {
                                 <div className='col-12'> <HoneypotCard /></div>
                                 <div className='col-12'> <RugpullCard /></div>
                             </div>
-                            {/*<div className='col-12 col-md-4'>
-                                    <div className='col-12'><AdevertiseOne /></div>
-    </div>*/}
+                            <div className='col-12 col-md-4 '>
+                                <div className='col-12' ><AdevertiseOne /></div>
+                            </div>
                         </div>
                     </div>
 
@@ -192,9 +192,9 @@ export function Token() {
                             <Trading />
                             <LiquidityList />
                         </div>
-                        <div className='d-md-flex  justify-content-space-between'>
+                        <div className='d-md-flex  justify-content-space-between '>
                             <Slippage />
-                            {/*<Advertisetwo />*/}
+                            <Advertisetwo styling={{marginTop:'50px'}}/>
                         </div>
 
                     </div>

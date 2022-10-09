@@ -3,7 +3,7 @@ import { Placeholder } from "../../common/Placeholder/Placeholder"
 import styles from './ListGroup.module.css'
 import { useTranslation } from 'react-i18next';
 
-export function ListGroup({ listdata, title }) {
+export function ListGroup({ listdata, title ,info}) {
     const { t } = useTranslation(["token"])
     const lang=localStorage.getItem("i18nextLng")
     // دي كل الداتا اللي بترجع من api 
@@ -21,7 +21,7 @@ export function ListGroup({ listdata, title }) {
     return (
         <>
             <div className={`text-muted  mt-3 ${lang==="ar"?styles.title_rtl:styles.title_ltr}`}>
-                <HeaderText nameHeader={title} title="Welcome to develocity." />
+                <HeaderText nameHeader={title} title={info} />
             </div>
             
             <div className={`mx-2 ${lang==="ar"?styles.groupcard_rtl:styles.groupcard_ltr}`}>
