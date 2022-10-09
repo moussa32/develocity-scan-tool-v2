@@ -16,7 +16,7 @@ const MySearch = () => {
   const lang=localStorage.getItem("i18nextLng")
 
   const [term, setTerm] = useState(null);
-  const [dataGet, setdataGet] = useState(null);
+  const [dataGet, setdataGet] = useState([]);
   const [disable, setDisable] = useState(true);
   const navigate=useNavigate()
 
@@ -82,27 +82,32 @@ const MySearch = () => {
     }
   }, [search, term]);
   const searchContractaddress=()=>{
-    console.log("searchCode: ", searchCode)
-    if( term.startsWith("0x") && term.length === 42 ){
-      if(searchCode===200){
-        navigate(`/token/${term}`)
-      }
-      // if(search_status==='success'){
-      //   // window.location.href=`/token/${term}` 
-      //   navigate(`/token/${term}`)
-      // }
-      else if(searchCode===400){
-        notify() 
-      }
-      else if(searchCode===404){
-                navigate(`/token/${term}`)
+    // if( term.startsWith("0x") && term.length === 42 ){
+    //   if(search_status==='success'){
+    //     // window.location.href=`/token/${term}` 
+    //     navigate(`/token/${term}`)
+    //   }else{
+    //     notify() 
+    //   }
+    // }else{
+    //   window.location.href=`/`
+    // }
 
-      }
-    }else{
-      // window.location.href=`/`
-      navigate(`/`)
+
+    switch (searchCode) {
+      case 200:
+      case 404:  
+        navigate(`/token/${term}`)
+        break;
+      case 400:
+        notify() 
+        break;
+        default:
+        navigate('/')
+
 
     }
+
   }
   return (
     <div className="w-100 ">
@@ -147,11 +152,10 @@ const MySearch = () => {
           {t("common:invest")}
         </span>
       </div> */}
-
-      <div>
-        <div className= {(search.status==='success' || search.status==='loading')? styles.searchBlock:''}>
+{/* className= {(search.status === "failed")? styles.searchNotFound:""} */}
+        {searchCode === 200 && <div className= {(search.status === "success" || search.status==='loading')? styles.searchBlock:""}>
           {search.status === "success" &&
-            dataGet &&
+            dataGet.length !==0 &&
             dataGet.map((el, index) => (
               <div className={styles.resultRecord} 
               key={index}
@@ -239,11 +243,9 @@ const MySearch = () => {
           {/* end of success */}
 
           {search.status === "loading" && <div>loading...</div>}
-        </div>
-      </div>
+        </div>}
 
-      {search.status === "failed" && ""}
-    </div>
+      </div>
   );
 };
 

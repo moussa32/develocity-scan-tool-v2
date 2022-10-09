@@ -145,10 +145,9 @@
    padding: 5px;
    position:absolute;
    box-shadow: 1px 1px 7px 3px #80808038;
-   z-index: 3;
+   z-index: 2;
    max-height: 400px;
    overflow-y: auto;
-
 }
 .resultRecord{
    border:1px solid #fff;
