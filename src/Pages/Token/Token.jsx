@@ -19,20 +19,22 @@ import { Slippage } from '../../components/Token/Slippage/Slippage'
 import { LiquidityList } from '../../components/Token/LiquidityListGroup/LiquidityList'
 import { useParams } from 'react-router-dom'
 import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
-import { AdevertiseOne } from '../../components/Token/Advertise/AdevertiseOne'
+import { AdevertiseToken } from '../../components/Token/Advertise/AdevertiseToken'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
 import { socket } from '../../utils/socket';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData'
+import { useNavigate } from 'react-router-dom';
+import { fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData';
+import { fetchgetAdvertismentResult } from '../../Services/FetchAdvertisment';
 
 export function Token() {
     const dispatch = useDispatch();
     const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
+    const getAdvertismentData=useSelector(state=>state.GetAdvertismentodata.data)
     // const ipAddress = useSelector(state => state.GetIPAddress.data);
     const navigate = useNavigate()
     // console.log("ip", ipAddress)
@@ -59,8 +61,10 @@ export function Token() {
         dispatch(fetchSearchParams(tokenAddress))
     }, [dispatch, tokenAddress])
 
-
-
+    // requst advertisment
+    useEffect(()=>{
+        dispatch(fetchgetAdvertismentResult('Token') )
+    }, [dispatch])
     // useEffect(() => {
     //     let timer = setTimeout(() => {
     //         if (search_params?.responseCode !==200) {
@@ -129,7 +133,11 @@ export function Token() {
                                 <div className='col-12'> <RugpullCard /></div>
                             </div>
                             <div className='col-12 col-md-4 '>
-                                <div className='col-12' ><AdevertiseOne /></div>
+                                <div className='col-12' >
+                                    <AdevertiseToken 
+                                    getAdvertismentData={getAdvertismentData}
+                                    />
+                                    </div>
                             </div>
                         </div>
                     </div>

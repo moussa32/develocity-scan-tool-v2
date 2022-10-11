@@ -2,9 +2,10 @@ import { configureStore } from '@reduxjs/toolkit'
 import contractAddressSlice from './contractAddressSlice'
 import SearchReducer from './../Pages/DataFetch/FetchSearchData'
 import GetBSCdataReducer from './../Services/FetchBSCData'
-import GettokeninfodataReducer from './../Services/FetchTokenInfo'
+import GettokeninfodataReducer from './../Services/FetchTokenInfo';
 import GetBuySellBSCdataReducer from './../Services/FetchBuySellBSC';
-import GetListNewsdataReducer from './../Services/FetchListNews'
+import GetListNewsdataReducer from './../Services/FetchListNews';
+import GetAdvertismentodataReducer from '../Services/FetchAdvertisment';
 import ScoreReducer from "../Pages/DataFetch/FetchTrustScoreData";
 import DistReducer from "../Pages/DataFetch/FetchDistributionData";
 import tokenOwnerSlice from "./tokenOwnerSlice";
@@ -29,6 +30,7 @@ export const store = configureStore({
         bSCTrasaction: bSCTrasactionSlice,
         tokenList: tokenListSlice,
         GetListNewsdata:GetListNewsdataReducer,
+        GetAdvertismentodata:GetAdvertismentodataReducer,
         GetIPAddress:GetIPReducer,
         connectSlice:connectSliceReducer
     },

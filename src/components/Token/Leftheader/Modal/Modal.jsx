@@ -23,7 +23,7 @@ export function Modal({logo,name, symbol,isnotlisted , description}) {
         className={`modal  ${styles.fade2} ${lang==='ar'?styles.left:styles.no}`}
         style={{paddingRight: "1px"}}
         id="exampleModal"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >

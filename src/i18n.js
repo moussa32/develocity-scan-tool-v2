@@ -14,7 +14,7 @@ i18n.use(LanguageDetector)
       },
       ns: ["common", "home", "token","changelog"],
         fallbackLng:'en',
-        debug:true,
+        debug:false,
        
         interpolation: {
             escapeValue: false ,// react already safes from xss

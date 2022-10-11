@@ -18,9 +18,9 @@ const Changelog =()=>{
         <div className={` ${styles.wholeBg}`}>
         <NavBar />
 
-{/* <div className={styles.reAdv} >
+<div className={styles.reAdv} >
 <span>[ad space]</span>
-</div> */}
+</div>
 
 <ChangelogContent/>
         <div className={`container  ${styles.copyRight}`}>

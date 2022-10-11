@@ -4,9 +4,17 @@ import { Section2 } from '../../components/Home/Main/section2/Section2'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import {socket} from '../../utils/socket';
 import { useEffect } from 'react';
+import { fetchgetAdvertismentResult } from '../../Services/FetchAdvertisment';
+import { useDispatch, useSelector } from 'react-redux'
+
 
 function Home() {
- 
+  const dispatch = useDispatch();
+  const getAdvertismentData=useSelector(state=>state.GetAdvertismentodata.data)
+//  requset advertisment
+  useEffect(()=>{
+    dispatch(fetchgetAdvertismentResult('Home') )
+}, [dispatch])
   useEffect(() => {
     socket.emit('currentLocation', {page:'home'});
     // return () => {
