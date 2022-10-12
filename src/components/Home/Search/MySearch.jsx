@@ -153,7 +153,9 @@ const MySearch = () => {
         </span>
       </div> */}
 {/* className= {(search.status === "failed")? styles.searchNotFound:""} */}
-        {searchCode === 200 && <div className= {(search.status === "success" || search.status==='loading')? styles.searchBlock:""}>
+        {searchCode === 200 &&
+         <div className= {(dataGet.length !==0 )? styles.searchBlock:""}>
+          {/* <div className= {(search.status === "failed" || search.status==='loading')? styles.searchBlock:""}>  */}
           {search.status === "success" &&
             dataGet.length !==0 &&
             dataGet.map((el, index) => (
