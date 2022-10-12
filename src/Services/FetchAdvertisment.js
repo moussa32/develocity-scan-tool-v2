@@ -7,7 +7,7 @@ export const fetchgetAdvertismentResult = createAsyncThunk('getadvertisement/fet
         try {
             let ipAddress = await axios.get("https://api.ipify.org?format=json");
             let response = await instance.get(`user/getAdvertisement?ipAddress=${ipAddress.data.ip}&viewMode=WebSite&adPosition=${position}`)
-           return response.data.result
+            return response.data
 
         } catch (error) {
             return error.response.data
@@ -22,11 +22,9 @@ export const fetchviewAdvertismentResult = createAsyncThunk('viewadvertisement/f
         try {
             let ipAddress = await axios.get("https://api.ipify.org?format=json");
             let response = await instance.get(`user/viewAdvertisment?AdvertId=${advertId}&ipAddress=${ipAddress.data.ip}&viewMode=WebSite`)
-           console.log("view ad")
             return response.data.result
 
         } catch (error) {
-            console.log("error")
             return error.response.data
         }
     }
@@ -45,7 +43,7 @@ const GetAdvertismentodata=createSlice({
     },
     extraReducers:{
         [fetchgetAdvertismentResult.fulfilled] : (state,{payload}) =>{
-            state.data = payload;
+            state.data = payload?.result;
             state.status = "success";
             state.responsecode=payload?.responseCode
 

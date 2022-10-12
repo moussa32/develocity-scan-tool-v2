@@ -28,17 +28,16 @@ import { TableLoader } from '../../components/common/TableLoader'
 import { socket } from '../../utils/socket';
 import { useNavigate } from 'react-router-dom';
 import { fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData';
-import { fetchgetAdvertismentResult } from '../../Services/FetchAdvertisment';
-
+import UseAdvertisment from '../../hooks/UseAdvertisment'
 export function Token() {
     const dispatch = useDispatch();
     const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
-    const getAdvertismentData=useSelector(state=>state.GetAdvertismentodata.data)
+    // calling advertisment
+    let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Token')
     // const ipAddress = useSelector(state => state.GetIPAddress.data);
     const navigate = useNavigate()
-    // console.log("ip", ipAddress)
-    // console.log("data",tokenOwnerData)
+
     const tokenOwner_isLoading = useSelector(state => state.tokenOwner.loading);
     // const tokenList_isLoading = useSelector(state => state.tokenList.loading);
     const topWallet_isLoading = useSelector(state => state.topWallet.loading);
@@ -61,10 +60,7 @@ export function Token() {
         dispatch(fetchSearchParams(tokenAddress))
     }, [dispatch, tokenAddress])
 
-    // requst advertisment
-    useEffect(()=>{
-        dispatch(fetchgetAdvertismentResult('Token') )
-    }, [dispatch])
+
     // useEffect(() => {
     //     let timer = setTimeout(() => {
     //         if (search_params?.responseCode !==200) {
@@ -134,10 +130,15 @@ export function Token() {
                             </div>
                             <div className='col-12 col-md-4 '>
                                 <div className='col-12' >
-                                    <AdevertiseToken 
-                                    getAdvertismentData={getAdvertismentData}
-                                    />
-                                    </div>
+                                    {
+                                        advertisment_code === 200 &&
+                                        advertisment_Status === 'success' &&
+                                        <AdevertiseToken
+                                            getAdvertismentData={getAdvertismentData}
+                                        />
+                                    }
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -202,7 +203,7 @@ export function Token() {
                         </div>
                         <div className='d-md-flex  justify-content-space-between '>
                             <Slippage />
-                            <Advertisetwo styling={{marginTop:'50px'}}/>
+                            <Advertisetwo styling={{ marginTop: '50px' }} />
                         </div>
 
                     </div>
