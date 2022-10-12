@@ -6,10 +6,10 @@ import {socket} from '../../utils/socket';
 import { useEffect } from 'react';
 // import { fetchgetAdvertismentResult } from '../../Services/FetchAdvertisment';
 // import { useDispatch, useSelector } from 'react-redux'
-import UseAdvertisment from '../../hooks/UseAdvertisment';
+// import UseAdvertisment from '../../hooks/UseAdvertisment';
 
 function Home() {
-  let {getAdvertismentData}=UseAdvertisment('Home')
+  // let {getAdvertismentData}=UseAdvertisment('Home')
 
   // const dispatch = useDispatch();
   // const getAdvertismentData=useSelector(state=>state.GetAdvertismentodata.data)

@@ -2,32 +2,40 @@ import React from "react";
 import { NavBar } from '../../components/Home/Header/NavBar';
 import CopyRight from '../../components/Home/CopyRight/CopyRight';
 import ChangelogContent from "../../components/ChangelogContent/ChangelogContent";
-import styles from"./Changelog.module.css";
-import {socket} from '../../utils/socket';
+import styles from "./Changelog.module.css";
+import { socket } from '../../utils/socket';
 import { useEffect } from 'react';
+import UseAdvertisment from "../../hooks/UseAdvertisment";
+import { AdvertismentChangelog } from "../../components/Token/Advertise/AdvertismentChangelog";
+const Changelog = () => {
+    let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('News')
 
-
-const Changelog =()=>{
     useEffect(() => {
-        socket.emit('currentLocation', {page:'changelog'});
+        socket.emit('currentLocation', { page: 'changelog' });
         // return () => {
         //     socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
         // }
     }, []);
-    return(
+    return (
         <div className={` ${styles.wholeBg}`}>
-        <NavBar />
+            <NavBar />
+            {
+                advertisment_Status === 'success' &&
+                advertisment_code === 200 &&
+                <div className={styles.reAdv} >
+                    <AdvertismentChangelog
+                        getAdvertismentData={getAdvertismentData}
+                    />
+                </div>
+            }
 
-<div className={styles.reAdv} >
-<span>[ad space]</span>
-</div>
 
-<ChangelogContent/>
-        <div className={`container  ${styles.copyRight}`}>
-        <CopyRight />
+            <ChangelogContent />
+            <div className={`container  ${styles.copyRight}`}>
+                <CopyRight />
 
-        </div>
-        
+            </div>
+
         </div>
     )
 }

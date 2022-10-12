@@ -7,41 +7,42 @@ import { fetchTokenList } from '../../store/tokenListSlice'
 import styles from './Tokens.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { TableLoader } from '../../components/common/TableLoader'
-
+import { AdvertismentTokens } from '../../components/Token/Advertise/AdvertismentTokens';
+import UseAdvertisment from '../../hooks/UseAdvertisment'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 
 const Tokens = () => {
     const dispatch = useDispatch();
-    const [value, setValue] = useState(['Binance', 'score', 'High','']);
-    const [isVerifyied,setIsVerifyied]=useState('all')
-  
+    const [value, setValue] = useState(['Binance', 'score', 'High', '']);
+    const [isVerifyied, setIsVerifyied] = useState('all')
+    const { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Tokens')
     useEffect(() => {
         console.log("value", value)
         dispatch(fetchTokenList(value));
-       
+
     }, [dispatch, value]);
 
     let tokenList = useSelector(state => state.tokenList.tokenList);
     let tokenList_loading = useSelector(state => state.tokenList.loading);
 
-console.log("tokenList", tokenList)
+    console.log("tokenList", tokenList)
     const handleChange = (event) => {
         setValue([event.target.selectedOptions[0].getAttribute('data-network'), event.target.selectedOptions[0].getAttribute('data-quary'), event.target.selectedOptions[0].getAttribute('data-filter'), event.target.selectedOptions[0].getAttribute('data-contactScam')]);
         // setValue([event.target.getAttribute('data-network'), event.target.getAttribute('data-quary'), event.target.getAttribute('data-filter'), event.target.getAttribute('data-contactScam')]);
         // dispatch(fetchTokenList(value));
-        setIsVerifyied('all') 
+        setIsVerifyied('all')
 
     };
 
     // On change category handler
-    const categoryChange = ()=>{
+    const categoryChange = () => {
 
     }
 
-const handleclick=(e)=>{
-    setIsVerifyied((current)=>!current )
-   
-}
+    const handleclick = (e) => {
+        setIsVerifyied((current) => !current)
+
+    }
 
 
 
@@ -49,35 +50,42 @@ const handleclick=(e)=>{
 
 
 
-return (
-    <div >
-        <NavBar />
+    return (
+        <div >
+            <NavBar />
 
-        <div style={{ backgroundColor: "#F3F2F7", padding: "25px 0px 35px" }}>
-            <div className='container'>
-                <div className='row' >
-                    <div className='col-12 d-flex justify-content-center align-items-center'>
-                        <Ads width='590px' height='80px' />
+            <div style={{ backgroundColor: "#F3F2F7", padding: "25px 0px 35px" }}>
+                <div className='container'>
+                    <div className='row' >
+                        <div className='col-12 d-flex justify-content-center align-items-center'>
+                            {
+                                advertisment_Status === 'success' &&
+                                advertisment_code === 200 &&
+                                <AdvertismentTokens
+                                    getAdvertismentData={getAdvertismentData}
+                                />
+                            }
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <div style={{ backgroundColor: "#FFFFFF", padding: "40px 0px 0px 0px" }}>
+            <div style={{ backgroundColor: "#FFFFFF", padding: "40px 0px 0px 0px" }}>
 
-            <div className='container' >
-                <div className='row'>
-                    <div className='col-12'>
-                        <Header />
+                <div className='container' >
+                    <div className='row'>
+                        <div className='col-12'>
+                            <Header />
 
+                        </div>
                     </div>
-                </div>
-                <div className='row'>
-                    <div className='col-12'>
-                        <div className={styles.container_btn}>
-                            <div className={styles.container_left}>
-                                {/* <div>
+                    <div className='row'>
+                        <div className='col-12'>
+                            <div className={styles.container_btn}>
+                                <div className={styles.container_left}>
+                                    {/* <div>
                                 <select className={styles.select_btn} value={value} onChange={handleChange} multiple={false}>
                                         <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="" >Trust Score</option>
                                         <option data-network="Binance" data-quary="interest" data-filter="High" data-contactScam="" >Popular Scans</option>
@@ -86,18 +94,18 @@ return (
                                     
                                     </select>
                                 </div> */}
-                                 <div>
-                                <select className={styles.select_btn} onChange={handleChange} multiple={false}>
-                                        <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="" >Trust Score</option>
-                                        <option data-network="Binance" data-quary="interest" data-filter="High" data-contactScam="" >Popular Scans</option>
-                                        <option data-network="Binance" data-quary="age" data-filter="High" data-contactScam="" >Last Scans</option>
-                                        <option  data-network="Binance" data-quary="score" data-filter="High" data-contactScam="0" >Scam</option>
-                                    
-                                    </select>
-                                </div>
+                                    <div>
+                                        <select className={styles.select_btn} onChange={handleChange} multiple={false}>
+                                            <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="" >Trust Score</option>
+                                            <option data-network="Binance" data-quary="interest" data-filter="High" data-contactScam="" >Popular Scans</option>
+                                            <option data-network="Binance" data-quary="age" data-filter="High" data-contactScam="" >Last Scans</option>
+                                            <option data-network="Binance" data-quary="score" data-filter="High" data-contactScam="0" >Scam</option>
 
-                                {/* category of tokens type */}
-                                {/* <div>
+                                        </select>
+                                    </div>
+
+                                    {/* category of tokens type */}
+                                    {/* <div>
                                 <div className="dropdown">
   <button className={`btn border-0  ${styles.category_ntn}`} type="button" data-bs-toggle="dropdown" aria-expanded="false">Category
   </button>
@@ -112,83 +120,83 @@ return (
   </ul>
 </div>
                                 </div> */}
-                                <div>
+                                    <div>
 
-                                <select className={styles.category_ntn} onChange={categoryChange} multiple={false}>
-                                        <option data-network="" data-quary="score" data-filter="High" data-contactScam="" hidden selected >Category</option>
-                                        <option data-network="" data-quary="interest" data-filter="High" data-contactScam="" >Digital Currency</option>
-                                        <option data-network="" data-quary="age" data-filter="High" data-contactScam="" >Exchange Tokens</option>
-                                        <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Financial Crypto Assets</option>
-                                        <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Infrastructure</option>
-                                        <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >NFTs</option>
-                                        <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Stablecoins</option>
-                                        <option  data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Store of Value</option>  
-                                    </select>
+                                        <select className={styles.category_ntn} onChange={categoryChange} multiple={false}>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="" hidden selected >Category</option>
+                                            <option data-network="" data-quary="interest" data-filter="High" data-contactScam="" >Digital Currency</option>
+                                            <option data-network="" data-quary="age" data-filter="High" data-contactScam="" >Exchange Tokens</option>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Financial Crypto Assets</option>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Infrastructure</option>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="0" >NFTs</option>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Stablecoins</option>
+                                            <option data-network="" data-quary="score" data-filter="High" data-contactScam="0" >Store of Value</option>
+                                        </select>
+                                    </div>
+
+                                    <button className={` ${isVerifyied ? styles.verified_btn : styles.notverified_btn}  ${value[3] ? styles.disabled_verified_btn : ''}`} onClick={handleclick} disabled={value[3]}>
+                                        <span>Verified Tokens</span>
+                                        {
+                                            isVerifyied ?
+                                                <>
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="18"
+                                                        height="18"
+                                                        fill="#9F4AE8"
+                                                        className="bi bi-patch-check-fill"
+                                                        viewBox="0 0 16 16"
+                                                    >
+                                                        <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                                                    </svg></> : <>
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        width="18"
+                                                        height="18"
+                                                        fill="#DFDFE4"
+                                                        className="bi bi-patch-check-fill"
+                                                        viewBox="0 0 16 16"
+                                                    >
+                                                        <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                                                    </svg>
+                                                </>
+                                        }
+                                        {/* <img src={require('../../assets/images/verificationblack.png')} alt='verification' style={{ width: '16px', height: '16px' }} /> */}
+                                    </button>
                                 </div>
-
-                                <button className={` ${isVerifyied ? styles.verified_btn : styles.notverified_btn}  ${value[3]?styles.disabled_verified_btn:''}`} onClick={handleclick} disabled={value[3]}>
-                                    <span>Verified Tokens</span>
-                                    {
-                                        isVerifyied?
-                                        <>
-                                        <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="18"
-                                    height="18"
-                                    fill="#9F4AE8"
-                                    className="bi bi-patch-check-fill"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                                </svg></>:<>
-                                <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="18"
-                            height="18"
-                            fill="#DFDFE4"
-                            className="bi bi-patch-check-fill"
-                            viewBox="0 0 16 16"
-                        >
-                            <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                        </svg>
-                                </>
-                                    }
-                                    {/* <img src={require('../../assets/images/verificationblack.png')} alt='verification' style={{ width: '16px', height: '16px' }} /> */}
+                                <button className={styles.live_btn} disabled>
+                                    <span>Live New Pairs</span>
                                 </button>
+
+
                             </div>
-                            <button className={styles.live_btn} disabled>
-                                <span>Live New Pairs</span>
-                            </button>
-
-
                         </div>
                     </div>
-                </div>
 
-                <div className='row'>
+                    <div className='row'>
 
-                    {
-                        tokenList_loading==='success'?<div className='col-12'>
-                        {tokenList && <TokensTable tokenList={tokenList?tokenList:null}  isVerifyied={isVerifyied}/>}
-                    </div>:null
-                    }
-                    {
-                        tokenList_loading===true?<div className='col-12'>
-                        <TableLoader/>
-                    </div>:null
-                    }
-        
-                    
+                        {
+                            tokenList_loading === 'success' ? <div className='col-12'>
+                                {tokenList && <TokensTable tokenList={tokenList ? tokenList : null} isVerifyied={isVerifyied} />}
+                            </div> : null
+                        }
+                        {
+                            tokenList_loading === true ? <div className='col-12'>
+                                <TableLoader />
+                            </div> : null
+                        }
+
+
+                    </div>
                 </div>
+                <CopyRight />
+
             </div>
-   <CopyRight/>
 
-        </div>
 
-       
-    </div >
-    
-)
+        </div >
+
+    )
 }
 
 export default Tokens

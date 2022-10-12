@@ -1,15 +1,11 @@
 import { AdvertiseReuse } from "./AdvertiseReuse"
 
-export function AdevertiseToken({getAdvertismentData}) {
-    // let stylingdata = {
-    //     height: '285px',
-    //     width: '200px'
-    // }
+export function AdvertismentTokens({getAdvertismentData}) {
 
     return (
         <>
             <AdvertiseReuse
-                shape='square'
+                shape='rectangle'
                 image={getAdvertismentData?.image?.url}
                 type={getAdvertismentData?.adType}
                 title={getAdvertismentData?.title}

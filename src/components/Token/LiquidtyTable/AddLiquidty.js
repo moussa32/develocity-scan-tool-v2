@@ -58,7 +58,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
                 toAddress = LiquidtyData.addLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].receiver.substr(-4);
             }
             if (LiquidtyData.addLiquidityTransaction[i].amount) {
-                amount = LiquidtyData.addLiquidityTransaction[i].amount.toString().substr(0, 5)
+                amount = (LiquidtyData.addLiquidityTransaction[i].amount)
             }
             if (LiquidtyData.addLiquidityTransaction[i].transaction) {
                 transaction = LiquidtyData.addLiquidityTransaction[i].transaction;

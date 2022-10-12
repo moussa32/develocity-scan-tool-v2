@@ -19,12 +19,15 @@ export function RugpullCard() {
     }, [contractAddress, dispatch]);
 
     const percentage = Math.round(LPtokenBalance_percentage?.ownerInfo?.LPtokenBalance_percentage);
+    console.log("percentage: ", percentage)
     return (
 
         <div>
         <h5 className=' pt-3 pb-2' style={{ fontFamily: 'SF Pro Display Medium' }}>{t("token:rugpull")}</h5>
         <div className={`d-flex  pt-0  `} >
-            {bscdata_status === 'success' && <> {
+            {bscdata_status === 'success' &&
+             !isNaN(percentage) &&
+            <> {
 
                 (percentage <= 30) ?
                     <div className={styles.cardGreen}>
@@ -69,7 +72,8 @@ export function RugpullCard() {
             </>
             }
             {
-              bscdata_status==='loading' && 
+              (bscdata_status==='loading'  || isNaN(percentage)) 
+              && 
               <div className={` ${styles.loader}`}>
               <p className={styles.loaderCard}><Placeholder  styling={ {width:'100%',height:'60px'}} /> </p>
               </div> 
