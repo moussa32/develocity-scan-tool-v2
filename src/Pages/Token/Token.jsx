@@ -18,8 +18,9 @@ import { Trading } from '../../components/Token/Trading/Trading'
 import { Slippage } from '../../components/Token/Slippage/Slippage'
 import { LiquidityList } from '../../components/Token/LiquidityListGroup/LiquidityList'
 import { useParams } from 'react-router-dom'
-import { Advertisetwo } from '../../components/Token/Advertise/Advertisetwo'
-import { AdevertiseToken } from '../../components/Token/Advertise/AdevertiseToken'
+import { AdevertiseTokenOne } from '../../components/Token/Advertise/AdevertiseTokenOne';
+import { AdevertiseTokenTwo } from '../../components/Token/Advertise/AdevertiseTokenTwo';
+import { AdevertiseTokenThree } from '../../components/Token/Advertise/AdevertiseTokenThree'
 import LockedSection from '../../components/Token/LockedSection/LockedSection'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
@@ -133,7 +134,7 @@ export function Token() {
                                     {
                                         advertisment_code === 200 &&
                                         advertisment_Status === 'success' &&
-                                        <AdevertiseToken
+                                        <AdevertiseTokenOne
                                             getAdvertismentData={getAdvertismentData}
                                         />
                                     }
@@ -162,6 +163,11 @@ export function Token() {
                                     :
                                     <TableLoader />)
                         }
+                        <div className='mt-5'>
+                            <AdevertiseTokenTwo
+                                getAdvertismentData={getAdvertismentData}
+                            />
+                        </div>
 
 
                     </div>
@@ -203,7 +209,11 @@ export function Token() {
                         </div>
                         <div className='d-md-flex  justify-content-space-between '>
                             <Slippage />
-                            <Advertisetwo styling={{ marginTop: '50px' }} />
+                            <div className='mt-5'>
+                                <AdevertiseTokenThree
+                                    getAdvertismentData={getAdvertismentData}
+                                />
+                            </div>
                         </div>
 
                     </div>

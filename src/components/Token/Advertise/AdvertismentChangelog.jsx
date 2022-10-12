@@ -7,11 +7,11 @@ export function AdvertismentChangelog({getAdvertismentData}) {
         <>
             <AdvertiseReuse
                 shape='rectangle'
-                image={getAdvertismentData?.image?.url}
-                type={getAdvertismentData?.adType}
-                title={getAdvertismentData?.title}
-                id={getAdvertismentData?._id}
-                adURL={getAdvertismentData?.adURL}
+                image={getAdvertismentData[0]?.image?.url}
+                type={getAdvertismentData[0]?.adType}
+                title={getAdvertismentData[0]?.title}
+                id={getAdvertismentData[0]?._id}
+                adURL={getAdvertismentData[0]?.adURL}
 
             />
 
