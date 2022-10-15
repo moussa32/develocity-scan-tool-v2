@@ -5,9 +5,9 @@ import instance from "../Network/axiosconfig";
 export const fetchgetAdvertismentResult = createAsyncThunk('getadvertisement/fetchgetAdvertismentResult',
     async (position) => {
         try {
-            // let ipAddress = await axios.get("https://api.ipify.org?format=json");
-            // let response = await instance.get(`user/getAdvertisement?ipAddress=${ipAddress.data.ip}&viewMode=WebSite&adPosition=${position}`)
-            let response=await axios.get('https://mocki.io/v1/1fa28769-ecd5-406a-864c-9ab704dcc418')
+            let ipAddress = await axios.get("https://api.ipify.org?format=json");
+            let response = await instance.get(`user/getAdvertisement?ipAddress=${ipAddress.data.ip}&viewMode=WebSite&adPosition=${position}`)
+            // let response=await axios.get('https://mocki.io/v1/1fa28769-ecd5-406a-864c-9ab704dcc418')
             return response.data
 
         } catch (error) {
@@ -44,7 +44,7 @@ const GetAdvertismentodata=createSlice({
     },
     extraReducers:{
         [fetchgetAdvertismentResult.fulfilled] : (state,{payload}) =>{
-            state.data = payload?.result?.docs;
+            state.data = payload?.result;
             state.status = "success";
             state.responsecode=payload?.responseCode
 

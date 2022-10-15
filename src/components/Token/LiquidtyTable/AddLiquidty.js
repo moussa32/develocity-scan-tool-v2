@@ -10,6 +10,14 @@ import { useTranslation } from 'react-i18next';
 
 const AddedLiquidity = ({ LiquidtyData }) => {
     const { t } = useTranslation(["token"])
+    function foramtNumber(val) {
+        return Number(val).toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+      }
+    
+      
     const columns = [
         {
             dataField: "transaction",
@@ -58,7 +66,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
                 toAddress = LiquidtyData.addLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].receiver.substr(-4);
             }
             if (LiquidtyData.addLiquidityTransaction[i].amount) {
-                amount = (LiquidtyData.addLiquidityTransaction[i].amount)
+                amount = foramtNumber(LiquidtyData.addLiquidityTransaction[i].amount)
             }
             if (LiquidtyData.addLiquidityTransaction[i].transaction) {
                 transaction = LiquidtyData.addLiquidityTransaction[i].transaction;

@@ -8,6 +8,7 @@ import GetListNewsdataReducer from './../Services/FetchListNews';
 import GetAdvertismentodataReducer from '../Services/FetchAdvertisment';
 import ScoreReducer from "../Pages/DataFetch/FetchTrustScoreData";
 import DistReducer from "../Pages/DataFetch/FetchDistributionData";
+import GetlockedLiquiditydataReducer from '../Services/FetchlockedLiquidity'
 import tokenOwnerSlice from "./tokenOwnerSlice";
 import topWalletSlice from "./topWalletSlice";
 import bscLiquidityScanSlice from './bscLiquidityScanSlice'
@@ -32,6 +33,7 @@ export const store = configureStore({
         GetListNewsdata:GetListNewsdataReducer,
         GetAdvertismentodata:GetAdvertismentodataReducer,
         GetIPAddress:GetIPReducer,
-        connectSlice:connectSliceReducer
+        connectSlice:connectSliceReducer,
+        GetlockedLiquiditydata:GetlockedLiquiditydataReducer
     },
 })

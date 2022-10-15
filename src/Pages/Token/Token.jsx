@@ -21,8 +21,10 @@ import { useParams } from 'react-router-dom'
 import { AdevertiseTokenOne } from '../../components/Token/Advertise/AdevertiseTokenOne';
 import { AdevertiseTokenTwo } from '../../components/Token/Advertise/AdevertiseTokenTwo';
 import { AdevertiseTokenThree } from '../../components/Token/Advertise/AdevertiseTokenThree'
-import LockedSection from '../../components/Token/LockedSection/LockedSection'
-import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice'
+import LockedSection from '../../components/Token/LockedSection/LockedSection';
+import LockedTokens from '../../components/Token/LockedTokens/LockedTokens'
+import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice';
+import {fetchlockedLiquidity} from '../../Services/FetchlockedLiquidity'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
@@ -35,7 +37,7 @@ export function Token() {
     const params = useParams();
     const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
     // calling advertisment
-    let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Token')
+    let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Report')
     // const ipAddress = useSelector(state => state.GetIPAddress.data);
     const navigate = useNavigate()
 
@@ -44,7 +46,8 @@ export function Token() {
     const topWallet_isLoading = useSelector(state => state.topWallet.loading);
     const bscLiquidity_isLoading = useSelector(state => state.bscLiquidityScan.loading);
     const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
-
+    const lockedLiquiditydata = useSelector(state => state.GetlockedLiquiditydata?.data);
+    // console.log("lockedLiquiditydata: ", lockedLiquiditydata)
     const { t } = useTranslation(["token"])
 
     const topWalletData = useSelector(state => state.topWallet.topWallet);
@@ -61,7 +64,9 @@ export function Token() {
         dispatch(fetchSearchParams(tokenAddress))
     }, [dispatch, tokenAddress])
 
-
+    useEffect(()=>{
+        dispatch(fetchlockedLiquidity(tokenAddress))
+    } , [dispatch, tokenAddress])
     // useEffect(() => {
     //     let timer = setTimeout(() => {
     //         if (search_params?.responseCode !==200) {
@@ -174,31 +179,31 @@ export function Token() {
                 </div>
 
                 <div className='row mb-5'>
-                    {
+                    {/* {
                         (tokenOwner_isLoading === 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
                         <div className='col-lg-6 col-md-12'>
                             <div className='wallets_table'>
-                                {/* <TokenOwner tokenOwnerData={tokenOwnerData} /> */}
+                                <TokenOwner tokenOwnerData={tokenOwnerData} />
                             </div>
 
                         </div>
+                    } */}
+                   
+                    {
+                        lockedLiquiditydata?.APIsResult?.length >0
+
+                        && <div className='col-lg-6 col-md-12'>
+                            <div className='wallets_table'>
+                                <LockedTokens LockedTokensData={lockedLiquiditydata} />
+                            </div>
+                        </div>
                     }
-
-
-                    {/* {tokenOwnerData?.ownerInfo?.lockedToken.length > 0
-
-                            && <div className='col-lg-6 col-md-12'>
-                                <div className='wallets_table'>
-                                    <LockedTokens LockedTokensData={tokenOwnerData} />
-                                </div>
-                            </div>} */}
 
                     <div className='col-lg-6 col-md-12'>
                         <div className='wallets_table'>
                             <LockedSection LockedTokensData={tokenOwnerData} />
                         </div>
                     </div>
-
                 </div>
                 <div className='row'>
                     <div className='col-12 col-lg-6 mb-4 d-flex flex-column'>

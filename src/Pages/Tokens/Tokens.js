@@ -15,7 +15,7 @@ const Tokens = () => {
     const dispatch = useDispatch();
     const [value, setValue] = useState(['Binance', 'score', 'High', '']);
     const [isVerifyied, setIsVerifyied] = useState('all')
-    const { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Tokens')
+    const { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Token')
     useEffect(() => {
         console.log("value", value)
         dispatch(fetchTokenList(value));
