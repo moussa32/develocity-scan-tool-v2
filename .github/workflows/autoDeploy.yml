@@ -32,7 +32,6 @@ jobs:
         key: ${{ secrets.SERVER_SSH_KEY }}
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USERNAME }}
-        port: ${{ secrets.PORT }}
         script: |
           cd /Develocity/front/stagging/develocity-react-app
           git pull
