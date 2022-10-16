@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: SSH Remote Commands
-      uses: appleboy/ssh-action@v0.1.2
+      uses: appleboy/ssh-action@v0.1.5
       with:
         key: ${{secrets.SERVER_SSH_KEY}}
         host: ${{secrets.SERVER_IP}}
