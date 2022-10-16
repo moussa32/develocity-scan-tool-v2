@@ -29,10 +29,10 @@ jobs:
     - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.5
       with:
-        key: ${{secrets.SERVER_SSH_KEY}}
-        host: ${{secrets.SERVER_IP}}
-        username: ${{secrets.SERVER_USERNAME}}
-        port: ${{secrets.PORT}}
+        password: ${{ secrets.PASSWORD }}
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        port: ${{ secrets.PORT }}
         script: |
           pm2 delete all
           cd /var/app/develocity-react-app
