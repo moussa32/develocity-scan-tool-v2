@@ -34,7 +34,7 @@ jobs:
         username: ${{secrets.SERVER_USERNAME}}
         script: |
           pm2 delete all
-          cd Develocity/front/stagging/develocity-react-app
+          cd /var/app/develocity-react-app
           git pull
           npm install --force
           pm2 start "npm run dev"
