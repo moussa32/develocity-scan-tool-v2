@@ -34,8 +34,7 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         port: ${{ secrets.PORT }}
         script: |
-          pm2 delete all
           cd /var/app/develocity-react-app
           git pull
           npm install --force
-          pm2 start "npm run dev"
+          npm run dev
