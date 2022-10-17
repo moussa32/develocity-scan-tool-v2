@@ -2,6 +2,8 @@ import React from "react";
 // import {ButtonComponent} from '../../common/ButtonComponent'
 import styles from './leftbar.module.css'
 import { useTranslation } from 'react-i18next';
+import googlePlay from '../../../assets/images/googlePlay.png';
+import appStore from '../../../assets/images/appStore.png'
 export function LeftBar(){
     const {t}=useTranslation(['home'])
     // const buttondata={

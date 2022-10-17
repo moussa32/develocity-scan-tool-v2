@@ -12,7 +12,6 @@ import Tooltip from '@mui/material/Tooltip';
 import { useTranslation } from 'react-i18next';
 import { ChartLoader } from "../../common/Placeholder/ChartLoader";
 
-
 const Distribution = () => {
   const param = useParams()
   const contractAddress = param.contractAddress;
@@ -28,80 +27,154 @@ const Distribution = () => {
 
   const distData = dist.result;
 
+  // var options = {
+  //   series: [
+  //     distData ? Math.floor(distData.realholdersPercentage) : null,
+  //      distData ? Math.round(distData.airdropHoldersPercentage) : null, 
+  //     distData ? Math.round(distData.shrinkHoldersPercentage): null
+  //   ],
+  //   labels:[t("token:Real_Holders") , t("token:Airdrop_holders") , t("token:Wallet_shrink")],
+  //   dataLabels: {
+  //     formatter: function (val) {
+  //       return ("")
+  //     }
+  //   },
+  //   chart: {
+  //     type: 'donut',
+  //   },
+  //   responsive: [{
+  //     breakpoint: 480,
+  //     options: {
+  //       chart: {
+  //         width: 200
+  //       }
+  //     }
+  //   }],
+  //   legend: {
+  //     show: false
+  //   },
+  //   tooltip: {
+  //     enabled: false
+
+  //   },
+  //   plotOptions: {
+  //     pie: {
+  //       donut: {
+  //         labels: {
+  //           show: true,
+  //           name: {
+  //             show: true,
+  //             fontSize: '22px',
+
+  //             color: '#dfsda',
+  //             offsetY: -10
+  //           },
+  //           value: {
+  //             show: true,
+  //             fontSize: '16px',
+
+  //             color: undefined,
+  //             offsetY: 8,
+  //             formatter: function (val) {
+  //               return `${val}%`
+  //             }
+  //           },
+  //           total: {
+  //             show: true,
+  //             label: t("token:Total"),
+  //             fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+  //             color: '#373d3f',
+  //             formatter: function (w) {
+  //               return w.globals.seriesTotals.reduce((a, b) => {
+  //                 const totalPercentage=parseInt(a)+parseInt(b);
+  //                 return `${totalPercentage} %`
+  //               }, 0)
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   },
+
+  //   colors: ['#7BE1D9', '#4CD696', '#EC6666']
+  // }
+
+
   var options = {
-    series: [distData ? Math.floor(distData.realholdersPercentage) : null, distData ? Math.round(distData.airdropHoldersPercentage) : null, distData ? Math.round(distData.shrinkHoldersPercentage): null],
+    series: [
+      distData ? Math.floor(distData.realholdersPercentage) : null,
+       distData ? Math.round(distData.airdropHoldersPercentage) : null, 
+      distData ? Math.round(distData.shrinkHoldersPercentage): null
+    ],
     labels:[t("token:Real_Holders") , t("token:Airdrop_holders") , t("token:Wallet_shrink")],
     dataLabels: {
-      formatter: function (val) {
-        return ("")
-      }
+      style: {
+        fontSize: '12px',
+        colors: [ '#000']
     },
-    chart: {
-      type: 'donut',
-    },
-    responsive: [{
-      breakpoint: 480,
-      options: {
-        chart: {
-          width: 200
-        }
+    dropShadow: {
+      enabled: false,
+      top: 10,
+      left: 10,
+      blur: 1,
+      color: '#000',
+      opacity: 0.45
+  }
+          // formatter: function (val) {
+          //   return val + "%"
+          // }
+        },
 
-
-      }
-    }],
     legend: {
-      show: false
+      show: true,
+      position:'bottom'
     },
     tooltip: {
       enabled: false
-
     },
+    
     plotOptions: {
       pie: {
+        // customScale: 1.5,
         donut: {
+          size: '40%',
+          hollow: {
+            margin: 15,
+            size: "50%"
+          },
           labels: {
             show: true,
             name: {
-              show: true,
+              show: false,
               fontSize: '22px',
-
               color: '#dfsda',
               offsetY: -10
             },
             value: {
               show: true,
               fontSize: '16px',
-
               color: undefined,
               offsetY: 8,
               formatter: function (val) {
                 return `${val}%`
               }
             },
-            total: {
-              show: true,
-              label: t("token:Total"),
-              fontFamily:"-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
-              color: '#373d3f',
-              formatter: function (w) {
-                return w.globals.seriesTotals.reduce((a, b) => {
-                  const totalPercentage=parseInt(a)+parseInt(b);
-                  return `${totalPercentage} %`
-                }, 0)
-              }
-            }
+
           }
         }
       }
     },
-
     colors: ['#7BE1D9', '#4CD696', '#EC6666']
   }
 
-
-
   return (
     <>
+      {/* <AnyChart
+      type="pie"
+      data={[10, 2, 3, 4]}
+      title="Simple pie chart"
+      innerRadius='40%'
+  /> */}
     <div >
       {statusDist==='success' && <> 
       <h1 className={styles.title}>{t("token:dist_title")}</h1>
@@ -149,7 +222,9 @@ const Distribution = () => {
          
         </div>
         <div className={styles.chart} id="chart">
-          <ReactApexChart options={options} series={options.series} type="donut" />
+          {/* <ReactApexChart options={options} series={options.series} type="pie" /> */}
+      
+          <ReactApexChart options={options} series={options.series} type="donut" width={300} />
 
         </div>
         </>

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./TrustScore.module.css";
 import ReactApexChart from 'react-apexcharts';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchScore } from "../../../Pages/DataFetch/FetchTrustScoreData";
 import { useParams } from "react-router-dom";
-import { Placeholder } from "../../common/Placeholder/Placeholder";
+// import { Placeholder } from "../../common/Placeholder/Placeholder";
 import { useTranslation } from 'react-i18next';
 import { ChartLoader } from "../../common/Placeholder/ChartLoader";
 const TrustScore = () => {

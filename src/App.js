@@ -17,6 +17,7 @@ import { WelcomingModal } from './components/Home/WelcomingModal/WelcomingModal'
 import { SpinnerRoundFilled } from 'spinners-react';
 import { ScrollToTop } from './components/common/ScrollToTop';
 import NotFound from './Pages/NotFound/NotFound';
+import LinkTree from './Pages/LinkTree/LinkTree';
 
 
 
@@ -68,6 +69,7 @@ function App() {
             <Route path='/privacy-policy' element={<PrivacyPolicy />} />
             <Route path='/404' element={<NotFound/>} />
             <Route path='token/:contractAddress' element={<Token />} />
+            <Route path="tree" element={<LinkTree/>}/>
             <Route path='*' element={<NotFound/>}/>
           </Routes>
 
