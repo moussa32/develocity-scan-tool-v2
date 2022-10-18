@@ -81,6 +81,7 @@
     background-color: #B1BACB;
     color: white;
     font-size: 18px;
+    transition: all 0.5s;
 
 }
 .iconWrapper a:hover{
