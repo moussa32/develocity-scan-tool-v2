@@ -1,0 +1,54 @@
+.treeContainer{
+    width: 480px;
+    margin: 100px auto;
+    background-color: #FDFDFD;
+
+}
+.shareWrapper{
+    /* background-color: blue; */
+    text-align: end;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.shareWrapper span{
+    color: #8968E9;
+    display: inline-block;
+    text-align: start;
+    width: 40px;
+    font-size: 12px;
+    font-family: 'SF Pro Display Regular'
+
+}
+.btn-share{
+    width: 32px;
+    height: 32px;
+    padding-top: 1px;
+    padding-bottom: 4px;
+    border-radius: 9px;
+    color: white !important;
+    border: none;
+    outline: none;
+    background-color: rgba(138, 105, 235, 0.1);
+}
+
+.info{
+    text-align: center;
+    margin-top: 14px;
+}
+.info h5{
+    font-family: 'SF Pro Display Medium';
+    font-size: 22px;
+    color: #23282C;
+    padding-top: 7px;
+}
+.info p{
+    width: 308px;
+    font-size: 12px;
+    font-family: 'SF Pro Display Medium';
+    margin: auto;
+    color: #6C757D;
+}
+.link-wrapper{
+    width: 400px;
+    height: 50px;
+}

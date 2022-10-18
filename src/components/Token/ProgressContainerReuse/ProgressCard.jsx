@@ -1,11 +1,11 @@
 import ReactApexChart from 'react-apexcharts';
-import React ,{  useState} from "react";
-import { BsFillArrowUpCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs";
+import React  from "react";
+// import { BsFillArrowUpCircleFill, BsFillArrowDownCircleFill } from "react-icons/bs";
 import { useTranslation } from 'react-i18next';
 
 export function ProgressCard({carddata}){
     
-    const [options,setTOptions]= useState(
+    const options= 
         {
             series: [carddata.series],
             chart: {
@@ -47,7 +47,7 @@ export function ProgressCard({carddata}){
           lineCap: "round",
         },
         }
-    );
+    ;
     const { t } = useTranslation(["common"])
     return(
         <>
