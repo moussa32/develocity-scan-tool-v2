@@ -164,7 +164,9 @@ const Distribution = () => {
         }
       }
     },
-    colors: ['#7BE1D9', '#4CD696', '#EC6666']
+    // colors: ['#7BE1D9', '#4CD696', '#EC6666']
+    colors: ['#F5A341', '#4CD696', '#EC6666']
+
   }
 
   return (

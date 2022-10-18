@@ -1,16 +1,18 @@
-.treeContainer{
+.treeContainer {
     width: 480px;
     margin: 100px auto;
     background-color: #FDFDFD;
 
 }
-.shareWrapper{
+
+.shareWrapper {
     /* background-color: blue; */
     text-align: end;
     padding-top: 20px;
     padding-right: 20px;
 }
-.shareWrapper span{
+
+.shareWrapper span {
     color: #8968E9;
     display: inline-block;
     text-align: start;
@@ -19,7 +21,8 @@
     font-family: 'SF Pro Display Regular'
 
 }
-.btn-share{
+
+.btn-share {
     width: 32px;
     height: 32px;
     padding-top: 1px;
@@ -31,24 +34,27 @@
     background-color: rgba(138, 105, 235, 0.1);
 }
 
-.info{
+.info {
     text-align: center;
     margin-top: 14px;
 }
-.info h5{
+
+.info h5 {
     font-family: 'SF Pro Display Medium';
     font-size: 22px;
     color: #23282C;
     padding-top: 7px;
 }
-.info p{
+
+.info p {
     width: 308px;
     font-size: 12px;
     font-family: 'SF Pro Display Medium';
     margin: auto;
     color: #6C757D;
 }
-.link-wrapper{
+
+.link-wrapper {
     width: 400px;
     height: 50px;
     border: 1px solid #D6D6D6;
@@ -58,22 +64,46 @@
     overflow: hidden;
     position: relative;
     margin: auto;
-    cursor: pointer;
-    animation: show_btnShare 2s infinite;
-    /* line-height: 50px; */
+    margin-top: 15px;
 }
-.link-wrapper h5{
+
+.link-wrapper h5 {
     position: absolute;
+    font-size: 12px;
+    font-family: 'SF Pro Display Semibold';
+    color: #23282C;
+    height: 100%;
+    line-height: 45px;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 0.8s;
+   
+
 }
-.link-wrapper:hover{
+
+.link-wrapper:hover {
     border-color: #8968E9;
 }
-.link-btnShare{
-position: absolute;
-right: 10px;
+
+
+.link-btnShare {
+    position: absolute;
+    right: -50px;
+    transition: all 0.8s;
+    background-color: #8968E9;
+    height: 100%;
+    top: 0;
+    width: 50px;
+    border: none;
+    outline: none;
+    padding-top: 1px;
+    padding-bottom: 6px;
 }
-@keyframes show_btnShare {
-    
+.link-wrapper:hover .link-btnShare {
+    right: 0px;
+}
+.link-wrapper:hover h5 {
+    transform: translateX(-90%);
+
 }

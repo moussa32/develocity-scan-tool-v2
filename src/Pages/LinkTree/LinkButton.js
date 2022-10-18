@@ -1,16 +1,19 @@
 import React from 'react'
 import styles from './LinkTree.module.css'
-import ShareButton from './ShareButton'
-export default function LinkButton({title}) {
+import ShareIcon from './ShareIcon'
+export default function LinkButton({ title ,shareNavigator, titleofshare,textofshare,url}) {
   return (
     <>
-    <div className={styles['link-wrapper']}>
+      <div className={styles['link-wrapper']}>
         <h5>{title}</h5>
-        <div className={styles['link-btnShare']}>
-        <ShareButton />
-
+        <div>
+          <button className={styles['link-btnShare']} 
+          onClick={()=>shareNavigator(textofshare,titleofshare,url)}
+          >
+            <ShareIcon color='#fff' />
+          </button>
         </div>
-    </div>
+      </div>
     </>
   )
 }
