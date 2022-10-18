@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
@@ -26,14 +26,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: SSH Remote Commands
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        password: ${{ secrets.PASSWORD }}
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        script: |
-          cd /Develocity/front/stagging/develocity-react-app
-          git pull
-          npm install --force
-          npm run dev
+    - run: npm i
+    - run: npm run start
