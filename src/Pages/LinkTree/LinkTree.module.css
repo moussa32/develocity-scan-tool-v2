@@ -1,7 +1,7 @@
 .treeContainer {
     width: 480px;
     margin: 100px auto;
-    background-color: #FDFDFD;
+    background-color: #ad2424;
     padding-bottom: 70px;
 
 }
@@ -126,5 +126,10 @@
 }
 .link-wrapper:hover h5 {
     transform: translateX(-90%);
+}
 
+@media only screen and (max-width: 767px)  {
+    .treeContainer {
+        width: 90%;
+    } 
 }
