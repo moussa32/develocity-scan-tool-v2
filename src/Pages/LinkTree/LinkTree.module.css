@@ -1,13 +1,12 @@
 .treeContainer {
     width: 480px;
     margin: 100px auto;
-    background-color: #ad2424;
-    padding-bottom: 70px;
-
+    background-color: #FDFDFD;
+    padding-bottom: 66px;
+    border-radius: 9px;
 }
 
 .shareWrapper {
-    /* background-color: blue; */
     text-align: end;
     padding-top: 20px;
     padding-right: 20px;
@@ -19,8 +18,7 @@
     text-align: start;
     width: 40px;
     font-size: 12px;
-    font-family: 'SF Pro Display Regular'
-
+    font-family: 'SF Pro Display Regular';
 }
 
 .btn-share {
@@ -132,4 +130,7 @@
     .treeContainer {
         width: 90%;
     } 
+    .link-wrapper{
+        width: 90%;
+    }
 }
