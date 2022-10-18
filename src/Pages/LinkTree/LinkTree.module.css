@@ -1,6 +1,13 @@
+.treeWrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #F9F9F9;
+}
 .treeContainer {
     width: 480px;
-    margin: 100px auto;
+    margin: 50px auto;
     background-color: #FDFDFD;
     padding-bottom: 66px;
     border-radius: 9px;
@@ -83,8 +90,27 @@
     transition: all 0.5s;
 
 }
-.iconWrapper a:hover{
+/* .iconWrapper a:hover{
     background-color: #1DA1F2;
+} */
+.facebookIcon:hover{
+    background-color: #1672E6;
+}
+
+.youtubeIcon:hover{
+    background-color: #FF0000;
+}
+.instgramIcon:hover{
+    background-color: #A63795;
+}
+.twitterIcon:hover{
+    background-color: #1DA1F2;
+}
+.tiktokIcon:hover{
+    background-color: #F12950;
+}
+.telegramIcon:hover{
+    background-color: #58BDEF;
 }
 .link-wrapper h5 {
     position: absolute;

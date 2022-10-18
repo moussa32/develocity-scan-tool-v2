@@ -24,7 +24,7 @@ import { AdevertiseTokenThree } from '../../components/Token/Advertise/Adevertis
 import LockedSection from '../../components/Token/LockedSection/LockedSection';
 import LockedTokens from '../../components/Token/LockedTokens/LockedTokens'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice';
-import {fetchlockedLiquidity} from '../../Services/FetchlockedLiquidity'
+import { fetchlockedLiquidity } from '../../Services/FetchlockedLiquidity'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
@@ -47,7 +47,7 @@ export function Token() {
     const bscLiquidity_isLoading = useSelector(state => state.bscLiquidityScan.loading);
     const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
     const lockedLiquiditydata = useSelector(state => state.GetlockedLiquiditydata?.data);
-    // console.log("lockedLiquiditydata: ", lockedLiquiditydata)
+    const lockedLiquidity_status = useSelector(state => state.GetlockedLiquiditydata?.status);
     const { t } = useTranslation(["token"])
 
     const topWalletData = useSelector(state => state.topWallet.topWallet);
@@ -64,9 +64,9 @@ export function Token() {
         dispatch(fetchSearchParams(tokenAddress))
     }, [dispatch, tokenAddress])
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(fetchlockedLiquidity(tokenAddress))
-    } , [dispatch, tokenAddress])
+    }, [dispatch, tokenAddress])
     // useEffect(() => {
     //     let timer = setTimeout(() => {
     //         if (search_params?.responseCode !==200) {
@@ -188,8 +188,23 @@ export function Token() {
 
                         </div>
                     } */}
-                   
                     {
+                        lockedLiquidity_status === 'success' &&
+                        lockedLiquiditydata?.APIsResult?.length > 0 &&
+                        <div className='col-lg-6 col-md-12'>
+                            <div className='wallets_table'>
+                                <LockedTokens LockedTokensData={lockedLiquiditydata} />
+                            </div>
+                        </div>
+                    }
+                    {
+                        lockedLiquidity_status === 'loading' &&
+                        <div className='col-lg-6 col-md-12'>
+                        <TableLoader />
+                        </div>
+                    }
+
+                    {/* {
                         lockedLiquiditydata?.APIsResult?.length >0
 
                         && <div className='col-lg-6 col-md-12'>
@@ -197,7 +212,7 @@ export function Token() {
                                 <LockedTokens LockedTokensData={lockedLiquiditydata} />
                             </div>
                         </div>
-                    }
+                    } */}
 
                     <div className='col-lg-6 col-md-12'>
                         <div className='wallets_table'>
