@@ -8,11 +8,7 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 
-
-
-
 const BreadCrumbBar = () => {
-
   const param = useParams()
   const contractAddress = param.contractAddress;
   const tokenData = useSelector(state => state.Gettokeninfodata.data);

@@ -9,7 +9,9 @@ const RowScans = ({ number, image, nametoken, scans,scam, sponsored, contract, t
         <Link className={`text-decoration-none ${styles.container_row}`} to={`/token/${contract}`}>
 
             <div className={styles.header}>
-                <h3 className={lang === "ar" ? styles.header_no_right : styles.header_no_left}>{number}</h3>
+                <h3 className={lang === "ar" ? styles.header_no_right : styles.header_no_left}>
+                    {number}
+                </h3>
                 <div className={styles.container_image}>
                     {/* {sponsored && <div className={styles.container_sponsored}>
                         <h6 className={styles.sponsored}>sponsored</h6>
@@ -22,7 +24,9 @@ const RowScans = ({ number, image, nametoken, scans,scam, sponsored, contract, t
 
                     }
                     
-                    <h3 className={styles.header_token}>{nametoken.length > 36 ? nametoken.substring(0, 36) + "..." : nametoken}</h3>
+                    <h3 className={styles.header_token}>
+                        {nametoken.length > 36 ? nametoken.substring(0, 36) + "..." : nametoken}
+                    </h3>
                     
                 </div>
 
@@ -31,9 +35,17 @@ const RowScans = ({ number, image, nametoken, scans,scam, sponsored, contract, t
             {scam===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>}
             {/* {scans? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
 
-            <h3 className={styles.header_scans}>{
+            <h3 className={`
+            ${styles.header_scans}  
+            ${scans<59 && styles.header_scans_red}
+            ${(scans>=59&& scans<85) && styles.header_scans_yellow}
+            ${scans>=85 && styles.header_scans_green}
+            `}
+            >
+                {
                 title === "Price" ? `$${scans}` : scans
-            }</h3>
+                }
+            </h3>
         </Link>
     )
 }
