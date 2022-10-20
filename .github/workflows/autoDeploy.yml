@@ -29,5 +29,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i --force
-    - run: npm run start
+    - run: |
+        npm i --force
+        pm2 stop 1
+        pm2 start 1
+        pm2 save
+
