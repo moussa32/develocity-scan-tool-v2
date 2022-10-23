@@ -40,15 +40,15 @@ const ScansSection = () => {
             <Row>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={star} title={t("home:popular_today")} />
-                    <CardScans popularScans={popularScans} title={t("home:scans")} />
+                    <CardScans popularScans={popularScans} title={t("home:score")} caption="Scans"/>
                 </Col>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={last} title={t("home:last_scan")} />
-                    <CardScans popularScans={lastScans} title={t("home:score")} />
+                    <CardScans popularScans={lastScans} title={t("home:score")}  caption="Time Ago"/>
                 </Col>
                 <Col lg={4} md={6} sm={12}>
                     <HeaderCard image={recent} title={t("home:highest_score")} />
-                    <CardScans popularScans={recentScans} title={t("home:score")} />
+                    <CardScans popularScans={recentScans} title={t("home:score")} caption=""/>
                 </Col>
             </Row>
             {/* <button onClick={()=>dispatch(connectToio())}>click</button> */}

@@ -56,7 +56,8 @@
 }
 .searchBtn_rtl{
     color: #fff;
-    background-color: #9F4AE8;
+    /* background-color: #9F4AE8; */
+    background-color: #23282C;
     display: flex;
     align-items: center;
     justify-content: center;
