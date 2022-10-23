@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const MySearch = () => {
   const { t } = useTranslation(["common"])
   const lang=localStorage.getItem("i18nextLng")
-
   const [term, setTerm] = useState(null);
   const [dataGet, setdataGet] = useState([]);
   const [disable, setDisable] = useState(true);
@@ -112,7 +111,8 @@ const MySearch = () => {
   return (
     <div className="w-100 ">
        <div>
-            <ToastContainer position="bottom-right"
+            <ToastContainer
+              position="bottom-right"
               autoClose={5000}
               hideProgressBar={false}
               newestOnTop={false}

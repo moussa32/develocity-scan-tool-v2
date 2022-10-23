@@ -48,6 +48,7 @@ export function Token() {
     const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
     const lockedLiquiditydata = useSelector(state => state.GetlockedLiquiditydata?.data);
     const lockedLiquidity_status = useSelector(state => state.GetlockedLiquiditydata?.status);
+    const tokeninfodata = useSelector((state) => state.Gettokeninfodata?.data?.result);
     const { t } = useTranslation(["token"])
 
     const topWalletData = useSelector(state => state.topWallet.topWallet);
@@ -56,9 +57,12 @@ export function Token() {
     const statusBSCapi = useSelector(state => state.GetBuySellBSCdata.status);
     const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
     const search_params = useSelector((state) => state.Search?.statusParams);
-    // rejected message=Request failed with status code 404
-    // console.log("search_params: ", search_params)
+
+    //rejected message=Request failed with status code 404
+    //console.log("search_params: ", search_params)
+
     const tokenAddress = params.contractAddress;
+
     //navigate to 404
     useEffect(() => {
         dispatch(fetchSearchParams(tokenAddress))
@@ -95,12 +99,14 @@ export function Token() {
     //     }
     //   }, [navigate, tokenAddress]);       
 
+    // tokeninfodata?.contractInfo?.name
+// tokeninfodata?.contractInfo?.logo
     useEffect(() => {
-        socket.emit('currentLocation', { contractAddress: tokenAddress, page: 'token' });
+        socket.emit('currentLocation', { contractAddress: tokenAddress, page: 'token' ,name:tokeninfodata?.contractInfo?.name,logo:tokeninfodata?.contractInfo?.logo});
         // return () => {
         //     socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
         // }
-    }, [tokenAddress]);
+    }, [tokenAddress, tokeninfodata?.contractInfo?.logo, tokeninfodata?.contractInfo?.name]);
 
 
     useEffect(() => {

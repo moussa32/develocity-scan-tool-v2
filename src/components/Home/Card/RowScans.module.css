@@ -74,13 +74,38 @@
 }
 
 .header_token, .header_scans {
-    font-size: 14px;
+    font-size: 12px;
     color: #333333;
     font-family: "SF Pro Display Medium";
     margin-right: 4px;
     margin-left: 4px;
 }
-
+.header_scans{
+    width: 24px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+}
+.header_scans_red {
+    color: rgb(234, 57,67);
+    background-color: rgba(234, 57,67,0.1);
+    border-color: rgb(234, 57,67);
+ 
+}
+ .header_scans_yellow {
+    color: rgb(255, 165,29);
+    background-color: rgba(255, 165,29,0.1);
+    border-color: rgb(255, 165,29);
+ }
+.header_scans_green{
+    color: rgb(22, 199,132);
+    background-color: rgba(22, 199,132,0.1);
+    border-color: rgb(22, 199,132);
+ 
+ }
 .container_sponsored {
     display: flex;
     justify-content: center;
