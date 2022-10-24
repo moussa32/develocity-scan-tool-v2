@@ -31,7 +31,7 @@ jobs:
         cache: 'npm'
     - run: |
         npm i --force
-        pm2 stop 2
-        pm2 start 2
+        pm2 stop 1
+        pm2 start 1
         pm2 save
 
