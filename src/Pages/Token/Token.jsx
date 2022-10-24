@@ -108,7 +108,6 @@ export function Token() {
         // }
     }, [tokenAddress, tokeninfodata?.contractInfo?.logo, tokeninfodata?.contractInfo?.name]);
 
-
     useEffect(() => {
         dispatch(fetchTokenOwner(tokenAddress))
         dispatch(fetchWallet(tokenAddress))

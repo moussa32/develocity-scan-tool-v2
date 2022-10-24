@@ -5,12 +5,13 @@ import RowScans from "./RowScans";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
 // import logo from "../../../assets/images/tron.png";
 
-const CardScans = ({ popularScans, title }) => {
+const CardScans = ({ popularScans, title ,caption}) => {
+
   // console.log("popularScans",popularScans)
   return (
     <div className={styles.container_card}>
       <div className={styles.card}>
-        <Header title={title} />
+        <Header titleofscore={title} caption={caption}/>
         {popularScans.length > 0
           ? popularScans.map((item, index) => {
             // console.log(item.contractInfo.name,item.contractAddress,'=****===>');
@@ -21,13 +22,14 @@ const CardScans = ({ popularScans, title }) => {
                 number={index + 1}
                 image={item.contractInfo.logo}
                 nametoken={item.contractInfo.name}
-                scans={title === "Scans" ? parseInt(item.interest) : parseInt((item.contractScan).toFixed(0))}
+                score={ parseInt(item.interest)}
+                scan={caption==='Scans'? parseInt((item.contractScan)) : ((item?.updatedAt).toString())}
                 scam={parseInt((item.contractScan).toFixed(0))}
                 contract={item.contractAddress}
                 sponsored="fales"
                 title={title}
+                caption={caption}
               />
-             
                </>
             )
           }

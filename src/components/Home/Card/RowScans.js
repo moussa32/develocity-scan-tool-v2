@@ -2,8 +2,9 @@ import React from 'react'
 import styles from './RowScans.module.css';
 import { Link } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
-const RowScans = ({ number, image, nametoken, scans,scam, sponsored, contract, title }) => {
-    // console.log("scam", typeof((scans)));
+const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, title, scan,caption }) => {
+    // console.log("scam", typeof((score)));
+    console.log("scan:",(new Date(scan)).getTime())
     const lang = localStorage.getItem("i18nextLng")
     return (
         <Link className={`text-decoration-none ${styles.container_row}`} to={`/token/${contract}`}>
@@ -23,27 +24,36 @@ const RowScans = ({ number, image, nametoken, scans,scam, sponsored, contract, t
                         </div>
 
                     }
-                    
+
                     <h3 className={styles.header_token}>
                         {nametoken.length > 36 ? nametoken.substring(0, 36) + "..." : nametoken}
                     </h3>
-                    
+
                 </div>
 
             </div>
 
-            {scam===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>}
-            {/* {scans? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
+            {/* {scam===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>} */}
+            {/* {score? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
+
+            <h3 className={styles.headerScore}>
+                {
+                    caption==='Scans' && scan 
+                }
+                {
+                    caption==='Time Ago'&& `${( new Date(scan).getTime())} s`
+                }
+                </h3>
 
             <h3 className={`
-            ${styles.header_scans}  
-            ${scans<59 && styles.header_scans_red}
-            ${(scans>=59&& scans<85) && styles.header_scans_yellow}
-            ${scans>=85 && styles.header_scans_green}
+                ${styles.header_scans}  
+                ${score < 59 && styles.header_scans_red}
+                ${(score >= 59 && score < 85) && styles.header_scans_yellow}
+                ${score >= 85 && styles.header_scans_green}
             `}
             >
                 {
-                title === "Price" ? `$${scans}` : scans
+                    title === "Price" ? `$${score}` : score
                 }
             </h3>
         </Link>

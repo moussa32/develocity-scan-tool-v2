@@ -89,13 +89,15 @@
     justify-content: space-between;
     padding: 0px 10px;
     margin-bottom: 3px;
-
 }
 
 .sub_header {
     display: flex;
+    flex-grow: 1;
 }
-
+.coulmn3{
+    width: 100px;
+}
 .header_number_left {
     margin-left: 14px;
 }
