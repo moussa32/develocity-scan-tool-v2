@@ -22,8 +22,8 @@ const CardScans = ({ popularScans, title ,caption}) => {
                 number={index + 1}
                 image={item.contractInfo.logo}
                 nametoken={item.contractInfo.name}
-                score={ parseInt(item.interest)}
-                scan={caption==='Scans'? parseInt((item.contractScan)) : ((item?.updatedAt).toString())}
+                score={ parseInt(item.contractScan)}
+                scan={caption==='Scans'? parseInt((item.interest)) : ((item?.updatedAt).toString())}
                 scam={parseInt((item.contractScan).toFixed(0))}
                 contract={item.contractAddress}
                 sponsored="fales"

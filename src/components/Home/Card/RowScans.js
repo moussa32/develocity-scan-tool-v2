@@ -2,9 +2,35 @@ import React from 'react'
 import styles from './RowScans.module.css';
 import { Link } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
-const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, title, scan,caption }) => {
+const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, title, scan, caption }) => {
     // console.log("scam", typeof((score)));
-    console.log("scan:",(new Date(scan)).getTime())
+    console.log("scan:", (new Date(scan)).getTime())
+
+    const calculateTimeAgo = () => {
+
+        let date1, date2, total_seconds,total_minutes,total_hours,days_difference
+        if (caption === 'Time Ago') {
+             date1 = new Date();
+             date2 = new Date(scan);
+             total_seconds = Math.abs(date2 - date1) / 1000;
+             total_minutes = total_seconds / 60;
+             total_hours = Math.floor(total_minutes / 60);
+             days_difference = Math.floor(total_hours / (24));
+        }
+        if(days_difference>0){
+            return `${days_difference> 1 ? `${days_difference} days`:`${days_difference} day`} `
+        }
+        else if(total_hours>0){
+            return `${total_hours} h`
+        }
+        else if(total_minutes>0){
+            return `${total_minutes} m`
+        }
+        else if(total_seconds){
+            return `${total_seconds} s`
+        }
+    }
+
     const lang = localStorage.getItem("i18nextLng")
     return (
         <Link className={`text-decoration-none ${styles.container_row}`} to={`/token/${contract}`}>
@@ -38,12 +64,12 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
 
             <h3 className={styles.headerScore}>
                 {
-                    caption==='Scans' && scan 
+                    caption === 'Scans' && scan
                 }
                 {
-                    caption==='Time Ago'&& `${( new Date(scan).getTime())} s`
+                    caption === 'Time Ago' && calculateTimeAgo()
                 }
-                </h3>
+            </h3>
 
             <h3 className={`
                 ${styles.header_scans}  

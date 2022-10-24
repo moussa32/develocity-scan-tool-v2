@@ -22,6 +22,10 @@ export function LeftBar(){
                 <p className={styles.parag}>
                     {t("home:We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC")}
                 </p>
+                {/* <div className={styles.appleLink}>
+                    <img src={googlePlay} alt="googlePlay" />
+                    <img src={appStore} alt="appStore"/>
+                </div> */}
                 {/* <a className={styles.linkitemopcity} style={{marginTop:'27px',display:'block'}}>
                 <ButtonComponent data={buttondata}/>
                 </a> */}
