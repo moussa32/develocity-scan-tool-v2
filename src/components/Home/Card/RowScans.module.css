@@ -1,8 +1,8 @@
 .container_row {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     padding: 9px 10px;
 }
 
@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 250px;
+    /* width: 250px; */
 }
 
 .icon_token_left, .icon_token_right {
@@ -73,8 +73,8 @@
     margin-left: 14px;
 }
 .headerScore{
-   min-width: 70px;
-   /* text-align: center; */
+   /* min-width: 70px; */
+   text-align: center;
 }
 .header_token, .header_scans {
     font-size: 12px;
@@ -84,7 +84,7 @@
     margin-left: 4px;
 }
 .header_scans{
-    width: 38px;
+    width: 33px;
     height: 22px;
     text-align: center;
     line-height: 22px;
@@ -126,4 +126,8 @@
     color: #9F4AE8;
     font-family: "SF Pro Display Medium";
 
+}
+.tokenValue{
+    display: flex;
+    align-items: center;
 }
