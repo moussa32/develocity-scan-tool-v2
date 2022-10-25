@@ -90,8 +90,8 @@
     "general": "عام",
     "copyContractAddress": "نسخ عنوان العقد",
     "infoDescription":{
-		"slippageInfo":"slippage",
-		"gasFeeInfo":"gas fee",
+		"slippageInfo":"معدل الانزلاق (slippage) هوا الرسوم المقطوعه خلال عملية الشراء و البيع و المتوجة بشكل كامل لمالك العملة و او العقد الذكي",
+		"gasFeeInfo":"رسوم التداول (Gas Fee) هيا الرسوم المدفوعة مقابل تنفيذ العملية المطلوبة على البلوك تشين و تذهب للمعدنين و تختلف حسب صعوبة العقد الذكي او مدى طول المعاملة المطلوبة",
 		"liquidityInfo":"liquidity"
 	}
 }

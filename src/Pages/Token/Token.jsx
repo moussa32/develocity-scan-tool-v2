@@ -140,7 +140,7 @@ export function Token() {
                                 <div className='col-12'> <RugpullCard /></div>
                             </div>
                             <div className='col-12 col-md-4 '>
-                                <div className='col-12' >
+                                <div className='col-12 mt-5 mt-md-0' >
                                     {
                                         advertisment_code === 200 &&
                                         advertisment_Status === 'success' &&
