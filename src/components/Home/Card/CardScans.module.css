@@ -96,7 +96,7 @@
     flex-grow: 1;
 }
 .coulmn3{
-    width: 80px;
+    width: 100px;
 }
 .header_number_left {
     margin-left: 14px;
@@ -111,4 +111,9 @@ h3 {
     color: #888888;
     margin: 0;
     font-family: "SF Pro Display Regular";
+}
+@media screen and (max-width:1200px) {
+    .coulmn3{
+        width: 80px;
+    }  
 }
