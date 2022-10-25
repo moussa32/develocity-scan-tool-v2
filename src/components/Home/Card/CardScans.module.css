@@ -94,14 +94,23 @@
 
 .sub_header {
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    /* background-color: aqua; */
+
 }
 .header_values{
     display: flex;
+    /* background-color: blue; */
 }
 .coulmn3{
     /* width: 100px; */
+    padding-inline: 0px !important;
     text-align: center;
+    /* background-color: brown; */
+}
+.header_scans{
+    padding-inline: 0px !important;
+    text-align: end;
 }
 .header_number_left {
     margin-left: 14px;

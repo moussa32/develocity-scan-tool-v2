@@ -39,7 +39,7 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
     return (
         <Link className={`text-decoration-none row ${styles.container_row}`} to={`/token/${contract}`}>
 
-            <div className={`col-7 ${styles.header}`}>
+            <div className={`col-7  ${styles.header}`}>
                 <h3 className={lang === "ar" ? styles.header_no_right : styles.header_no_left}>
                     {number}
                 </h3>
@@ -62,29 +62,29 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
 
             {/* {scam===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>} */}
             {/* {score? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
-            <div className={`col-5 ${styles.tokenValue}`}>
-                <div className="row"> 
-                <h3 className={`col-7 ${styles.headerScore}`}>
-                    {
-                        caption === 'Scans' && scan
-                    }
-                    {
-                        caption === 'Time Ago' && calculateTimeAgo()
-                    }
-                </h3>
-                <div className='col-5'> 
-                <h3 className={` 
-                ${styles.header_scans}  
-                ${score < 59 && styles.header_scans_red}
-                ${(score >= 59 && score < 85) && styles.header_scans_yellow}
-                ${score >= 85 && styles.header_scans_green}
-            `}
-                >
-                    {
-                        title === "Price" ? `$${score}` : score
-                    }
-                </h3>
-                </div>
+            <div className={`col-5  ${styles.tokenValue}`}>
+                <div className="row w-100 px-0">
+                    <h3 className={`col-7  text-center`}>
+                        {
+                            caption === 'Scans' && scan
+                        }
+                        {
+                            caption === 'Time Ago' && calculateTimeAgo()
+                        }
+                    </h3>
+                    <div className='col-5 px-0 text-end'>
+                        <span className={`  
+                            ${styles.header_scans}  
+                            ${score < 59 && styles.header_scans_red}
+                            ${(score >= 59 && score < 85) && styles.header_scans_yellow}
+                            ${score >= 85 && styles.header_scans_green}
+                        `}
+                        >
+                            {
+                                title === "Price" ? `$${score}` : score
+                            }
+                        </span>
+                    </div>
                 </div>
             </div>
         </Link>
