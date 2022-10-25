@@ -8,7 +8,7 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
 
     const calculateTimeAgo = () => {
 
-        let date1, date2, total_seconds,total_minutes,total_hours,days_difference
+        let date1, date2, total_seconds,total_minutes,total_hours,days_difference,month_difference
         if (caption === 'Time Ago') {
              date1 = new Date();
              date2 = new Date(scan);
@@ -16,8 +16,12 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
              total_minutes = total_seconds / 60;
              total_hours = Math.floor(total_minutes / 60);
              days_difference = Math.floor(total_hours / (24));
+             month_difference = Math.floor(days_difference / (30));
         }
-        if(days_difference>0){
+        if(month_difference >0){
+            return `${month_difference> 1 ? `${month_difference} months`:`${month_difference} month`} `
+        }
+        else if(days_difference>0){
             return `${days_difference> 1 ? `${days_difference} days`:`${days_difference} day`} `
         }
         else if(total_hours>0){
