@@ -13,25 +13,25 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
              date1 = new Date();
              date2 = new Date(scan);
              total_seconds = Math.abs(date2 - date1) / 1000;
-             total_minutes = total_seconds / 60;
+             total_minutes = Math.floor(total_seconds / 60);
              total_hours = Math.floor(total_minutes / 60);
              days_difference = Math.floor(total_hours / (24));
              month_difference = Math.floor(days_difference / (30));
         }
         if(month_difference >0){
-            return `${month_difference> 1 ? `${month_difference} months`:`${month_difference} month`} `
+            return `${month_difference> 1 ? `${Math.floor(month_difference)} months`:`${Math.floor(month_difference)} month`} `
         }
         else if(days_difference>0){
-            return `${days_difference> 1 ? `${days_difference} days`:`${days_difference} day`} `
+            return `${days_difference> 1 ? `${(days_difference)} days`:`${(days_difference)} day`} `
         }
         else if(total_hours>0){
-            return `${total_hours} h`
+            return `${(total_hours)} h`
         }
         else if(total_minutes>0){
-            return `${total_minutes} m`
+            return `${(total_minutes)} m`
         }
-        else if(total_seconds){
-            return `${total_seconds} s`
+        else if(total_seconds>0){
+            return `${Math.floor(total_seconds)} s`
         }
     }
 
