@@ -1,4 +1,3 @@
-import styles from './TableLoader.module.css'
 import { Placeholder } from './Placeholder/Placeholder'
 export function TableLoader() {
   return (

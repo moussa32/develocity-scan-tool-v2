@@ -40,6 +40,7 @@ const CardScans = ({ popularScans, title ,caption}) => {
               <div key={index} className="d-flex justify-content-between align-items-center">
                 <Placeholder styling={{ width: '150px', height: '20px', padding: '15px' }} />
                 <Placeholder styling={{ width: '30px', height: '20px', padding: '15px' }} />
+                <Placeholder styling={{ width: '30px', height: '20px', padding: '15px' }} />
               </div>
             ))}
 

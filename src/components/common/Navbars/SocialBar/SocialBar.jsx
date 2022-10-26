@@ -3,7 +3,7 @@ import styles from "./SocialBar.module.css";
 import { FaPaperPlane } from 'react-icons/fa';
 import { FaTwitter } from 'react-icons/fa';
 import { MdLanguage } from 'react-icons/md';
-import { FaFacebookF } from 'react-icons/fa';
+// import { FaFacebookF } from 'react-icons/fa';
 // import { IoIosArrowDown } from 'react-icons/io'
 import 'flag-icons/css/flag-icons.min.css'
 import { useTranslation } from 'react-i18next';
@@ -33,6 +33,10 @@ const SocialBar = () => {
     },
     {
       code: 'ru',
+      dir: 'ltr'
+    },
+    {
+      code: 'es',
       dir: 'ltr'
     }
   ];
@@ -97,6 +101,7 @@ const SocialBar = () => {
                   <li role="button" className="d-flex justify-content-between"><button className="dropdown-item" value='ch' onClick={handleOnclick}><span>Chinese</span><span className="fi fi-cn "></span></button></li>
                   <li role="button" className="d-flex justify-content-between"><button className="dropdown-item" value='ru' onClick={handleOnclick}><span>Russian</span><span className="fi fi-ru "></span></button></li>
                   <li role="button" className="d-flex justify-content-between"><button className="dropdown-item" value='tr' onClick={handleOnclick}><span>Turkish</span><span className="fi fi-tr "></span></button></li>
+                  <li role="button" className="d-flex justify-content-between"><button className="dropdown-item" value='es' onClick={handleOnclick}><span>Español</span><span className="fi fi-es "></span></button></li>
                 </ul>
               </div>
             </li>
