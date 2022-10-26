@@ -1,14 +1,14 @@
 {
-	"home": "Inicio",
-	"popular_today": "Popular hoy",
-	"from_address": "De la dirección",
-	"scans": "búsquedas/escaneos",
-	"score": "puntuación",
-	"last_scan": "última búsqueda/escaneo",
-	"highest_score": "Puntuación más alta",
-	"token": "Tokens",
-	"BETA_STAGE":"Fase Beta",
-	"Become_a_PRO_in_Crypto_Investments": "Se un profesional en inversiones de criptomoneda",
-	"We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC": "Estamos ilusionados de compartir nuestra versión beta de la Herramienta Multifuncional Develocity"
+	"home": "Home",
+	"popular_today": "Popular Today",
+	"from_address": "From Address",
+	"scans": "Scans",
+	"score": "Score",
+	"last_scan": "Last Scan",
+	"highest_score": "Highest Score",
+	"token": "Token",
+	"BETA_STAGE":"BETA STAGE",
+	"Become_a_PRO_in_Crypto_Investments": "Become a PRO in Crypto Investments",
+	"We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC": "We are excited to share our Beta version of the Develocity Multifunctional tool that works on BSC."
 
 }

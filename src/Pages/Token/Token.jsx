@@ -144,6 +144,7 @@ export function Token() {
                                     {
                                         advertisment_code === 200 &&
                                         advertisment_Status === 'success' &&
+                                        getAdvertismentData[0]&&
                                         <AdevertiseTokenOne
                                             getAdvertismentData={getAdvertismentData}
                                         />
@@ -174,9 +175,13 @@ export function Token() {
                                     <TableLoader />)
                         }
                         <div className='mt-5'>
-                            <AdevertiseTokenTwo
+                            {
+                                 getAdvertismentData[1] && 
+                                 <AdevertiseTokenTwo
                                 getAdvertismentData={getAdvertismentData}
                             />
+                            }
+                            
                         </div>
 
 
@@ -235,9 +240,13 @@ export function Token() {
                         <div className='d-md-flex  justify-content-space-between '>
                             <Slippage />
                             <div className='mt-5'>
-                                <AdevertiseTokenThree
+                                {
+                                  getAdvertismentData[2] && 
+                                  <AdevertiseTokenThree
                                     getAdvertismentData={getAdvertismentData}
-                                />
+                                /> 
+                                }
+                                
                             </div>
                         </div>
 

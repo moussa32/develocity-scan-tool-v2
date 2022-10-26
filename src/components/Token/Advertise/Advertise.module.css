@@ -15,6 +15,7 @@
 .advSquare{
     width: 300px;
     height: 250px;
+    text-align: end;
 }
 .advSquare .image{
     width: 100%;
@@ -23,6 +24,7 @@
 .advRectangle{
     width: 970px;
     height: 90px; 
+    text-align: end;
 }
 .advRectangle .image{
     width: 100%;
