@@ -17,6 +17,30 @@
     height: 250px;
     text-align: end;
 }
+.square284_254{
+    width: 284px;
+    height: 254px;
+    margin: auto;
+}
+.square284_254 img{
+    width: 100%;
+}
+.rectangle590_72{
+    width: 590px;
+    height: 72px;
+    margin: auto;
+}
+.rectangle590_72 img{
+    width: 100%;
+}
+.square285_142{
+    width: 285px;
+    height: 142px;
+    margin: auto;
+}
+.square285_142 img{
+    width: 100%;
+}
 .advSquare .image{
     width: 100%;
     height: 250px;
@@ -72,6 +96,9 @@
     } 
     .advRectangle{
         width: 90%;
+    }
+    .rectangle590_72{
+        width: 100%;
     }
 }
 

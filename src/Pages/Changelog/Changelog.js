@@ -28,8 +28,6 @@ const Changelog = () => {
                     />
                 </div>
             }
-
-
             <ChangelogContent />
             <div className={`container  ${styles.copyRight}`}>
                 <CopyRight />

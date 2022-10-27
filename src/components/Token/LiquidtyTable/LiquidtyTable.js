@@ -46,13 +46,14 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
 
     if (bSCTrasaction && bSCTrasaction.transactions) {
         for (let i = 0; i < bSCTrasaction.transactions.length; i++) {
+            let id=i;
             let fromAddress = bSCTrasaction.transactions[i].from.substr(0, 4) + '...' + bSCTrasaction.transactions[i].from.substr(-4);
             let toAddress = bSCTrasaction.transactions[i].to.substr(0, 4) + '...' + bSCTrasaction.transactions[i].to.substr(-4);
             let amount = Number(bSCTrasaction.transactions[i].value).toFixed(5);
             let tokenSymbol = bSCTrasaction.transactions[i].tokenSymbol
             let hash = bSCTrasaction.transactions[i].hash
             // let hash = bSCTrasaction.transactions[i].hash.substr(0, 4) + '...' + bSCTrasaction.transactions[i].hash.substr(-4)
-            bSCTrasactionData.push({ fromAddress, toAddress, amount, tokenSymbol, hash });
+            bSCTrasactionData.push({ id,fromAddress, toAddress, amount, tokenSymbol, hash });
         }
     }
 

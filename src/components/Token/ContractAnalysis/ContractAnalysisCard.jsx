@@ -96,8 +96,8 @@ export function ContractAnalysisCard(){
                              return ( 
                                  <div className="list-group-item rounded-0 "  key={index}>
                                      <div className={` d-flex w-100 justify-content-between text-start  ${styles.listitem}`}  >
-                                         <p className="align-items-center d-flex h-100" ><Placeholder  styling={ {width:'100px',height:'20px'}} /> </p>
-                                         <p className="align-items-center d-flex h-100 "> <Placeholder  styling={ {width:'50px',height:'20px'}} /> </p>
+                                         <div className="align-items-center d-flex h-100" ><Placeholder  styling={ {width:'100px',height:'20px'}} /> </div>
+                                         <div className="align-items-center d-flex h-100 "> <Placeholder  styling={ {width:'50px',height:'20px'}} /> </div>
                                      </div>
                                  </div>
                                 
@@ -107,7 +107,7 @@ export function ContractAnalysisCard(){
                      </div>
         }
 
-        {bscstatus=='failed' && ''}
+        {bscstatus==='failed' && ''}
         
         </>
     )

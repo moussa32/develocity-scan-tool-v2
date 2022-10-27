@@ -9,7 +9,7 @@ import { Placeholder } from '../../common/Placeholder/Placeholder';
 export function RugpullCard() {
     const param = useParams()
     const contractAddress = param.contractAddress;
-    const bscdata = useSelector(state => state.GetBSCdata.data)
+    // const bscdata = useSelector(state => state.GetBSCdata.data)
     const bscdata_status = useSelector(state => state.GetBSCdata.status)
     const LPtokenBalance_percentage = useSelector(state => state.tokenOwner.tokenOwner)
     const { t } = useTranslation(["token"])
@@ -74,7 +74,7 @@ export function RugpullCard() {
               (bscdata_status==='loading'  || isNaN(percentage)) 
               && 
               <div className={` ${styles.loader}`}>
-              <p className={styles.loaderCard}><Placeholder  styling={ {width:'100%',height:'60px'}} /> </p>
+              <div className={styles.loaderCard}><Placeholder  styling={ {width:'100%',height:'60px'}} /> </div>
               </div> 
             }
 

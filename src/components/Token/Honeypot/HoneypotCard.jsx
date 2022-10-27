@@ -53,7 +53,7 @@ export function HoneypotCard() {
             {
               bscdata_status==='loading' && 
               <div className={` ${styles.loader}`}>
-              <p className={styles.loaderCard}><Placeholder  styling={ {width:'100%',height:'60px'}} /> </p>
+              <div className={styles.loaderCard}><Placeholder  styling={ {width:'100%',height:'60px'}} /> </div>
               </div> 
             }
 

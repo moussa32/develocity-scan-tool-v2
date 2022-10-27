@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchTokenOwner } from '../../store/tokenOwnerSlice'
 import { fetchWallet } from '../../store/topWalletSlice'
-import TokenOwner from '../../components/Token/TokenOwner/TokenOwner'
+// import TokenOwner from '../../components/Token/TokenOwner/TokenOwner'
 import LiquidtySection from '../../components/Token/LiquidtySection/LiquidtySection'
 import { Trading } from '../../components/Token/Trading/Trading'
 import { Slippage } from '../../components/Token/Slippage/Slippage'
@@ -44,23 +44,27 @@ export function Token() {
     const tokenOwner_isLoading = useSelector(state => state.tokenOwner.loading);
     // const tokenList_isLoading = useSelector(state => state.tokenList.loading);
     const topWallet_isLoading = useSelector(state => state.topWallet.loading);
-    const bscLiquidity_isLoading = useSelector(state => state.bscLiquidityScan.loading);
     const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
-    const lockedLiquiditydata = useSelector(state => state.GetlockedLiquiditydata?.data);
-    const lockedLiquidity_status = useSelector(state => state.GetlockedLiquiditydata?.status);
     const tokeninfodata = useSelector((state) => state.Gettokeninfodata?.data?.result);
-    const { t } = useTranslation(["token"])
-
     const topWalletData = useSelector(state => state.topWallet.topWallet);
     const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
-    const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
     const statusBSCapi = useSelector(state => state.GetBuySellBSCdata.status);
     const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
     const search_params = useSelector((state) => state.Search?.statusParams);
-
+    const { data: lockedLiquiditydata, status: lockedLiquidity_status } = useSelector(state => {
+        return {
+            data: state.GetlockedLiquiditydata?.data,
+            status: state.GetlockedLiquiditydata?.status,
+        };
+    });
+    const { bscLiquidity: bscLiquidityScan, loading: bscLiquidity_isLoading } = useSelector(state => {
+        return {
+            bscLiquidity: state.bscLiquidityScan.bscLiquidity,
+            loading: state.bscLiquidityScan.loading,
+        };
+    });
     //rejected message=Request failed with status code 404
-    //console.log("search_params: ", search_params)
-
+    const { t } = useTranslation(["token"])
     const tokenAddress = params.contractAddress;
 
     //navigate to 404
@@ -100,9 +104,9 @@ export function Token() {
     //   }, [navigate, tokenAddress]);       
 
     // tokeninfodata?.contractInfo?.name
-// tokeninfodata?.contractInfo?.logo
+    // tokeninfodata?.contractInfo?.logo
     useEffect(() => {
-        socket.emit('currentLocation', { contractAddress: tokenAddress, page: 'token' ,name:tokeninfodata?.contractInfo?.name,logo:tokeninfodata?.contractInfo?.logo});
+        socket.emit('currentLocation', { contractAddress: tokenAddress, page: 'token', name: tokeninfodata?.contractInfo?.name, logo: tokeninfodata?.contractInfo?.logo });
         // return () => {
         //     socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
         // }
@@ -118,7 +122,6 @@ export function Token() {
     return (
 
         <div className="bg-white" >
-            {/* <h1>search_status: {search_data}</h1> */}
             <NavBar />
             <section className='container '>
                 <div className='d-flex mt-4 flex-wrap align-items-center justify-content-between '>
@@ -144,7 +147,7 @@ export function Token() {
                                     {
                                         advertisment_code === 200 &&
                                         advertisment_Status === 'success' &&
-                                        getAdvertismentData[0]&&
+                                        getAdvertismentData[0] &&
                                         <AdevertiseTokenOne
                                             getAdvertismentData={getAdvertismentData}
                                         />
@@ -176,12 +179,12 @@ export function Token() {
                         }
                         <div className='mt-5'>
                             {
-                                 getAdvertismentData[1] && 
-                                 <AdevertiseTokenTwo
-                                getAdvertismentData={getAdvertismentData}
-                            />
+                                getAdvertismentData[1] &&
+                                <AdevertiseTokenTwo
+                                    getAdvertismentData={getAdvertismentData}
+                                />
                             }
-                            
+
                         </div>
 
 
@@ -210,7 +213,7 @@ export function Token() {
                     {
                         lockedLiquidity_status === 'loading' &&
                         <div className='col-lg-6 col-md-12'>
-                        <TableLoader />
+                            <TableLoader />
                         </div>
                     }
 
@@ -239,14 +242,14 @@ export function Token() {
                         </div>
                         <div className='d-md-flex  justify-content-space-between '>
                             <Slippage />
-                            <div className='mt-5'>
+                            <div className='mt-5' >
                                 {
-                                  getAdvertismentData[2] && 
-                                  <AdevertiseTokenThree
-                                    getAdvertismentData={getAdvertismentData}
-                                /> 
+                                    getAdvertismentData[2] &&
+                                    <AdevertiseTokenThree
+                                        getAdvertismentData={getAdvertismentData}
+                                    />
                                 }
-                                
+
                             </div>
                         </div>
 
@@ -263,8 +266,6 @@ export function Token() {
                         }
                     </div>
                 </div>
-
-
                 <br />
             </section>
             <CopyRight />

@@ -223,10 +223,10 @@ const Overlay =({show , close}) =>{
       };
     return(
         <div className={`${styles.overlay} ${show? styles.show2 : null}`}>
-        <button className={lang=="ar"?styles.closeBtn_rtl:styles.closeBtn_ltr} onClick={()=>close()}>{t("common:close")}</button>
+        <button className={lang==="ar"?styles.closeBtn_rtl:styles.closeBtn_ltr} onClick={()=>close()}>{t("common:close")}</button>
 
         <Box sx={{ width: '100%' }}>
-        <Stepper className={lang=="ar"? styles.stepper_rtl:styles.stepper_ltr} activeStep={activeStep}>
+        <Stepper className={lang==="ar"? styles.stepper_rtl:styles.stepper_ltr} activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps = {};
             const labelProps = {};

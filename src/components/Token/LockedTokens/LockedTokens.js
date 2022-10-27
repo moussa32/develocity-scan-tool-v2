@@ -2,7 +2,7 @@ import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next'
 import HeaderText from '../HeaderText/HeaderText';
 import './LockedTokens.css'
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import unicrypt from '../../../assets/unicrptLogo.png'
 
 const columns = [
@@ -41,12 +41,13 @@ const LockedTokens = ({ LockedTokensData }) => {
     let LockedData = []
     if (LockedTokensData?.APIsResult ) {
         for (let i = 0; i < LockedTokensData.APIsResult.length; i++) {
+            let id=i;
             let network = LockedTokensData?.APIsResult[i].network;
             let address = LockedTokensData?.APIsResult[i].lpAddress.substr(0, 8) + '...' + LockedTokensData?.APIsResult[i].lpAddress.substr(-6);
             // let rate = LockedTokensData.ownerInfo.lockedToken[i].lockedPercentage;
             let tokens = LockedTokensData?.APIsResult[i].lockedAmount;
             let image = LockedTokensData?.APIsResult[i].logoURL
-            LockedData.push({ network, address, tokens ,image});
+            LockedData.push({ id,network, address, tokens ,image});
         }
     }
     return (

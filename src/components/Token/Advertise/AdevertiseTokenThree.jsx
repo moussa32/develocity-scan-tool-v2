@@ -5,7 +5,8 @@ export function AdevertiseTokenThree({getAdvertismentData}) {
     return (
         <>
             <AdvertiseReuse
-                shape='square'
+                shape='square285_142'
+                // shape='square284_254'
                 image={getAdvertismentData[2]?.image?.url}
                 type={getAdvertismentData[2]?.adType}
                 title={getAdvertismentData[2]?.title}

@@ -16,7 +16,13 @@ export function AdvertiseReuse({  image, adURL, id, type, title, shape }) {
     return (
         <>
             <div
-             className={` w-100 position-relative ${shape === 'square' ? styles.advSquare : styles.advRectangle}`}>
+             className={` position-relative 
+             ${shape==='square284_254'&& styles.square284_254}
+             ${shape==='rectangle590_72'&& styles.rectangle590_72}
+             ${shape==='square285_142'&& styles.square285_142}
+
+             
+             `}>
                 <span className={styles.advRibbon}>Ad</span>
                 <div>
                     <button onClick={viewAdvertisment}

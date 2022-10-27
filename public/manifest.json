@@ -10,8 +10,9 @@
     {
       "src":"logo.jpeg",
       "type": "image/png",
-      "sizes": "192x192"
-    },
+      "sizes": "52x51"
+    }
+    ,
     {
       "src": "logo512.png",
       "type": "image/png",

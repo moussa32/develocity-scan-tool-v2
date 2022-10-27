@@ -19,15 +19,15 @@ const ChangelogContent = () => {
 
   }
 
-  
+
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchListNewsdata(category));
-    
+
   }, [category, dispatch]);
 
-  
+
 
   return (
     <Fragment>
@@ -63,70 +63,70 @@ const ChangelogContent = () => {
         <div className={` ${styles.tabContent} tab-content`} id="pills-tabContent">
           <div className="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
             {/* start */}
-{bscstatus==='success'&&  
-<>
-{listnewdata &&
-              listnewdata.map((el,index) => (
-                <div key={index} className={` ${styles.step} 
-      ${el.category === 'announcement' && styles.announce} 
-       ${el.category === 'product' && styles.product}  
-       ${el.category === 'company' && styles.company}  
-       ${el.category === 'bug fix' && styles.bug}
-      `}>
-        {el.news.length>0?<>
-          {el.news.map(((ele, index) => (<section className={` ${styles.wrapper}`} key={index}>
-                    
-                    <div className={` ${styles.typeBlock}`}>
-                      <div className={lang === "ar" ? styles.typeDate_rtl : styles.typeDate_ltr}>
-                        <h1 className={`${el.category === "announcement" && styles.typeAnnounce}
-          ${el.category === "product" && styles.typeProduct}
-          ${el.category === "bug fix" && styles.typeBug}
-          ${el.category === "company" && styles.typeCompany}`}>
-                          {el.category === "announcement" && t("changelog:announce")}
-                          {el.category === "product" && t("changelog:product")}
-                          {el.category === "bug fix" && t("changelog:bug")}
-                          {el.category === "company" && t("changelog:company")}
-                        </h1>
-                        <p className={styles.date}>{ele.createdAt.split("T")[0]}</p>
-                        <p className={styles.date}>{(ele.createdAt.split("T")[1]).split(".")[0]}</p>
-                      </div>
+            {bscstatus === 'success' &&
+              <>
+                {listnewdata &&
+                  listnewdata.map((el, index) => (
+                    <div key={index} className={` ${styles.step} 
+                          ${el.category === 'announcement' && styles.announce} 
+                          ${el.category === 'product' && styles.product}  
+                          ${el.category === 'company' && styles.company}  
+                          ${el.category === 'bug fix' && styles.bug}
+                    `}>
+                      {el.news.length > 0 ? <>
+                        {el.news.map(((ele, index) => (<section className={` ${styles.wrapper}`} key={index}>
+
+                          <div className={` ${styles.typeBlock}`}>
+                            <div className={lang === "ar" ? styles.typeDate_rtl : styles.typeDate_ltr}>
+                              <h1 className={`${el.category === "announcement" && styles.typeAnnounce}
+                                  ${el.category === "product" && styles.typeProduct}
+                                  ${el.category === "bug fix" && styles.typeBug}
+                                  ${el.category === "company" && styles.typeCompany}`}>
+                                {el.category === "announcement" && t("changelog:announce")}
+                                {el.category === "product" && t("changelog:product")}
+                                {el.category === "bug fix" && t("changelog:bug")}
+                                {el.category === "company" && t("changelog:company")}
+                              </h1>
+                              <p className={styles.date}>{ele.createdAt.split("T")[0]}</p>
+                              <p className={styles.date}>{(ele.createdAt.split("T")[1]).split(".")[0]}</p>
+                            </div>
+                          </div>
+                          {el.news.length !== 0 ? <div className={styles.vStepper}>
+                            <div className={styles.circle}></div>
+                            <div className={styles.line}></div>
+                          </div> : null}
+                          <div className={lang === "ar" ? styles.content_rtl : styles.content_ltr}>
+
+                            <div className={styles.details}>
+                              <h2 className={styles.title}>{ele.title}</h2>
+                              <p >{ele.description}. </p>
+
+                            </div>
+
+
+                          </div>
+                        </section>
+
+                        ))
+
+                        )
+
+                        }
+                      </> : <>{(category !== 'All') ? <>
+                        <img src={logo} alt="empty" width={100} />
+                        <h2>no news</h2></> : null}
+                      </>}
+
+
+
                     </div>
-                    {el.news.length !== 0 ? <div className={styles.vStepper}>
-                      <div className={styles.circle}></div>
-                      <div className={styles.line}></div>
-                    </div> : null}
-                    <div className={lang === "ar" ? styles.content_rtl : styles.content_ltr}>
-
-                      <div className={styles.details}>
-                        <h2 className={styles.title}>{ele.title}</h2>
-                        <p >{ele.description}. </p>
-
-                      </div>
-
-
-                    </div>
-                  </section>
-
                   ))
+                }
+              </>}
 
-                  )
+            {bscstatus === 'loading' && <><Placeholder styling={{ width: '250px', height: '200px' }} /></>}
 
-                  }
-        </>:<>{(category !=='All')? <>
-        <img src={logo} alt="empty" width={100}/>
-        <h2>no news</h2></>:null}
-       </>}
-                  
 
-          
-                </div>
-              ))
-            }
-</>}
-        
-  {bscstatus==='loading' &&<><Placeholder styling={{width:'250px', height:'200px'}}/></>}          
-          
-            
 
             {/* end */}
 

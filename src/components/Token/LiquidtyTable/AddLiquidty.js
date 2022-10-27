@@ -59,6 +59,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
     if (LiquidtyData && LiquidtyData.addLiquidityTransaction) {
         for (let i = 0; i < LiquidtyData.addLiquidityTransaction.length; i++) {
             let fromAddress, toAddress, amount, transaction, currency;
+            let id=i;
             if (LiquidtyData.addLiquidityTransaction[i].sender) {
                 fromAddress = LiquidtyData.addLiquidityTransaction[i].sender.substr(0, 3) + '...' + LiquidtyData.addLiquidityTransaction[i].sender.substr(-4);
             }
@@ -75,7 +76,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
             if (LiquidtyData.addLiquidityTransaction[i].currency) {
                 currency = LiquidtyData.addLiquidityTransaction[i].currency
             }
-            AddLiquidtyData.push({ transaction, fromAddress, toAddress, amount, currency });
+            AddLiquidtyData.push({ id,transaction, fromAddress, toAddress, amount, currency });
         }
     }
 
@@ -107,3 +108,5 @@ const AddedLiquidity = ({ LiquidtyData }) => {
 }
 
 export default AddedLiquidity
+
+

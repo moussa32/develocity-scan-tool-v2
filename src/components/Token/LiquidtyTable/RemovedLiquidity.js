@@ -50,6 +50,7 @@ const RemovedLiquidity = ({ LiquidtyData }) => {
     let RemovedLiquidityData = []
     if (LiquidtyData && LiquidtyData.removeLiquidityTransaction) {
         for (let i = 0; i < LiquidtyData.removeLiquidityTransaction.length; i++) {
+            let id=i;
             let fromAddress = LiquidtyData.removeLiquidityTransaction[i].sender.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].sender.substr(-4);
             let toAddress = LiquidtyData.removeLiquidityTransaction[i].receiver.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].receiver.substr(-4);
             let amount = LiquidtyData.removeLiquidityTransaction[i].amount?.toString().substr(0, 5)
@@ -57,7 +58,7 @@ const RemovedLiquidity = ({ LiquidtyData }) => {
             // let transaction = LiquidtyData.removeLiquidityTransaction[i].transaction.substr(0, 3) + '...' + LiquidtyData.removeLiquidityTransaction[i].transaction.substr(-4);
             let currency = LiquidtyData.removeLiquidityTransaction[i].currency;
 
-            RemovedLiquidityData.push({ transaction, fromAddress, toAddress, amount, currency });
+            RemovedLiquidityData.push({ id,transaction, fromAddress, toAddress, amount, currency });
         }
     }
 
