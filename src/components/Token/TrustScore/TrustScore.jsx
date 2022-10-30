@@ -99,7 +99,17 @@ const TrustScore = () => {
 
               <ReactApexChart options={options} series={options.series} type="radialBar" height={250} width={250} />
             </div>
-            <h2 className={styles.title}>{t("token:moderate")}</h2>
+            <h2 className={styles.title}>
+              {
+                scoreData?.contractScan< 59 && (t("token:trustScoreTitle.runAway"))
+              }
+               {
+                (scoreData?.contractScan >= 60 && scoreData?.contractScan < 85) && (t("token:trustScoreTitle.thinkTwice"))
+              }
+               {
+                scoreData?.contractScan>85 && (t("token:trustScoreTitle.notBad"))
+              }
+            </h2>
 
             <ul className={styles.chartList}>
               {/* <li className={styles.critical}>{t("token:critical_issues")}<span > {scoreData? scoreData.numberOfHighIssue :null} </span></li>

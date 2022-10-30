@@ -86,6 +86,18 @@
 		"slippageInfo":"Tax on buy or sell fees, where this fees goes to the contract owner, or Contract",
 		"gasFeeInfo":"Trading fees (Gas Fee) are the fees paid for executing the required operation on the Blockchain and go to the miners and vary according to the difficulty of the smart contract or the length of the required transaction",
 		"liquidityInfo":"liquidity"
+	},
+	"trustScoreTitle":{
+		"notBad":"Not Bad",
+		"runAway":"Run Away",
+		"thinkTwice":"Think Twice"
+	},
+	"tokenType":{
+		"verified": "DOĞRULANMIŞ",
+		"rejected": "Doğrulanmadı",
+		"requested":"Requested",
+		"pending":"PENDING"
 	}
+	
 
 }
