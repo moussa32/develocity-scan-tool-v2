@@ -222,15 +222,19 @@ export function LeftBarToken() {
               {t("token:added")}{" "}
               {tokeninfodata ? (tokeninfodata?.createdAt.split("T"))[0] : null}
             </span>
-            <span
+            {
+              tokeninfodata?.isTokenVerification &&
+              <span
               className="px-2 py-1 mt-2 me-2 d-inline-block"
               style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
             >
-              {tokeninfodata?.isTokenVerification ==='Requested'&&t('token:tokenType.requested')}
-              {tokeninfodata?.isTokenVerification ==='PENDING'&&t('token:tokenType.pending')}
-              {tokeninfodata?.isTokenVerification ==='REJECTED'&&t('token:tokenType.rejected')}
-              {tokeninfodata?.isTokenVerification ==='VERIFIED'&&t('token:tokenType.verified')}
+              {tokeninfodata?.isTokenVerification ==='Requested' && (t('token:tokenType.requested'))}
+              {tokeninfodata?.isTokenVerification ==='PENDING' && (t('token:tokenType.pending'))}
+              {tokeninfodata?.isTokenVerification ==='Rejected' && (t('token:tokenType.rejected')) }
+              {tokeninfodata?.isTokenVerification ==='VERIFIED' && (t('token:tokenType.verified'))}
             </span>
+            }
+           
            
 
             { tokeninfodata?.contractInfo?.description &&<> 

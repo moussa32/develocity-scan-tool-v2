@@ -13,8 +13,8 @@ const Header = ({ titleofscore, caption }) => {
             </div>
             <div className={`col-5  ${styles.header_values}`}>
                 <div className='row w-100 px-0'>
-                <h3 className={`col-7 ${styles.coulmn3}`}>{caption}</h3>
-                    
+                    <h3 className={`col-7 ${styles.coulmn3}`}>{caption}</h3>
+
                     <h3 className={`col-5  ${styles.header_scans}`}>{titleofscore}</h3>
                 </div>
             </div>

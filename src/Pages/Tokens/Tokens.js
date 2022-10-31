@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Ads from '../../components/common/Ads/Ads'
+// import Ads from '../../components/common/Ads/Ads'
 import { NavBar } from '../../components/Home/Header/NavBar'
 import Header from '../../components/Tokens/headerTable/Header'
 import TokensTable from '../../components/Tokens/Table/TokensTable'
@@ -17,7 +17,6 @@ const Tokens = () => {
     const [isVerifyied, setIsVerifyied] = useState('all')
     const { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment('Token')
     useEffect(() => {
-        console.log("value", value)
         dispatch(fetchTokenList(value));
 
     }, [dispatch, value]);
@@ -25,7 +24,6 @@ const Tokens = () => {
     let tokenList = useSelector(state => state.tokenList.tokenList);
     let tokenList_loading = useSelector(state => state.tokenList.loading);
 
-    console.log("tokenList", tokenList)
     const handleChange = (event) => {
         setValue([event.target.selectedOptions[0].getAttribute('data-network'), event.target.selectedOptions[0].getAttribute('data-quary'), event.target.selectedOptions[0].getAttribute('data-filter'), event.target.selectedOptions[0].getAttribute('data-contactScam')]);
         // setValue([event.target.getAttribute('data-network'), event.target.getAttribute('data-quary'), event.target.getAttribute('data-filter'), event.target.getAttribute('data-contactScam')]);

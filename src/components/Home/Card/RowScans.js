@@ -3,8 +3,6 @@ import styles from './RowScans.module.css';
 import { Link } from 'react-router-dom';
 // import { useTranslation } from 'react-i18next';
 const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, title, scan, caption }) => {
-    // console.log("scam", typeof((score)));
-    console.log("scan:", (new Date(scan)).getTime())
 
     const calculateTimeAgo = () => {
 

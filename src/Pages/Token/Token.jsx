@@ -87,14 +87,27 @@ export function Token() {
     //       };
     //   }, [navigate, search_params]);
 
-    useEffect(() => {
-        if (search_params === 'loading' || search_params === null) {
-            return
-        }
-        else if (search_params?.responseCode === 400) {
+     useEffect(() => {
+        if (search_params?.responseCode === 400) {
             navigate('/404')
         }
+        else {
+            return
+        }
     }, [navigate, search_params]);
+console.log("bscLiquidity_isLoading ", bscLiquidity_isLoading )
+console.log("  bscTransaction_isLoading:", bscTransaction_isLoading )
+
+
+    // useEffect(() => {
+    //     if (search_params === 'loading' || search_params === null) {
+    //         return
+    //     }
+    //     else if (search_params?.responseCode === 400) {
+    //         navigate('/404')
+    //     }
+    // }, [navigate, search_params]);
+
 
     // useEffect(() => {
     //     if (!/[^0x].{39}$/.test(tokenAddress)) {
@@ -179,6 +192,8 @@ export function Token() {
                         }
                         <div className='mt-5'>
                             {
+                                advertisment_code === 200 &&
+                                advertisment_Status === 'success' &&
                                 getAdvertismentData[1] &&
                                 <AdevertiseTokenTwo
                                     getAdvertismentData={getAdvertismentData}
@@ -244,6 +259,8 @@ export function Token() {
                             <Slippage />
                             <div className='mt-5' >
                                 {
+                                    advertisment_code === 200 &&
+                                    advertisment_Status === 'success' &&
                                     getAdvertismentData[2] &&
                                     <AdevertiseTokenThree
                                         getAdvertismentData={getAdvertismentData}
@@ -260,7 +277,7 @@ export function Token() {
                                 <div className='wallets_table wallet_table_td_width'>
                                     <LiquidtySection LiquidtyData={bscLiquidityScan} bSCTrasaction={bSCTrasaction} />
                                 </div> :
-                                ((bscLiquidity_isLoading || bscTransaction_isLoading) ? <TableLoader /> : null
+                                ((bscLiquidity_isLoading || bscTransaction_isLoading===true) ? <TableLoader /> : null
                                 )
 
                         }

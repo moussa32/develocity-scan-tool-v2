@@ -19,7 +19,10 @@ export const fetchResult = createAsyncThunk('search/fetchResult',
 export const fetchSearchParams = createAsyncThunk('search/fetchSearchParams',
     async (searchKey) => {
         try {
-            const responseSuggest = await instance.get(`user/suggestion?name=${searchKey}`)
+            // const responseSuggest = await instance.get(`user/suggestion?name=${searchKey}`)
+            const responseSuggest = await instance.get(`contract/lockedLiquidity?contractAddress=${searchKey}`)
+
+            
             return responseSuggest.data
 
         } catch (err) {
@@ -69,7 +72,8 @@ const Search = createSlice({
         },
         [fetchSearchParams.pending]: (state, { payload }) => {
             // console.log("payload: ",payload)
-            state.statusParams='loading'
+            state.statusParams=payload
+            // state.statusParams='loading'
         },
         [fetchSearchParams.rejected]: (state,{payload}) => {
             // console.log("payload reject: ",payload)
