@@ -61,13 +61,14 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
     if (bSCTrasaction && bSCTrasaction.tokenTransaction) {
 
         for (let i = 0; i < bSCTrasaction.tokenTransaction.length; i++) {
+            let uniqeKey=i;
             let fromAddress = bSCTrasaction.tokenTransaction[i].from.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].from.substr(-4);
             let toAddress = bSCTrasaction.tokenTransaction[i].to.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].to.substr(-4);
             let amount = Number(bSCTrasaction.tokenTransaction[i].value).toLocaleString("en-US");
             let tokenSymbol = bSCTrasaction.tokenTransaction[i].tokenSymbol
             let id = bSCTrasaction.tokenTransaction[i].hash.substr(0, 4) + '...' + bSCTrasaction.tokenTransaction[i].hash.substr(-4)
             let hash = bSCTrasaction.tokenTransaction[i].hash
-            bSCTrasactionData.push({ fromAddress, toAddress, amount, tokenSymbol, id,hash });
+            bSCTrasactionData.push({ uniqeKey,fromAddress, toAddress, amount, tokenSymbol, id,hash });
         }
     }
     const selectRow = {
@@ -99,7 +100,7 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
     return (
         <div >
             <BootstrapTable
-                keyField="id"
+                keyField="uniqeKey"
                 data={bSCTrasactionData}
                 columns={columns}
                 hover={true}

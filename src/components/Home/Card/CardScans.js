@@ -15,6 +15,8 @@ const CardScans = ({ popularScans, title, caption }) => {
           ? popularScans.map((item, index) => {
             // console.log(item.contractInfo.name,item.contractAddress,'=****===>');
             return (
+              <div key={index}>
+                { 
               (item?.contractInfo && Object.keys(item.contractInfo).length !== 0) && <>
                 <RowScans
                   key={index}
@@ -30,6 +32,8 @@ const CardScans = ({ popularScans, title, caption }) => {
                   caption={caption}
                 />
               </>
+              }
+              </div>
             )
           }
 

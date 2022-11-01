@@ -95,8 +95,7 @@ export function Token() {
             return
         }
     }, [navigate, search_params]);
-console.log("bscLiquidity_isLoading ", bscLiquidity_isLoading )
-console.log("  bscTransaction_isLoading:", bscTransaction_isLoading )
+
 
 
     // useEffect(() => {
