@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import instance from "../Network/axiosconfig";
+import instance from "../config/axiosconfig";
 
 export const fetchgetAdvertismentResult = createAsyncThunk('getadvertisement/fetchgetAdvertismentResult',
     async (position) => {

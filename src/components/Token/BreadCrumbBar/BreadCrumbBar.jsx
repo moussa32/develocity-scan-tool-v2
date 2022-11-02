@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./BreadCrumbBar.module.css"
 import { AiOutlineUpload } from "react-icons/ai"
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchTokenInfoResult } from '../../../Services/FetchTokenInfo';
+import { fetchTokenInfoResult } from '../../../store/FetchTokenInfo';
 import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";

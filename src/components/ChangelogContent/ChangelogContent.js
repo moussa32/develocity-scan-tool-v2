@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchListNewsdata } from './../../Services/FetchListNews';
+import { fetchListNewsdata } from '../../store/FetchListNews';
 import styles from "./ChangelogContent.module.css";
 import { Placeholder } from "../common/Placeholder/Placeholder";
 import logo from '../../assets/images/emptypng.png'

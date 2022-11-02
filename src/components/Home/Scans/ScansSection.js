@@ -7,7 +7,7 @@ import { Row, Col } from 'react-bootstrap';
 import HeaderCard from '../HeaderCard/HeaderCard';
 import CardScans from '../Card/CardScans';
 import { useTranslation } from 'react-i18next';
-import  {socket}  from '../../../utils/socket';
+import  {socket}  from '../../../config/socket';
 
 const ScansSection = () => {
     

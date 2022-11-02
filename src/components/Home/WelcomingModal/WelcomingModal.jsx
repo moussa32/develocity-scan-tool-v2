@@ -30,7 +30,9 @@ export function WelcomingModal() {
                             <>
                                 <div className={styles.backDrop} />
                                 <div className={` ${styles.overlay}`}>
-                                    <button className={lang === "ar" ? styles.closeBtn_rtl : styles.closeBtn_ltr} onClick={hideNotification}>{t("common:close")}</button>
+                                    <button className={lang === "ar" ? styles.closeBtn_rtl : styles.closeBtn_ltr} onClick={hideNotification}>
+                                       <p className={styles.btn_layout}>{t("common:close")}</p>
+                                    </button>
                                     <div >{t("common:welcoming_notification")}</div>
                                 </div>
                             </>

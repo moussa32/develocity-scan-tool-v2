@@ -1,4 +1,4 @@
-import { fetchviewAdvertismentResult } from "../../../Services/FetchAdvertisment"
+import { fetchviewAdvertismentResult } from "../../../store/FetchAdvertisment"
 import { useDispatch } from "react-redux";
 import styles from './Advertise.module.css'
 

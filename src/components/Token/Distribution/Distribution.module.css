@@ -109,13 +109,13 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: start;
+        align-items: flex-start;
         width: 100%;
     }
     .chartInfo{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: center; 
         align-items: center;
         width: 100%;
     }

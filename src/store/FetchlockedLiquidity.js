@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../Network/axiosconfig";
+import instance from "../config/axiosconfig";
 
 export const fetchlockedLiquidity = createAsyncThunk('getlockedtoken/fetchlockedLiquidity',
     async (contractaddress) => {

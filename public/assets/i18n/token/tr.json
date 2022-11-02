@@ -94,7 +94,7 @@
 	},
 	"tokenType":{
 		"verified": "DOĞRULANMIŞ",
-		"rejected": "Doğrulanmadı",
+		"notVerified": "Doğrulanmadı",
 		"requested":"Requested",
 		"pending":"PENDING"
 	}

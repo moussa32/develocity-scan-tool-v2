@@ -1,9 +1,7 @@
 import React from 'react'
 import styles from './HeaderCard.module.css';
-import { useTranslation } from 'react-i18next';
 const HeaderCard = ({ image, title }) => {
     const lang = localStorage.getItem("i18nextLng")
-
     return (
         <div className={styles.header_card}>
             <div className={styles.background_image}>

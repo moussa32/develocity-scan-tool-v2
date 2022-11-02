@@ -101,7 +101,7 @@
 	},
     "tokenType":{
         "verified":" تم التحقق منه" ,
-        "rejected": " لم يتم التحقق منه" ,
+        "notVerified": " لم يتم التحقق منه" ,
 		"requested":"Requested",
 		"pending":"PENDING"
 	}

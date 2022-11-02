@@ -104,7 +104,7 @@
 	},
 	"tokenType":{
 		"verified": "Verificado",
-		"rejected": "No verificado",
+		"notVerified": "No verificado",
 		"requested":"Requested",
 		"pending":"PENDING"
 	}

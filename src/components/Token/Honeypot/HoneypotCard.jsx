@@ -1,5 +1,5 @@
 import styles from './Honey.module.css'
-import { fetchBSCResult } from '../../../Services/FetchBSCData'
+import { fetchBSCResult } from '../../../store/FetchBSCData'
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from "react";
 import { useParams } from 'react-router-dom';

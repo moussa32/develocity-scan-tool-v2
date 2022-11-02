@@ -3,7 +3,7 @@ import { NavBar } from '../../components/Home/Header/NavBar';
 import CopyRight from '../../components/Home/CopyRight/CopyRight';
 import ChangelogContent from "../../components/ChangelogContent/ChangelogContent";
 import styles from "./Changelog.module.css";
-import { socket } from '../../utils/socket';
+import { socket } from '../../config/socket';
 import { useEffect } from 'react';
 import UseAdvertisment from "../../hooks/UseAdvertisment";
 import { AdvertismentChangelog } from "../../components/Token/Advertise/AdvertismentChangelog";

@@ -100,7 +100,7 @@
 	},
 	"tokenType":{
 		"verified": "已证实的",
-		"rejected": "未验证",
+		"notVerified": "未验证",
 		"requested":"Requested",
 		"pending":"PENDING"
 	}

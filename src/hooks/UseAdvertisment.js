@@ -1,4 +1,4 @@
-import { fetchgetAdvertismentResult } from '../Services/FetchAdvertisment';
+import { fetchgetAdvertismentResult } from '../store/FetchAdvertisment';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 

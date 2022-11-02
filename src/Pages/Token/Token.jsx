@@ -24,13 +24,13 @@ import { AdevertiseTokenThree } from '../../components/Token/Advertise/Adevertis
 import LockedSection from '../../components/Token/LockedSection/LockedSection';
 import LockedTokens from '../../components/Token/LockedTokens/LockedTokens'
 import { fetchBSCTrasaction } from '../../store/bSCTrasactionSlice';
-import { fetchlockedLiquidity } from '../../Services/FetchlockedLiquidity'
+import { fetchlockedLiquidity } from '../../store/FetchlockedLiquidity'
 import CopyRight from '../../components/Home/CopyRight/CopyRight'
 import { useTranslation } from 'react-i18next';
 import { TableLoader } from '../../components/common/TableLoader'
-import { socket } from '../../utils/socket';
+import { socket } from '../../config/socket';
 import { useNavigate } from 'react-router-dom';
-import { fetchSearchParams } from '../../Pages/DataFetch/FetchSearchData';
+import { fetchSearchParams } from '../../store/FetchSearchData';
 import UseAdvertisment from '../../hooks/UseAdvertisment'
 export function Token() {
     const dispatch = useDispatch();
@@ -219,7 +219,7 @@ export function Token() {
                         lockedLiquidity_status === 'success' &&
                         lockedLiquiditydata?.APIsResult?.length > 0 &&
                         <div className='col-lg-6 col-md-12'>
-                            <div className='wallets_table'>
+                            <div className='wallets_table table_td_width'>
                                 <LockedTokens LockedTokensData={lockedLiquiditydata} />
                             </div>
                         </div>

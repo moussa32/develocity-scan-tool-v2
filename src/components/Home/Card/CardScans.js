@@ -19,7 +19,7 @@ const CardScans = ({ popularScans, title, caption }) => {
                 { 
               (item?.contractInfo && Object.keys(item.contractInfo).length !== 0) && <>
                 <RowScans
-                  key={index}
+                  // key={index}
                   number={index + 1}
                   image={item.contractInfo.logo}
                   nametoken={item.contractInfo.name}

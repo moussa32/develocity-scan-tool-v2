@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import {createSlice , createAsyncThunk} from '@reduxjs/toolkit';
-import instance from '../../Network/axiosconfig';
+import instance from '../config/axiosconfig';
 
 
 export const fetchScore =  createAsyncThunk('score/fetchScore',

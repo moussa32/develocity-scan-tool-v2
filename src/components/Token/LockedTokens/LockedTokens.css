@@ -6,7 +6,7 @@ p {
   .locked_tokens_network, .locked_tokens_tokens {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
   }
   
   .locked_tokens_network .logo {

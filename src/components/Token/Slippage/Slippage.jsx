@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect} from 'react';
-import { fetchBuySellBSCResult } from '../../../Services/FetchBuySellBSC';
+import { fetchBuySellBSCResult } from '../../../store/FetchBuySellBSC';
 import { ListGroup } from '../ListGroupReuse/ListGroup';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

@@ -1,6 +1,6 @@
 .container_header_left, .container_header_right {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 15px;
 }

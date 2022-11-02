@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 // import axios from 'axios'
-import instance from '../Network/axiosconfig'
+import instance from '../config/axiosconfig'
 
 export const fetchBscLiquidityScan = createAsyncThunk('bscLiquidityScan/fetchBscLiquidityScan', async (contractAddress) => {
     // const response = await axios.get(`https://api.develocity.finance/api/v1/contract/getBscLiquidityScan/${contractAddress}`)

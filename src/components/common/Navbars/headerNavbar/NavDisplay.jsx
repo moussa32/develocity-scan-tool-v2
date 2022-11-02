@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonComponent } from '../../ButtonComponent'
+// import { ButtonComponent } from '../../ButtonComponent'
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import styles from './nav.module.css'
@@ -7,19 +7,19 @@ import logo from '../../../../assets/images/logo.png'
 export function NavDisplay() {
     const { t } = useTranslation(["common"])
     const lang=localStorage.getItem("i18nextLng")
-    const logindata = {
-        text: 'Log in',
-        color: "black",
-        bg: "#fff",
-        border: '1px solid black',
-        fontsize:'SF Pro Display Medium'
-    }
-    const registerdata = {
-        text: 'Create Account',
-        color: "white",
-        bg: "#000",
-        fontsize:'SF Pro Display Medium'
-    }
+    // const logindata = {
+    //     text: 'Log in',
+    //     color: "black",
+    //     bg: "#fff",
+    //     border: '1px solid black',
+    //     fontsize:'SF Pro Display Medium'
+    // }
+    // const registerdata = {
+    //     text: 'Create Account',
+    //     color: "white",
+    //     bg: "#000",
+    //     fontsize:'SF Pro Display Medium'
+    // }
     return (
         <>
             <nav className={"navbar navbar-expand-lg " } style={{ backgroundColor: '#F3F2F7' }}>

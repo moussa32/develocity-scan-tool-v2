@@ -1,7 +1,7 @@
 import styles from './ContractAnalysis.module.css'
 import React ,{ useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { fetchBSCResult } from "../../../Services/FetchBSCData";
+import { fetchBSCResult } from "../../../store/FetchBSCData";
 import { Placeholder } from '../../common/Placeholder/Placeholder';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

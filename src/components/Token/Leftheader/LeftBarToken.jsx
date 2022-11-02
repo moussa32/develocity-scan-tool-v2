@@ -1,12 +1,12 @@
 import styles from "./LeftBarToken.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTokenInfoResult } from "../../../Services/FetchTokenInfo";
+import { fetchTokenInfoResult } from "../../../store/FetchTokenInfo";
 import { useEffect, useState } from "react";
 import { IoCopy } from "react-icons/io5";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Modal } from "./Modal/Modal";
-import ModalForm from "../ModalForm/ModalForm";
+// import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from 'react-i18next';
 import { IconContainer } from "./IconsContainer/IconContainer";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
@@ -19,9 +19,11 @@ export function LeftBarToken() {
   const tokenData = useSelector((state) => state.Gettokeninfodata.data);
   const tokenstatus = useSelector(state => state.Gettokeninfodata.status);
   const score = useSelector(state => state.Score.data)
+  const bscdata = useSelector(state => state.GetBSCdata.data)
+  const bscstatus = useSelector(state => state.GetBSCdata.status);
 
   const scoreData = score.result;
-
+  const newbscdata = bscdata.result;
   const dispatch = useDispatch();
 
   
@@ -67,7 +69,7 @@ export function LeftBarToken() {
   }
 
 
-  const [showModal, setShowModal] = useState(false)
+  // const [showModal, setShowModal] = useState(false)
   return (
     <>
       {(tokenstatus === 'success') && <>
@@ -223,20 +225,16 @@ export function LeftBarToken() {
               {tokeninfodata ? (tokeninfodata?.createdAt.split("T"))[0] : null}
             </span>
             {
-              tokeninfodata?.isTokenVerification &&
+              bscstatus==='success'&&
+              (newbscdata?.sourceCode)&&
               <span
               className="px-2 py-1 mt-2 me-2 d-inline-block"
               style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
             >
-              {tokeninfodata?.isTokenVerification ==='Requested' && (t('token:tokenType.requested'))}
-              {tokeninfodata?.isTokenVerification ==='PENDING' && (t('token:tokenType.pending'))}
-              {tokeninfodata?.isTokenVerification ==='Rejected' && (t('token:tokenType.rejected')) }
-              {tokeninfodata?.isTokenVerification ==='VERIFIED' && (t('token:tokenType.verified'))}
-            </span>
-            }
-           
-           
+              {newbscdata?.sourceCode==='VERIFED'? t('token:tokenType.verified'):t('token:tokenType.notVerified')}
+              </span>
 
+            }
             { tokeninfodata?.contractInfo?.description &&<> 
                <Modal
                logo={tokeninfodata?.contractInfo?.logo}

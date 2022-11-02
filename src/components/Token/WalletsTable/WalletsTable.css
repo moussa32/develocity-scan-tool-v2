@@ -125,6 +125,10 @@
   .wallet_table_td_width td{
     min-width: 100px;
   }
+  .table_td_width td{
+    min-width: 130px;
+
+  }
  
 }
 

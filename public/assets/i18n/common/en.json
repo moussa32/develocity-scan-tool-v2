@@ -108,7 +108,7 @@
 	"logo" : "Logo",
 	"short_bio":"Short Bio",
 	"social_media":"Social Media",
-	"close" :" Close x",
+	"close" :" Close",
 	"submit_token":"Submit your token",
 	"details_token":"Details about your token",
 	"contract_address":"Contract Address",

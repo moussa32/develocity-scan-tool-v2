@@ -27,9 +27,9 @@ function App() {
  
 
   let lang = localStorage.getItem("i18nextLng") || ''
-  i18n.on('loaded', function (loaded) {
-    console.log("loaded", loaded[lang]?.common)
-  })
+  // i18n.on('loaded', function (loaded) {
+  //   // console.log("loaded", loaded[lang]?.common)
+  // })
   useEffect(() => {
 
     let timer = setTimeout(() => setLoading(true), 2000);

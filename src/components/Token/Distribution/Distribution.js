@@ -1,17 +1,14 @@
 import React, { useEffect } from "react";
 import styles from "./Distribution.module.css";
 import ReactApexChart from 'react-apexcharts';
-import { AiFillInfoCircle } from "react-icons/ai";
 import { FaCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDistribution } from "../../../Pages/DataFetch/FetchDistributionData";
+import { fetchDistribution } from "../../../store/FetchDistributionData";
 import { useParams } from "react-router-dom";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import { useTranslation } from 'react-i18next';
 import { ChartLoader } from "../../common/Placeholder/ChartLoader";
-
+import HeaderText from "../HeaderText/HeaderText";
 const Distribution = () => {
   const param = useParams()
   const contractAddress = param.contractAddress;
@@ -176,10 +173,10 @@ const Distribution = () => {
           statusDist === 'success' &&
           <>
             <h1 className={styles.title}>{t("token:dist_title")}</h1>
-            <h6 className={styles.secondTitle}>{t("token:holders_title")}
-              <Tooltip className={styles.tooltip} title={t("token:holders_tooltip")} arrow>
-                <Button> <AiFillInfoCircle className={styles.infoIcon} /></Button>
-              </Tooltip>
+            <h6 className={styles.secondTitle}>
+            <div className={`text-muted  mt-3 ${lang==="ar"?styles.title_rtl:styles.title_ltr}`}>
+                <HeaderText nameHeader={t("token:holders_title")} title={t("token:holders_tooltip")} />
+            </div>
             </h6>
           </>
         }

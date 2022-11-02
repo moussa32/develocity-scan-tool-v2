@@ -7,7 +7,7 @@ import styles from "./Search.module.css";
 import { FaCircle } from "react-icons/fa";
 import { BiBitcoin } from "react-icons/bi";
 import { BsArrowRight, BsFillPatchCheckFill, BsArrowLeft } from "react-icons/bs";
-import { fetchResult } from "../../../Pages/DataFetch/FetchSearchData";
+import { fetchResult } from "../../../store/FetchSearchData";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

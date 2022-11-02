@@ -99,7 +99,7 @@
 	},
 	"tokenType":{
 		"verified": "верифицировано",
-		"rejected": "не верифицировано",
+		"notVerified": "не верифицировано",
 		"requested":"Requested",
 		"pending":"PENDING"
 	}
