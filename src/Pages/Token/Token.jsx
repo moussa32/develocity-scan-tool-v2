@@ -87,7 +87,7 @@ export function Token() {
     //       };
     //   }, [navigate, search_params]);
 
-     useEffect(() => {
+    useEffect(() => {
         if (search_params?.responseCode === 400) {
             navigate('/404')
         }
@@ -181,7 +181,11 @@ export function Token() {
                         {
                             (topWallet_isLoading === 'success' || tokenOwner_isLoading === 'success' || bscTransaction_isLoading === 'success') ?
                                 <div className='wallets_table wallet_table_td_width'>
-                                    <WalletsSection walletsData={tokenOwnerData} topWalletData={topWalletData} bSCTrasaction={bSCTrasaction} />
+                                    <WalletsSection
+                                        walletsData={tokenOwnerData}
+                                        topWalletData={topWalletData}
+                                        bSCTrasaction={bSCTrasaction}
+                                    />
                                 </div> :
                                 ((topWallet_isLoading === "failed" || tokenOwner_isLoading === "failed" || bscTransaction_isLoading === "failed") ?
                                     // <Navigate to="/404"/> 
@@ -276,7 +280,7 @@ export function Token() {
                                 <div className='wallets_table wallet_table_td_width'>
                                     <LiquidtySection LiquidtyData={bscLiquidityScan} bSCTrasaction={bSCTrasaction} />
                                 </div> :
-                                ((bscLiquidity_isLoading || bscTransaction_isLoading===true) ? <TableLoader /> : null
+                                ((bscLiquidity_isLoading || bscTransaction_isLoading === true) ? <TableLoader /> : null
                                 )
 
                         }

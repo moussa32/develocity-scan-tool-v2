@@ -16,7 +16,7 @@ const Wallet10Top = ({ topWalletData }) => {
     const { t } = useTranslation(["token"])
     const param = useParams()
     const contractAddress = param.contractAddress;
-
+    console.log("dd:", topWalletData)
     const columns = [
         {
             dataField: "id",

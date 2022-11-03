@@ -52,8 +52,12 @@
 }
 .closeBtn_rtl,.closeBtn_ltr .btn_layout{
     background-color: #9F4AE8;
+    /* background-color: #fff; */
+    border: 1px solid #9F4AE8;
+    /* color: #9F4AE8; */
+
     top: 0;
-    border: 0;
+    /* border: 0; */
     left: 0;
     right: 0;
     height: 100%;
@@ -66,7 +70,8 @@
 .closeBtn_rtl:hover,.closeBtn_ltr:hover .btn_layout{
     animation-name: collapseBtn;
     animation-duration: 1s;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-image: linear-gradient(to top right,#fff,#fff);
     color: #9F4AE8;
     border: 1px solid #9F4AE8;
 }
