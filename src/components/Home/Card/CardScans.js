@@ -28,7 +28,6 @@ const CardScans = ({ popularScans, title, caption }) => {
                       scam={parseInt(item.contractScan.toFixed(0))}
                       contract={item.contractAddress}
                       sponsored="fales"
-                      title={title}
                       caption={caption}
                     />
                   </>

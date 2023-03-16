@@ -1,50 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@1,500&family=Lobster+Two&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500&family=Lobster+Two&display=swap");
 
-.epiloguefont{
-    font-family: "SF Pro Display Regular";
-    /* font-size:20px; */
-    color:#333333;
-    /* line-height: 50px; */
-    margin-top: 23px;
-    font-family:'SF Pro Display Medium';
+.epiloguefont {
+  font-size: 62px;
+  color: #333333;
+  margin-top: 13px;
+  line-height: 83px;
+  word-spacing: 10.22px;
+  font-family: "Epilogue";
 }
-.linkitemopcity{
-    transition: all 1s !important ;
+.linkitemopcity {
+  transition: all 1s !important ;
 }
-.linkitemopcity:hover{
-    opacity: 0.6 !important;
+.linkitemopcity:hover {
+  opacity: 0.6 !important;
 }
-.parag{
-    font-size:20px;
-    color:#888;
-    font-family:'SF Pro Display Medium';
-    margin-top:21px;
+.parag {
+  font-size: 24px;
+  color: #888;
+  font-family: "SF Pro Display Medium";
+  max-width: 557px;
 }
-.appleLink{
-    margin-top: 32px;
-    margin-bottom: 50px;
+
+.betaBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(159, 74, 232, 0.15);
+  width: 90px;
+  height: 24px;
+  font-family: "SF Pro Display Semibold";
+  font-size: 12px;
+  color: #9f4ae8;
+  border-radius: 2px;
 }
-.appleLink>img:nth-child(2){
-    margin-left: 32px;
+
+.seeHowItWorks {
+  border: 0;
+  color: #fff;
+  background-color: #9f4ae8;
+  font-family: "SF Pro Display Medium";
+  width: 160px;
+  height: 42px;
+  font-size: 14px;
+  margin-top: 22px;
+  transition: 0.7s all;
 }
-  
-@media screen and (max-width: 991px){
-    .epiloguefont{
-        font-size: 30px;
-        line-height: 30px;
-    }
-    .parag{
-        font-size: 15px;
-    }
+
+.seeHowItWorks:hover {
+  color: #9f4ae8;
+  border: 1px #9f4ae8 solid;
+  background-color: #fff;
+}
+
+.appleLink {
+  margin-top: 32px;
+  margin-bottom: 50px;
+}
+.appleLink > img:nth-child(2) {
+  margin-left: 32px;
+}
+
+@media screen and (max-width: 991px) {
+  .epiloguefont {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .parag {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .epiloguefont{
-        font-size: 20px;
-        /* line-height: 15px; */
-    }
-    .parag{
-        font-size: 15px;
-    }
+  .epiloguefont {
+    font-size: 20px;
+    /* line-height: 15px; */
   }
-
+  .parag {
+    font-size: 15px;
+  }
+}

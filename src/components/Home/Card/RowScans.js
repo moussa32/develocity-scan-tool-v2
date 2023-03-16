@@ -1,11 +1,9 @@
-import React from "react";
 import styles from "./RowScans.module.css";
 import { Link } from "react-router-dom";
 import VerificationIcon from "../../../assets/images/verification.png";
 
 // import { useTranslation } from 'react-i18next';
-const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, title, scan, caption, isVerifyed }) => {
-  console.log("NoteListed:", isVerifyed);
+const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, scan, caption, isVerifyed }) => {
   const calculateTimeAgo = () => {
     let date1, date2, total_seconds, total_minutes, total_hours, days_difference, month_difference;
     if (caption === "Time Ago") {
@@ -63,22 +61,20 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
       {/* {score? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
       <div className={`col-5  ${styles.tokenValue}`}>
         <div className="row w-100 px-0">
-          <h3 className={`col-7  text-center`}>
+          <h3 className={`col-12 ${styles.tokenScans}`}>
             {caption === "Scans" && scan}
             {caption === "Time Ago" && calculateTimeAgo()}
           </h3>
-          <div className="col-5 px-0 text-end">
+          {/*This code has been commented due for refactors*/}
+          {/* <div className="col-5 px-0 text-end">
             <span
-              className={`  
-                            ${styles.header_scans}  
-                            ${score < 59 && styles.header_scans_red}
-                            ${score >= 59 && score < 85 && styles.header_scans_yellow}
-                            ${score >= 85 && styles.header_scans_green}
-                        `}
+              className={`${styles.header_scans} ${score < 59 && styles.header_scans_red} ${
+                score >= 59 && score < 85 && styles.header_scans_yellow
+              } ${score >= 85 && styles.header_scans_green}`}
             >
               {title === "Price" ? `$${score}` : score}
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>

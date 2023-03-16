@@ -1,0 +1,12 @@
+.Section1Container {
+  margin-top: 59px;
+  margin-bottom: 85px;
+}
+
+.mySearch {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}

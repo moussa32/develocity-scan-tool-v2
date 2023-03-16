@@ -1,135 +1,139 @@
 .container_row {
-    /* display: flex;
+  /* display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between; */
-    padding: 9px 10px;
+  padding: 9px 10px;
 }
 
 .container_row:hover {
-    background-color: rgba(136, 136, 136, 0.15);
-    cursor: pointer;
+  background-color: rgba(136, 136, 136, 0.15);
+  cursor: pointer;
 }
 
 .container_image {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    /* width: 250px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 250px; */
 }
 
-.icon_token_left, .icon_token_right {
-    width: 18px;
-    height: 18px;
+.icon_token_left,
+.icon_token_right {
+  width: 18px;
+  height: 18px;
 }
 
 .icon_token_left {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .icon_token_right {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
-.icon_token_letter_left, .icon_token_letter_right {
-    width: 18px;
-    height: 18px;
-    background-color: rgba(159, 74, 232, 0.15);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.icon_token_letter_left,
+.icon_token_letter_right {
+  width: 18px;
+  height: 18px;
+  background-color: rgba(159, 74, 232, 0.15);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon_token_letter_left {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .icon_token_letter_right {
-    margin-left: 5px;
-
+  margin-left: 5px;
 }
 
 .icon_token_text {
-    font-size: 12px;
-    padding: 0;
-    margin: 0;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
 }
 
 .header_no {
-    font-size: 10px;
-    font-family: "SF Pro Display Medium";
+  font-size: 10px;
+  font-family: "SF Pro Display Medium";
 }
 .header_no_left {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 .header_no_right {
-    margin-left: 14px;
+  margin-left: 14px;
 }
-.headerScore{
-   /* min-width: 70px; */
-   text-align: center;
+.headerScore {
+  /* min-width: 70px; */
+  text-align: center;
 }
-.header_token, .header_scans {
-    font-size: 12px;
-    color: #333333;
-    font-family: "SF Pro Display Medium";
-    margin-right: 4px;
-    margin-left: 4px;
+.header_token,
+.header_scans {
+  font-size: 12px;
+  color: #333333;
+  font-family: "SF Pro Display Medium";
+  margin-right: 4px;
+  margin-left: 4px;
 }
-.header_scans{
-    width: 30px;
-    height: 22px;
-    text-align: center;
-    line-height: 22px;
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    margin: auto;
-    display: inline-block;
+
+.tokenScans {
+  text-align: right;
+}
+
+.header_scans {
+  width: 30px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  margin: auto;
+  display: inline-block;
 }
 .header_scans_red {
-    color: rgb(234, 57,67);
-    background-color: rgba(234, 57,67,0.1);
-    border-color: rgb(234, 57,67);
- 
+  color: rgb(234, 57, 67);
+  background-color: rgba(234, 57, 67, 0.1);
+  border-color: rgb(234, 57, 67);
 }
- .header_scans_yellow {
-    color: rgb(255, 165,29);
-    background-color: rgba(255, 165,29,0.1);
-    border-color: rgb(255, 165,29);
- }
-.header_scans_green{
-    color: rgb(22, 199,132);
-    background-color: rgba(22, 199,132,0.1);
-    border-color: rgb(22, 199,132);
- 
- }
+.header_scans_yellow {
+  color: rgb(255, 165, 29);
+  background-color: rgba(255, 165, 29, 0.1);
+  border-color: rgb(255, 165, 29);
+}
+.header_scans_green {
+  color: rgb(22, 199, 132);
+  background-color: rgba(22, 199, 132, 0.1);
+  border-color: rgb(22, 199, 132);
+}
 .container_sponsored {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(161, 74, 232, .15);
-    padding: 4px 8px;
-    border-radius: 2px;
-    margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(161, 74, 232, 0.15);
+  padding: 4px 8px;
+  border-radius: 2px;
+  margin-right: 10px;
 }
 
 .sponsored {
-    margin: 0;
-    padding: 0;
-    font-size: 8px;
-    color: #9F4AE8;
-    font-family: "SF Pro Display Medium";
-
+  margin: 0;
+  padding: 0;
+  font-size: 8px;
+  color: #9f4ae8;
+  font-family: "SF Pro Display Medium";
 }
-.tokenValue{
-    display: flex;
-    align-items: center;
+.tokenValue {
+  display: flex;
+  align-items: center;
 }
