@@ -8,7 +8,7 @@ import { useEffect } from "react";
 // import { useDispatch, useSelector } from 'react-redux'
 // import UseAdvertisment from '../../hooks/UseAdvertisment';
 
-function Home() {
+const Home = () => {
   // let {getAdvertismentData}=UseAdvertisment('Home')
 
   // const dispatch = useDispatch();
@@ -33,6 +33,6 @@ function Home() {
       <CopyRight />
     </>
   );
-}
+};
 
-export { Home };
+export default Home;

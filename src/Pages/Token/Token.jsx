@@ -33,7 +33,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchSearchParams } from "../../store/FetchSearchData";
 import UseAdvertisment from "../../hooks/UseAdvertisment";
 
-export function Token() {
+const Token = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
@@ -267,4 +267,6 @@ export function Token() {
       <CopyRight />
     </div>
   );
-}
+};
+
+export default Token;
