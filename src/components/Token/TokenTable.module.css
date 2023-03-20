@@ -1,0 +1,45 @@
+.table {
+  font-family: "SF Pro Display Medium";
+  table-layout: fixed;
+  width: 100%;
+}
+
+.table th {
+  font-family: "SF Pro Display Medium";
+  font-weight: normal;
+  padding: 13px;
+  font-size: 12px;
+}
+
+.table td {
+  padding: 15px 13px;
+  font-size: 14px;
+  border-bottom: 1px #eff2f5 solid;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table td:first-of-type {
+  border-left: 1px #eff2f5 solid;
+}
+
+.table td:last-of-type {
+  border-right: 1px #eff2f5 solid;
+}
+
+.table td:first-of-type,
+.table th:first-of-type {
+  padding-left: 20px;
+}
+
+.tableRow:hover {
+  transition: 0.3s all;
+  background-color: #00000013;
+  cursor: pointer;
+}
+
+.columnHeader {
+  color: #333333;
+  background-color: #eff2f5;
+}

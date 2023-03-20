@@ -1,128 +1,74 @@
-import { logDOM } from '@testing-library/react';
-import React from 'react'
-import BootstrapTable from 'react-bootstrap-table-next'
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import paginationFactory from 'react-bootstrap-table2-paginator';
+import { useTranslation } from "react-i18next";
+import { useMemo } from "react";
+import TokenTable from "../TokenTable";
 import "./WalletsTable.css";
-import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
-
-
-
-
-
-
+import { memo } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const WalletsTable = ({ walletsData }) => {
-    const { t, } = useTranslation(["token"])
-    // const param = useParams()
-    // const contractAddress = param.contractAddress;
+  const [walletInfo, setWalletInfo] = useState([]);
+  const { t } = useTranslation(["token"]);
 
-   
-    const columns = [
-        {
-            dataField: "id",
-            text: t("token:rank"),
-            searchable: false
-        },
-        {
-            dataField: "walletaddress",
-            text: "wallet address",
-            hidden:true,
-        },
-        {
-            dataField: "address",
-            text: t("token:address"),
-            searchable: false,
-            style:{
-                cursor:'pointer'
-            }
-        },
-        {
-            dataField: "nameTag",
-            text: t("token:nametag"),
-            search: false
-        },
-        {
-            dataField: "balance",
-            text: t("token:balance"),
-            searchable: false
-        },
-        {
-            dataField: "percentage",
-            text: t("token:percentage"),
-             searchable: false
-        }
-    ];
-
-    
-    let pairaddress=walletsData?.ownerInfo?.pairAddress
+  useEffect(() => {
     const wallet = [];
 
     if (walletsData && walletsData.ownerInfo && walletsData.ownerInfo.top10LiquidityHolder) {
-
-        for (let i = 0; i < walletsData.ownerInfo.top10LiquidityHolder.length; i++) {
-            let id = i + 1;
-            let address = walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(0, 8) + '...' + walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(-6);
-            let walletaddress = walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress;
-            let nameTag = 'N/A'
-            let balance = Number(walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).toLocaleString("en-US");
-            let percentage = `${Number(walletsData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2)}%`;
-            // let lockedLiquidityPercentage=walletsData.ownerInfo.top10LiquidityHolder[i].lockedLiquidityTokenPercentage;
-            wallet.push({ id, address,walletaddress, nameTag, balance, percentage });
-
-        }
+      for (let i = 0; i < walletsData.ownerInfo.top10LiquidityHolder.length; i++) {
+        let id = i + 1;
+        let address =
+          walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(0, 8) +
+          "..." +
+          walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress.substr(-6);
+        let walletaddress = walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderAddress;
+        let nameTag = "N/A";
+        let balance = Number(walletsData.ownerInfo.top10LiquidityHolder[i].TokenHolderQuantity).toLocaleString("en-US");
+        let percentage = `${Number(walletsData.ownerInfo.top10LiquidityHolder[i].percentage).toFixed(2)}%`;
+        // let lockedLiquidityPercentage=walletsData.ownerInfo.top10LiquidityHolder[i].lockedLiquidityTokenPercentage;
+        wallet.push({ id, address, walletaddress, nameTag, balance, percentage });
+      }
+      setWalletInfo(wallet);
     }
+  }, [walletsData]);
 
-  const selectRow = {
-  mode: "radio",
-  hideSelectColumn: true,
-  clickToSelect: true,
-  style: {
-    backgroundColor: "#ebeded",
-    color: "#000",
-    
-  },
-  onSelect: (row) => {
-    // eslint-disable-next-line no-restricted-globals
-    // location.href=`https://bscscan.com/token/${pairaddress}?a=${row.walletaddress}`
-    window.open(`https://bscscan.com/token/${pairaddress}?a=${row.walletaddress}`, '_blank');
-  }
+  const newColumns = useMemo(
+    () => [
+      {
+        accessor: "id",
+        Header: t("token:rank"),
+      },
+      {
+        accessor: "address",
+        Header: t("token:address"),
+      },
+      {
+        accessor: "nameTag",
+        Header: t("token:nametag"),
+      },
+      {
+        accessor: "balance",
+        Header: t("token:balance"),
+      },
+      {
+        accessor: "percentage",
+        Header: t("token:percentage"),
+      },
+    ],
+    []
+  );
+
+  const selectRow = row => {
+    let pairaddress = walletsData?.ownerInfo?.pairAddress;
+    window.open(`https://bscscan.com/token/${pairaddress}?a=${row.walletaddress}`, "_blank");
+  };
+
+  return (
+    <>
+      {walletInfo && walletInfo.length > 0 && (
+        <TokenTable columns={newColumns} data={walletInfo} onRowClick={selectRow} />
+      )}
+    </>
+  );
 };
 
-
-    const pagination = paginationFactory({
-        page: 1,
-        sizePerPage: 5,
-        hideSizePerPage: true,
-        nextPageText: '>',
-        prePageText: '<',
-        withFirstAndLast: false,
-        alwaysShowAllBtns: true,
-    });
-
-    return (
-        <>
-        {/* <Link to={`/${contractAddress}`}>  */}
-            <BootstrapTable
-                keyField="id"
-                data={wallet}
-                columns={columns}
-                hover={true}
-                bordered={false}
-                loading={true}
-                pagination={pagination}
-                alwaysShowAllBtns={false}
-                selectRow={selectRow}
-                
-            />
-        {/* </Link> */}
-    
-        </>
-
-    )
-}
-
-export default WalletsTable
-
-
+export default memo(WalletsTable);
