@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { useEffect, useMemo, useCallback } from "react";
 import { FaPaperPlane, FaFacebookF, FaTwitter } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import styles from "./SocialBar.module.css";
 
 const languages = [
   {
-    code: "en-US",
+    code: "en",
     dir: "ltr",
   },
   {
@@ -34,11 +34,10 @@ const languages = [
 ];
 
 const SocialBar = () => {
-  const [language, setLanguage] = useState("en");
   const { t, i18n } = useTranslation(["common"]);
-  const lang = localStorage.getItem("i18nextLng");
+  const lang = i18n.resolvedLanguage;
 
-  let currentLanguage = useMemo(() => languages.find(i => i.code === lang), []);
+  let currentLanguage = useMemo(() => languages.find(i => i.code.includes(lang)), [lang]);
 
   const getCurrentLanguageDisplayName = useCallback(
     languageCode => {
@@ -54,12 +53,6 @@ const SocialBar = () => {
   );
 
   useEffect(() => {
-    if (localStorage.getItem("i18nextLng")?.length > 2) {
-      i18n.changeLanguage("en");
-    }
-  }, [i18n, lang, language]);
-
-  useEffect(() => {
     if (currentLanguage) {
       document.body.dir = currentLanguage.dir;
     } else {
@@ -69,7 +62,6 @@ const SocialBar = () => {
 
   const handleOnclick = e => {
     e.preventDefault();
-    setLanguage(e.target.parentNode.value);
     i18n.changeLanguage(e.target.parentNode.value);
     document.body.dir = "ltr";
   };
