@@ -6,42 +6,42 @@ import { Link } from "react-router-dom";
 import "flag-icons/css/flag-icons.min.css";
 import styles from "./SocialBar.module.css";
 
+const languages = [
+  {
+    code: "en-US",
+    dir: "ltr",
+  },
+  {
+    code: "ar",
+    dir: "rtl",
+  },
+  {
+    code: "tr",
+    dir: "ltr",
+  },
+  {
+    code: "ch",
+    dir: "ltr",
+  },
+  {
+    code: "ru",
+    dir: "ltr",
+  },
+  {
+    code: "es",
+    dir: "ltr",
+  },
+];
+
 const SocialBar = () => {
   const [language, setLanguage] = useState("en");
   const { t, i18n } = useTranslation(["common"]);
   const lang = localStorage.getItem("i18nextLng");
-  const languages = [
-    {
-      code: "en",
-      dir: "ltr",
-    },
-    {
-      code: "ar",
-      dir: "rtl",
-    },
-    {
-      code: "tr",
-      dir: "ltr",
-    },
-    {
-      code: "ch",
-      dir: "ltr",
-    },
-    {
-      code: "ru",
-      dir: "ltr",
-    },
-    {
-      code: "es",
-      dir: "ltr",
-    },
-  ];
 
   let currentLanguage = useMemo(() => languages.find(i => i.code === lang), []);
 
   const getCurrentLanguageDisplayName = useCallback(
     languageCode => {
-      console.log(languageCode);
       if (currentLanguage) {
         const languageDisplayName = new Intl.DisplayNames(
           [currentLanguage.code === "ch" ? "zh-Hant" : currentLanguage.code],
