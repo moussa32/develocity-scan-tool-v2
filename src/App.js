@@ -1,9 +1,8 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { About } from "./Pages/About";
 import { PrivacyPolicy } from "./Pages/PrivacyPolicy/PrivacyPolicy";
 import Changelog from "./Pages/Changelog/Changelog";
-import { useTranslation } from "react-i18next";
 import { WelcomingModal } from "./components/Home/WelcomingModal/WelcomingModal";
 import { SpinnerRoundFilled } from "spinners-react";
 import { ScrollToTop } from "./components/common/ScrollToTop";
@@ -15,23 +14,6 @@ const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
 const Token = lazy(() => import("./Pages/Token/Token"));
 
 function App() {
-  const [loading, setLoading] = useState(false);
-  const { i18n } = useTranslation(["common"]);
-
-  let lang = localStorage.getItem("i18nextLng") || "";
-
-  useEffect(() => {
-    let timer = setTimeout(() => setLoading(true), 2000);
-
-    // this will clear Timeout
-    // when component unmount like in willComponentUnmount
-    // and show will not change to true
-    return () => {
-      clearTimeout(timer);
-      setLoading(false);
-    };
-  }, [lang, i18n]);
-
   function ErrorFallback({ error, resetErrorBoundary }) {
     return (
       <div role="alert">
