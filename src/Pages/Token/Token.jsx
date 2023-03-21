@@ -32,6 +32,7 @@ import { socket } from "../../config/socket";
 import { useNavigate } from "react-router-dom";
 import { fetchSearchParams } from "../../store/FetchSearchData";
 import UseAdvertisment from "../../hooks/UseAdvertisment";
+import styles from "./Token.module.css";
 
 const Token = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,6 @@ const Token = () => {
 
   const tokenOwner_isLoading = useSelector(state => state.tokenOwner.loading);
   // const tokenList_isLoading = useSelector(state => state.tokenList.loading);
-  const topWallet_isLoading = useSelector(state => state.topWallet.loading);
   const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
   const tokeninfodata = useSelector(state => state.Gettokeninfodata?.data?.result);
   const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
@@ -134,15 +134,19 @@ const Token = () => {
   return (
     <div className="bg-white">
       <NavBar />
-      <section className="container ">
-        <div className="d-flex mt-4 flex-wrap align-items-center justify-content-between ">
-          <div className="order-2 mt-5 order-lg-1 col-12 col-lg-6">
-            <LeftBarToken />
-          </div>
-          <div className="order-1 order-lg-2 ">
-            <Search />
+      <div className={styles.tokenHeader}>
+        <div className="container">
+          <div className="row flex-wrap align-items-center">
+            <div className="order-2 order-lg-1 col-12 col-lg-6">
+              <LeftBarToken />
+            </div>
+            <div className={`${styles.searchContainer} order-1 order-lg-2 col-12 col-lg-6`}>
+              <Search />
+            </div>
           </div>
         </div>
+      </div>
+      <section className="container">
         <div>
           <BreadCrumbBar />
         </div>

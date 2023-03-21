@@ -1,25 +1,14 @@
-// import { ButtonComponent } from '../../ButtonComponent'
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import styles from "./nav.module.css";
 import logo from "../../../../assets/images/logo.png";
+import { memo } from "react";
 
-export function NavDisplay() {
+const NavDisplay = () => {
   const { t } = useTranslation(["common"]);
+  const { pathname } = useLocation();
   const lang = localStorage.getItem("i18nextLng");
-  // const logindata = {
-  //     text: 'Log in',
-  //     color: "black",
-  //     bg: "#fff",
-  //     border: '1px solid black',
-  //     fontsize:'SF Pro Display Medium'
-  // }
-  // const registerdata = {
-  //     text: 'Create Account',
-  //     color: "white",
-  //     bg: "#000",
-  //     fontsize:'SF Pro Display Medium'
-  // }
+
   return (
     <>
       <nav className={"navbar navbar-expand-lg "}>
@@ -51,14 +40,20 @@ export function NavDisplay() {
               <div className="d-lg-flex w-100 bg-ingo justify-content-between align-items-center">
                 <div className={`d-lg-flex ${styles.navItemsContainer}`}>
                   <li className="nav-item">
-                    <Link className={`nav-link ${styles.linkitem}`} aria-current="page" to="/">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive ? `${styles.linkitem} ${styles.activeLinkitem}` : `${styles.linkitem}`
+                      }
+                      aria-current="page"
+                      to="/"
+                    >
                       {t("common:home")}
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
                     <a
                       href="https://www.develocity.finance/#about"
-                      className={`nav-link ${styles.linkitem}`}
+                      className={`${styles.linkitem}`}
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -66,29 +61,26 @@ export function NavDisplay() {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <Link className={`nav-link ${styles.linkitem}`} to="/tokens">
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive || pathname.includes("token")
+                          ? `${styles.linkitem} ${styles.activeLinkitem}`
+                          : `${styles.linkitem}`
+                      }
+                      to="/tokens"
+                    >
                       {t("common:tokens")}
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <a className={`nav-link ${styles.linkitem}`}>Academy</a>
+                    <a className={`${styles.linkitem}`}>Academy</a>
                   </li>
                   <li className="nav-item">
-                    <a href="https://www.develocity.finance/#contact" className={`nav-link ${styles.linkitem}`}>
+                    <a href="https://www.develocity.finance/#contact" className={`${styles.linkitem}`}>
                       {t("common:contact")}
                     </a>
                   </li>
                 </div>
-                {/*<div className="d-lg-flex me-3">
-                                    <li className="nav-item">
-                                        <a className={`nav-link ${styles.linkitemopcity}`}><ButtonComponent data={logindata} />
-                                        </a>
-                                    </li>
-                                    <li className="nav-item ">
-                                        <a className={`nav-link ${styles.linkitemopcity}`}><ButtonComponent data={registerdata} />
-                                        </a>
-                                    </li>
-    </div>*/}
               </div>
             </ul>
             <div className={`${styles.headerActionButtonContainer} ms-auto`}>
@@ -107,4 +99,6 @@ export function NavDisplay() {
       </div>
     </>
   );
-}
+};
+
+export default memo(NavDisplay);

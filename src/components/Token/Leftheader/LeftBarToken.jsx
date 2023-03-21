@@ -6,42 +6,26 @@ import { IoCopy } from "react-icons/io5";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Modal } from "./Modal/Modal";
-// import ModalForm from "../ModalForm/ModalForm";
+import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from "react-i18next";
 import { IconContainer } from "./IconsContainer/IconContainer";
-import { Placeholder } from "../../common/Placeholder/Placeholder";
 import VerificationIcon from "../../../assets/images/verification.png";
-// import axios from "axios";
+import LeftBarLoader from "./LeftBarLoader";
+import { TbDiscountCheckFilled } from "react-icons/tb";
+
 export function LeftBarToken() {
-  // const contractAddress = useSelector(state => state.contractAddress.contractAddress);
-  const params = useParams();
-  // const [ipaddress, setIpAddress] = useState('');
-  const contractAddress = params.contractAddress;
+  const { contractAddress } = useParams();
   const tokenData = useSelector(state => state.Gettokeninfodata.data);
   const tokenstatus = useSelector(state => state.Gettokeninfodata.status);
   const score = useSelector(state => state.Score.data);
   const bscdata = useSelector(state => state.GetBSCdata.data);
   const bscstatus = useSelector(state => state.GetBSCdata.status);
+  const [copiedAddress, setCopyAddress] = useState("Copy Address");
+  const [showModal, setShowModal] = useState(false);
 
   const scoreData = score.result;
   const newbscdata = bscdata.result;
   const dispatch = useDispatch();
-
-  // useEffect( ()=>{
-  //   async function getIp() {
-  //    await axios.get("https://api.ipify.org?format=json")
-  //    .then((res)=>{
-  //      setIpAddress(res.data.ip);
-  //      console.log("ipaddress",ipaddress)
-  //    } )
-  //    .then(()=>{dispatch(fetchTokenInfoResult({contractAddress:contractAddress,ipaddress:ipaddress}));
-  //    console.log("nooooooooooo")
-  //  } )
-  //    // await setIpAddress(data.ip)
-  //    // await dispatch(fetchTokenInfoResult({contractAddress:contractAddress,ipaddress:ipaddress}));
-  //   }
-  //   getIp()
-  //  },[contractAddress, dispatch, ipaddress] )
 
   useEffect(() => {
     dispatch(fetchTokenInfoResult(contractAddress));
@@ -57,22 +41,21 @@ export function LeftBarToken() {
       maximumFractionDigits: 2,
     });
   }
-  const [copiedAddress, setCopyAddress] = useState("Copy Address");
   function copyToClipboard(e) {
     setCopyAddress("Copied Address !");
     navigator.clipboard.writeText(contractAddress);
 
-    setTimeout(() => {
+    let resetCopyAddressText = setTimeout(() => {
       setCopyAddress("Copy Address");
+      clearTimeout(resetCopyAddressText);
     }, 2000);
   }
 
-  // const [showModal, setShowModal] = useState(false)
   return (
     <>
       {tokenstatus === "success" && (
         <>
-          {/* <ModalForm show={showModal} close={() => setShowModal(false)} /> */}
+          <ModalForm show={showModal} close={() => setShowModal(false)} />
           <div className="w-100">
             <div className="d-flex justify-content-between align-items-center flex-wrap">
               <div className="py-2 ">
@@ -101,35 +84,30 @@ export function LeftBarToken() {
                 {tokeninfodata.isNotListed && <img src={VerificationIcon} width={18} alt="verfiyed" />}
                 {scoreData?.contractScan === 0 && <span className={`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>}
 
-                {/* <span className="ms-2">
-                {tokeninfodata && tokeninfodata.isNotListed ? (
-                  <>
-                    <span className=" me-3">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        fill="#9F4AE8"
-                        className="bi bi-patch-check-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                      </svg>
+                <span className="ms-2">
+                  {tokeninfodata && tokeninfodata.isNotListed ? (
+                    <>
+                      <TbDiscountCheckFilled color="#9F4AE8" size={25} />
+
+                      <span className=" me-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          fill="#9F4AE8"
+                          className="bi bi-patch-check-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                        </svg>
+                      </span>
+                    </>
+                  ) : (
+                    <span className={`${styles.modalIcon} me-3`} onClick={() => setShowModal(true)}>
+                      <TbDiscountCheckFilled color="#707070" size={18} />
                     </span>
-                  </>
-                ) : <span className={`${styles.modalIcon} me-3`} onClick={() => setShowModal(true)}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    fill="#DFDFE4"
-                    className="bi bi-patch-check-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                  </svg>
-                </span>}
-              </span> */}
+                  )}
+                </span>
               </div>
               <div className=" py-2 me-0">
                 <IconContainer tokeninfodata={tokeninfodata && tokeninfodata} />
@@ -265,62 +243,7 @@ export function LeftBarToken() {
         </>
       )}
 
-      {tokenstatus === "loading" && (
-        <>
-          <div className="w-100">
-            <div className="d-flex justify-content-between align-items-center flex-wrap">
-              <div className="py-2 d-flex align-items-center">
-                <Placeholder styling={{ width: "50px", height: "50px", borderRadius: "50%", marginRight: "8px" }} />
-                <Placeholder styling={{ width: "50px", height: "20px", marginRight: "8px" }} />
-                <Placeholder styling={{ width: "50px", height: "20px", marginRight: "8px" }} />
-                <Placeholder styling={{ width: "50px", height: "20px", marginRight: "8px" }} />
-              </div>
-
-              <div className="d-flex py-2 me-0">
-                <Placeholder styling={{ width: "24px", height: "24px", marginRight: "8px", borderRadius: "50%" }} />
-                <Placeholder styling={{ width: "24px", height: "24px", marginRight: "8px", borderRadius: "50%" }} />
-                <Placeholder styling={{ width: "24px", height: "24px", marginRight: "8px", borderRadius: "50%" }} />
-              </div>
-            </div>
-
-            <div className={`d-flex justify-content-between flex-wrap`}>
-              <Placeholder styling={{ width: "120px", height: "20px" }} />
-              <Placeholder styling={{ width: "120px", height: "20px" }} />
-            </div>
-
-            <div className="d-flex flex-wrap ">
-              {lang === "ar" ? (
-                <>
-                  {[1, 1, 1, 1].map((item, index) => (
-                    <Placeholder styling={{ width: "100px", height: "20px", marginLeft: "8px" }} key={index} />
-                  ))}
-                </>
-              ) : (
-                <>
-                  {[1, 1, 1, 1].map((item, index) => (
-                    <Placeholder key={index} styling={{ width: "100px", height: "20px", marginRight: "8px" }} />
-                  ))}
-                </>
-              )}
-            </div>
-
-            <div className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}>
-              <div>
-                <Placeholder styling={{ width: "100px", height: "20px" }} />
-                <Placeholder styling={{ width: "100px", height: "20px" }} />
-              </div>
-              <div>
-                <Placeholder styling={{ width: "100px", height: "20px" }} />
-                <Placeholder styling={{ width: "100px", height: "20px" }} />
-              </div>
-              <div>
-                <Placeholder styling={{ width: "100px", height: "20px" }} />
-                <Placeholder styling={{ width: "100px", height: "20px" }} />
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      {tokenstatus === "loading" && <LeftBarLoader lang={lang} />}
     </>
   );
 }

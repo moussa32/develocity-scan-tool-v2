@@ -4,13 +4,30 @@
 .linkitem:active {
   font-size: 20px;
 }
+
 .linkitem {
   cursor: pointer;
-  transition: all 1s !important;
-  color: #333333 !important;
+  transition: all 1s;
+  color: #333333;
   font-size: 14px;
-  padding: 0 !important;
+  padding: 0;
   font-family: "SF Pro Display Medium";
+  text-decoration: none;
+}
+
+.activeLinkitem {
+  color: #9f4ae8;
+}
+
+.activeLinkitem::before {
+  content: "";
+  width: 64px;
+  display: block;
+  background-color: #9f4ae8;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  translate: -10px;
 }
 
 .navItemsContainer {

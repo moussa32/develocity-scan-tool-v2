@@ -1,0 +1,11 @@
+.tokenHeader {
+  background-color: #f3f2f7;
+  padding: 44px;
+  padding-bottom: 59px;
+}
+
+.searchContainer {
+  margin-left: auto;
+  width: 100%;
+  max-width: 480px;
+}
