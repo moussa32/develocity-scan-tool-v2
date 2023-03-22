@@ -12,9 +12,8 @@ const Wallet10Top = ({ topWalletData }) => {
   const { contractAddress } = useParams();
 
   useEffect(() => {
-    const wallet = [];
-
     if (topWalletData && topWalletData.topTenHolder) {
+      const wallet = [];
       for (let i = 0; i < topWalletData.topTenHolder.length; i++) {
         let id = i + 1;
         let walletaddress = topWalletData.topTenHolder[i].TokenHolderAddress;

@@ -1,23 +1,13 @@
 import styles from "./ContractAnalysis.module.css";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchBSCResult } from "../../../store/FetchBSCData";
+import { useSelector } from "react-redux";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
-import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 export function ContractAnalysisCard() {
-  const param = useParams();
-  const contractAddress = param.contractAddress;
   const bscdata = useSelector(state => state.GetBSCdata.data);
   const bscstatus = useSelector(state => state.GetBSCdata.status);
   const { t } = useTranslation(["token"]);
   const lang = localStorage.getItem("i18nextLng");
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchBSCResult(contractAddress));
-  }, [contractAddress, dispatch]);
 
   const newbscdata = bscdata.result;
   let data = [

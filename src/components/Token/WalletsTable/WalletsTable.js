@@ -11,9 +11,8 @@ const WalletsTable = ({ walletsData }) => {
   const { t } = useTranslation(["token"]);
 
   useEffect(() => {
-    const wallet = [];
-
     if (walletsData && walletsData.ownerInfo && walletsData.ownerInfo.top10LiquidityHolder) {
+      const wallet = [];
       for (let i = 0; i < walletsData.ownerInfo.top10LiquidityHolder.length; i++) {
         let id = i + 1;
         let address =

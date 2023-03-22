@@ -10,8 +10,8 @@ import { ErrorBoundary } from "react-error-boundary";
 import "./App.css";
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Tokens = lazy(() => import("./Pages/Tokens/Tokens"));
-const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
 const Token = lazy(() => import("./Pages/Token/Token"));
+const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
 
 function App() {
   function ErrorFallback({ error, resetErrorBoundary }) {

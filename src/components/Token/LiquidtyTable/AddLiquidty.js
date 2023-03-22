@@ -1,7 +1,5 @@
-import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
-import paginationFactory from "react-bootstrap-table2-paginator";
 import { useTranslation } from "react-i18next";
+import TokenTable from "../TokenTable";
 
 const AddedLiquidity = ({ LiquidtyData }) => {
   const { t } = useTranslation(["token"]);
@@ -13,13 +11,14 @@ const AddedLiquidity = ({ LiquidtyData }) => {
   }
 
   const columns = [
+    { accessor: "id", Header: "Rank" },
     {
-      dataField: "transaction",
-      text: t("token:transactions"),
+      accessor: "transaction",
+      Header: t("token:transactions"),
       formatter: cell => {
         return (
           <div className="locked_tokens_network">
-            <a href={`//Bscscan.com/tx/${cell}`} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
+            <a href={`//Bscscan.com/tx/${cell}`} target="_blank" rel="noreferrer" style={{ HeaderDecoration: "none" }}>
               {`${cell.substr(0, 3)} ... ${cell.substr(-4)}`}
             </a>
           </div>
@@ -27,31 +26,31 @@ const AddedLiquidity = ({ LiquidtyData }) => {
       },
     },
     {
-      dataField: "fromAddress",
-      text: t("token:fromaddress"),
+      accessor: "fromAddress",
+      Header: t("token:fromaddress"),
       style: {
         color: "#333",
       },
     },
     {
-      dataField: "toAddress",
-      text: t("token:toaddress"),
+      accessor: "toAddress",
+      Header: t("token:toaddress"),
     },
 
     {
-      dataField: "amount",
-      text: t("token:amount"),
+      accessor: "amount",
+      Header: t("token:amount"),
     },
     {
-      dataField: "currency",
-      text: t("token:currency"),
+      accessor: "currency",
+      Header: t("token:currency"),
     },
   ];
   let AddLiquidtyData = [];
   if (LiquidtyData && LiquidtyData.addLiquidityTransaction) {
     for (let i = 0; i < LiquidtyData.addLiquidityTransaction.length; i++) {
       let fromAddress, toAddress, amount, transaction, currency;
-      let id = i;
+      let id = i + 1;
       if (LiquidtyData.addLiquidityTransaction[i].sender) {
         fromAddress =
           LiquidtyData.addLiquidityTransaction[i].sender.substr(0, 3) +
@@ -78,28 +77,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
     }
   }
 
-  const pagination = paginationFactory({
-    page: 1,
-    sizePerPage: 5,
-    hideSizePerPage: true,
-    nextPageText: ">",
-    prePageText: "<",
-    withFirstAndLast: false,
-    alwaysShowAllBtns: true,
-  });
-
-  return (
-    <BootstrapTable
-      keyField="id"
-      data={AddLiquidtyData}
-      columns={columns}
-      hover={true}
-      bordered={false}
-      loading={true}
-      pagination={pagination}
-      alwaysShowAllBtns={true}
-    />
-  );
+  return <TokenTable columns={columns} data={AddLiquidtyData} />;
 };
 
 export default AddedLiquidity;

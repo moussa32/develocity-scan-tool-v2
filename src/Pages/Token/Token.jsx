@@ -33,10 +33,11 @@ import { useNavigate } from "react-router-dom";
 import { fetchSearchParams } from "../../store/FetchSearchData";
 import UseAdvertisment from "../../hooks/UseAdvertisment";
 import styles from "./Token.module.css";
+import { fetchBSCResult } from "../../store/FetchBSCData";
 
 const Token = () => {
   const dispatch = useDispatch();
-  const params = useParams();
+  const { contractAddress } = useParams();
   const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
   // calling advertisment
   let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment("Report");
@@ -65,16 +66,7 @@ const Token = () => {
   });
   //rejected message=Request failed with status code 404
   const { t } = useTranslation(["token"]);
-  const tokenAddress = params.contractAddress;
 
-  //navigate to 404
-  useEffect(() => {
-    dispatch(fetchSearchParams(tokenAddress));
-  }, [dispatch, tokenAddress]);
-
-  useEffect(() => {
-    dispatch(fetchlockedLiquidity(tokenAddress));
-  }, [dispatch, tokenAddress]);
   // useEffect(() => {
   //     let timer = setTimeout(() => {
   //         if (search_params?.responseCode !==200) {
@@ -105,31 +97,34 @@ const Token = () => {
   // }, [navigate, search_params]);
 
   // useEffect(() => {
-  //     if (!/[^0x].{39}$/.test(tokenAddress)) {
+  //     if (!/[^0x].{39}$/.test(contractAddress)) {
   //     navigate('/404')
   //     console.log("pp")
   //     }
-  //   }, [navigate, tokenAddress]);
+  //   }, [navigate, contractAddress]);
 
   // tokeninfodata?.contractInfo?.name
   // tokeninfodata?.contractInfo?.logo
   useEffect(() => {
     socket.emit("currentLocation", {
-      contractAddress: tokenAddress,
+      contractAddress: contractAddress,
       page: "token",
       name: tokeninfodata?.contractInfo?.name,
       logo: tokeninfodata?.contractInfo?.logo,
     });
     // return () => {
-    //     socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
+    //     socket.emit('leaveTokenPage', { contractAddress: contractAddress });
     // }
-  }, [tokenAddress, tokeninfodata?.contractInfo?.logo, tokeninfodata?.contractInfo?.name]);
+  }, [contractAddress, tokeninfodata?.contractInfo?.logo, tokeninfodata?.contractInfo?.name]);
 
   useEffect(() => {
-    dispatch(fetchTokenOwner(tokenAddress));
-    dispatch(fetchWallet(tokenAddress));
-    dispatch(fetchBSCTrasaction(tokenAddress));
-  }, [dispatch, tokenAddress]);
+    dispatch(fetchSearchParams(contractAddress));
+    dispatch(fetchTokenOwner(contractAddress));
+    dispatch(fetchWallet(contractAddress));
+    dispatch(fetchBSCTrasaction(contractAddress));
+    dispatch(fetchBSCResult(contractAddress));
+    dispatch(fetchlockedLiquidity(contractAddress));
+  }, [dispatch, contractAddress]);
 
   return (
     <div className="bg-white">
@@ -161,12 +156,8 @@ const Token = () => {
                 <ContractAnalysisCard />
               </div>
               <div className="col-12 col-md-4">
-                <div className="col-12">
-                  <HoneypotCard />
-                </div>
-                <div className="col-12">
-                  <RugpullCard />
-                </div>
+                <HoneypotCard />
+                <RugpullCard />
               </div>
               <div className="col-12 col-md-4 ">
                 <div className="col-12 mt-5 mt-md-0">
@@ -247,7 +238,7 @@ const Token = () => {
               <Trading />
               <LiquidityList />
             </div>
-            <div className="d-md-flex  justify-content-space-between ">
+            <div className="d-md-flex justify-content-space-between ">
               <Slippage />
               <div className="mt-5">
                 {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[2] && (

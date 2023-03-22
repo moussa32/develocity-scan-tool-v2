@@ -8,8 +8,8 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
   const { t } = useTranslation(["token"]);
 
   useEffect(() => {
-    let tempbSCTrasactionData = [];
     if (bSCTrasaction && bSCTrasaction.tokenTransaction) {
+      let tempbSCTrasactionData = [];
       for (let i = 0; i < bSCTrasaction.tokenTransaction.length; i++) {
         let uniqeKey = i;
         let fromAddress =
