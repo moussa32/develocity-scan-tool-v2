@@ -1,18 +1,18 @@
 import React from "react";
+import { memo } from "react";
 import styles from "./CardScans.module.css";
+import CardScansLoader from "./CardScansLoader";
 import Header from "./Header";
 import RowScans from "./RowScans";
-import { Placeholder } from "../../common/Placeholder/Placeholder";
 // import logo from "../../../assets/images/tron.png";
 
-const CardScans = ({ popularScans, title, caption }) => {
+const CardScans = ({ popularScans, caption }) => {
   return (
     <div className={styles.container_card}>
       <div className={styles.card}>
-        <Header titleofscore={title} caption={caption} />
+        <Header caption={caption} />
         {popularScans.length > 0 ? (
           popularScans.map((item, index) => {
-            // console.log(item.contractInfo.name,item.contractAddress,'=****===>');
             return (
               <div key={index}>
                 {item?.contractInfo && Object.keys(item.contractInfo).length !== 0 && (
@@ -29,6 +29,7 @@ const CardScans = ({ popularScans, title, caption }) => {
                       contract={item.contractAddress}
                       sponsored="fales"
                       caption={caption}
+                      price={item.price}
                     />
                   </>
                 )}
@@ -36,29 +37,11 @@ const CardScans = ({ popularScans, title, caption }) => {
             );
           })
         ) : (
-          <>
-            {[1, 2, 3, 4, 5].map((i, index) => (
-              <div className={`row `} key={index}>
-                <div className={`col-7 `}>
-                  <Placeholder styling={{ width: "150px", height: "20px", padding: "15px" }} />
-                </div>
-                <div className={`col-5`}>
-                  <div className="row w-100 px-0">
-                    <div className={`col-7 `}>
-                      {caption && <Placeholder styling={{ width: "50px", height: "20px", padding: "15px" }} />}
-                    </div>
-                    <div className={`col-5  `}>
-                      <Placeholder styling={{ width: "50px", height: "20px", padding: "15px" }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </>
+          <CardScansLoader caption={caption} />
         )}
       </div>
     </div>
   );
 };
 
-export default CardScans;
+export default memo(CardScans);

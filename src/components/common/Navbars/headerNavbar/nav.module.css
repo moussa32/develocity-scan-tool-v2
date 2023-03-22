@@ -48,6 +48,14 @@
   gap: 10px;
 }
 
+.headerActionButtonContainer_rtl {
+  margin-right: auto;
+}
+
+.headerActionButtonContainer_ltr {
+  margin-left: auto;
+}
+
 .headerActionButton {
   color: #333333;
   border: 1px solid #25292c;

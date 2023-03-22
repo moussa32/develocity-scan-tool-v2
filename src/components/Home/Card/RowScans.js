@@ -3,37 +3,37 @@ import { Link } from "react-router-dom";
 import VerificationIcon from "../../../assets/images/verification.png";
 
 // import { useTranslation } from 'react-i18next';
-const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, scan, caption, isVerifyed }) => {
-  const calculateTimeAgo = () => {
-    let date1, date2, total_seconds, total_minutes, total_hours, days_difference, month_difference;
-    if (caption === "Time Ago") {
-      date1 = new Date();
-      date2 = new Date(scan);
-      total_seconds = Math.abs(date2 - date1) / 1000;
-      total_minutes = Math.floor(total_seconds / 60);
-      total_hours = Math.floor(total_minutes / 60);
-      days_difference = Math.floor(total_hours / 24);
-      month_difference = Math.floor(days_difference / 30);
-    }
-    if (month_difference > 0) {
-      return `${
-        month_difference > 1 ? `${Math.floor(month_difference)} months` : `${Math.floor(month_difference)} month`
-      } `;
-    } else if (days_difference > 0) {
-      return `${days_difference > 1 ? `${days_difference} days` : `${days_difference} day`} `;
-    } else if (total_hours > 0) {
-      return `${total_hours} h`;
-    } else if (total_minutes > 0) {
-      return `${total_minutes} m`;
-    } else if (total_seconds > 0) {
-      return `${Math.floor(total_seconds)} s`;
-    }
-  };
+const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, scan, caption, isVerifyed, price }) => {
+  // const calculateTimeAgo = () => {
+  //   let date1, date2, total_seconds, total_minutes, total_hours, days_difference, month_difference;
+  //   if (caption === "Time Ago") {
+  //     date1 = new Date();
+  //     date2 = new Date(scan);
+  //     total_seconds = Math.abs(date2 - date1) / 1000;
+  //     total_minutes = Math.floor(total_seconds / 60);
+  //     total_hours = Math.floor(total_minutes / 60);
+  //     days_difference = Math.floor(total_hours / 24);
+  //     month_difference = Math.floor(days_difference / 30);
+  //   }
+  //   if (month_difference > 0) {
+  //     return `${
+  //       month_difference > 1 ? `${Math.floor(month_difference)} months` : `${Math.floor(month_difference)} month`
+  //     } `;
+  //   } else if (days_difference > 0) {
+  //     return `${days_difference > 1 ? `${days_difference} days` : `${days_difference} day`} `;
+  //   } else if (total_hours > 0) {
+  //     return `${total_hours} h`;
+  //   } else if (total_minutes > 0) {
+  //     return `${total_minutes} m`;
+  //   } else if (total_seconds > 0) {
+  //     return `${Math.floor(total_seconds)} s`;
+  //   }
+  // };
 
   const lang = localStorage.getItem("i18nextLng");
   return (
     <Link className={`text-decoration-none row ${styles.container_row}`} to={`/token/${contract}`}>
-      <div className={`col-7  ${styles.header}`}>
+      <div className={`col-9 ${styles.header}`}>
         <h3 className={lang === "ar" ? styles.header_no_right : styles.header_no_left}>{number}</h3>
         <div className={styles.container_image}>
           {/* {sponsored && <div className={styles.container_sponsored}>
@@ -59,14 +59,15 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
 
       {/* {scam===0 && <span className="isScam " style={{height:'18px', lineHeight:'18px', paddingTop:'0px'}}>Scam</span>} */}
       {/* {score? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
-      <div className={`col-5  ${styles.tokenValue}`}>
-        <div className="row w-100 px-0">
-          <h3 className={`col-12 ${styles.tokenScans}`}>
-            {caption === "Scans" && scan}
-            {caption === "Time Ago" && calculateTimeAgo()}
-          </h3>
-          {/*This code has been commented due for refactors*/}
-          {/* <div className="col-5 px-0 text-end">
+      <div className={`col-3 ${styles.tokenValue}`}>
+        <h3 className={styles.tokenScans}>
+          {caption === "Scans" && scan}
+          {caption === "Price" && price}
+          {caption === "Score" && score}
+          {/* {caption === "Time Ago" && calculateTimeAgo()} */}
+        </h3>
+        {/*This code has been commented due for refactors*/}
+        {/* <div className="col-5 px-0 text-end">
             <span
               className={`${styles.header_scans} ${score < 59 && styles.header_scans_red} ${
                 score >= 59 && score < 85 && styles.header_scans_yellow
@@ -75,7 +76,6 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
               {title === "Price" ? `$${score}` : score}
             </span>
           </div> */}
-        </div>
       </div>
     </Link>
   );

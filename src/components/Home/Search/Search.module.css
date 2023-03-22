@@ -74,18 +74,16 @@
 }
 .note {
   font-size: 8px;
-  font-weight: 400;
   color: #9f4ae8;
   text-transform: uppercase;
-  width: 70px;
+  width: 60px;
   height: 20px;
   background-color: rgba(159, 74, 232, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 5px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "SF Pro Display Medium";
 }
 .note2 {
   font-size: 12px;
@@ -93,8 +91,8 @@
   color: #333;
   margin-right: 5px;
   display: flex;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "SF Pro Display Medium";
+  text-transform: capitalize;
 }
 
 .searchInput::placeholder {

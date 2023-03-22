@@ -1,6 +1,8 @@
 .Section1Container {
   margin-top: 59px;
   margin-bottom: 85px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .mySearch {

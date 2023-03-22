@@ -6,7 +6,7 @@ export function Section1() {
   return (
     <>
       <div className={`d-flex container justify-content-between ${styles.Section1Container}`}>
-        <div className="col-xs-12 col-md-7">
+        <div className="col-xs-12 col-md-6 col-lg-7">
           <LeftBar />
         </div>
         <div className={`${styles.mySearch}`}>

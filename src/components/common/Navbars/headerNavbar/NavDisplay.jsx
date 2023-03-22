@@ -5,16 +5,16 @@ import logo from "../../../../assets/images/logo.png";
 import { memo } from "react";
 
 const NavDisplay = () => {
-  const { t } = useTranslation(["common"]);
+  const { t, i18n } = useTranslation(["common"]);
   const { pathname } = useLocation();
-  const lang = localStorage.getItem("i18nextLng");
+  const direction = i18n.dir();
 
   return (
     <>
       <nav className={"navbar navbar-expand-lg "}>
         <div
           className={`container align-items-center ${styles.navbarHeaderContainer} ${
-            lang === "ar" ?? styles.navbar_rtl
+            direction === "rtl" ?? styles.navbar_rtl
           }`}
         >
           <Link className="navbar-brand" to="/" style={{ zIndex: "10" }}>
@@ -83,7 +83,11 @@ const NavDisplay = () => {
                 </div>
               </div>
             </ul>
-            <div className={`${styles.headerActionButtonContainer} ms-auto`}>
+            <div
+              className={`${styles.headerActionButtonContainer} ${
+                direction === "rtl" ? styles.headerActionButtonContainer_rtl : styles.headerActionButtonContainer_ltr
+              }`}
+            >
               <Link className={`${styles.headerActionButton}`} to="/login">
                 Log In
               </Link>

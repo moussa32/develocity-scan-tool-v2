@@ -11,7 +11,7 @@ import { socket } from "../../../config/socket";
 
 const ScansSection = () => {
   const [popularScans, setPopularScans] = useState([]);
-  const [recentScans, setRecentScans] = useState([]);
+  const [recentlyVerified, setRecentlyVerified] = useState([]);
   const [lastScans, setLastScans] = useState([]);
   const { t } = useTranslation(["home"]);
   const lang = localStorage.getItem("i18nextLng");
@@ -19,10 +19,9 @@ const ScansSection = () => {
   useEffect(() => {
     socket.on("popularScan", data => {
       setPopularScans(data);
-      // console.log('data',data)
     });
     socket.on("highScore", data => {
-      setRecentScans(data);
+      setRecentlyVerified(data);
     });
     socket.on("latestScan", data => {
       setLastScans(data);
@@ -34,18 +33,17 @@ const ScansSection = () => {
       <Row>
         <Col lg={4} md={6} sm={12}>
           <HeaderCard image={star} title={t("home:popular_today")} />
-          <CardScans popularScans={popularScans} caption="Scans" />
+          <CardScans popularScans={popularScans} caption={t("home:scans")} />
         </Col>
         <Col lg={4} md={6} sm={12}>
           <HeaderCard image={last} title={t("home:last_scan")} />
-          <CardScans popularScans={lastScans} title={t("home:score")} caption="Time Ago" />
+          <CardScans popularScans={lastScans} caption={t("home:price")} />
         </Col>
         <Col lg={4} md={6} sm={12}>
-          <HeaderCard image={recent} title={t("home:highest_score")} />
-          <CardScans popularScans={recentScans} title={t("home:score")} caption="" />
+          <HeaderCard image={recent} title={t("home:recently_verified")} />
+          <CardScans popularScans={recentlyVerified} caption={t("home:score")} />
         </Col>
       </Row>
-      {/* <button onClick={()=>dispatch(connectToio())}>click</button> */}
     </div>
   );
 };
