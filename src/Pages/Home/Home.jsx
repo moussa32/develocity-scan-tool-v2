@@ -22,7 +22,6 @@ const Home = () => {
     // return () => {
     //     socket.emit('leaveTokenPage', { contractAddress: tokenAddress });
     // }
-    return () => socket.off("currentLocation");
   }, []);
 
   return (

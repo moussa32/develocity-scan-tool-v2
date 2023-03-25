@@ -124,7 +124,7 @@
   background-color: #fff;
   border: 1px solid;
   border-color: rgba(37, 41, 44, 0.2);
-  width: 480px;
+  width: 100%;
   margin-top: 5px;
   padding: 5px;
   position: absolute;
@@ -132,11 +132,6 @@
   z-index: 2;
   max-height: 272px;
   overflow-y: auto;
-}
-
-.scan {
-  height: 28px;
-  /* margin-top: 14px; */
 }
 
 @media only screen and (max-width: 991px) {
@@ -149,15 +144,9 @@
   .searchNote {
     margin-top: 30px;
   }
-  .searchBlock {
-    width: 83%;
-  }
 }
 @media only screen and (max-width: 767px) {
   .searchSection {
     width: 100%;
-  }
-  .searchBlock {
-    width: 93%;
   }
 }

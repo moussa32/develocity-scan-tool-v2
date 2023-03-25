@@ -64,7 +64,6 @@ const Token = () => {
       loading: state.bscLiquidityScan.loading,
     };
   });
-  //rejected message=Request failed with status code 404
   const { t } = useTranslation(["token"]);
 
   // useEffect(() => {

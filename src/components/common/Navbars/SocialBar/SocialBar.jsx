@@ -110,41 +110,41 @@ const SocialBar = () => {
                   <MdOutlineKeyboardArrowDown size={23} />
                 </button>
                 <ul
-                  className={`dropdown-menu ${styles.dropdownLang} ${
+                  className={`dropdown-menu p-0 border-0 list-unstyled ${styles.dropdownLang} ${
                     lang === "ar" ? styles.langListGroup_rtl : styles.langListGroup_ltr
                   }`}
                 >
-                  <li role="button" className="d-flex justify-content-between">
+                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
                     <button className="dropdown-item" value="en" onClick={handleOnclick}>
                       <span data-lang="en">English</span>
                       <span className="fi fi-gb "></span>
                     </button>
                   </li>
-                  <li role="button" className="d-flex justify-content-between">
+                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
                     <button className="dropdown-item" value="ar" onClick={handleOnclick}>
                       <span data-lang="ar">Arabic</span>
                       <span className="fi fi-sa "></span>
                     </button>
                   </li>
-                  <li role="button" className="d-flex justify-content-between">
+                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
                     <button className="dropdown-item" value="ch" onClick={handleOnclick}>
                       <span>Chinese</span>
                       <span className="fi fi-cn "></span>
                     </button>
                   </li>
-                  <li role="button" className="d-flex justify-content-between">
+                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
                     <button className="dropdown-item" value="ru" onClick={handleOnclick}>
                       <span>Russian</span>
                       <span className="fi fi-ru "></span>
                     </button>
                   </li>
-                  <li role="button" className="d-flex justify-content-between">
+                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
                     <button className="dropdown-item" value="tr" onClick={handleOnclick}>
                       <span>Turkish</span>
                       <span className="fi fi-tr "></span>
                     </button>
                   </li>
-                  <li role="button" className="d-flex justify-content-between">
+                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
                     <button className="dropdown-item" value="es" onClick={handleOnclick}>
                       <span>Español</span>
                       <span className="fi fi-es "></span>

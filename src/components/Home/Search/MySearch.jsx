@@ -19,7 +19,6 @@ const MySearch = () => {
   const navigate = useNavigate();
 
   const search = useSelector(state => state.Search);
-  const [copiedAddress, setCopyAddress] = useState("Copy Address");
   const search_status = useSelector(state => state.Search?.status);
   const searchCode = useSelector(state => state.Search?.searchCode);
 
@@ -41,17 +40,6 @@ const MySearch = () => {
       dispatch(fetchResult(term));
     }
   }, [dispatch, term]);
-
-  function copyToClipboard(contractAddress, event) {
-    // event.preventDefault()
-    event.stopPropagation();
-    setCopyAddress("Copied Address !");
-    navigator.clipboard.writeText(contractAddress);
-
-    setTimeout(() => {
-      setCopyAddress("Copy Address");
-    }, 2000);
-  }
 
   useEffect(() => {
     if (term) {
@@ -153,9 +141,9 @@ const MySearch = () => {
                     contractAddress={resultElement.contractAddress}
                     logo={resultElement.logo}
                     name={resultElement.name}
-                    listed={resultElement.listed}
                     symbol={resultElement.symbol}
                     contractScan={resultElement.contractScan}
+                    isScam={resultElement.listed}
                   />
                 </>
               ))}
