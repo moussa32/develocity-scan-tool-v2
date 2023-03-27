@@ -1,7 +1,10 @@
 import { io } from "socket.io-client";
-// stagging 
+// stagging
 // export const socket = io('http://20.218.124.106:1885');
 
-// live 
-export const socket = io('https://api.develocity.finance');
-
+// live
+export const socket = io("https://api.xite.solutions", {
+  extraHeaders: {
+    ["my-auth"]: "abcd",
+  },
+});
