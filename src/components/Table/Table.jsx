@@ -1,5 +1,6 @@
+import { useMemo } from "react";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-import { usePagination, useTable } from "react-table";
+import { useFlexLayout, usePagination, useTable } from "react-table";
 import styles from "./Table.module.css";
 
 const Table = ({
@@ -11,6 +12,15 @@ const Table = ({
   data,
   onRowClick = null,
 }) => {
+  const defaultColumn = useMemo(
+    () => ({
+      minWidth: 25, // minWidth is only used as a limit for resizing
+      width: 50, // width is used for both the flex-basis and flex-grow
+      maxWidth: 200, // maxWidth is only used as a limit for resizing
+    }),
+    []
+  );
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -29,7 +39,9 @@ const Table = ({
       columns,
       data,
       initialState: { pageIndex: 0, pageSize: 5 },
+      defaultColumn,
     },
+    useFlexLayout,
     usePagination
   );
 

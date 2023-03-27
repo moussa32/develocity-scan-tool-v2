@@ -34,11 +34,11 @@ import { fetchSearchParams } from "../../store/FetchSearchData";
 import UseAdvertisment from "../../hooks/UseAdvertisment";
 import styles from "./Token.module.css";
 import { fetchBSCResult } from "../../store/FetchBSCData";
+import { fetchTokenInfoResult } from "../../store/FetchTokenInfo";
 
 const Token = () => {
   const dispatch = useDispatch();
   const { contractAddress } = useParams();
-  const tokenOwnerData = useSelector(state => state.tokenOwner.tokenOwner);
   // calling advertisment
   let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment("Report");
   // const ipAddress = useSelector(state => state.GetIPAddress.data);
@@ -123,6 +123,7 @@ const Token = () => {
     dispatch(fetchBSCTrasaction(contractAddress));
     dispatch(fetchBSCResult(contractAddress));
     dispatch(fetchlockedLiquidity(contractAddress));
+    dispatch(fetchTokenInfoResult(contractAddress));
   }, [dispatch, contractAddress]);
 
   return (
@@ -222,7 +223,7 @@ const Token = () => {
 
           <div className="col-lg-6 col-md-12">
             <div className="wallets_table">
-              <LockedSection LockedTokensData={tokenOwnerData} />
+              <LockedSection />
             </div>
           </div>
         </div>

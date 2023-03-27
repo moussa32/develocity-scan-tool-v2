@@ -1,22 +1,29 @@
-import React from 'react'
-import { Tab, Tabs } from 'react-bootstrap'
+import { Tab, Tabs } from "react-bootstrap";
+import { useSelector } from "react-redux";
 // import LiquidtyTable from '../LiquidtyTable/LiquidtyTable'
-import LockedTokens from '../LockedTokens/LockedTokens'
+import LockedTokens from "../LockedTokens/LockedTokens";
 // import { useTranslation } from 'react-i18next';
 
-const LockedSection = ({ LockedTokensData }) => {
-    // const { t } = useTranslation(["token"])
-    return (
-        <Tabs defaultActiveKey={LockedTokensData?.ownerInfo?.lockedToken.length > 0 ? "LockedTokens" : "LockedLiquidity"} id="uncontrolled-tab-example" >
-            {LockedTokensData?.ownerInfo?.lockedToken.length > 0 && <Tab eventKey="LockedTokens" title="Liquidty Tokens" >
-                <LockedTokens LockedTokensData={LockedTokensData} />
-            </Tab>
-            }
-            {/* <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
+const LockedSection = () => {
+  const LockedTokensData = useSelector(state => state.tokenOwner.tokenOwner);
+  console.log(LockedTokensData);
+
+  // const { t } = useTranslation(["token"])
+  return (
+    <Tabs
+      defaultActiveKey={LockedTokensData?.ownerInfo?.lockedToken.length > 0 ? "LockedTokens" : "LockedLiquidity"}
+      id="uncontrolled-tab-example"
+    >
+      {LockedTokensData?.ownerInfo?.lockedToken.length > 0 && (
+        <Tab eventKey="LockedTokens" title="Liquidty Tokens">
+          <LockedTokens LockedTokensData={LockedTokensData} />
+        </Tab>
+      )}
+      {/* <Tab eventKey="LockedLiquidity" title="Locked Liquidity">
                 <LiquidtyTable />
             </Tab> */}
-        </Tabs>
-    )
-}
+    </Tabs>
+  );
+};
 
-export default LockedSection
+export default LockedSection;

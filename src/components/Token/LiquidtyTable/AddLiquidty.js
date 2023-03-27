@@ -11,26 +11,23 @@ const AddedLiquidity = ({ LiquidtyData }) => {
   }
 
   const columns = [
-    { accessor: "id", Header: "Rank" },
+    { accessor: "id", Header: "Rank", width: 15 },
     {
       accessor: "transaction",
       Header: t("token:transactions"),
-      formatter: cell => {
+      width: 60,
+
+      Cell: ({ value }) => {
         return (
-          <div className="locked_tokens_network">
-            <a href={`//Bscscan.com/tx/${cell}`} target="_blank" rel="noreferrer" style={{ HeaderDecoration: "none" }}>
-              {`${cell.substr(0, 3)} ... ${cell.substr(-4)}`}
-            </a>
-          </div>
+          <a href={`//Bscscan.com/tx/${value}`} target="_blank" rel="noreferrer">
+            {`${value.substr(0, 6)} ... ${value.substr(-4)}`}
+          </a>
         );
       },
     },
     {
       accessor: "fromAddress",
       Header: t("token:fromaddress"),
-      style: {
-        color: "#333",
-      },
     },
     {
       accessor: "toAddress",
@@ -40,6 +37,7 @@ const AddedLiquidity = ({ LiquidtyData }) => {
     {
       accessor: "amount",
       Header: t("token:amount"),
+      width: 70,
     },
     {
       accessor: "currency",

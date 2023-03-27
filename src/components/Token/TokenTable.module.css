@@ -31,7 +31,6 @@
 .table td:first-of-type,
 .table th:first-of-type {
   padding-left: 20px;
-  width: 70px;
 }
 
 .tableRow:hover {
