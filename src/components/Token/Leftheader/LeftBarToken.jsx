@@ -11,6 +11,7 @@ import { IconContainer } from "./IconsContainer/IconContainer";
 import VerificationIcon from "../../../assets/images/verification.png";
 import LeftBarLoader from "./LeftBarLoader";
 import { TbDiscountCheckFilled } from "react-icons/tb";
+import icon from "../../../assets/images/popup.png";
 
 export function LeftBarToken() {
   const { contractAddress } = useParams();
@@ -99,15 +100,14 @@ export function LeftBarToken() {
           <IconContainer tokenInfoData={tokenInfoData} />
         </div>
         <div className="d-flex justify-content-between align-items-center flex-wrap">
-          <div className={`d-flex justify-content-between align-items-center`}>
-            <span className={`text-muted pe-2 ${styles.contractaddress}`}>{t("token:contract_address")} </span>
+          <div className="d-flex align-items-center flex-wrap">
+            <span className={styles.contractaddress}>{t("token:contract_address")}:</span>
             <div>
               <span
                 value={contractAddress}
-                className={`text-primary pb-1 ms-2 ${styles.contractaddress} ${styles.copiedaddress}`}
-                style={{ fontFamily: "SF Pro Display Medium" }}
+                className={`text-primary ${styles.contractaddress} ${styles.copiedaddress}`}
               >
-                {contractAddress ? `${contractAddress.slice(0, 10)}...${contractAddress.slice(-10)}` : ""}
+                {contractAddress}
               </span>
               <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{copiedAddress}</Tooltip>}>
                 <span onClick={copyToClipboard} className="d-inline-block">
@@ -118,17 +118,13 @@ export function LeftBarToken() {
           </div>
 
           <div className={styles.contractInfo}>
-            <span
-              className="me-2 px-2 py-1  mt-2 w-auto d-inline-block"
-              style={{ backgroundColor: "rgba(136, 136, 136,0.2)", height: "29px" }}
-            >
+            <span className={styles.contractInfoItem}>
               {tokenInfoData && tokenInfoData.contractInfo.logo ? (
                 <img
                   className={`rounded-circle`}
-                  width={18}
+                  width={16}
                   src={tokenInfoData.contractInfo.logo}
                   alt={tokenInfoData.contractInfo}
-                  style={{ marginTop: "-2px" }}
                 />
               ) : (
                 <div className="d-inline-block">
@@ -140,27 +136,19 @@ export function LeftBarToken() {
                 </div>
               )}
 
-              <span style={{ fontFamily: "SF Pro Display Medium" }} className="ps-1">
-                {tokenInfoData ? tokenInfoData?.contractInfo?.symbol : null}
-              </span>
+              <span className="ps-1">{tokenInfoData ? tokenInfoData?.contractInfo?.symbol : null}</span>
             </span>
-            <span className="px-2 py-1 me-2 mt-2 d-inline-block" style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}>
+            <span className={styles.contractInfoItem}>
               {t("token:total_scans")} {tokenInfoData ? tokenInfoData?.interest : null}
             </span>
-            <span
-              className="px-2 py-1 me-2 mt-2 d-inline-block"
-              style={{ backgroundColor: "rgba(136, 136, 136,0.2)", fontFamily: "SF Pro Display Medium" }}
-            >
+            <span className={styles.contractInfoItem}>
               {t("token:launched")} {tokenInfoData ? (tokenInfoData?.contractInfo?.age.split("T"))[0] : null}
             </span>
-            <span className="px-2 py-1 mt-2 me-2 d-inline-block" style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}>
+            <span className={styles.contractInfoItem}>
               {t("token:added")} {tokenInfoData ? (tokenInfoData?.createdAt.split("T"))[0] : null}
             </span>
             {bscstatus === "success" && newbscdata?.sourceCode && (
-              <span
-                className="px-2 py-1 mt-2 me-2 d-inline-block"
-                style={{ backgroundColor: "rgba(136, 136, 136,0.2)" }}
-              >
+              <span className={styles.contractInfoItem}>
                 {newbscdata?.sourceCode === "VERIFED"
                   ? t("token:tokenType.verified")
                   : t("token:tokenType.notVerified")}
@@ -168,6 +156,16 @@ export function LeftBarToken() {
             )}
             {tokenInfoData?.contractInfo?.description && (
               <>
+                <span
+                  className={styles.contractInfoItem}
+                  style={{
+                    cursor: "pointer",
+                  }}
+                  data-bs-toggle="modal"
+                  data-bs-target="#ViewMore"
+                >
+                  {t("token:view_more")} <img src={icon} height="10" width="10" alt="view more" />
+                </span>
                 <Modal
                   logo={tokenInfoData?.contractInfo?.logo}
                   name={tokenInfoData?.contractInfo?.name}
