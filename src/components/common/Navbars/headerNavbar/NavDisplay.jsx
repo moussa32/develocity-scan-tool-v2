@@ -36,8 +36,8 @@ const NavDisplay = () => {
             className={`collapse navbar-collapse text-center ${styles["navbar-collapse"]}`}
             id="navbarSupportedContent"
           >
-            <ul className={`navbar-nav mb-2 d-inline-block  w-auto mb-lg-0 ${styles.listGroup}`}>
-              <div className="d-lg-flex w-100 bg-ingo justify-content-between align-items-center">
+            <ul className={`navbar-nav mb-2 d-inline-block w-auto mb-lg-0 ${styles.listGroup}`}>
+              <div className="d-lg-flex w-100 justify-content-between align-items-center">
                 <div className={`d-lg-flex ${styles.navItemsContainer}`}>
                   <li className="nav-item">
                     <NavLink
