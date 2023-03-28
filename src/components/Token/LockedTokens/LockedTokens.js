@@ -1,4 +1,3 @@
-// import BootstrapTable from "react-bootstrap-table-next";
 import HeaderText from "../HeaderText/HeaderText";
 import "./LockedTokens.css";
 // import { useTranslation } from 'react-i18next';
@@ -75,15 +74,6 @@ const LockedTokens = ({ LockedTokensData }) => {
     <>
       <HeaderText nameHeader="Locked Tokens" title="Welcome to develocity." />
       <TokenTable data={LockedData} columns={columns} />
-      {/* <BootstrapTable
-        keyField="id"
-        data={LockedData}
-        columns={columns}
-        hover={true}
-        bordered={false}
-        loading={true}
-        alwaysShowAllBtns={true}
-      /> */}
     </>
   );
 };
