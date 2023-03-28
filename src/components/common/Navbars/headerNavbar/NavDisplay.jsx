@@ -17,7 +17,7 @@ const NavDisplay = () => {
             direction === "rtl" ?? styles.navbar_rtl
           }`}
         >
-          <Link className="navbar-brand" to="/" style={{ zIndex: "10" }}>
+          <Link className="navbar-brand" to="/">
             <img width="45" src={logo} alt="logo" />
           </Link>
           <button
