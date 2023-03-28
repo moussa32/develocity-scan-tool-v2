@@ -55,12 +55,7 @@
   font-family: "SF Pro Display Medium";
   color: #888;
 }
-.langListGroup_rtl {
-  transform: translate3d(-10px, 52px, 0px) !important;
-}
-.langListGroup_ltr {
-  transform: translate3d(0px, 52px, 0px) !important;
-}
+
 .dropdownLang {
   background: #fff;
   display: flex;
@@ -71,6 +66,7 @@
   width: fit-content !important;
   box-shadow: 0 0 8px 3px rgb(0 0 0 / 10%);
   min-width: auto !important;
+  left: 0 !important;
 }
 
 .dropdownLangItem {
@@ -86,14 +82,18 @@
   background-color: rgba(136, 136, 136, 0.15);
 }
 
-.dropdownLangItem > button {
+.dropdownLangButton {
   padding: 0 !important;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
 }
 
-.dropdownLangItem > button > span {
+.dropdownLangButton_rtl {
+  flex-direction: row-reverse;
+}
+
+.dropdownLangButton > span {
   transition: 0.5s;
 }
 
