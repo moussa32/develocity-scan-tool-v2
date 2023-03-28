@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTokenOwner } from "../../store/tokenOwnerSlice";
 import { fetchWallet } from "../../store/topWalletSlice";
-// import TokenOwner from '../../components/Token/TokenOwner/TokenOwner'
+import TokenOwner from "../../components/Token/TokenOwner/TokenOwner";
 import LiquidtySection from "../../components/Token/LiquidtySection/LiquidtySection";
 import { Trading } from "../../components/Token/Trading/Trading";
 import { Slippage } from "../../components/Token/Slippage/Slippage";
@@ -44,7 +44,7 @@ const Token = () => {
   // const ipAddress = useSelector(state => state.GetIPAddress.data);
   const navigate = useNavigate();
 
-  const tokenOwner_isLoading = useSelector(state => state.tokenOwner.loading);
+  const tokenOwnerLoading = useSelector(state => state.tokenOwner.loading);
   // const tokenList_isLoading = useSelector(state => state.tokenList.loading);
   const bscTransaction_isLoading = useSelector(state => state.bSCTrasaction.loading);
   const tokeninfodata = useSelector(state => state.Gettokeninfodata?.data?.result);
@@ -52,6 +52,7 @@ const Token = () => {
   const statusBSCapi = useSelector(state => state.GetBuySellBSCdata.status);
   const statusSlippage = useSelector(state => state.GetBuySellBSCdata.status);
   const search_params = useSelector(state => state.Search?.statusParams);
+  const tokenOwnerData = useSelector(state => state.tokenOwner);
   const { data: lockedLiquiditydata, status: lockedLiquidity_status } = useSelector(state => {
     return {
       data: state.GetlockedLiquiditydata?.data,
@@ -175,9 +176,9 @@ const Token = () => {
             <Distribution />
           </div>
           <div className="col-lg-6 col-md-12">
-            {tokenOwner_isLoading === "success" ? (
+            {tokenOwnerLoading === "success" ? (
               <WalletsSection />
-            ) : tokenOwner_isLoading === "failed" ? null : ( // <Navigate to="/404"/>
+            ) : tokenOwnerLoading === "failed" ? null : ( // <Navigate to="/404"/>
               <TableLoader />
             )}
             <div className="mt-5">
@@ -189,15 +190,14 @@ const Token = () => {
         </div>
 
         <div className="row mb-5">
-          {/* {
-                        (tokenOwner_isLoading === 'success' && tokenOwnerData?.ownerInfo?.ownerAddress) &&
-                        <div className='col-lg-6 col-md-12'>
-                            <div className='wallets_table'>
-                                <TokenOwner tokenOwnerData={tokenOwnerData} />
-                            </div>
-
-                        </div>
-                    } */}
+          {tokenOwnerLoading === "success" && (
+            <div className="col-lg-6 col-md-12">
+              <div className="wallets_table">
+                {console.log(tokenOwnerData.tokenOwner)}
+                <TokenOwner ownerInfo={tokenOwnerData.tokenOwner.ownerInfo} />
+              </div>
+            </div>
+          )}
           {lockedLiquidity_status === "success" && lockedLiquiditydata?.APIsResult?.length > 0 && (
             <div className="col-lg-6 col-md-12">
               <div className="wallets_table table_td_width">
