@@ -73,10 +73,9 @@ const SocialBar = () => {
     }
   }, [currentLanguage]);
 
-  const handleOnclick = e => {
-    e.preventDefault();
-    i18n.changeLanguage(e.target.parentNode.value);
-    document.body.dir = "ltr";
+  const handleChangeLanguage = selectedLanguage => {
+    i18n.changeLanguage(selectedLanguage.code);
+    document.body.dir = selectedLanguage.dir;
   };
 
   return (
@@ -132,13 +131,13 @@ const SocialBar = () => {
                       key={language.countryFlag}
                       role="button"
                       className={`${styles.dropdownLangItem} d-flex justify-content-between"`}
+                      onClick={() => handleChangeLanguage(language)}
                     >
                       <button
                         className={`dropdown-item ${styles.dropdownLangButton} ${
                           direction === "rtl" ? styles.dropdownLangButton_rtl : null
                         }`}
                         value={language.code}
-                        onClick={handleOnclick}
                       >
                         <span data-lang={language.code}>{language.title}</span>
                         <span className={`fi ${language.countryFlag}`}></span>
