@@ -6,7 +6,6 @@ import LockedTokens from "../LockedTokens/LockedTokens";
 
 const LockedSection = () => {
   const LockedTokensData = useSelector(state => state.tokenOwner.tokenOwner);
-  console.log(LockedTokensData);
 
   // const { t } = useTranslation(["token"])
   return (

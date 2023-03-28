@@ -52,7 +52,6 @@ const columns = [
 ];
 
 const LockedTokens = ({ LockedTokensData }) => {
-  console.log("Locked Tokens", LockedTokensData);
   // const { t } = useTranslation(["token"])
   let LockedData = [];
   if (LockedTokensData?.APIsResult) {

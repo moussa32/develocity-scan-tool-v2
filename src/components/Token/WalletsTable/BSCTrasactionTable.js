@@ -51,6 +51,7 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
     {
       accessor: "tokenSymbol",
       Header: t("token:tokenSymbol"),
+      width: 42,
     },
   ];
 
