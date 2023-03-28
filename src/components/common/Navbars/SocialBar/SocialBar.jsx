@@ -9,33 +9,46 @@ import styles from "./SocialBar.module.css";
 const languages = [
   {
     code: "en",
+    title: "English",
     dir: "ltr",
+    countryFlag: "fi-gb",
   },
   {
     code: "ar",
+    title: "Arabic",
     dir: "rtl",
-  },
-  {
-    code: "tr",
-    dir: "ltr",
+    countryFlag: "fi-sa",
   },
   {
     code: "ch",
+    title: "Chinese",
     dir: "ltr",
+    countryFlag: "fi-cn",
   },
   {
     code: "ru",
+    title: "Russian",
     dir: "ltr",
+    countryFlag: "fi-ru",
+  },
+  {
+    code: "tr",
+    title: "Turkish",
+    dir: "ltr",
+    countryFlag: "fi-tr",
   },
   {
     code: "es",
+    title: "Español",
     dir: "ltr",
+    countryFlag: "fi-es",
   },
 ];
 
 const SocialBar = () => {
   const { t, i18n } = useTranslation(["common"]);
   const lang = i18n.resolvedLanguage;
+  const direction = i18n.dir();
 
   let currentLanguage = useMemo(() => languages.find(i => i.code.includes(lang)), [lang]);
 
@@ -114,42 +127,24 @@ const SocialBar = () => {
                     lang === "ar" ? styles.langListGroup_rtl : styles.langListGroup_ltr
                   }`}
                 >
-                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
-                    <button className="dropdown-item" value="en" onClick={handleOnclick}>
-                      <span data-lang="en">English</span>
-                      <span className="fi fi-gb "></span>
-                    </button>
-                  </li>
-                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
-                    <button className="dropdown-item" value="ar" onClick={handleOnclick}>
-                      <span data-lang="ar">Arabic</span>
-                      <span className="fi fi-sa "></span>
-                    </button>
-                  </li>
-                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
-                    <button className="dropdown-item" value="ch" onClick={handleOnclick}>
-                      <span>Chinese</span>
-                      <span className="fi fi-cn "></span>
-                    </button>
-                  </li>
-                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
-                    <button className="dropdown-item" value="ru" onClick={handleOnclick}>
-                      <span>Russian</span>
-                      <span className="fi fi-ru "></span>
-                    </button>
-                  </li>
-                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
-                    <button className="dropdown-item" value="tr" onClick={handleOnclick}>
-                      <span>Turkish</span>
-                      <span className="fi fi-tr "></span>
-                    </button>
-                  </li>
-                  <li role="button" className={`${styles.dropdownLangItem} d-flex justify-content-between"`}>
-                    <button className="dropdown-item" value="es" onClick={handleOnclick}>
-                      <span>Español</span>
-                      <span className="fi fi-es "></span>
-                    </button>
-                  </li>
+                  {languages.map(language => (
+                    <li
+                      key={language.countryFlag}
+                      role="button"
+                      className={`${styles.dropdownLangItem} d-flex justify-content-between"`}
+                    >
+                      <button
+                        className={`dropdown-item ${styles.dropdownLangButton} ${
+                          direction === "rtl" ? styles.dropdownLangButton_rtl : null
+                        }`}
+                        value={language.code}
+                        onClick={handleOnclick}
+                      >
+                        <span data-lang={language.code}>{language.title}</span>
+                        <span className={`fi ${language.countryFlag}`}></span>
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </li>
