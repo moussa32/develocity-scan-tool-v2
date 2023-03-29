@@ -36,6 +36,8 @@ import styles from "./Token.module.css";
 import { fetchBSCResult } from "../../store/FetchBSCData";
 import { fetchTokenInfoResult } from "../../store/FetchTokenInfo";
 import { BiErrorCircle } from "react-icons/bi";
+import { fetchBuySellBSCResult } from "../../store/FetchBuySellBSC";
+import { fetchBscLiquidityScan } from "../../store/bscLiquidityScanSlice";
 
 const Token = () => {
   const dispatch = useDispatch();
@@ -126,6 +128,8 @@ const Token = () => {
     dispatch(fetchBSCResult(contractAddress));
     dispatch(fetchlockedLiquidity(contractAddress));
     dispatch(fetchTokenInfoResult(contractAddress));
+    dispatch(fetchBuySellBSCResult(contractAddress));
+    dispatch(fetchBscLiquidityScan(contractAddress));
   }, [dispatch, contractAddress]);
 
   return (
@@ -249,22 +253,18 @@ const Token = () => {
         </div>
         <div className="row">
           <div className="col-12 col-lg-6 mb-4 d-flex flex-column">
-            {(statusBSCapi === "success" || statusSlippage === "success") && (
-              <h2 className="text-muted mx-2" style={{ fontFamily: "SF Pro Display Medium", fontSize: "26px" }}>
-                {t("token:trading")}
-              </h2>
-            )}
-            <div className="d-md-flex justify-content-center">
+            <div className="d-md-flex justify-content-center" style={{ gap: "20px" }}>
               <Trading />
               <LiquidityList />
             </div>
-            <div className="d-md-flex justify-content-space-between ">
+            <div className="d-md-flex justify-content-between" style={{ gap: "20px" }}>
               <Slippage />
-              <div className="mt-5">
-                {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[2] && (
+
+              {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[2] && (
+                <div className="mt-5">
                   <AdevertiseTokenThree getAdvertismentData={getAdvertismentData} />
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
           <div className="col-12 col-lg-6">
