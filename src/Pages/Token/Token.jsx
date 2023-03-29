@@ -192,9 +192,25 @@ const Token = () => {
         <div className="row mb-5">
           {tokenOwnerLoading === "success" && (
             <div className="col-lg-6 col-md-12">
-              <div className="wallets_table">
-                {console.log(tokenOwnerData.tokenOwner)}
-                <TokenOwner ownerInfo={tokenOwnerData.tokenOwner.ownerInfo} />
+              <div className="wallets_table" style={{ height: "100%" }}>
+                {tokenOwnerData.tokenOwner.ownerInfo.ownerAddress ? (
+                  <TokenOwner ownerInfo={tokenOwnerData.tokenOwner.ownerInfo} />
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "100%",
+                      background: "#dddddd42",
+                      color: "#ec4952",
+                      fontFamily: "SF Pro Display",
+                      fontSize: "16px",
+                    }}
+                  >
+                    This token doesn't have owner address
+                  </div>
+                )}
               </div>
             </div>
           )}

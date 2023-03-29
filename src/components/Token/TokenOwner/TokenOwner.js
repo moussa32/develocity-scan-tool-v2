@@ -4,8 +4,7 @@ import TokenTable from "../TokenTable";
 import "./TokenOwner.css";
 
 const TokenOwner = ({ ownerInfo }) => {
-  console.log(ownerInfo);
-  const { t, i18n } = useTranslation(["token"]);
+  const { t } = useTranslation(["token"]);
 
   const columns = [
     {
