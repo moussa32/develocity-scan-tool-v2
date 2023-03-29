@@ -35,6 +35,7 @@ import UseAdvertisment from "../../hooks/UseAdvertisment";
 import styles from "./Token.module.css";
 import { fetchBSCResult } from "../../store/FetchBSCData";
 import { fetchTokenInfoResult } from "../../store/FetchTokenInfo";
+import { BiErrorCircle } from "react-icons/bi";
 
 const Token = () => {
   const dispatch = useDispatch();
@@ -203,11 +204,14 @@ const Token = () => {
                       justifyContent: "center",
                       height: "100%",
                       background: "#dddddd42",
-                      color: "#ec4952",
-                      fontFamily: "SF Pro Display",
+                      color: "rgb(236 73 82 / 95%)",
+                      fontFamily: "SF Pro Display Medium",
                       fontSize: "16px",
+                      flexDirection: "column",
+                      gap: "15px",
                     }}
                   >
+                    <BiErrorCircle size={32} />
                     This token doesn't have owner address
                   </div>
                 )}
