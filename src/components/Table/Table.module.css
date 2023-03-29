@@ -1,3 +1,8 @@
+.tableContainer {
+  display: block;
+  overflow: auto;
+}
+
 .paginationContainer {
   margin-left: auto;
   display: flex;

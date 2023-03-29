@@ -34,7 +34,6 @@ const Wallet10Top = ({ topWalletData }) => {
     {
       accessor: "id",
       Header: t("token:rank"),
-      width: 15,
     },
     {
       accessor: "address",

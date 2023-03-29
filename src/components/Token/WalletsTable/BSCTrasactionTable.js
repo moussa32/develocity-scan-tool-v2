@@ -35,23 +35,29 @@ const BSCTrasactionTable = ({ bSCTrasaction }) => {
     {
       accessor: "id",
       Header: t("token:hash"),
+      minWidth: 100,
     },
     {
       accessor: "fromAddress",
       Header: t("token:fromaddress"),
+      minWidth: 100,
     },
     {
       accessor: "toAddress",
       Header: t("token:toaddress"),
+      minWidth: 100,
     },
     {
       accessor: "amount",
       Header: t("token:amount"),
+      minWidth: 50,
+      maxWidth: 70,
     },
     {
       accessor: "tokenSymbol",
       Header: t("token:tokenSymbol"),
-      width: 42,
+      minWidth: 42,
+      maxWidth: 80,
     },
   ];
 
