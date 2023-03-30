@@ -12,6 +12,7 @@ import VerificationIcon from "../../../assets/images/verification.png";
 import LeftBarLoader from "./LeftBarLoader";
 import { TbDiscountCheckFilled } from "react-icons/tb";
 import icon from "../../../assets/images/popup.png";
+import SubmitToken from "./Modal/SubmitToken";
 
 export function LeftBarToken() {
   const { contractAddress } = useParams();
@@ -52,6 +53,7 @@ export function LeftBarToken() {
   return (
     <section style={{ display: "flex", gap: "12px" }}>
       {/* <ModalForm show={showModal} close={() => setShowModal(false)} /> */}
+      <SubmitToken showModal={showModal} handleClose={() => setShowModal(false)} />
       {tokenInfoData.contractInfo.logo ? (
         <img className={styles.tokenImg} src={tokenInfoData.contractInfo.logo} alt={tokenInfoData.contractInfo} />
       ) : (
