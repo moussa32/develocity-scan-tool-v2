@@ -1,0 +1,35 @@
+.successWrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.successTitle {
+  margin-top: 30px;
+  font-family: "SF Pro Display Bold";
+  font-size: 24px;
+  color: #333333;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.successMessage > * {
+  color: #333333;
+  font-size: 16px;
+  margin: 0;
+}
+
+.reset {
+  all: unset;
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  color: #9f4ae8;
+  margin-top: 70px;
+}

@@ -8,11 +8,13 @@ import HeaderCard from "../HeaderCard/HeaderCard";
 import CardScans from "../Card/CardScans";
 import { useTranslation } from "react-i18next";
 import { socket } from "../../../config/socket";
+import PageLoader from "../../common/PageLoader";
 
 const ScansSection = () => {
-  const [popularScans, setPopularScans] = useState([]);
-  const [recentlyVerified, setRecentlyVerified] = useState([]);
-  const [lastScans, setLastScans] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [popularScans, setPopularScans] = useState(null);
+  const [recentlyVerified, setRecentlyVerified] = useState(null);
+  const [lastScans, setLastScans] = useState(null);
   const { t } = useTranslation(["home"]);
   const lang = localStorage.getItem("i18nextLng");
 
@@ -26,24 +28,36 @@ const ScansSection = () => {
     socket.on("latestScan", data => {
       setLastScans(data);
     });
+
+    return () => socket.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (popularScans && recentlyVerified && lastScans) {
+      setIsLoaded(true);
+    }
+  }, [popularScans, recentlyVerified, lastScans]);
 
   return (
     <div className="container" style={lang === "ar" ? { direction: "rtl" } : { direction: "ltr" }}>
-      <Row>
-        <Col lg={4} md={6} sm={12}>
-          <HeaderCard image={star} title={t("home:popular_today")} />
-          <CardScans popularScans={popularScans} caption={t("home:scans")} />
-        </Col>
-        <Col lg={4} md={6} sm={12}>
-          <HeaderCard image={last} title={t("home:last_scan")} />
-          <CardScans popularScans={lastScans} caption={t("home:price")} />
-        </Col>
-        <Col lg={4} md={6} sm={12}>
-          <HeaderCard image={recent} title={t("home:recently_verified")} />
-          <CardScans popularScans={recentlyVerified} caption={t("home:score")} />
-        </Col>
-      </Row>
+      {isLoaded ? (
+        <Row>
+          <Col lg={4} md={6} sm={12}>
+            <HeaderCard image={star} title={t("home:popular_today")} />
+            <CardScans popularScans={popularScans} caption={t("home:scans")} />
+          </Col>
+          <Col lg={4} md={6} sm={12}>
+            <HeaderCard image={last} title={t("home:last_scan")} />
+            <CardScans popularScans={lastScans} caption={t("home:price")} />
+          </Col>
+          <Col lg={4} md={6} sm={12}>
+            <HeaderCard image={recent} title={t("home:recently_verified")} />
+            <CardScans popularScans={recentlyVerified} caption={t("home:score")} />
+          </Col>
+        </Row>
+      ) : (
+        <PageLoader />
+      )}
     </div>
   );
 };

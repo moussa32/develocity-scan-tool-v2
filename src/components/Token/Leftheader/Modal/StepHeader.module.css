@@ -1,0 +1,22 @@
+.stepHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.stepSubTitle {
+  font-family: "SF Pro Display Semibold";
+  font-size: 12px;
+  color: #9f4ae8;
+  text-transform: uppercase;
+}
+
+.stepTitle {
+  font-family: "SF Pro Display Bold";
+  font-size: 24px;
+  color: #333333;
+  margin: 0;
+}

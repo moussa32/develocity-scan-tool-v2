@@ -1,0 +1,93 @@
+.customDialog {
+  margin-top: 3rem;
+}
+
+.modalContent {
+  border-radius: 2px;
+  padding: 50px 15px 30px 15px;
+}
+
+.closeButton {
+  all: unset;
+  background-color: #e8eaec;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "SF Pro Display Medium";
+  color: #888888;
+  font-size: 12px;
+  padding: 5px 6px;
+  border-radius: 2px;
+  gap: 6px;
+  height: 24px;
+  box-sizing: border-box;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.stepper {
+  margin-bottom: 50px;
+}
+
+.stepContainer {
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 449px;
+}
+
+.stepButton {
+  all: unset;
+  max-width: 180px;
+  width: 100%;
+  height: 42px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.stepBackButton {
+  border: 1px #888888 solid;
+  background: transparent;
+  color: #888888;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.stepBackIcon {
+  margin-right: auto;
+  flex: 1 0 16px;
+  width: 16px;
+}
+
+.stepBackText {
+  flex: 1 100%;
+  text-align: center;
+}
+
+.stepNextButton {
+  background-color: #25292c;
+  border-radius: 2px;
+  color: #fff;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 576px) {
+  .modalContent {
+    padding: 50px 30px 30px 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .closeButton {
+    right: 0;
+    top: -30px;
+  }
+  .customDialog {
+    max-width: 660px !important;
+    width: 100% !important;
+  }
+}

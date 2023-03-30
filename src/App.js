@@ -4,10 +4,10 @@ import { About } from "./Pages/About";
 import { PrivacyPolicy } from "./Pages/PrivacyPolicy/PrivacyPolicy";
 import Changelog from "./Pages/Changelog/Changelog";
 import { WelcomingModal } from "./components/Home/WelcomingModal/WelcomingModal";
-import { SpinnerRoundFilled } from "spinners-react";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import { ErrorBoundary } from "react-error-boundary";
 import "./App.css";
+import PageLoader from "./components/common/PageLoader";
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Tokens = lazy(() => import("./Pages/Tokens/Tokens"));
 const Token = lazy(() => import("./Pages/Token/Token"));
@@ -26,13 +26,7 @@ function App() {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <Suspense
-        fallback={
-          <div className="d-flex justify-content-center align-items-center" style={{ height: "100vh" }}>
-            <SpinnerRoundFilled color={"#000"} />
-          </div>
-        }
-      >
+      <Suspense fallback={<PageLoader />}>
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
