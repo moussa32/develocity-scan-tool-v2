@@ -30,6 +30,17 @@
   translate: -10px;
 }
 
+.activeLinkitem_rtl::before {
+  content: "";
+  width: 64px;
+  display: block;
+  background-color: #9f4ae8;
+  height: 4px;
+  position: absolute;
+  top: 0;
+  translate: 14px;
+}
+
 .navItemsContainer {
   gap: 35px;
   margin-left: 45px;

@@ -42,7 +42,11 @@ const NavDisplay = () => {
                   <li className="nav-item">
                     <NavLink
                       className={({ isActive }) =>
-                        isActive ? `${styles.linkitem} ${styles.activeLinkitem}` : `${styles.linkitem}`
+                        isActive
+                          ? `${styles.linkitem} ${
+                              direction === "ltr" ? styles.activeLinkitem : styles.activeLinkitem_rtl
+                            }`
+                          : `${styles.linkitem}`
                       }
                       aria-current="page"
                       to="/"
