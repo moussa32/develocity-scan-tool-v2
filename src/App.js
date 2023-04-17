@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, createBrowserRouter } from "react-router-dom";
 import { About } from "./Pages/About";
 import { PrivacyPolicy } from "./Pages/PrivacyPolicy/PrivacyPolicy";
 import Changelog from "./Pages/Changelog/Changelog";
@@ -12,6 +12,8 @@ const Home = lazy(() => import("./Pages/Home/Home"));
 const Tokens = lazy(() => import("./Pages/Tokens/Tokens"));
 const Token = lazy(() => import("./Pages/Token/Token"));
 const NotFound = lazy(() => import("./Pages/NotFound/NotFound"));
+
+// const router = createBrowserRouter([]);
 
 function App() {
   function ErrorFallback({ error, resetErrorBoundary }) {

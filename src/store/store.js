@@ -15,7 +15,7 @@ import bscLiquidityScanSlice from "./bscLiquidityScanSlice";
 import bSCTrasactionSlice from "./bSCTrasactionSlice";
 import tokenListSlice from "./tokenListSlice";
 import GetIPReducer from "./FetchIPAddress";
-import pageLoading from "./pageLoading";
+import isPageLoaded from "./isPageLoaded";
 export const store = configureStore({
   reducer: {
     contractAddress: contractAddressSlice,
@@ -34,6 +34,6 @@ export const store = configureStore({
     GetAdvertismentodata: GetAdvertismentodataReducer,
     GetIPAddress: GetIPReducer,
     GetlockedLiquiditydata: GetlockedLiquiditydataReducer,
-    pageLoading: pageLoading,
+    isPageLoaded: isPageLoaded,
   },
 });

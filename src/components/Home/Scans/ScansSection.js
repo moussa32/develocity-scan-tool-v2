@@ -8,7 +8,8 @@ import HeaderCard from "../HeaderCard/HeaderCard";
 import CardScans from "../Card/CardScans";
 import { useTranslation } from "react-i18next";
 import { socket } from "../../../config/socket";
-import PageLoader from "../../common/PageLoader";
+import { useDispatch, useSelector } from "react-redux";
+import { changeLoadingStatus } from "../../../store/isPageLoaded";
 
 const ScansSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,10 +18,13 @@ const ScansSection = () => {
   const [lastScans, setLastScans] = useState(null);
   const { t } = useTranslation(["home"]);
   const lang = localStorage.getItem("i18nextLng");
+  const isPageLoaded = useSelector(state => state.isPageLoaded.status);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     socket.on("popularScan", data => {
       setPopularScans(data);
+      console.log(data);
     });
     socket.on("highScore", data => {
       setRecentlyVerified(data);
@@ -33,14 +37,15 @@ const ScansSection = () => {
   }, []);
 
   useEffect(() => {
-    if (popularScans && recentlyVerified && lastScans) {
+    if (popularScans && recentlyVerified && lastScans && !isPageLoaded) {
+      dispatch(changeLoadingStatus(true));
       setIsLoaded(true);
     }
   }, [popularScans, recentlyVerified, lastScans]);
 
   return (
     <div className="container" style={lang === "ar" ? { direction: "rtl" } : { direction: "ltr" }}>
-      {isLoaded ? (
+      {isLoaded && (
         <Row>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={star} title={t("home:popular_today")} />
@@ -55,8 +60,6 @@ const ScansSection = () => {
             <CardScans popularScans={recentlyVerified} caption={t("home:score")} />
           </Col>
         </Row>
-      ) : (
-        <PageLoader />
       )}
     </div>
   );
