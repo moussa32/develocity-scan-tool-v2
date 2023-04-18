@@ -71,13 +71,13 @@ export function LeftBarToken() {
           <span className={`ms-2 px-2 me-2 py-1 ${styles.symbol}`}>
             {tokenInfoData ? tokenInfoData.contractInfo.symbol : null}
           </span>
-          {tokenInfoData?.isNotListed && <img src={VerificationIcon} width={18} alt="verfiyed" />}
           {scoreData?.contractScan === 0 && <span className={`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>}
 
           <span className="ms-2">
             {tokenInfoData && tokenInfoData.isNotListed ? (
               <>
-                <TbDiscountCheckFilled color="#9F4AE8" size={25} />
+                <img src={VerificationIcon} width={18} alt="verfiyed" />
+                {/* <TbDiscountCheckFilled color="#9F4AE8" size={25} />
 
                 <span className=" me-3">
                   <svg
@@ -90,7 +90,7 @@ export function LeftBarToken() {
                   >
                     <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                   </svg>
-                </span>
+                </span> */}
               </>
             ) : (
               <span className={`${styles.modalIcon} me-3`} onClick={() => setShowModal(true)}>
