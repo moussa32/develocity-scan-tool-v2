@@ -9,6 +9,12 @@
   width: 100%;
 }
 
+@media screen and (max-width: 992px) {
+  .LeftBarToken {
+    margin-top: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .searchContainer {
     max-width: 480px;

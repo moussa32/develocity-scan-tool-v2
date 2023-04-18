@@ -138,7 +138,7 @@ const Token = () => {
       <div className={styles.tokenHeader}>
         <div className="container">
           <div className="row flex-wrap align-items-center">
-            <div className="order-2 order-lg-1 col-12 col-xl-6">
+            <div className={`order-2 order-lg-1 col-12 col-xl-6 ${styles.LeftBarToken}`}>
               <LeftBarToken />
             </div>
             <div className={`${styles.searchContainer} order-1 order-lg-2 col-12 col-xl-6`}>
