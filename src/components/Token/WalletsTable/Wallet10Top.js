@@ -34,10 +34,13 @@ const Wallet10Top = ({ topWalletData }) => {
     {
       accessor: "id",
       Header: t("token:rank"),
+      width: 25,
     },
     {
       accessor: "address",
       Header: t("token:address"),
+      minWidth: 42,
+      maxWidth: 60,
     },
     {
       accessor: "nameTag",
@@ -46,10 +49,14 @@ const Wallet10Top = ({ topWalletData }) => {
     {
       accessor: "balance",
       Header: t("token:balance"),
+      minWidth: 42,
+      maxWidth: 73,
     },
     {
       accessor: "percentage",
       Header: t("token:percentage"),
+      minWidth: 42,
+      maxWidth: 70,
     },
   ];
 

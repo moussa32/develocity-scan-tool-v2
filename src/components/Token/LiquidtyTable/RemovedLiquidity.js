@@ -17,23 +17,34 @@ const RemovedLiquidity = ({ LiquidtyData }) => {
           </div>
         );
       },
+      minWidth: 50,
+      width: 250,
+      maxWidth: 130,
     },
     {
       accessor: "fromAddress",
       Header: t("token:fromaddress"),
+      minWidth: 50,
+      maxWidth: 90,
     },
     {
       accessor: "toAddress",
       Header: t("token:toaddress"),
+      minWidth: 50,
+      maxWidth: 90,
     },
 
     {
       accessor: "amount",
       Header: t("token:amount"),
+      minWidth: 50,
+      maxWidth: 90,
     },
     {
       accessor: "currency",
       Header: t("token:currency"),
+      minWidth: 50,
+      maxWidth: 90,
     },
   ];
   let RemovedLiquidityData = [];

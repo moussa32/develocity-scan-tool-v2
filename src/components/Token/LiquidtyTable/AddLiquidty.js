@@ -11,15 +11,27 @@ const AddedLiquidity = ({ LiquidtyData }) => {
   }
 
   const columns = [
-    { accessor: "id", Header: "Rank", width: 15 },
+    { accessor: "id", Header: "Rank", width: 50 },
     {
       accessor: "transaction",
       Header: t("token:transactions"),
-      width: 60,
+      minWidth: 90,
+      maxWidth: 115,
 
       Cell: ({ value }) => {
         return (
-          <a href={`//Bscscan.com/tx/${value}`} target="_blank" rel="noreferrer">
+          <a
+            href={`//Bscscan.com/tx/${value}`}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: "none",
+              color: "#2268e1",
+              fontSize: "14px",
+              fontWeight: 400,
+              fontFamily: "SF Pro Display Medium",
+            }}
+          >
             {`${value.substr(0, 6)} ... ${value.substr(-4)}`}
           </a>
         );
@@ -28,20 +40,27 @@ const AddedLiquidity = ({ LiquidtyData }) => {
     {
       accessor: "fromAddress",
       Header: t("token:fromaddress"),
+      minWidth: 50,
+      maxWidth: 90,
     },
     {
       accessor: "toAddress",
       Header: t("token:toaddress"),
+      minWidth: 40,
+      maxWidth: 90,
     },
 
     {
       accessor: "amount",
       Header: t("token:amount"),
-      width: 70,
+      minWidth: 100,
+      maxWidth: 95,
     },
     {
       accessor: "currency",
       Header: t("token:currency"),
+      minWidth: 50,
+      maxWidth: 90,
     },
   ];
   let AddLiquidtyData = [];

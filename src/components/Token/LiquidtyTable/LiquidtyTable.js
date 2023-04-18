@@ -9,27 +9,40 @@ const LiquidtyTable = ({ bSCTrasaction }) => {
     {
       accessor: "id",
       Header: "Rank",
+      width: 15,
+      minWidth: 50,
+      maxWidth: 90,
     },
     {
       accessor: "hash",
       Header: t("token:hash"),
+      minWidth: 50,
+      maxWidth: 100,
     },
     {
       accessor: "fromAddress",
       Header: t("token:fromaddress"),
+      minWidth: 50,
+      maxWidth: 90,
     },
     {
       accessor: "toAddress",
       Header: t("token:toaddress"),
+      minWidth: 50,
+      maxWidth: 90,
     },
 
     {
       accessor: "amount",
       Header: t("token:amount"),
+      minWidth: 50,
+      maxWidth: 90,
     },
     {
       accessor: "tokenSymbol",
       Header: t("token:tokenSymbol"),
+      minWidth: 50,
+      maxWidth: 90,
     },
   ];
 
