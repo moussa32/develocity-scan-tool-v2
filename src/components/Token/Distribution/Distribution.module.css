@@ -1,131 +1,127 @@
-.title{
-    margin: 37px 0 24px ;
-    color: #888;
-    font-weight: 500;
-    font-size: 26px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
+.title {
+  margin: 37px 0 24px;
+  color: #888;
+  font-weight: 500;
+  font-size: 26px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
-.secondTitle{
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin: 0 0 10px 10px;
-    text-transform: capitalize;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
+.secondTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 10px 10px;
+  text-transform: capitalize;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
-.tooltip{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
+.tooltip {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
-.infoIcon{
-    color: rgba(136,136,136,0.2);
+.infoIcon {
+  color: rgba(136, 136, 136, 0.2);
 }
-.distChartDiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border:1px solid #EFF2F5;
-    padding: 25px 20px 31px;
-    /* width: 590px; */
-    
+.distChartDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eff2f5;
+  padding: 25px 20px 31px;
+  /* width: 590px; */
 }
-.infoRecord{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
-    flex-wrap: wrap;
-    width: 100%;
+.infoRecord {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  width: 100%;
 }
-.infoTitle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+.infoTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
-.infoRecord h6{
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    text-transform: capitalize;
-    margin:0;
-    /* width: 150px; */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
-   
+.infoRecord h6 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  text-transform: capitalize;
+  margin: 0;
+  /* width: 150px; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
-.circleIconOne_ltr{
-    color: #F5A341;
-    margin-right: 10px;
+.circleIconOne_ltr {
+  color: #f5a341;
+  margin-right: 10px;
 }
-.circleIconTwo_ltr{
-    color: #4CD696;
-    margin-right: 10px;
+.circleIconTwo_ltr {
+  color: #4cd696;
+  margin-right: 10px;
 }
-.circleIconThree_ltr{
-    color: #EC6666;
-    margin-right: 10px;
+.circleIconThree_ltr {
+  color: #ec6666;
+  margin-right: 10px;
 }
-.circleIconFour_ltr{
-    margin-right: 10px;
-    color: #5b70c2;
+.circleIconFour_ltr {
+  margin-right: 10px;
+  color: #5b70c2;
 }
-.chartNumber{
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    font-family: 'SF Pro Display Medium';
-   
+.chartNumber {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  font-family: "SF Pro Display Medium";
 }
-.circleIconOne_rtl{
-    color: #7BE1D9;
-    margin-left: 10px;
+.circleIconOne_rtl {
+  color: #f5a341;
+  margin-left: 10px;
 }
-.circleIconTwo_rtl{
-    color: #4CD696;
-    margin-left: 10px;
+.circleIconTwo_rtl {
+  color: #4cd696;
+  margin-left: 10px;
 }
-.circleIconThree_rtl{
-    color: #EC6666;
-    margin-left: 10px;
+.circleIconThree_rtl {
+  color: #ec6666;
+  margin-left: 10px;
 }
-.circleIconFour_rtl{
-    margin-left: 10px;
-    color: #5b70c2;
-
+.circleIconFour_rtl {
+  margin-left: 10px;
+  color: #5b70c2;
 }
-.infoRecord p{
-    color: #888;
-    font-size: 12px;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-
+.infoRecord p {
+  color: #888;
+  font-size: 12px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 @media (max-width: 768px) {
-    .distChartDiv{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100%;
-    }
-    .chartInfo{
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;
-        width: 100%;
-    }
-    .chart{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100% ;
-    }
-    text{
-        font-size: 11px;
-    }
+  .distChartDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .chartInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  text {
+    font-size: 11px;
+  }
 }
