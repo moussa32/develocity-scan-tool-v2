@@ -10,6 +10,10 @@ import { useTranslation } from "react-i18next";
 import { socket } from "../../../config/socket";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLoadingStatus } from "../../../store/isPageLoaded";
+import { convertFromScientificNotation } from "../../../util/scientificNotation";
+import SpacialNumber from "../../common/SpacialNumber";
+
+const toFixed = number => Math.round(number);
 
 const ScansSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,13 +28,13 @@ const ScansSection = () => {
   useEffect(() => {
     socket.on("popularScan", data => {
       setPopularScans(data);
-      console.log(data);
     });
     socket.on("highScore", data => {
       setRecentlyVerified(data);
     });
     socket.on("latestScan", data => {
       setLastScans(data);
+      data.map(asd => console.log(asd.price));
     });
 
     return () => socket.disconnect();
@@ -41,7 +45,22 @@ const ScansSection = () => {
       dispatch(changeLoadingStatus(true));
       setIsLoaded(true);
     }
+    return () => dispatch(changeLoadingStatus(false));
   }, [popularScans, recentlyVerified, lastScans]);
+
+  const handleColumnValue = value => {
+    const stringNumber = value.toString();
+    if (stringNumber.includes("e")) {
+      const { zeroCounts, numbersAfterZero, parsedNumber } = convertFromScientificNotation(stringNumber);
+      return <SpacialNumber numbersAfterZero={numbersAfterZero} zeroCounts={zeroCounts} parsedNumber={parsedNumber} />;
+    } else {
+      if (Number(value) > 0) {
+        return Number(value).toFixed(4).toString();
+      } else {
+        return stringNumber;
+      }
+    }
+  };
 
   return (
     <div className="container" style={lang === "ar" ? { direction: "rtl" } : { direction: "ltr" }}>
@@ -49,15 +68,30 @@ const ScansSection = () => {
         <Row>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={star} title={t("home:popular_today")} />
-            <CardScans popularScans={popularScans} caption={t("home:scans")} />
+            <CardScans
+              data={popularScans}
+              caption={t("home:scans")}
+              colSelector="contractScan"
+              colValueHandler={toFixed}
+            />
           </Col>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={last} title={t("home:last_scan")} />
-            <CardScans popularScans={lastScans} caption={t("home:price")} />
+            <CardScans
+              data={lastScans}
+              caption={t("home:price")}
+              colSelector="price"
+              colValueHandler={handleColumnValue}
+            />
           </Col>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={recent} title={t("home:recently_verified")} />
-            <CardScans popularScans={recentlyVerified} caption={t("home:score")} />
+            <CardScans
+              data={recentlyVerified}
+              caption={t("home:score")}
+              colSelector="score"
+              colValueHandler={toFixed}
+            />
           </Col>
         </Row>
       )}

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import VerificationIcon from "../../../assets/images/verification.png";
 
 // import { useTranslation } from 'react-i18next';
-const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, scan, caption, isVerifyed, price }) => {
+const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, displayValue, isVerifyed, price }) => {
   // const calculateTimeAgo = () => {
   //   let date1, date2, total_seconds, total_minutes, total_hours, days_difference, month_difference;
-  //   if (caption === "Time Ago") {
+  //   if (displayValue === "Time Ago") {
   //     date1 = new Date();
   //     date2 = new Date(scan);
   //     total_seconds = Math.abs(date2 - date1) / 1000;
@@ -61,10 +61,8 @@ const RowScans = ({ number, image, nametoken, score, scam, sponsored, contract, 
       {/* {score? <span className="isScam">Scam</span>:<span className="isNotScam">Scam</span>} */}
       <div className={`col-3 ${styles.tokenValue}`}>
         <h3 className={styles.tokenScans}>
-          {caption === "Scans" && scan}
-          {caption === "Price" && price}
-          {caption === "Score" && score}
-          {/* {caption === "Time Ago" && calculateTimeAgo()} */}
+          {displayValue}
+          {/* {displayValue === "Time Ago" && calculateTimeAgo()} */}
         </h3>
         {/*This code has been commented due for refactors*/}
         {/* <div className="col-5 px-0 text-end">

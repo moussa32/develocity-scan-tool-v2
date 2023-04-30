@@ -32,10 +32,7 @@ export function LeftBarToken() {
   const lang = localStorage.getItem("i18nextLng");
 
   function foramtNumber(val) {
-    return Number(val).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return Number(val).toLocaleString("en-US");
   }
   function copyToClipboard(e) {
     setCopyAddress("Copied Address !");
@@ -51,7 +48,7 @@ export function LeftBarToken() {
   if (tokenStatus === "failed") return <div>Error Happened we couldn't get token info</div>;
 
   return (
-    <section style={{ display: "flex", gap: "12px" }}>
+    <section className={styles.tokenInfoHeader}>
       {/* <ModalForm show={showModal} close={() => setShowModal(false)} /> */}
       <SubmitToken showModal={showModal} handleClose={() => setShowModal(false)} />
       {tokenInfoData.contractInfo.logo ? (

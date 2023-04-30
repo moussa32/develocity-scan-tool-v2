@@ -1,9 +1,15 @@
+.tokenInfoHeader {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
 .tokenImg {
   border-radius: 100%;
   margin-top: -5px;
   flex: 1 0 60px;
   width: 60px;
   height: 60px;
+  margin: 0 auto;
 }
 
 .name {
@@ -102,9 +108,6 @@
   font-size: 14px;
 }
 @media only screen and (max-width: 480px) {
-  .tokenImg {
-    width: 30px;
-  }
   .percent > div {
     width: 100%;
     display: flex;
@@ -118,5 +121,11 @@
   }
   .copiedaddress {
     font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .tokenInfoHeader {
+    flex-direction: row;
   }
 }

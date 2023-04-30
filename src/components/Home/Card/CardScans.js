@@ -6,13 +6,13 @@ import Header from "./Header";
 import RowScans from "./RowScans";
 // import logo from "../../../assets/images/tron.png";
 
-const CardScans = ({ popularScans, caption }) => {
+const CardScans = ({ data, caption, colSelector, colValueHandler }) => {
   return (
     <div className={styles.container_card}>
       <div className={styles.card}>
         <Header caption={caption} />
-        {popularScans.length > 0 ? (
-          popularScans.map((item, index) => {
+        {data.length > 0 ? (
+          data.map((item, index) => {
             return (
               <div key={index}>
                 {item?.contractInfo && Object.keys(item.contractInfo).length !== 0 && (
@@ -29,6 +29,7 @@ const CardScans = ({ popularScans, caption }) => {
                       contract={item.contractAddress}
                       sponsored="fales"
                       caption={caption}
+                      displayValue={colValueHandler ? colValueHandler(item[colSelector]) : item[colSelector]}
                       price={item.price}
                     />
                   </>
