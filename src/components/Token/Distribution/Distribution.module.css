@@ -19,43 +19,69 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
 }
-.infoIcon {
-  color: rgba(136, 136, 136, 0.2);
-}
+
 .distChartDiv {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #eff2f5;
-  padding: 25px 20px 31px;
-  /* width: 590px; */
+  padding: 21px 20px 30px;
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
 }
+
+.chartInfo {
+  flex: 0 0 260px;
+}
+
 .infoRecord {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
+  margin-bottom: 24px;
   width: 100%;
 }
-.infoTitle {
+
+.infoRecordLoadingIcon {
+  color: rgba(136, 136, 136, 0.2);
+  margin-right: 10px;
+}
+
+.infoRecordIcon {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  margin-top: 2px;
+}
+
+.infoRecordLeft {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  padding-top: 3px;
 }
-.infoRecord h6 {
+
+.infoRecordTitle {
   font-size: 14px;
-  font-weight: 500;
   color: #333;
+  font-family: "SF Pro Display Medium";
   text-transform: capitalize;
   margin: 0;
-  /* width: 150px; */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
 }
+
+.infoRecordDescription {
+  font-family: "SF Pro Display Regular";
+  font-size: 12px;
+  color: #888888;
+  margin-top: 3px;
+  line-height: 14px;
+}
+
+.infoRecordNumber {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  font-family: "SF Pro Display Medium";
+}
+
 .circleIconOne_ltr {
-  color: #f5a341;
+  color: #7be1d9;
   margin-right: 10px;
 }
 .circleIconTwo_ltr {
@@ -70,14 +96,9 @@
   margin-right: 10px;
   color: #5b70c2;
 }
-.chartNumber {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-  font-family: "SF Pro Display Medium";
-}
+
 .circleIconOne_rtl {
-  color: #f5a341;
+  color: #7be1d9;
   margin-left: 10px;
 }
 .circleIconTwo_rtl {
@@ -91,13 +112,6 @@
 .circleIconFour_rtl {
   margin-left: 10px;
   color: #5b70c2;
-}
-.infoRecord p {
-  color: #888;
-  font-size: 12px;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 @media (max-width: 768px) {

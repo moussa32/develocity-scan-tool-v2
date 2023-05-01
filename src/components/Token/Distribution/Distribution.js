@@ -159,7 +159,7 @@ const Distribution = () => {
       },
     },
     // colors: ['#7BE1D9', '#4CD696', '#EC6666']
-    colors: ["#F5A341", "#4CD696", "#EC6666"],
+    colors: ["#7BE1D9", "#4CD696", "#EC6666"],
   };
 
   return (
@@ -178,44 +178,64 @@ const Distribution = () => {
           <div className={styles.distChartDiv}>
             <div className={styles.chartInfo}>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={lang === "ar" ? styles.circleIconFour_rtl : styles.circleIconFour_ltr} />
-                    {t("token:totalHolder")}
-                  </h6>
-                  <span className={styles.chartNumber}>{distData ? distData.totalHolder : null}</span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle
+                    className={`${styles.infoRecordIcon} ${
+                      lang === "ar" ? styles.circleIconFour_rtl : styles.circleIconFour_ltr
+                    }`}
+                  />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:totalHolder")}</h6>
+                    <p className={styles.infoRecordDescription}>
+                      {t("token:Wallets_with_small_amounts_after_selling")}
+                    </p>
+                  </div>
                 </div>
-                {/* <p>{t("token:Wallets_with_small_amounts_after_selling")}</p> */}
+                <span className={styles.infoRecordNumber}>{distData ? distData.totalHolder : null}</span>
               </div>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={lang === "ar" ? styles.circleIconOne_rtl : styles.circleIconOne_ltr} />
-                    {t("token:Real_Holders")}
-                  </h6>
-                  <span className={styles.chartNumber}>{distData ? distData.realholders : null}</span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle
+                    className={`${styles.infoRecordIcon} ${
+                      lang === "ar" ? styles.circleIconOne_rtl : styles.circleIconOne_ltr
+                    }`}
+                  />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:Real_Holders")}</h6>
+                    <p className={styles.infoRecordDescription}>{t("token:The_actual_number_of_token_holders")}</p>
+                  </div>
                 </div>
-                <p>{t("token:The_actual_number_of_token_holders")} </p>
+                <span className={styles.infoRecordNumber}>{distData ? distData.realholders : null}</span>
               </div>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={lang === "ar" ? styles.circleIconTwo_rtl : styles.circleIconTwo_ltr} />
-                    {t("token:Airdrop_holders")}
-                  </h6>
-                  <span className={styles.chartNumber}>{distData ? distData.airdropHolders : null}</span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle
+                    className={`${styles.infoRecordIcon} ${
+                      lang === "ar" ? styles.circleIconTwo_rtl : styles.circleIconTwo_ltr
+                    }`}
+                  />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:Airdrop_holders")}</h6>
+                    <p className={styles.infoRecordDescription}>{t("token:sent_token")}</p>
+                  </div>
                 </div>
-                <p>{t("token:sent_token")}</p>
+                <span className={styles.infoRecordNumber}>{distData ? distData.airdropHolders : null}</span>
               </div>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={lang === "ar" ? styles.circleIconThree_rtl : styles.circleIconThree_ltr} />
-                    {t("token:Wallet_shrink")}
-                  </h6>
-                  <span className={styles.chartNumber}>{distData ? distData.shrinkHolders : null}</span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle
+                    className={`${styles.infoRecordIcon} ${
+                      lang === "ar" ? styles.circleIconThree_rtl : styles.circleIconThree_ltr
+                    }`}
+                  />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:Wallet_shrink")}</h6>
+                    <p className={styles.infoRecordDescription}>
+                      {t("token:Wallets_with_small_amounts_after_selling")}
+                    </p>
+                  </div>
                 </div>
-                <p>{t("token:Wallets_with_small_amounts_after_selling")}</p>
+                <span className={styles.infoRecordNumber}>{distData ? distData.shrinkHolders : null}</span>
               </div>
             </div>
             <div className={styles.chart} id="chart">
@@ -229,52 +249,56 @@ const Distribution = () => {
           <div className={styles.distChartDiv}>
             <div className={styles.chartInfo}>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={styles.circleIconOne} />
-                    real holders
-                  </h6>
-                  <span className={styles.chartNumber}>
-                    <Placeholder styling={{ width: "50px", height: "20px" }} />{" "}
-                  </span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle className={`${styles.infoRecordIcon} ${styles.infoRecordLoadingIcon}`} />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:totalHolder")}</h6>
+                    <p className={styles.infoRecordDescription}>
+                      {t("token:Wallets_with_small_amounts_after_selling")}
+                    </p>
+                  </div>
                 </div>
-                <p>The actual number of token holders </p>
+                <span className={styles.infoRecordNumber}>
+                  <Placeholder styling={{ width: "35px", height: "5px" }} />
+                </span>
               </div>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={styles.circleIconTwo} />
-                    airdrop holders
-                  </h6>
-                  <span className={styles.chartNumber}>
-                    <Placeholder styling={{ width: "50px", height: "20px" }} />{" "}
-                  </span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle className={`${styles.infoRecordIcon} ${styles.infoRecordLoadingIcon}`} />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:Real_Holders")}</h6>
+                    <p className={styles.infoRecordDescription}>{t("token:The_actual_number_of_token_holders")}</p>
+                  </div>
                 </div>
-                <p>Tokens are sent by token owner</p>
+                <span className={styles.infoRecordNumber}>
+                  <Placeholder styling={{ width: "35px", height: "5px" }} />
+                </span>
               </div>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={styles.circleIconThree} />
-                    wallet shrink
-                  </h6>
-                  <span className={styles.chartNumber}>
-                    <Placeholder styling={{ width: "50px", height: "20px" }} />{" "}
-                  </span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle className={`${styles.infoRecordIcon} ${styles.infoRecordLoadingIcon}`} />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:Airdrop_holders")}</h6>
+                    <p className={styles.infoRecordDescription}>{t("token:sent_token")}</p>
+                  </div>
                 </div>
-                <p>wallets with small amounts after selling</p>
+                <span className={styles.infoRecordNumber}>
+                  <Placeholder styling={{ width: "35px", height: "5px" }} />
+                </span>
               </div>
               <div className={styles.infoRecord}>
-                <div className={styles.infoTitle}>
-                  <h6>
-                    <FaCircle className={styles.circleIconThree} />
-                    wallet shrink
-                  </h6>
-                  <span className={styles.chartNumber}>
-                    <Placeholder styling={{ width: "50px", height: "20px" }} />{" "}
-                  </span>
+                <div className={styles.infoRecordLeft}>
+                  <FaCircle className={`${styles.infoRecordIcon} ${styles.infoRecordLoadingIcon}`} />
+                  <div>
+                    <h6 className={styles.infoRecordTitle}>{t("token:Wallet_shrink")}</h6>
+                    <p className={styles.infoRecordDescription}>
+                      {t("token:Wallets_with_small_amounts_after_selling")}
+                    </p>
+                  </div>
                 </div>
-                {/* <p>wallets with small amounts after selling</p> */}
+                <span className={styles.infoRecordNumber}>
+                  <Placeholder styling={{ width: "35px", height: "5px" }} />
+                </span>
               </div>
             </div>
             <div className={styles.chart} id="chart">
