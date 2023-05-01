@@ -26,19 +26,26 @@ const ScansSection = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket.on("popularScan", data => {
+    const handleSocketPopularScan = data => {
       setPopularScans(data);
-    });
-    socket.on("highScore", data => {
+    };
+    const handleSocketHighScore = data => {
       setRecentlyVerified(data);
-    });
-    socket.on("latestScan", data => {
-      setLastScans(data);
-      data.map(asd => console.log(asd.price));
-    });
+    };
 
-    return () => socket.disconnect();
-  }, []);
+    const handleSocketLatestScan = data => {
+      setLastScans(data);
+    };
+
+    socket.on("popularScan", handleSocketPopularScan);
+    socket.on("highScore", handleSocketHighScore);
+    socket.on("latestScan", handleSocketLatestScan);
+    return () => {
+      socket.off("popularScan", handleSocketPopularScan);
+      socket.off("highScore", handleSocketHighScore);
+      socket.off("latestScan", handleSocketLatestScan);
+    };
+  }, [socket]);
 
   useEffect(() => {
     if (popularScans && recentlyVerified && lastScans && !isPageLoaded) {

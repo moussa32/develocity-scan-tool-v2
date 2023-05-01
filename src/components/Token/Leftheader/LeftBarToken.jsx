@@ -13,6 +13,12 @@ import LeftBarLoader from "./LeftBarLoader";
 import { TbDiscountCheckFilled } from "react-icons/tb";
 import icon from "../../../assets/images/popup.png";
 import SubmitToken from "./Modal/SubmitToken";
+import { convertFromScientificNotation } from "../../../util/scientificNotation";
+import SpacialNumber from "../../common/SpacialNumber";
+
+function foramtNumber(val) {
+  return Number(val).toLocaleString("en-US");
+}
 
 export function LeftBarToken() {
   const { contractAddress } = useParams();
@@ -31,9 +37,6 @@ export function LeftBarToken() {
   const tokenInfoData = tokenData.result;
   const lang = localStorage.getItem("i18nextLng");
 
-  function foramtNumber(val) {
-    return Number(val).toLocaleString("en-US");
-  }
   function copyToClipboard(e) {
     setCopyAddress("Copied Address !");
     navigator.clipboard.writeText(contractAddress);
@@ -43,6 +46,20 @@ export function LeftBarToken() {
       clearTimeout(resetCopyAddressText);
     }, 2000);
   }
+
+  const handleTokenCurrentPrice = value => {
+    const stringNumber = value.toString();
+    if (stringNumber.includes("e")) {
+      const { zeroCounts, numbersAfterZero, parsedNumber } = convertFromScientificNotation(stringNumber);
+      return <SpacialNumber numbersAfterZero={numbersAfterZero} zeroCounts={zeroCounts} parsedNumber={parsedNumber} />;
+    } else {
+      if (Number(value) > 0) {
+        return Number(value).toFixed(4).toString();
+      } else {
+        return stringNumber;
+      }
+    }
+  };
 
   if (tokenStatus === "loading" || !tokenStatus) return <LeftBarLoader lang={lang} />;
   if (tokenStatus === "failed") return <div>Error Happened we couldn't get token info</div>;
@@ -90,7 +107,7 @@ export function LeftBarToken() {
                 </span> */}
               </>
             ) : (
-              <span className={`${styles.modalIcon} me-3`} onClick={() => setShowModal(true)}>
+              <span className={`${styles.modalIcon} me-3`}>
                 <TbDiscountCheckFilled color="#707070" size={18} />
               </span>
             )}
@@ -179,12 +196,9 @@ export function LeftBarToken() {
         <div className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}>
           <div className="">
             <h5 className="text-muted ">{t("token:current_price")}</h5>
-            <p className="mb-2">
-              {lang === "ar" ? (
-                <>{tokenInfoData ? tokenInfoData.contractInfo.tokenPriceUSD : null}$</>
-              ) : (
-                <>${tokenInfoData ? tokenInfoData.contractInfo.tokenPriceUSD : null}</>
-              )}
+            <p className="mb-2 d-flex align-items-center">
+              <span>$</span>
+              {tokenInfoData && handleTokenCurrentPrice(tokenInfoData.contractInfo.tokenPriceUSD)}
             </p>
           </div>
           <div className="">

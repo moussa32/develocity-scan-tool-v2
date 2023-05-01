@@ -20,11 +20,11 @@ export function Slippage() {
   const data = [
     {
       name: t("token:buy"),
-      value: buySellBSCdataslippage ? buySellBSCdataslippage.buyTax : null,
+      value: buySellBSCdataslippage ? Number(buySellBSCdataslippage.buyTax).toFixed() : null,
     },
     {
       name: t("token:sell"),
-      value: buySellBSCdataslippage ? buySellBSCdataslippage.sellTax : null,
+      value: buySellBSCdataslippage ? Number(buySellBSCdataslippage.sellTax).toFixed() : null,
     },
   ];
 
