@@ -123,7 +123,7 @@ const SocialBar = () => {
                 </button>
                 <ul
                   className={`dropdown-menu p-0 border-0 list-unstyled ${styles.dropdownLang} ${
-                    lang === "ar" ? styles.langListGroup_rtl : styles.langListGroup_ltr
+                    lang === "ar" ? styles.langListGroup_rtl : `${styles.langListGroup_ltr} ${styles.dropdownLang_ltr}`
                   }`}
                 >
                   {languages.map(language => (
