@@ -5,12 +5,16 @@ import instance from "../config/axiosconfig";
 export const fetchTokenInfoResult = createAsyncThunk(
   "tokeninfo/fetchTokenInfoResult",
   async (contractAddress, { dispatch, getState }) => {
-    const fetchIP = await axios.get("https://api.ipify.org?format=json");
+    const fetchIP = await axios.get("https://api.ipify.org?format=json").catch(error => {
+      console.log(error);
+    });
     const { ip } = fetchIP.data;
 
-    const response = await instance.get(
-      `contract/tokenInfo?contractAddress=${contractAddress}&ipAddress=${ip}&contractType=Binance`
-    );
+    const response = await instance
+      .get(`contract/tokenInfo?contractAddress=${contractAddress}&ipAddress=${ip}&contractType=Binance`)
+      .catch(error => {
+        console.log(error);
+      });
     return response.data;
   }
 );
