@@ -25,4 +25,7 @@
   .searchContainer {
     max-width: 480px;
   }
+  .walletsContainer {
+    margin-top: 110px;
+  }
 }

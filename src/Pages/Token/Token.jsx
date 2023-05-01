@@ -176,15 +176,17 @@ const Token = () => {
           </div>
         </div>
 
-        <div className="row  align-items-center mb-5">
+        <div className="row mb-4">
           <div className="col-lg-6 col-md-12">
             <Distribution />
           </div>
-          <div className="col-lg-6 col-md-12">
+          <div className={`col-lg-6 col-md-12 ${styles.walletsContainer}`}>
             {tokenOwnerLoading === "success" ? (
               <WalletsSection />
             ) : tokenOwnerLoading === "failed" ? null : ( // <Navigate to="/404"/>
-              <TableLoader />
+              <div style={{ marginTop: "10px" }}>
+                <TableLoader />
+              </div>
             )}
             <div className="mt-5">
               {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[1] && (

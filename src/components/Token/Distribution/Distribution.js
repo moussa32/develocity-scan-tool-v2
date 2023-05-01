@@ -165,16 +165,14 @@ const Distribution = () => {
   return (
     <>
       <div>
-        {statusDist === "success" && (
-          <>
-            <h1 className={styles.title}>{t("token:dist_title")}</h1>
-            <h6 className={styles.secondTitle}>
-              <div className={`text-muted  mt-3 ${lang === "ar" ? styles.title_rtl : styles.title_ltr}`}>
-                <HeaderText nameHeader={t("token:holders_title")} title={t("token:holders_tooltip")} />
-              </div>
-            </h6>
-          </>
-        )}
+        <>
+          <h1 className={styles.title}>{t("token:dist_title")}</h1>
+          <h6 className={styles.secondTitle}>
+            <div className={`text-muted  mt-3 ${lang === "ar" ? styles.title_rtl : styles.title_ltr}`}>
+              <HeaderText nameHeader={t("token:holders_title")} title={t("token:holders_tooltip")} />
+            </div>
+          </h6>
+        </>
 
         {statusDist === "success" && (
           <div className={styles.distChartDiv}>
