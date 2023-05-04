@@ -7,7 +7,7 @@ import { useMemo } from "react";
 export function LiquidityList() {
   const bscLiquidityScan = useSelector(state => state.bscLiquidityScan.bscLiquidity);
   const statusLiquidity = useSelector(state => state.bscLiquidityScan.loading);
-  const { t } = useTranslation(["token"]);
+  const { t } = useTranslation(["token", "common"]);
 
   // const bscLiquiditydata=bscLiquidityScan?.result
   const data = useMemo(
@@ -35,7 +35,7 @@ export function LiquidityList() {
       {(statusLiquidity === "success" || statusLiquidity === true) && (
         <div className="col-12 col-md-6" style={{ flex: "0 1 100%" }}>
           <h2 style={{ fontFamily: "SF Pro Display Medium", fontSize: "26px", color: "#888888", marginBottom: 0 }}>
-            Liquidity Metrics
+            {t("common:liquidity_metrics")}
           </h2>
           <ListGroup listdata={data} title={t("token:liquidity")} info={t("token:infoDescription.liquidityInfo")} />
         </div>

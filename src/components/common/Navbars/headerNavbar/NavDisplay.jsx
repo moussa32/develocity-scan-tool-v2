@@ -77,7 +77,7 @@ const NavDisplay = () => {
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <a className={`${styles.linkitem}`}>Academy</a>
+                    <a className={`${styles.linkitem}`}>{t("Academy")}</a>
                   </li>
                   <li className="nav-item">
                     <a href="https://www.develocity.finance/#contact" className={`${styles.linkitem}`}>
@@ -93,10 +93,10 @@ const NavDisplay = () => {
               }`}
             >
               <Link className={`${styles.headerActionButton}`} to="/login">
-                Log In
+                {t("log_in")}
               </Link>
               <Link className={`${styles.headerActionButton} ${styles.activeHeaderActionButton}`} to="/create-account">
-                Create Account
+                {t("create_account")}
               </Link>
             </div>
           </div>

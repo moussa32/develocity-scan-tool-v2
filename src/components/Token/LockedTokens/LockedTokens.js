@@ -3,6 +3,7 @@ import "./LockedTokens.css";
 // import { useTranslation } from 'react-i18next';
 import unicrypt from "../../../assets/unicrptLogo.png";
 import TokenTable from "../TokenTable";
+import { useTranslation } from "react-i18next";
 
 function getTimeStamp(milliSecond) {
   let date = new Date(milliSecond).toISOString().slice(0, 16).replace("T", " ");
@@ -52,6 +53,7 @@ const columns = [
 ];
 
 const LockedTokens = ({ LockedTokensData }) => {
+  const { t } = useTranslation("common");
   // const { t } = useTranslation(["token"])
   let LockedData = [];
   if (LockedTokensData?.APIsResult) {
@@ -71,7 +73,7 @@ const LockedTokens = ({ LockedTokensData }) => {
   }
   return (
     <>
-      <HeaderText nameHeader="Locked Tokens" title="Welcome to develocity." />
+      <HeaderText nameHeader={t("locked_tokens.title")} title={t("locked_tokens.info")} />
       <TokenTable data={LockedData} columns={columns} />
     </>
   );

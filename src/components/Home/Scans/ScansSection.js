@@ -20,7 +20,7 @@ const ScansSection = () => {
   const [popularScans, setPopularScans] = useState(null);
   const [recentlyVerified, setRecentlyVerified] = useState(null);
   const [lastScans, setLastScans] = useState(null);
-  const { t } = useTranslation(["home"]);
+  const { t } = useTranslation(["home", "common"]);
   const lang = localStorage.getItem("i18nextLng");
   const isPageLoaded = useSelector(state => state.isPageLoaded.status);
   const dispatch = useDispatch();
@@ -92,7 +92,7 @@ const ScansSection = () => {
             />
           </Col>
           <Col lg={4} md={6} sm={12}>
-            <HeaderCard image={recent} title={t("home:recently_verified")} />
+            <HeaderCard image={recent} title={t("common:recently_verified")} />
             <CardScans
               data={recentlyVerified}
               caption={t("home:score")}
