@@ -8,7 +8,7 @@ export function HoneypotCard() {
   const bscdata_status = useSelector(state => state.GetBSCdata.status);
   const { t } = useTranslation(["token"]);
 
-  const newhoney = bscdata.result;
+  const newhoney = GetBuySellBSCdata.result;
 
   return (
     <div className={styles.cardContainer}>
