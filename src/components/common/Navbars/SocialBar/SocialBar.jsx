@@ -107,9 +107,9 @@ const SocialBar = () => {
             <li>
               <Link to="/Changelog">{t("common:changelog")}</Link>
             </li>
-            <li>
+            {/* <li>
               <a href="#">{t("Whitepaper")}</a>
-            </li>
+            </li> */}
             <li>
               <div className="dropdown">
                 <button
