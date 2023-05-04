@@ -56,7 +56,7 @@ const NavDisplay = () => {
                   </li>
                   <li className="nav-item">
                     <a
-                      href="https://www.develocity.finance/#about"
+                      href="https://develocity.group/"
                       className={`${styles.linkitem}`}
                       target="_blank"
                       rel="noreferrer"
