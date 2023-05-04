@@ -77,8 +77,8 @@
   "Trading_simulation_shows_that_sell_is_closed_which_means_token_is_a_honeypot": "تظهر محاكاة التداول إن التداول مغلق مما يعني أن البيع في هذه العملة  غير مسموح",
   "rugpullTest": {
     "takingOwners": "مُلَّاك العملة يمتلكون",
-    "detected": " من حوض السيولة مما يقلل من خطورة النصب والاحتيال",
-    "notdetected": " من حوض السيولة مما يزيد من خطورة النصب والاحتيال"
+    "detected": " من حوض السيولة مما يزيد من خطورة النصب والاحتيال",
+    "notdetected": " من حوض السيولة مما يقلل يزيد من خطورة النصب والاحتيال"
   },
   "rugpull_test_notdetected_msg": {
     "part1": "مُلَّاك العملة يمتلكون",
