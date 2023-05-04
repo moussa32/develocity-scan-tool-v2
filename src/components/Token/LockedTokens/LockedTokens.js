@@ -56,21 +56,21 @@ const LockedTokens = ({ LockedTokensData }) => {
   const { t } = useTranslation("common");
   // const { t } = useTranslation(["token"])
   let LockedData = [];
-  if (LockedTokensData?.APIsResult) {
-    for (let i = 0; i < LockedTokensData.APIsResult.length; i++) {
-      let id = i;
-      let network = LockedTokensData?.APIsResult[i].network;
-      let address =
-        LockedTokensData?.APIsResult[i].lpAddress.substr(0, 5) +
-        "..." +
-        LockedTokensData?.APIsResult[i].lpAddress.substr(-5);
-      // let rate = LockedTokensData.ownerInfo.lockedToken[i].lockedPercentage;
-      let tokens = LockedTokensData?.APIsResult[i].lockedAmount;
-      let image = LockedTokensData?.APIsResult[i].logoURL;
-      let unlockedOn = LockedTokensData?.APIsResult[i].lockedDuration;
-      LockedData.push({ id, network, address, tokens, unlockedOn, image });
-    }
-  }
+  // if (LockedTokensData?.APIsResult) {
+  //   for (let i = 0; i < LockedTokensData.APIsResult.length; i++) {
+  //     let id = i;
+  //     let network = LockedTokensData?.APIsResult[i].network;
+  //     let address =
+  //       LockedTokensData?.APIsResult[i].lpAddress.substr(0, 5) +
+  //       "..." +
+  //       LockedTokensData?.APIsResult[i].lpAddress.substr(-5);
+  //     // let rate = LockedTokensData.ownerInfo.lockedToken[i].lockedPercentage;
+  //     let tokens = LockedTokensData?.APIsResult[i].lockedAmount;
+  //     let image = LockedTokensData?.APIsResult[i].logoURL;
+  //     let unlockedOn = LockedTokensData?.APIsResult[i].lockedDuration;
+  //     LockedData.push({ id, network, address, tokens, unlockedOn, image });
+  //   }
+  // }
   return (
     <>
       <HeaderText nameHeader={t("locked_tokens.title")} title={t("locked_tokens.info")} />
