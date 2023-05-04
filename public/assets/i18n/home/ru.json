@@ -1,14 +1,14 @@
 {
-	"home": "Главная",
-	"popular_today": "Популярно сегодня",
-	"from_address": "с адреса",
-	"scans": "отсканированные токены",
-	"score": "оценки",
-	"last_scan": "Последнее сканирование",
-	"highest_score": "Высочайшая оценка",
-	"token": "Токены",
-	"BETA_STAGE":"БЕТА-СТАДИЯ",
-	"Become_a_PRO_in_Crypto_Investments": "Станьте профессионалом в крипто-инвестициях",
-	"We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC": "Мы рады представить нашу бета-версию многофункционального инструмента Develocity, который работает на BSC"
-
+  "home": "Главная",
+  "popular_today": "Популярно сегодня",
+  "from_address": "с адреса",
+  "scans": "отсканированные токены",
+  "score": "оценки",
+  "last_scan": "Последнее сканирование",
+  "highest_score": "Высочайшая оценка",
+  "see_how_it_works": "see how it works",
+  "token": "Токены",
+  "BETA_STAGE": "БЕТА-СТАДИЯ",
+  "Become_a_PRO_in_Crypto_Investments": "Станьте профессионалом в крипто-инвестициях",
+  "We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC": "Мы рады представить нашу бета-версию многофункционального инструмента Develocity, который работает на BSC"
 }
