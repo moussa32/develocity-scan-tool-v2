@@ -19,7 +19,7 @@ export function LeftBar() {
         <p className={styles.parag}>
           {t("home:We_are_excited_to_share_our_Beta_version_of_the_Develocity_Multifunctional_tool_that_works_on_BSC")}
         </p>
-        <button className={`${styles.seeHowItWorks}`}>See how it works</button>
+        <button className={`${styles.seeHowItWorks}`}>{t("see_how_it_works")}</button>
         {/* <div className={styles.appleLink}>
                     <img src={googlePlay} alt="googlePlay" />
                     <img src={appStore} alt="appStore"/>

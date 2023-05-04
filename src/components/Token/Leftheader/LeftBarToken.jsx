@@ -62,7 +62,7 @@ export function LeftBarToken() {
   };
 
   if (tokenStatus === "loading" || !tokenStatus) return <LeftBarLoader lang={lang} />;
-  if (tokenStatus === "failed") return <div>Error Happened we couldn't get token info</div>;
+  if (tokenStatus === "failed") return <div>{t("get_token_info_error")}</div>;
 
   return (
     <section className={styles.tokenInfoHeader}>
@@ -146,7 +146,7 @@ export function LeftBarToken() {
                 <div className="d-inline-block">
                   <div className={styles.icon_token_letter2}>
                     <h6 className={styles.icon_token_text2}>
-                      {tokenInfoData ? tokenInfoData.contractInfo.name.charAt(0) : null}
+                      {tokenInfoData.contractInfo ? tokenInfoData.contractInfo.name.charAt(0) : null}
                     </h6>
                   </div>
                 </div>
@@ -154,15 +154,21 @@ export function LeftBarToken() {
 
               <span className="ps-1">{tokenInfoData ? tokenInfoData?.contractInfo?.symbol : null}</span>
             </span>
-            <span className={styles.contractInfoItem}>
-              {t("token:total_scans")} {tokenInfoData ? tokenInfoData?.interest : null}
-            </span>
-            <span className={styles.contractInfoItem}>
-              {t("token:launched")} {tokenInfoData ? (tokenInfoData?.contractInfo?.age.split("T"))[0] : null}
-            </span>
-            <span className={styles.contractInfoItem}>
-              {t("token:added")} {tokenInfoData ? (tokenInfoData?.createdAt.split("T"))[0] : null}
-            </span>
+            {tokenInfoData.interest && (
+              <span className={styles.contractInfoItem}>
+                {t("token:total_scans")} {tokenInfoData.interest}
+              </span>
+            )}
+            {tokenInfoData.contractInfo && tokenInfoData.contractInfo.age && (
+              <span className={styles.contractInfoItem}>
+                {t("token:launched")} {tokenInfoData.contractInfo.age.split("T")[0]}
+              </span>
+            )}
+            {tokenInfoData.createdAt && (
+              <span className={styles.contractInfoItem}>
+                {t("token:added")} {tokenInfoData.createdAt.split("T")[0]}
+              </span>
+            )}
             {bscstatus === "success" && newbscdata?.sourceCode && (
               <span className={styles.contractInfoItem}>
                 {newbscdata?.sourceCode === "VERIFED"

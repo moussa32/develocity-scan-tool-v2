@@ -38,6 +38,8 @@ import { fetchTokenInfoResult } from "../../store/FetchTokenInfo";
 import { BiErrorCircle } from "react-icons/bi";
 import { fetchBuySellBSCResult } from "../../store/FetchBuySellBSC";
 import { fetchBscLiquidityScan } from "../../store/bscLiquidityScanSlice";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorWrapper from "../../components/common/ErrorWrapper";
 
 const Token = () => {
   const dispatch = useDispatch();
@@ -139,7 +141,9 @@ const Token = () => {
         <div className="container">
           <div className="row flex-wrap align-items-center">
             <div className={`order-2 order-lg-1 col-12 col-xl-6 ${styles.LeftBarToken}`}>
-              <LeftBarToken />
+              <ErrorBoundary FallbackComponent={ErrorWrapper}>
+                <LeftBarToken />
+              </ErrorBoundary>
             </div>
             <div className={`${styles.searchContainer} order-1 order-lg-2 col-12 col-xl-6`}>
               <Search />
@@ -218,7 +222,7 @@ const Token = () => {
                     }}
                   >
                     <BiErrorCircle size={32} />
-                    This token doesn't have owner address
+                    {t("token_does_not_have_owner")}
                   </div>
                 )}
               </div>
