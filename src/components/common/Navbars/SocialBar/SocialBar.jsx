@@ -89,7 +89,7 @@ const SocialBar = () => {
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/develocity">
+              <a href="#">
                 <FaTwitter />
               </a>
             </li>
