@@ -118,7 +118,7 @@ export function LeftBarToken() {
         <div className="d-flex justify-content-between align-items-center flex-wrap">
           <div className="d-flex align-items-center flex-wrap">
             <span className={styles.contractaddress}>{t("token:contract_address")}:</span>
-            <div>
+            <div>&nbsp;
               <span
                 value={contractAddress}
                 className={`text-primary ${styles.contractaddress} ${styles.copiedaddress}`}
