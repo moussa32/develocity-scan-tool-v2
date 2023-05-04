@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
 
 export function HoneypotCard() {
-  const bscdata = useSelector(state => state.GetBSCdata.data);
-  const bscdata_status = useSelector(state => state.GetBSCdata.status);
+  const bscdata = useSelector(state => state.GetBuySellBSCdata.data);
+  const bscdata_status = useSelector(state => state.GetBuySellBSCdata.status);
   const { t } = useTranslation(["token"]);
 
-  const newhoney = GetBuySellBSCdata.result;
+  const newhoney = bscdata.result;
 
   return (
     <div className={styles.cardContainer}>
