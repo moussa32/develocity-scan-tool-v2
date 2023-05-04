@@ -20,7 +20,7 @@
   "burned_liquidity": "السيولة المحروقة",
   "added_liquidity": "السيولة المضافة",
   "removed_liquidity": "السيولة المحذوفة",
-  "slippage": "الانزلاق/ الضريبة",
+  "slippage": "الإنزلاق/ الضريبة",
   "ownership": "الملكية",
   "address": "العنوان",
   "tokens": "عملات",
@@ -58,14 +58,14 @@
   "dist_title": "مقاييس التوزيع",
   "holders_title": "توزيع ملاك العمله",
   "holders_tooltip": "توزيع ملاك العملة  (Holders distribution) هو تقسيم ملاك العملة على فئات معينة",
-  "Real_Holders": "الملاك الحقيقيين",
+  "Real_Holders": " الملاك الحقيقيين",
   "The_actual_number_of_token_holders": "الملاك الحقيقين و هم الاشخاص الذين قامو بشراء العملة",
-  "Airdrop_holders": "حاملي الايردروب",
+  "Airdrop_holders": " حاملي الايردروب",
   "sent_token": "هم الذين حصلو على العملة على شكل هدية او منحة",
-  "Wallet_shrink": "محفظة متقلصة",
-  "totalHolder": "Total Holder",
-  "Wallets_with_small_amounts_after_selling": "هم الملاك الذين قامو ببيع العملات و تبقى لديهم جزء بسيط جداً لا يذكر",
-  "Total": "اجمالي",
+  "Wallet_shrink": " محفظة متقلصة",
+  "totalHolder": " مجموع الملاك",
+  "Wallets_with_small_amounts_after_selling": "هم الملاك الذين قامو ببيع العملات و تبقى لديهم جزء بسيط جداً لا يذكر",
+  "Total": "إجمالي",
   "Share": "مشاركة",
   "scanner": "الفحص",
   "home": "الرئيسية",
@@ -90,20 +90,20 @@
   "general": "عام",
   "copyContractAddress": "نسخ عنوان العقد",
   "infoDescription": {
-    "slippageInfo": "معدل الانزلاق (slippage) هوا الرسوم المقطوعه خلال عملية الشراء و البيع و المتوجة بشكل كامل لمالك العملة و او العقد الذكي",
-    "gasFeeInfo": "رسوم التداول (Gas Fee) هيا الرسوم المدفوعة مقابل تنفيذ العملية المطلوبة على البلوك تشين و تذهب للمعدنين و تختلف حسب صعوبة العقد الذكي او مدى طول المعاملة المطلوبة",
-    "liquidityInfo": "liquidity"
+    "slippageInfo": "معدل الانزلاق (slippage) هوا الرسوم المقطوعه خلال عملية الشراء و البيع و المتوجة بشكل كامل لمالك العملة و او العقد الذكي",
+    "gasFeeInfo": "رسوم التداول (Gas Fee) هيا الرسوم المدفوعة مقابل تنفيذ العملية المطلوبة على البلوك تشين و تذهب للمعدنين و تختلف حسب صعوبة العقد الذكي او مدى طول المعاملة المطلوبة",
+    "liquidityInfo": "السيولة (Liquidity) هي العملات المضافةإلى حوض العملة و يتم الشراء و البيع منها و يمكن لأصحاب العملة السحب منها أو الإضافة لها."
   },
   "trustScoreTitle": {
-    "notBad": "لا باس",
-    "runAway": "أهرب",
-    "thinkTwice": "فكر مرتين"
+    "notBad": "موثوقية العقد: متدني",
+    "runAway": "موثوقية العقد: معتدل",
+    "thinkTwice": "موثوقية العقد: جيد"
   },
   "tokenType": {
-    "verified": " تم التحقق منه",
-    "notVerified": " لم يتم التحقق منه",
-    "requested": "Requested",
-    "pending": "PENDING"
+    "verified": "تم التحقق من العقد الذكي",
+    "notVerified": "لم يتم التحقق العقد الذكي",
+    "requested": "يتم التحقق من العقد",
+    "pending": "يتم التحقق من العقد"
   },
   "token_does_not_have_owner": "هذا الرمز ليس له عنوان مالك",
   "get_token_info_error": ""

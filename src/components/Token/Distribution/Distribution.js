@@ -101,7 +101,7 @@ const Distribution = () => {
       distData ? Math.round(distData.airdropHoldersPercentage) : null,
       distData ? Math.round(distData.shrinkHoldersPercentage) : null,
     ],
-    labels: [t("token:Real_Holders"), t("token:Airdrop_holders"), t("token:Wallet_shrink")],
+    labels: [ t("token:Real_Holders"), t("token:Airdrop_holders"), t("token:Wallet_shrink")],
     dataLabels: {
       style: {
         fontSize: "12px",
@@ -159,7 +159,7 @@ const Distribution = () => {
       },
     },
     // colors: ['#7BE1D9', '#4CD696', '#EC6666']
-    colors: ["#7BE1D9", "#4CD696", "#EC6666"],
+    colors: ["#4CD696", "#FF9F33", "#EC6666"],
   };
 
   return (
@@ -187,7 +187,7 @@ const Distribution = () => {
                   <div>
                     <h6 className={styles.infoRecordTitle}>{t("token:totalHolder")}</h6>
                     <p className={styles.infoRecordDescription}>
-                      {t("token:Wallets_with_small_amounts_after_selling")}
+                       {t("token:Wallets_with_small_amounts_after_selling")}
                     </p>
                   </div>
                 </div>
@@ -202,7 +202,9 @@ const Distribution = () => {
                   />
                   <div>
                     <h6 className={styles.infoRecordTitle}>{t("token:Real_Holders")}</h6>
-                    <p className={styles.infoRecordDescription}>{t("token:The_actual_number_of_token_holders")}</p>
+                    <p className={styles.infoRecordDescription}>
+                       {t("token:The_actual_number_of_token_holders")}
+                       </p>
                   </div>
                 </div>
                 <span className={styles.infoRecordNumber}>{distData ? distData.realholders : null}</span>
@@ -267,7 +269,9 @@ const Distribution = () => {
                   <FaCircle className={`${styles.infoRecordIcon} ${styles.infoRecordLoadingIcon}`} />
                   <div>
                     <h6 className={styles.infoRecordTitle}>{t("token:Real_Holders")}</h6>
-                    <p className={styles.infoRecordDescription}>{t("token:The_actual_number_of_token_holders")}</p>
+                    <p className={styles.infoRecordDescription}>
+                      {t("token:The_actual_number_of_token_holders")}
+                      </p>
                   </div>
                 </div>
                 <span className={styles.infoRecordNumber}>

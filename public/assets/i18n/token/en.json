@@ -58,12 +58,12 @@
   "dist_title": "Distibution metrics",
   "holders_title": "Holders Distribution",
   "holders_tooltip": "The distribution of token owners (Holders distribution) is the division of Token owners into certain categories",
-  "Real_Holders": "Real Holders",
+  "Real_Holders": " Real Holders",
   "The_actual_number_of_token_holders": "Real owners who bought the Token",
-  "Airdrop_holders": "Airdrop holders",
+  "Airdrop_holders": " Airdrop holders",
   "sent_token": "who received the Token in the form of a gift",
-  "Wallet_shrink": "Wallet shrink",
-  "totalHolder": "Total Holders",
+  "Wallet_shrink": " Wallet shrink",
+  "totalHolder": " Total Holders",
   "Wallets_with_small_amounts_after_selling": "shrinking wallets who are the owners who sold the Token and  They have a very small portion that is too tiny",
   "Total": "Total",
   "Share": "Share",
@@ -93,21 +93,22 @@
   "general": "General",
   "copyContractAddress": "Copy Contract Address",
   "infoDescription": {
-    "slippageInfo": "Tax on buy or sell fees, where this fees goes to the contract owner, or Contract",
+    "slippageInfo": "Tax on buy or sell fees, where this fees goes to the contract owner, or Contract",
     "gasFeeInfo": "Trading fees (Gas Fee) are the fees paid for executing the required operation on the Blockchain and go to the miners and vary according to the difficulty of the smart contract or the length of the required transaction",
     "liquidityInfo": "liquidity"
   },
   "trustScoreTitle": {
-    "notBad": "Not Bad",
-    "runAway": "Run Away",
-    "thinkTwice": "Think Twice"
+    "notBad": "Contract Reliability: Low",
+    "runAway": "Contract Reliability: Moderate",
+    "thinkTwice": "Contract Reliability: Good"
   },
   "tokenType": {
-    "verified": "Verified",
-    "notVerified": "Not Verified",
+    "verified": "Smart contract: Verified",
+    "notVerified": "Smart contract: Not Verified",
     "requested": "Requested",
     "pending": "PENDING"
   },
   "token_does_not_have_owner": "This token doesn't have owner address",
   "get_token_info_error": "Error Happened we couldn't get token info"
 }
+

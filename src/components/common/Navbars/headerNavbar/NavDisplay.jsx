@@ -76,9 +76,9 @@ const NavDisplay = () => {
                       {t("common:tokens")}
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <a className={`${styles.linkitem}`}>{t("Academy")}</a>
-                  </li>
+                  </li> */}
                   <li className="nav-item">
                     <a href="https://www.develocity.finance/#contact" className={`${styles.linkitem}`}>
                       {t("common:contact")}
@@ -87,7 +87,7 @@ const NavDisplay = () => {
                 </div>
               </div>
             </ul>
-            <div
+            {/* <div
               className={`${styles.headerActionButtonContainer} ${
                 direction === "rtl" ? styles.headerActionButtonContainer_rtl : styles.headerActionButtonContainer_ltr
               }`}
@@ -98,7 +98,7 @@ const NavDisplay = () => {
               <Link className={`${styles.headerActionButton} ${styles.activeHeaderActionButton}`} to="/create-account">
                 {t("create_account")}
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
