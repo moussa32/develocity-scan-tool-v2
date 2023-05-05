@@ -81,7 +81,7 @@ const TokenOwner = ({ ownerInfo }) => {
     <>
       {OwnerData.length > 0 ? (
         <>
-          <HeaderText nameHeader={t("token:token_owner")} title="Welcome to develocity." />
+          <HeaderText nameHeader={t("token:token_owner")} title="Token owner details from all sides hold tokens, liquidity and contract ownership." />
           <TokenTable data={OwnerData} columns={columns} />
         </>
       ) : null}
