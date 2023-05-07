@@ -10,17 +10,20 @@ const NavBar = () => {
   const { pathname } = useLocation();
 
   const isHomePage = useMemo(() => (pathname === "/" ? true : false), [pathname]);
+  const isChangeLogPage = useMemo(() => (pathname.includes("changelog") ? true : false), [pathname]);
   let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment("News");
 
   return (
     <div className={`${!isHomePage ? styles.navbarBg : null}`}>
       <SocialBar />
       <NavDisplay />
-      <div className={styles.reAdv}>
-        {advertisment_Status === "success" && advertisment_code === 200 && (
-          <AdvertismentChangelog getAdvertismentData={getAdvertismentData} />
-        )}
-      </div>
+      {isChangeLogPage && (
+        <div className={styles.reAdv}>
+          {advertisment_Status === "success" && advertisment_code === 200 && (
+            <AdvertismentChangelog getAdvertismentData={getAdvertismentData} />
+          )}
+        </div>
+      )}
     </div>
   );
 };
