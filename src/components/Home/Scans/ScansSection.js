@@ -78,7 +78,7 @@ const ScansSection = () => {
             <CardScans
               data={popularScans}
               caption={t("home:scans")}
-              colSelector="scans"
+              colSelector="contractScan"
               colValueHandler={toFixed}
             />
           </Col>
