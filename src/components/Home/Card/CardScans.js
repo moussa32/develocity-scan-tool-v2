@@ -11,7 +11,7 @@ const CardScans = ({ data, caption, colSelector, colValueHandler }) => {
     <div className={styles.container_card}>
       <div className={styles.card}>
         <Header caption={caption} />
-        {console.log(data)}
+        
         {data.length > 0 ? (
           data.map((item, index) => {
             return (
