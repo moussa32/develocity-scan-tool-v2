@@ -20,7 +20,7 @@ export function RugpullCard() {
         <>
           {bscdata_status === "success" && !isNaN(percentage) && (
             <>
-              {percentage <= 30 ? (
+              {percentage <= 20 ? (
                 <div className={`${styles.card} ${styles.cardGreen}`}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

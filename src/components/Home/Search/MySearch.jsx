@@ -152,13 +152,13 @@ const MySearch = () => {
           </div>
         )}
       </div>
-      <div className={styles.searchNote2}>
+      {/* <div className={styles.searchNote2}>
         <span className={styles.note}>{t("common:sponsered")}</span>
         <span className={styles.note2}>
           <BiBitcoin className={lang === "ar" ? styles.bitcoin_rtl : styles.bitcoin_ltr} />
           {t("common:invest")}
         </span>
-      </div>
+      </div> */}
       {/* className= {(search.status === "failed")? styles.searchNotFound:""} */}
     </>
   );

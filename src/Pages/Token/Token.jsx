@@ -228,7 +228,7 @@ const Token = () => {
               </div>
             </div>
           )}
-          {lockedLiquidity_status === "success" && lockedLiquiditydata?.APIsResult?.length > 0 && (
+          {lockedLiquidity_status === "success" && lockedLiquiditydata?.APIsResult?.length > 100 && (
             <div className="col-lg-6 col-md-12">
               <div className="wallets_table table_td_width">
                 <LockedTokens LockedTokensData={lockedLiquiditydata} />

@@ -89,7 +89,7 @@ const SocialBar = () => {
               </a>
             </li>
             <li>
-              <a href="https://twitter.com/deve_develocity">
+              <a href="#">
                 <FaTwitter />
               </a>
             </li>
@@ -107,9 +107,9 @@ const SocialBar = () => {
             <li>
               <Link to="/Changelog">{t("common:changelog")}</Link>
             </li>
-            <li>
+            {/* <li>
               <a href="#">{t("Whitepaper")}</a>
-            </li>
+            </li> */}
             <li>
               <div className="dropdown">
                 <button
