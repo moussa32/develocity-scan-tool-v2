@@ -98,9 +98,9 @@
     "liquidityInfo": "Liquidity is the main pool for the token and token owner can add or remove tokens from it."
   },
   "trustScoreTitle": {
-    "notBad": "Contract Reliability: Low",
+    "notBad":  "Contract Reliability: Good",
     "runAway": "Contract Reliability: Moderate",
-    "thinkTwice": "Contract Reliability: Good"
+    "thinkTwice": "Contract Reliability: Low"
   },
   "tokenType": {
     "verified": "Smart contract: Verified",
