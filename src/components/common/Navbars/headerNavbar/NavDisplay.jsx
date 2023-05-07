@@ -80,7 +80,12 @@ const NavDisplay = () => {
                     <a className={`${styles.linkitem}`}>{t("Academy")}</a>
                   </li>
                   <li className="nav-item">
-                    <a href="https://www.develocity.finance/#contact" className={`${styles.linkitem}`}>
+                    <a
+                      href="https://finance.xite.solutions/contact-us"
+                      target="_blank"
+                      rel="dofollow"
+                      className={`${styles.linkitem}`}
+                    >
                       {t("common:contact")}
                     </a>
                   </li>

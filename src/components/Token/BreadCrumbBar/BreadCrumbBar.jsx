@@ -3,21 +3,30 @@ import styles from "./BreadCrumbBar.module.css";
 import { AiOutlineUpload } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 
 const BreadCrumbBar = () => {
   const tokenData = useSelector(state => state.Gettokeninfodata.data);
   const { t } = useTranslation(["token"]);
   const lang = localStorage.getItem("i18nextLng");
 
-  const tokeninfodata = tokenData.result;
+  const { pathname } = useLocation();
+  const tokenInfoData = tokenData.result;
+  console.log(tokenInfoData);
 
   return (
     <div className="container">
       <div className={styles.breadCrumbBar}>
-        <ul className={lang === "ar" ? styles.breadCrumb_rtl : styles.breadCrumb_ltr}>
-          <li>{t("token:home")}</li>
-          <li>{t("token:scanner")}</li>
-          <li>{tokeninfodata ? tokeninfodata.contractInfo.name : null}</li>
+        <ul className={`${styles.breadCrumbList} ${lang === "ar" ? styles.breadCrumb_rtl : styles.breadCrumb_ltr}`}>
+          <Link className={styles.breadCrumbItem} to="/">
+            {t("token:home")}
+          </Link>
+          <Link className={styles.breadCrumbItem} to="/">
+            {t("token:scanner")}
+          </Link>
+          <li className={`${styles.breadCrumbItem} ${pathname.includes("token") ? styles.activeRoute : null}`}>
+            {tokenInfoData ? tokenInfoData.contractInfo.name : null}
+          </li>
         </ul>
         <div className={styles.btns}>
           {/*<button>download report</button>*/}
