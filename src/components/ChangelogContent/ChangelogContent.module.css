@@ -229,7 +229,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.typeBlock_ltr {
   left: -150px;
+}
+
+.typeBlock_rtl {
+  right: -150px;
 }
 
 .content_rtl,

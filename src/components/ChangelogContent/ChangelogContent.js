@@ -115,7 +115,11 @@ const ChangelogContent = () => {
                         <>
                           {el.news.map((ele, index) => (
                             <section className={` ${styles.wrapper}`} key={index}>
-                              <div className={` ${styles.typeBlock}`}>
+                              <div
+                                className={`${lang === "ar" ? styles.typeBlock_rtl : styles.typeBlock_ltr} ${
+                                  styles.typeBlock
+                                }`}
+                              >
                                 <div className={lang === "ar" ? styles.typeDate_rtl : styles.typeDate_ltr}>
                                   <h1
                                     className={`${styles.typeCard} ${
