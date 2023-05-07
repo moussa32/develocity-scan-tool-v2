@@ -10,7 +10,7 @@ const NavBar = () => {
   const { pathname } = useLocation();
 
   const isHomePage = useMemo(() => (pathname === "/" ? true : false), [pathname]);
-  const isChangeLogPage = useMemo(() => (pathname.includes("changelog") ? true : false), [pathname]);
+  const isChangeLogPage = useMemo(() => (pathname.includes("Changelog") ? true : false), [pathname]);
   let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment("News");
 
   return (
