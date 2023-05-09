@@ -75,12 +75,7 @@ const ScansSection = () => {
         <Row>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={star} title={t("home:popular_today")} />
-            <CardScans
-              data={popularScans}
-              caption={t("home:scans")}
-              colSelector="contractScan"
-              colValueHandler={toFixed}
-            />
+            <CardScans data={popularScans} caption={t("home:scans")} colSelector="interest" colValueHandler={toFixed} />
           </Col>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={last} title={t("home:last_scan")} />
