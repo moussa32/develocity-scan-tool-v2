@@ -56,6 +56,11 @@
   cursor: pointer;
 }
 
+.searchBtn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
 .searchBtn_ltr {
   min-width: 90px;
   height: 42px;

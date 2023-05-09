@@ -21,9 +21,10 @@ const MySearch = () => {
   const search = useSelector(state => state.Search);
   const search_status = useSelector(state => state.Search?.status);
   const searchCode = useSelector(state => state.Search?.searchCode);
+  console.log(disable);
 
   const notify = () =>
-    toast.error(" Invalid Contract Address!", {
+    toast.error("Invalid Contract Address!", {
       position: "top-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -67,6 +68,7 @@ const MySearch = () => {
       // setdataGet(null);
     }
   }, [search, term]);
+
   const searchContractaddress = () => {
     // if( term.startsWith("0x") && term.length === 42 ){
     //   if(search_status==='success'){
@@ -79,18 +81,11 @@ const MySearch = () => {
     //   window.location.href=`/`
     // }
 
-    switch (searchCode) {
-      case 200:
-      case 404:
-        navigate(`/token/${term}`);
-        break;
-      case 400:
-        notify();
-        break;
-      default:
-        navigate("/");
+    if (!disable) {
+      navigate(`/token/${term}`);
     }
   };
+
   return (
     <>
       <ToastContainer
@@ -114,7 +109,6 @@ const MySearch = () => {
           type="text"
           className={styles.searchInput}
           onChange={e => setTerm(e.target.value)}
-          // value={term}
           value={term === null ? "" : term}
         />
         <button
