@@ -16,7 +16,7 @@ import SubmitToken from "./Modal/SubmitToken";
 import { convertFromScientificNotation } from "../../../util/scientificNotation";
 import SpacialNumber from "../../common/SpacialNumber";
 
-function foramtNumber(val) {
+function formatNumber(val) {
   return Number(val).toLocaleString("en-US");
 }
 
@@ -118,7 +118,8 @@ export function LeftBarToken() {
         <div className="d-flex justify-content-between align-items-center flex-wrap">
           <div className="d-flex align-items-center flex-wrap">
             <span className={styles.contractaddress}>{t("token:contract_address")}:</span>
-            <div>&nbsp;
+            <div>
+              &nbsp;
               <span
                 value={contractAddress}
                 className={`text-primary ${styles.contractaddress} ${styles.copiedaddress}`}
@@ -211,9 +212,9 @@ export function LeftBarToken() {
             <h5 className="text-muted ">{t("token:market_cap")}</h5>
             <p className="fs-5 mb-2">
               {lang === "ar" ? (
-                <>{tokenInfoData ? foramtNumber(tokenInfoData.contractInfo.market_cap) : null}$</>
+                <>{tokenInfoData ? formatNumber(tokenInfoData.contractInfo.market_cap) : null}$</>
               ) : (
-                <>${tokenInfoData ? foramtNumber(tokenInfoData.contractInfo.market_cap) : null}</>
+                <>${tokenInfoData ? formatNumber(tokenInfoData.contractInfo.market_cap) : null}</>
               )}
             </p>
           </div>
@@ -222,13 +223,13 @@ export function LeftBarToken() {
             <p className="fs-5 mb-2">
               {lang === "ar" ? (
                 <>
-                  {tokenInfoData ? foramtNumber(tokenInfoData.contractInfo.total_supply) : null}
+                  {tokenInfoData ? formatNumber(tokenInfoData.contractInfo.total_supply) : null}
                   <span className="pe-1"></span>
                   {tokenInfoData ? tokenInfoData.contractInfo.symbol : null}
                 </>
               ) : (
                 <>
-                  {tokenInfoData ? foramtNumber(tokenInfoData.contractInfo.total_supply) : null}{" "}
+                  {tokenInfoData ? formatNumber(tokenInfoData.contractInfo.total_supply) : null}{" "}
                   {tokenInfoData ? tokenInfoData.contractInfo.symbol : null}
                 </>
               )}
