@@ -35,7 +35,6 @@ const MySearch = () => {
     });
 
   const dispatch = useDispatch();
-  //  console.log(search.status =="success" && search.data.payload)
   useEffect(() => {
     if (term != null) {
       dispatch(fetchResult(term));
