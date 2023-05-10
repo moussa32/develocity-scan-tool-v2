@@ -81,7 +81,7 @@ const NavDisplay = () => {
                   </li> */}
                   <li className="nav-item">
                     <a
-                      href="https://finance.xite.solutions/contact-us"
+                      href="#"
                       target="_blank"
                       rel="dofollow"
                       className={`${styles.linkitem}`}
