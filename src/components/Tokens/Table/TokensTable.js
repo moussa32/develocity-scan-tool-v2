@@ -224,8 +224,6 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
   ];
 
   const onPaginationChange = (current, size) => {
-    // setPageSize(currentPage * 10);
-    console.log(current, size);
     setRenderedItems(current * size);
     return { current, size };
   };
