@@ -21,10 +21,6 @@ const TableFooter = ({ renderPerPage = 0, maxCount = 0 }) => {
   );
 };
 
-const isObjectEmpty = object => {
-  return Object.keys(object).length === 0;
-};
-
 const TokensTable = ({ tokenList, isVerifyied }) => {
   let [arr, setArr] = useState([]);
   const [renderedItems, setRenderedItems] = useState(50);
@@ -70,11 +66,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
   }, [isVerifyied]);
 
   const handleFixedColumnDirection = useCallback(() => {
-    if (direction === "rtl") {
-      return "right";
-    } else {
-      return "left";
-    }
+    return "left";
   }, [direction]);
 
   const columns = [
@@ -165,7 +157,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       dataIndex: "contractInfo",
       dataIndex: "contractInfo",
       sorter: (a, b) => {
-        return a?.contractInfo.current_price - b?.contractInfo.current_price;
+        return a.contractInfo.current_price - b.contractInfo.current_price;
       },
       render: value => {
         const numberConverter = new Intl.NumberFormat(i18n.language, { currency: "USD" }).format(value.current_price);
@@ -177,7 +169,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       width: 160,
       dataIndex: "contractInfo",
       sorter: (a, b) => {
-        return a?.contractInfo.market_cap - b?.contractInfo.market_cap;
+        return a.contractInfo.market_cap - b.contractInfo.market_cap;
       },
       render: value => {
         const numberConverter = new Intl.NumberFormat(i18n.language, { currency: "USD" }).format(value.market_cap);
@@ -231,7 +223,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
   return (
     <>
       {arr && arr.length > 0 && (
-        <ConfigProvider locale={getTableLocal()}>
+        <ConfigProvider direction={direction} locale={getTableLocal()}>
           <Table
             dataSource={arr}
             columns={columns}
