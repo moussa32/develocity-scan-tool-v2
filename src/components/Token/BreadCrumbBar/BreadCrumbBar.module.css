@@ -55,7 +55,7 @@
 }
 
 .breadCrumb_rtl .breadCrumbItem,
-a {
+.breadCrumbItem a {
   margin-left: 10px;
 }
 .breadCrumb_rtl .breadCrumbItem:after {
