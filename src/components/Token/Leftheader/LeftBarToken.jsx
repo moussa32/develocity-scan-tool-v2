@@ -10,7 +10,6 @@ import { useTranslation } from "react-i18next";
 import { IconContainer } from "./IconsContainer/IconContainer";
 import VerificationIcon from "../../../assets/images/verification.png";
 import LeftBarLoader from "./LeftBarLoader";
-import { TbDiscountCheckFilled } from "react-icons/tb";
 import icon from "../../../assets/images/popup.png";
 import SubmitToken from "./Modal/SubmitToken";
 import { convertFromScientificNotation } from "../../../util/scientificNotation";
@@ -21,7 +20,6 @@ function formatNumber(val) {
 }
 
 function formatBigNumbers(number) {
-  console.log(number);
   const suffixes = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion"];
   const suffixIndex = Math.floor(Math.log10(Number(number.replace(/,/g, ""))) / 3);
   const suffix = suffixes[suffixIndex];
@@ -100,29 +98,7 @@ export function LeftBarToken() {
           {scoreData?.contractScan === 0 && <span className={`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>}
 
           <span className="ms-2">
-            {tokenInfoData && tokenInfoData.isNotListed ? (
-              <>
-                <img src={VerificationIcon} width={18} alt="verfiyed" />
-                {/* <TbDiscountCheckFilled color="#9F4AE8" size={25} />
-
-                <span className=" me-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    fill="#9F4AE8"
-                    className="bi bi-patch-check-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                  </svg>
-                </span> */}
-              </>
-            ) : (
-              <span className={`${styles.modalIcon} me-3`}>
-                <TbDiscountCheckFilled color="#707070" size={18} />
-              </span>
-            )}
+            {tokenInfoData && tokenInfoData.isNotListed && <img src={VerificationIcon} width={18} alt="verified" />}
           </span>
 
           <IconContainer tokenInfoData={tokenInfoData} />

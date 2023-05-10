@@ -2,6 +2,7 @@ import styles from "./ContractAnalysis.module.css";
 import { useSelector } from "react-redux";
 import { Placeholder } from "../../common/Placeholder/Placeholder";
 import { useTranslation } from "react-i18next";
+import ErrorPart from "../../common/ErrorPart";
 
 export function ContractAnalysisCard() {
   const bscdata = useSelector(state => state.GetBSCdata.data);
@@ -52,7 +53,6 @@ export function ContractAnalysisCard() {
     <>
       {bscstatus === "success" && (
         <div style={{ width: "100%" }}>
-          <h5 style={{ fontFamily: "SF Pro Display Medium" }}>{t("token:contract_analysis")}</h5>
           <div className={`align-self-center ${lang === "ar" ? styles.listGroup_rtl : styles.listGroup_ltr}`}>
             {data.map((item, index) => {
               return (
@@ -95,7 +95,7 @@ export function ContractAnalysisCard() {
         </div>
       )}
 
-      {bscstatus === "failed" && ""}
+      {bscstatus === "failed" && <ErrorPart message="Failed to get data from server" />}
     </>
   );
 }

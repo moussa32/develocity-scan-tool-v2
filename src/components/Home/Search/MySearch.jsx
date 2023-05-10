@@ -7,7 +7,6 @@ import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Search.module.css";
-import { BiBitcoin } from "react-icons/bi";
 import ResultDropdown from "./ResultDropdown";
 
 const MySearch = () => {
@@ -21,7 +20,6 @@ const MySearch = () => {
   const search = useSelector(state => state.Search);
   const search_status = useSelector(state => state.Search?.status);
   const searchCode = useSelector(state => state.Search?.searchCode);
-  console.log(disable);
 
   const notify = () =>
     toast.error("Invalid Contract Address!", {

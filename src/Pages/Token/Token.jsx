@@ -35,11 +35,11 @@ import UseAdvertisment from "../../hooks/UseAdvertisment";
 import styles from "./Token.module.css";
 import { fetchBSCResult } from "../../store/FetchBSCData";
 import { fetchTokenInfoResult } from "../../store/FetchTokenInfo";
-import { BiErrorCircle } from "react-icons/bi";
 import { fetchBuySellBSCResult } from "../../store/FetchBuySellBSC";
 import { fetchBscLiquidityScan } from "../../store/bscLiquidityScanSlice";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorWrapper from "../../components/common/ErrorWrapper";
+import ErrorPart from "../../components/common/ErrorPart";
 
 const Token = () => {
   const dispatch = useDispatch();
@@ -207,23 +207,7 @@ const Token = () => {
                 {tokenOwnerData.tokenOwner.ownerInfo.ownerAddress ? (
                   <TokenOwner ownerInfo={tokenOwnerData.tokenOwner.ownerInfo} />
                 ) : (
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "100%",
-                      background: "#dddddd42",
-                      color: "rgb(236 73 82 / 95%)",
-                      fontFamily: "SF Pro Display Medium",
-                      fontSize: "16px",
-                      flexDirection: "column",
-                      gap: "15px",
-                    }}
-                  >
-                    <BiErrorCircle size={32} />
-                    {t("token_does_not_have_owner")}
-                  </div>
+                  <ErrorPart message={t("token_does_not_have_owner")} />
                 )}
               </div>
             </div>

@@ -12,7 +12,6 @@ const BreadCrumbBar = () => {
 
   const { pathname } = useLocation();
   const tokenInfoData = tokenData.result;
-  console.log(tokenInfoData);
 
   return (
     <div className="container">

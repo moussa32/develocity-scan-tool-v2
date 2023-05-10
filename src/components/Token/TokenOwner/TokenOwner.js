@@ -30,7 +30,6 @@ const TokenOwner = ({ ownerInfo }) => {
       accessor: "liquidity",
       Header: t("token:liquidity"),
       Cell: ({ value }) => {
-        console.log(value);
         return (
           <div className="token_owner_liquidity">
             {value.liquidity !== "NaN" ? (
@@ -81,7 +80,10 @@ const TokenOwner = ({ ownerInfo }) => {
     <>
       {OwnerData.length > 0 ? (
         <>
-          <HeaderText nameHeader={t("token:token_owner")} title="Token owner details from all sides hold tokens, liquidity and contract ownership." />
+          <HeaderText
+            nameHeader={t("token:token_owner")}
+            title="Token owner details from all sides hold tokens, liquidity and contract ownership."
+          />
           <TokenTable data={OwnerData} columns={columns} />
         </>
       ) : null}
