@@ -126,7 +126,7 @@
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 992px) {
   .customNavbar {
     padding-top: 0 !important;
   }
