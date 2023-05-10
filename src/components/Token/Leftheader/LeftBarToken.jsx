@@ -20,6 +20,18 @@ function formatNumber(val) {
   return Number(val).toLocaleString("en-US");
 }
 
+function formatBigNumbers(number) {
+  console.log(number);
+  const suffixes = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion"];
+  const suffixIndex = Math.floor(Math.log10(Number(number.replace(/,/g, ""))) / 3);
+  const suffix = suffixes[suffixIndex];
+
+  const scaledNumber = Number(number.replace(/,/g, "")) / Math.pow(1000, suffixIndex);
+  const roundedNumber = Math.round(scaledNumber * 100) / 100; // Round to 2 decimal places
+
+  return roundedNumber + " " + suffix;
+}
+
 export function LeftBarToken() {
   const { contractAddress } = useParams();
   const tokenData = useSelector(state => state.Gettokeninfodata.data);
@@ -223,13 +235,13 @@ export function LeftBarToken() {
             <p className="fs-5 mb-2">
               {lang === "ar" ? (
                 <>
-                  {tokenInfoData ? formatNumber(tokenInfoData.contractInfo.total_supply) : null}
+                  {tokenInfoData ? formatBigNumbers(tokenInfoData.contractInfo.total_supply) : null}
                   <span className="pe-1"></span>
                   {tokenInfoData ? tokenInfoData.contractInfo.symbol : null}
                 </>
               ) : (
                 <>
-                  {tokenInfoData ? formatNumber(tokenInfoData.contractInfo.total_supply) : null}{" "}
+                  {tokenInfoData ? formatBigNumbers(tokenInfoData.contractInfo.total_supply) : null}{" "}
                   {tokenInfoData ? tokenInfoData.contractInfo.symbol : null}
                 </>
               )}

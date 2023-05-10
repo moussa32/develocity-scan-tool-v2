@@ -65,15 +65,11 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
     filteredTokenList();
   }, [isVerifyied]);
 
-  const handleFixedColumnDirection = useCallback(() => {
-    return "left";
-  }, [direction]);
-
   const columns = [
     {
       title: "Token",
       dataIndex: "contractInfo",
-      fixed: handleFixedColumnDirection(),
+      fixed: "left",
       filters: [{ text: "Verified Tokens", value: true }],
       onFilter: (value, record) => record.isNotListed === value,
       width: window.innerWidth < 400 ? 150 : 222,

@@ -11,13 +11,13 @@ const NavDisplay = () => {
 
   return (
     <>
-      <nav className={"navbar navbar-expand-lg "}>
+      <nav className={`navbar navbar-expand-lg ${styles.customNavbar}`}>
         <div
           className={`container align-items-center ${styles.navbarHeaderContainer} ${
             direction === "rtl" ?? styles.navbar_rtl
           }`}
         >
-          <Link className="navbar-brand" to="/">
+          <Link className={`${styles.navbarBrand} navbar-brand`} to="/">
             <img width="45" src={logo} alt="logo" />
           </Link>
           <button
@@ -39,14 +39,10 @@ const NavDisplay = () => {
             <ul className={`navbar-nav mb-2 d-inline-block w-auto mb-lg-0 ${styles.listGroup}`}>
               <div className="d-lg-flex w-100 justify-content-between align-items-center">
                 <div className={`d-lg-flex ${styles.navItemsContainer}`}>
-                  <li className="nav-item">
+                  <li className={`${styles.headerNavLink} nav-item`}>
                     <NavLink
                       className={({ isActive }) =>
-                        isActive
-                          ? `${styles.linkitem} ${
-                              direction === "ltr" ? styles.activeLinkitem : styles.activeLinkitem_rtl
-                            }`
-                          : `${styles.linkitem}`
+                        isActive ? `${styles.linkitem} ${styles.activeLinkitem}` : `${styles.linkitem}`
                       }
                       aria-current="page"
                       to="/"
@@ -54,7 +50,7 @@ const NavDisplay = () => {
                       {t("common:home")}
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className={`${styles.headerNavLink} nav-item`}>
                     <a
                       href="https://develocity.group/"
                       className={`${styles.linkitem}`}
@@ -64,7 +60,7 @@ const NavDisplay = () => {
                       {t("common:about")}
                     </a>
                   </li>
-                  <li className="nav-item">
+                  <li className={`${styles.headerNavLink} nav-item`}>
                     <NavLink
                       className={({ isActive }) =>
                         isActive || pathname.includes("token")
@@ -76,10 +72,10 @@ const NavDisplay = () => {
                       {t("common:tokens")}
                     </NavLink>
                   </li>
-                  {/* <li className="nav-item">
+                  {/* <li className={`${styles.headerNavLink} nav-item`}>
                     <a className={`${styles.linkitem}`}>{t("Academy")}</a>
                   </li> */}
-                  <li className="nav-item">
+                  <li className={`${styles.headerNavLink} nav-item`}>
                     <a
                       href="https://finance.xite.solutions/contact-us"
                       target="_blank"
