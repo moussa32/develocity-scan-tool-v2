@@ -139,6 +139,16 @@
   overflow-y: auto;
 }
 
+.notFoundData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: "SF Pro Display Medium";
+  color: #e13232;
+  padding: 10px;
+}
+
 @media only screen and (max-width: 991px) {
   /* .searchSection{
         width: 100%;
