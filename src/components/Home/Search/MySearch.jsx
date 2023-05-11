@@ -12,7 +12,7 @@ import ResultDropdown from "./ResultDropdown";
 const MySearch = () => {
   const { t } = useTranslation(["common"]);
   const lang = localStorage.getItem("i18nextLng");
-  const [term, setTerm] = useState(null);
+  const [query, setQuery] = useState(null);
   const [dataGet, setdataGet] = useState([]);
   const [disable, setDisable] = useState(true);
   const navigate = useNavigate();
@@ -34,14 +34,14 @@ const MySearch = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (term != null) {
-      dispatch(fetchResult(term));
+    if (query != null) {
+      dispatch(fetchResult(query));
     }
-  }, [dispatch, term]);
+  }, [dispatch, query]);
 
   useEffect(() => {
-    if (term) {
-      if (term.startsWith("0x") && term.length === 42) {
+    if (query) {
+      if (query.startsWith("0x") && query.length === 42) {
         setDisable(false);
       } else {
         const timeOut = setTimeout(() => {
@@ -64,13 +64,13 @@ const MySearch = () => {
     } else {
       // setdataGet(null);
     }
-  }, [search, term]);
+  }, [search, query]);
 
   const searchContractaddress = () => {
-    // if( term.startsWith("0x") && term.length === 42 ){
+    // if( query.startsWith("0x") && query.length === 42 ){
     //   if(search_status==='success'){
-    //     // window.location.href=`/token/${term}`
-    //     navigate(`/token/${term}`)
+    //     // window.location.href=`/token/${query}`
+    //     navigate(`/token/${query}`)
     //   }else{
     //     notify()
     //   }
@@ -79,7 +79,7 @@ const MySearch = () => {
     // }
 
     if (!disable) {
-      navigate(`/token/${term}`);
+      navigate(`/token/${query}`);
     }
   };
 
@@ -105,14 +105,14 @@ const MySearch = () => {
         <input
           type="text"
           className={styles.searchInput}
-          onChange={e => setTerm(e.target.value)}
-          value={term === null ? "" : term}
+          onChange={e => setQuery(e.target.value)}
+          value={query === null ? "" : query}
         />
         <button
           onClick={searchContractaddress}
           // onClick={()=> {
           //    // eslint-disable-next-line no-unused-expressions
-          //    (term.startsWith("0x") && term.length === 42) ? (search_status==='success'?window.location.href=`/token/${term}` :notify() ):(window.location.href=`/`)
+          //    (query.startsWith("0x") && query.length === 42) ? (search_status==='success'?window.location.href=`/token/${query}` :notify() ):(window.location.href=`/`)
           // }}
           className={`${styles.searchBtn} ${lang === "ar" ? styles.searchBtn_rtl : styles.searchBtn_ltr}`}
           disabled={disable}
