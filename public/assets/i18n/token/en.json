@@ -99,8 +99,8 @@
   },
   "trustScoreTitle": {
     "notBad":  "Contract Reliability: Good",
-    "runAway": "Contract Reliability: Moderate",
-    "thinkTwice": "Contract Reliability: Low"
+    "runAway": "Contract Reliability: Low" ,
+    "thinkTwice": "Contract Reliability: Moderate"
   },
   "tokenType": {
     "verified": "Smart contract: Verified",
