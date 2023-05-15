@@ -8,22 +8,18 @@ import HeaderCard from "../HeaderCard/HeaderCard";
 import CardScans from "../Card/CardScans";
 import { useTranslation } from "react-i18next";
 import { socket } from "../../../config/socket";
-import { useDispatch, useSelector } from "react-redux";
-import { changeLoadingStatus } from "../../../store/isPageLoaded";
 import { convertFromScientificNotation } from "../../../util/scientificNotation";
 import SpacialNumber from "../../common/SpacialNumber";
 
 const toFixed = number => Math.round(number);
 
 const ScansSection = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
   const [popularScans, setPopularScans] = useState(null);
   const [recentlyVerified, setRecentlyVerified] = useState(null);
   const [lastScans, setLastScans] = useState(null);
   const { t } = useTranslation(["home", "common"]);
   const lang = localStorage.getItem("i18nextLng");
-  const isPageLoaded = useSelector(state => state.isPageLoaded.status);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleSocketPopularScan = data => {
@@ -32,7 +28,6 @@ const ScansSection = () => {
     const handleSocketHighScore = data => {
       setRecentlyVerified(data);
     };
-
     const handleSocketLatestScan = data => {
       setLastScans(data);
     };
@@ -45,17 +40,12 @@ const ScansSection = () => {
       socket.off("highScore", handleSocketHighScore);
       socket.off("latestScan", handleSocketLatestScan);
     };
-  }, [socket]);
+  }, [socket, popularScans]);
 
   useEffect(() => {
-    // if (popularScans && recentlyVerified && lastScans && !isPageLoaded) {
-    //   dispatch(changeLoadingStatus(true));
-    //   setIsLoaded(true);
-    // }
     if (popularScans && recentlyVerified && lastScans) {
-      setIsLoaded(true);
+      setIsLoaded(false);
     }
-    // return () => dispatch(changeLoadingStatus(false));
   }, [popularScans, recentlyVerified, lastScans]);
 
   const handleColumnValue = value => {
@@ -74,7 +64,7 @@ const ScansSection = () => {
 
   return (
     <div className="container" style={lang === "ar" ? { direction: "rtl" } : { direction: "ltr" }}>
-      {isLoaded && (
+      {!isLoaded && (
         <Row>
           <Col lg={4} md={6} sm={12}>
             <HeaderCard image={star} title={t("home:popular_today")} />
