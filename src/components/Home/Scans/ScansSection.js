@@ -48,11 +48,14 @@ const ScansSection = () => {
   }, [socket]);
 
   useEffect(() => {
-    if (popularScans && recentlyVerified && lastScans && !isPageLoaded) {
-      dispatch(changeLoadingStatus(true));
+    // if (popularScans && recentlyVerified && lastScans && !isPageLoaded) {
+    //   dispatch(changeLoadingStatus(true));
+    //   setIsLoaded(true);
+    // }
+    if (popularScans && recentlyVerified && lastScans) {
       setIsLoaded(true);
     }
-    return () => dispatch(changeLoadingStatus(false));
+    // return () => dispatch(changeLoadingStatus(false));
   }, [popularScans, recentlyVerified, lastScans]);
 
   const handleColumnValue = value => {

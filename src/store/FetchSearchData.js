@@ -2,11 +2,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../config/axiosconfig";
 
+const isContractInfoEmpty = contractInfoObject => Object.keys(contractInfoObject).length === 0;
+
 export const fetchResult = createAsyncThunk("search/fetchResult", async searchKey => {
   try {
     const response = await instance.get(`user/suggestion?name=${searchKey}`);
-    // const response = await axios.get(`https://api.develocity.finance/api/v1/user/suggestion?name=${searchKey}`)
-    return response.data;
+    const filteredDataResults = response.data.result.filter(item => !isContractInfoEmpty(item.contractInfo));
+
+    return { ...response.data, result: filteredDataResults };
   } catch (error) {
     return error.response.data;
   }
@@ -36,7 +39,6 @@ const Search = createSlice({
   extraReducers: {
     [fetchResult.fulfilled]: (state, payload) => {
       state.data = payload;
-      // console.log("new:", payload)
       state.status = "success";
       state.searchCode = payload.payload?.responseCode;
     },
