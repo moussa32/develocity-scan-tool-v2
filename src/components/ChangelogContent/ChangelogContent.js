@@ -5,6 +5,7 @@ import { fetchListNewsdata } from "../../store/FetchListNews";
 import styles from "./ChangelogContent.module.css";
 import { Placeholder } from "../common/Placeholder/Placeholder";
 import logo from "../../assets/images/emptypng.png";
+import parse from "html-react-parser";
 
 const ChangelogContent = () => {
   const listnewdata = useSelector(state => state.GetListNewsdata.data);
@@ -26,9 +27,9 @@ const ChangelogContent = () => {
   return (
     <Fragment>
       {/*tabs */}
-      <div className="container mt-5">
-        <ul className={` ${styles.changelogTabs} nav nav-pills mb-3  `} id="pills-tab" role="tablist">
-          <li className={`${styles.tabLink}  nav-item`} role="presentation">
+      <div className={`container ${styles.changeLogContainer}`}>
+        <ul className={` ${styles.changelogTabs} nav nav-pills mb-3 `} id="pills-tab" role="tablist">
+          <li className={`${styles.tabLink} nav-item`} role="presentation">
             <button
               onClick={changecategory}
               value="All"
@@ -41,7 +42,7 @@ const ChangelogContent = () => {
               {t("changelog:view")}
             </button>
           </li>
-          <li className={`${styles.tabLink}  nav-item`} role="presentation">
+          <li className={`${styles.tabLink} nav-item`} role="presentation">
             <button
               onClick={changecategory}
               value="Announcement"
@@ -54,7 +55,7 @@ const ChangelogContent = () => {
               {t("changelog:announce")}
             </button>
           </li>
-          <li className={`${styles.tabLink}  nav-item`} role="presentation">
+          <li className={`${styles.tabLink} nav-item`} role="presentation">
             <button
               onClick={changecategory}
               value="Bug Fix"
@@ -67,7 +68,7 @@ const ChangelogContent = () => {
               {t("changelog:bug")}
             </button>
           </li>
-          <li className={`${styles.tabLink}  nav-item`} role="presentation">
+          <li className={`${styles.tabLink} nav-item`} role="presentation">
             <button
               onClick={changecategory}
               value="Product"
@@ -80,7 +81,7 @@ const ChangelogContent = () => {
               {t("changelog:product")}
             </button>
           </li>
-          <li className={`${styles.tabLink}  nav-item`} role="presentation">
+          <li className={`${styles.tabLink} nav-item`} role="presentation">
             <button
               onClick={changecategory}
               value="Company"
@@ -114,10 +115,17 @@ const ChangelogContent = () => {
                         <>
                           {el.news.map((ele, index) => (
                             <section className={` ${styles.wrapper}`} key={index}>
-                              <div className={` ${styles.typeBlock}`}>
+                              <div
+                                className={`${lang === "ar" ? styles.typeBlock_rtl : styles.typeBlock_ltr} ${
+                                  styles.typeBlock
+                                }`}
+                              >
                                 <div className={lang === "ar" ? styles.typeDate_rtl : styles.typeDate_ltr}>
                                   <h1
-                                    className={`${el.category === "announcement" && styles.typeAnnounce}
+                                    className={`${styles.typeCard} ${
+                                      el.category === "announcement" && styles.typeAnnounce
+                                    }
+                                    ${lang === "ar" ? styles.typeCard_rtl : styles.typeCard_ltr}
                                   ${el.category === "product" && styles.typeProduct}
                                   ${el.category === "bug fix" && styles.typeBug}
                                   ${el.category === "company" && styles.typeCompany}`}
@@ -127,8 +135,7 @@ const ChangelogContent = () => {
                                     {el.category === "bug fix" && t("changelog:bug")}
                                     {el.category === "company" && t("changelog:company")}
                                   </h1>
-                                  <p className={styles.date}>{ele.createdAt.split("T")[0]}</p>
-                                  <p className={styles.date}>{ele.createdAt.split("T")[1].split(".")[0]}</p>
+                                  <p className={styles.date}>{new Date(ele.createdAt).toDateString()}</p>
                                 </div>
                               </div>
                               {el.news.length !== 0 ? (
@@ -140,7 +147,7 @@ const ChangelogContent = () => {
                               <div className={lang === "ar" ? styles.content_rtl : styles.content_ltr}>
                                 <div className={styles.details}>
                                   <h2 className={styles.title}>{ele.title}</h2>
-                                  <p>{ele.description}. </p>
+                                  <>{ele.description ? parse(ele.description) : "No description"}</>
                                 </div>
                               </div>
                             </section>

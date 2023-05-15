@@ -56,6 +56,11 @@
   cursor: pointer;
 }
 
+.searchBtn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
 .searchBtn_ltr {
   min-width: 90px;
   height: 42px;
@@ -132,6 +137,16 @@
   z-index: 2;
   max-height: 272px;
   overflow-y: auto;
+}
+
+.notFoundData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: "SF Pro Display Medium";
+  color: #e13232;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 991px) {

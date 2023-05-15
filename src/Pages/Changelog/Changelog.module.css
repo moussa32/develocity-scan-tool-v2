@@ -1,36 +1,15 @@
-.wholeBg{
-    background-color: #fff;
-    /* height: 100%; */
-    /* padding-bottom: 200px; */
-    position: relative;
-}
-.reAdv{
-    width: 970px;
-    height: 90px;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px auto 77px;
-}
-.reAdv span{
-    color: #888;
-    font-size: 12px;
+.wholeBg {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.copyRight{
-    padding-top: 30px;
-    /* position: absolute;
-   bottom: 0px;
-   left: 20%; */
+.wholeBg > *:last-child {
+  margin-top: auto;
 }
-@media only screen and (max-width: 991px){
-    .reAdv{
-        width: 728px;
-    }
-}
-@media screen and (max-width:767px) {
-    .reAdv{
-        width: 90%;
-    }
+
+.copyRight {
+  padding-top: 30px;
 }

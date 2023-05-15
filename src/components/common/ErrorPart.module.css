@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: #dddddd42;
+  color: rgb(236 73 82 / 95%);
+  font-family: "SF Pro Display Medium";
+  font-size: 15px;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+  padding: 15px;
+}
