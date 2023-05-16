@@ -25,14 +25,16 @@ const notify = message =>
 const MySearch = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [isNotFound, setIsNotFound] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
+  const [error, setError] = useState(null);
+
   const { t, i18n } = useTranslation(["common"]);
   const debouncedValue = useDebounce(query, 500);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const direction = i18n.dir();
 
+  const search = useSelector(state => state.Search);
   const searchResults = useSelector(state => state.Search?.data?.payload?.result);
   const searchResultsStatus = useSelector(state => state.Search?.status);
   const searchCode = useSelector(state => state.Search?.searchCode);
@@ -48,6 +50,8 @@ const MySearch = () => {
   useEffect(() => {
     if (debouncedValue.startsWith("0x") && debouncedValue.length === 42 && searchCode === 200) {
       setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
     }
   }, [searchCode, debouncedValue]);
 
@@ -60,35 +64,37 @@ const MySearch = () => {
     }
   }, [searchResults, searchCode, query]);
 
-  //Update isNotFound flag to be only show when server return 404 code
+  //Update error flag to be only show when server return error
   useEffect(() => {
-    if (searchCode === 404) {
-      setIsNotFound(true);
+    setError(null);
+    if (searchCode >= 400) {
+      setError(search?.data?.payload?.responseMessage);
     } else {
-      setIsNotFound(false);
+      setError(null);
     }
   }, [searchCode]);
 
   const handleSearch = event => {
     const { value } = event.target;
-    const alphaNumericOnly = /^[A-Za-z0-9]+$/;
+    const userQuery = value;
+    const alphaNumericOnly = /^[A-Za-z0-9\s]+$/;
     setSuggestions([]);
 
-    //First check if user typed anything
-    if (value.length > 0) {
+    //First check if user typed anything and remove white spaces
+    if (userQuery.trim().length > 0) {
       //Second check if user typed character that only alphabetic or numeric
-      if (alphaNumericOnly.test(value)) {
+      if (alphaNumericOnly.test(userQuery)) {
         setQuery(prevState => {
           if (prevState !== query) {
-            setIsNotFound(false);
+            setError(null);
           }
-          return value;
+          return userQuery;
         });
       } else {
         notify("Contract address or token name must be written correctly");
       }
     } else {
-      setIsNotFound(false);
+      setError(null);
       setIsDisabled(true);
       setQuery("");
     }
@@ -143,10 +149,10 @@ const MySearch = () => {
               ))}
           </div>
         )}
-        {searchCode === 404 && searchResultsStatus === "success" && isNotFound && (
+        {searchResultsStatus === "success" && error && (
           <div className={`${styles.searchBlock} ${styles.notFoundData}`}>
             <BiUpsideDown size={18} />
-            Data not found
+            {error}
           </div>
         )}
       </div>
