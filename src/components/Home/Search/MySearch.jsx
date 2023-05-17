@@ -48,7 +48,7 @@ const MySearch = () => {
 
   //Enable search button only if user typed contract address
   useEffect(() => {
-    if (debouncedValue.startsWith("0x") && debouncedValue.length === 42 && searchCode === 200) {
+    if (debouncedValue.startsWith("0x") && debouncedValue.length === 42) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
