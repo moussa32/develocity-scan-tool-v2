@@ -95,7 +95,7 @@ export function LeftBarToken() {
           <span className={`ms-2 px-2 me-2 py-1 ${styles.symbol}`}>
             {tokenInfoData ? tokenInfoData.contractInfo.symbol : null}
           </span>
-          {scoreData?.contractScan === 0 || scoreData.status == "SCAM" && <span className={`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>}
+          {scoreData?.contractScan === 0 && <span className={`py-1 px-2 me-2 ${styles.isScam}`}>Scam</span>}
 
           <span className="ms-2">
             {tokenInfoData && tokenInfoData.isNotListed && <img src={VerificationIcon} width={18} alt="verified" />}
