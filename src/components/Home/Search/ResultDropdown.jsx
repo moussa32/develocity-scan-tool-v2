@@ -23,7 +23,7 @@ const ResultDropdown = ({ contractAddress, logo, name, symbol, contractScan, isS
 
         <div className={styles.details}>
           <div className={styles.headerTitle}>
-            <h2 className={styles.resultTokenName}>{name}</h2>
+            <h2 className={styles.resultTokenName}>{name}&nbsp;&nbsp;</h2>
             <span className={styles.resultTokenTicker}>{symbol}&nbsp;&nbsp;</span>
             {isScam && (
             <svg
