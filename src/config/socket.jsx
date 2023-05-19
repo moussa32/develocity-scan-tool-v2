@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-export const socket = io("develocity-blockchain-stagging-production-ea42.up.railway.app", {
+export const socket = io("https://api.xite.solutions/", {
   extraHeaders: {
     ["my-auth"]: "abcd",
   },

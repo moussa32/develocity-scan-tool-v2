@@ -77,7 +77,7 @@ const NavDisplay = () => {
                   </li> */}
                   <li className={`${styles.headerNavLink} nav-item`}>
                     <a
-                      href="#"
+                      href="https://develocity.finance/contact-us"
                       target="_blank"
                       rel="dofollow"
                       className={`${styles.linkitem}`}

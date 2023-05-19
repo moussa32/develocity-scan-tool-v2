@@ -40,7 +40,7 @@ const Tokens = () => {
     <div>
       <NavBar />
 
-      <div style={{ backgroundColor: "#F3F2F7", padding: "25px 0px 35px" }}>
+      {/* <div style={{ backgroundColor: "#F3F2F7", padding: "25px 0px 35px" }}>
         <div className="container">
           <div className="row">
             <div className="col-12 d-flex justify-content-center align-items-center">
@@ -50,7 +50,7 @@ const Tokens = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div style={{ backgroundColor: "#FFFFFF", padding: "40px 0px 0px 0px" }}>
         <div className="container">
