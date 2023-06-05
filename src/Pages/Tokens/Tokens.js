@@ -44,9 +44,9 @@ const Tokens = () => {
         <div className="container">
           <div className="row">
             <div className="col-12 d-flex justify-content-center align-items-center">
-              {advertisment_Status === "success" && advertisment_code === 200 && (
-                <AdvertismentTokens getAdvertismentData={getAdvertismentData} />
-              )}
+              <a href="https://develocity.finance">
+                <img src={"./930x180.gif"} width={300}/>
+              </a>
             </div>
           </div>
         </div>

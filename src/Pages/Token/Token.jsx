@@ -170,10 +170,9 @@ const Token = () => {
                 <RugpullCard />
               </div>
               <div className="col-12 col-md-4 ">
-                <div className="col-12 mt-5 mt-md-0">
-                  {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[0] && (
-                    <AdevertiseTokenOne getAdvertismentData={getAdvertismentData} />
-                  )}
+                <div className={`col-12 mt-10 mt-md-0 mx-auto ml-6 margin-right ${styles.marginRight}`}>
+
+                  <img src="../ad.gif" className={`${styles.marginRight}`} />
                 </div>
               </div>
             </div>
@@ -192,10 +191,8 @@ const Token = () => {
                 <TableLoader />
               </div>
             )}
-            <div className="mt-5">
-              {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[1] && (
-                <AdevertiseTokenTwo getAdvertismentData={getAdvertismentData} />
-              )}
+            <div className={`mx-auto mr-auto mt-5 ml-5`}>
+              <img src="../930x180.gif" width={300} className={`${styles.secondAd}`}/>
             </div>
           </div>
         </div>
@@ -250,11 +247,8 @@ const Token = () => {
             <div className="d-md-flex justify-content-between" style={{ gap: "20px" }}>
               <Slippage />
 
-              {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[2] && (
-                <div className="mt-5">
-                  <AdevertiseTokenThree getAdvertismentData={getAdvertismentData} />
-                </div>
-              )}
+              <img src="../ad.gif" className={`${styles.marginRight2}`} />
+
             </div>
           </div>
           <div className="col-12 col-lg-6">

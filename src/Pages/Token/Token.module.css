@@ -7,17 +7,29 @@
   margin-left: auto;
   width: 100%;
 }
+.secondAd{
+  margin: 30px!important;
+ }
 
 @media screen and (min-width: 576px) {
   .tokenHeader {
     padding-left: 44px;
     padding-right: 44px;
   }
+  .secondAd{
+   margin: 30px!important;
+  }
 }
 
 @media screen and (max-width: 992px) {
   .LeftBarToken {
     margin-top: 1.5rem;
+  }
+  .marginRight{
+    margin-left: 8%!important;
+  }
+  .marginRight2{
+    margin-left: 15%!important;
   }
 }
 
@@ -27,5 +39,8 @@
   }
   .walletsContainer {
     margin-top: 110px;
+  }
+  .secondAd{
+    width: 500px;
   }
 }
