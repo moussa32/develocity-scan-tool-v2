@@ -8,78 +8,101 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./Search.module.css";
 import ResultDropdown from "./ResultDropdown";
+import useDebounce from "../../../hooks/useDebounce";
+import { BiUpsideDown , BiBitcoin} from "react-icons/bi";
+
+const notify = message =>
+  toast.error(message, {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
 const MySearch = () => {
-  const { t } = useTranslation(["common"]);
-  const lang = localStorage.getItem("i18nextLng");
-  const [term, setTerm] = useState(null);
-  const [dataGet, setdataGet] = useState([]);
-  const [disable, setDisable] = useState(true);
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [error, setError] = useState(null);
+
+  const { t, i18n } = useTranslation(["common"]);
+  const debouncedValue = useDebounce(query, 500);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const direction = i18n.dir();
 
   const search = useSelector(state => state.Search);
-  const search_status = useSelector(state => state.Search?.status);
+  const searchResults = useSelector(state => state.Search?.data?.payload?.result);
+  const searchResultsStatus = useSelector(state => state.Search?.status);
   const searchCode = useSelector(state => state.Search?.searchCode);
 
-  const notify = () =>
-    toast.error("Invalid Contract Address!", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-
-  const dispatch = useDispatch();
+  //Send new request to the server after 500ms form last character user has entered
   useEffect(() => {
-    if (term != null) {
-      dispatch(fetchResult(term));
+    if (debouncedValue.length > 0) {
+      dispatch(fetchResult(debouncedValue));
     }
-  }, [dispatch, term]);
+  }, [dispatch, debouncedValue]);
 
+  //Enable search button only if user typed contract address
   useEffect(() => {
-    if (term) {
-      if (term.startsWith("0x") && term.length === 42) {
-        setDisable(false);
+    if (debouncedValue.startsWith("0x") && debouncedValue.length === 42) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [searchCode, debouncedValue]);
+
+  //Update local state that carry search results
+  useEffect(() => {
+    if (searchResults && query.length > 0 && searchCode !== 404) {
+      setSuggestions(searchResults);
+    } else {
+      setSuggestions([]);
+    }
+  }, [searchResults, searchCode, query]);
+
+  //Update error flag to be only show when server return error
+  useEffect(() => {
+    setError(null);
+    if (searchCode >= 400) {
+      setError(search?.data?.payload?.responseMessage);
+    } else {
+      setError(null);
+    }
+  }, [searchCode]);
+
+  const handleSearch = event => {
+    const { value } = event.target;
+    const userQuery = value;
+    const alphaNumericOnly = /^[A-Za-z0-9\s]+$/;
+    setSuggestions([]);
+
+    //First check if user typed anything and remove white spaces
+    if (userQuery.trim().length > 0) {
+      //Second check if user typed character that only alphabetic or numeric
+      if (alphaNumericOnly.test(userQuery)) {
+        setQuery(prevState => {
+          if (prevState !== query) {
+            setError(null);
+          }
+          return userQuery;
+        });
       } else {
-        const timeOut = setTimeout(() => {
-          const myData = search.data.payload.result;
-          console.log(myData);
-          const newMyData = myData.map(e => ({
-            name: e.contractInfo.name,
-            symbol: e.contractInfo.symbol,
-            logo: e.contractInfo.logo,
-            interest: e.interest,
-            listed: e.isNotListed,
-            contractAddress: e.contractAddress,
-            contractScan: e.contractScan,
-          }));
-          setdataGet(newMyData);
-        }, 800);
-        setDisable(true);
-        return () => clearTimeout(timeOut);
+        notify("Contract address or token name must be written correctly");
       }
     } else {
-      // setdataGet(null);
+      setError(null);
+      setIsDisabled(true);
+      setQuery("");
     }
-  }, [search, term]);
+  };
 
-  const searchContractaddress = () => {
-    // if( term.startsWith("0x") && term.length === 42 ){
-    //   if(search_status==='success'){
-    //     // window.location.href=`/token/${term}`
-    //     navigate(`/token/${term}`)
-    //   }else{
-    //     notify()
-    //   }
-    // }else{
-    //   window.location.href=`/`
-    // }
-
-    if (!disable) {
-      navigate(`/token/${term}`);
+  const searchContractAddress = () => {
+    if (!isDisabled) {
+      navigate(`/token/${query}`);
     }
   };
 
@@ -97,60 +120,50 @@ const MySearch = () => {
         pauseOnHover
       />
       <span className={styles.searchNote}>
-        <FaCircle className={`${styles.dot} ${lang === "ar" ? styles.dot_rtl : styles.dot_ltr}`} />
+        <FaCircle className={`${styles.dot} ${direction === "rtl" ? styles.dot_rtl : styles.dot_ltr}`} />
         {t("common:enter_token")}
       </span>
 
       <div className={styles.searchSection}>
-        <input
-          type="text"
-          className={styles.searchInput}
-          onChange={e => setTerm(e.target.value)}
-          value={term === null ? "" : term}
-        />
+        <input type="text" className={styles.searchInput} onChange={handleSearch} value={query === null ? "" : query} />
         <button
-          onClick={searchContractaddress}
-          // onClick={()=> {
-          //    // eslint-disable-next-line no-unused-expressions
-          //    (term.startsWith("0x") && term.length === 42) ? (search_status==='success'?window.location.href=`/token/${term}` :notify() ):(window.location.href=`/`)
-          // }}
-          className={`${styles.searchBtn} ${lang === "ar" ? styles.searchBtn_rtl : styles.searchBtn_ltr}`}
-          disabled={disable}
+          onClick={searchContractAddress}
+          className={`${styles.searchBtn} ${direction === "rtl" ? styles.searchBtn_rtl : styles.searchBtn_ltr}`}
+          disabled={isDisabled}
         >
-          {t("common:Scan")}
+          {searchResultsStatus === "loading" ? "loading..." : t("common:Scan")}
         </button>
         {searchCode === 200 && (
-          <div className={dataGet.length !== 0 ? styles.searchBlock : null}>
-            {/* <div className= {(search.status === "failed" || search.status==='loading')? styles.searchBlock:""}>  */}
-            {search.status === "success" &&
-              dataGet.length !== 0 &&
-              dataGet.map((resultElement, index) => (
-                <>
-                  {/* {console.log(resultElement)} */}
-                  <ResultDropdown
-                    key={index}
-                    contractAddress={resultElement.contractAddress}
-                    logo={resultElement.logo}
-                    name={resultElement.name}
-                    symbol={resultElement.symbol}
-                    contractScan={resultElement.contractScan}
-                    isScam={resultElement.listed}
-                  />
-                </>
+          <div className={suggestions.length !== 0 ? styles.searchBlock : null}>
+            {suggestions.length !== 0 &&
+              suggestions.map((result, index) => (
+                <ResultDropdown
+                  key={index}
+                  contractAddress={result.contractAddress}
+                  logo={result.contractInfo.logo}
+                  name={result.contractInfo.name}
+                  symbol={result.contractInfo.symbol}
+                  contractScan={result.contractScan}
+                  isScam={result.isNotListed}
+                />
               ))}
-            {/* end of success */}
-            {search.status === "loading" && <div>loading...</div>}
+          </div>
+        )}
+        {searchResultsStatus === "success" && error && (
+          <div className={`${styles.searchBlock} ${styles.notFoundData}`}>
+            <BiUpsideDown size={18} />
+            {error}
           </div>
         )}
       </div>
-      {/* <div className={styles.searchNote2}>
+      <div className={styles.searchNote2}>
         <span className={styles.note}>{t("common:sponsered")}</span>
-        <span className={styles.note2}>
-          <BiBitcoin className={lang === "ar" ? styles.bitcoin_rtl : styles.bitcoin_ltr} />
+        <a className={styles.note2} href="https://develocity.finance">
+          <img src="../../logo.png" className={direction === "rtl" ? styles.bitcoin_rtl : styles.bitcoin_ltr} />
           {t("common:invest")}
-        </span>
-      </div> */}
-      {/* className= {(search.status === "failed")? styles.searchNotFound:""} */}
+        </a>
+      </div>
+      {/* className= {(searchResults.status === "failed")? styles.searchNotFound:""} */}
     </>
   );
 };

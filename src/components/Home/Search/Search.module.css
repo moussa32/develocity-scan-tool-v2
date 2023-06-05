@@ -78,7 +78,7 @@
   margin-top: 7px;
 }
 .note {
-  font-size: 8px;
+  font-size: 10px;
   color: #9f4ae8;
   text-transform: uppercase;
   width: 60px;
@@ -137,6 +137,16 @@
   z-index: 2;
   max-height: 272px;
   overflow-y: auto;
+}
+
+.notFoundData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: "SF Pro Display Medium";
+  color: #e13232;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 991px) {

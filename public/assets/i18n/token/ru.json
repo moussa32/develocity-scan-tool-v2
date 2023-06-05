@@ -93,9 +93,9 @@
     "liquidityInfo": "liquidity"
   },
   "trustScoreTitle": {
-    "notBad": "Not Bad",
-    "runAway": "Run Away",
-    "thinkTwice": "Think Twice"
+    "notBad":  "Contract Reliability: Good",
+    "runAway": "Contract Reliability: Low" ,
+    "thinkTwice": "Contract Reliability: Moderate"
   },
   "tokenType": {
     "verified": "верифицировано",

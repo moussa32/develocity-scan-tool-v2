@@ -88,8 +88,8 @@ const TrustScore = () => {
               </div>
               <h2 className={styles.title}>
                 {scoreData?.contractScan < 59 && t("token:trustScoreTitle.runAway")}
-                {scoreData?.contractScan >= 60 && scoreData?.contractScan < 85 && t("token:trustScoreTitle.thinkTwice")}
-                {scoreData?.contractScan > 85 && t("token:trustScoreTitle.notBad")}
+                {scoreData?.contractScan >= 60 && scoreData?.contractScan < 80 && t("token:trustScoreTitle.thinkTwice")}
+                {scoreData?.contractScan > 80 && t("token:trustScoreTitle.notBad")}
               </h2>
 
               <ul className={styles.chartList}>
