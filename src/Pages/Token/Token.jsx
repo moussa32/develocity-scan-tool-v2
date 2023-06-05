@@ -171,8 +171,9 @@ const Token = () => {
               </div>
               <div className="col-12 col-md-4 ">
                 <div className={`col-12 mt-10 mt-md-0 mx-auto ml-6 margin-right ${styles.marginRight}`}>
-
-                  <img src="../ad.gif" className={`${styles.marginRight}`} />
+                  <a href="https://develocity.finance">
+                    <img src="../ad.gif" className={`${styles.marginRight}`} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -192,7 +193,9 @@ const Token = () => {
               </div>
             )}
             <div className={`mx-auto mr-auto mt-5 ml-5`}>
-              <img src="../930x180.gif" width={300} className={`${styles.secondAd}`}/>
+              <a href="https://develocity.finance">
+                <img src="../930x180.gif" width={300} className={`${styles.secondAd}`}/>
+              </a>
             </div>
           </div>
         </div>
@@ -246,8 +249,9 @@ const Token = () => {
             </div>
             <div className="d-md-flex justify-content-between" style={{ gap: "20px" }}>
               <Slippage />
-
-              <img src="../ad.gif" className={`${styles.marginRight2}`} />
+              <a href="https://develocity.finance">
+                <img src="../ad.gif" className={`${styles.marginRight2}`} />
+              </a>
 
             </div>
           </div>
