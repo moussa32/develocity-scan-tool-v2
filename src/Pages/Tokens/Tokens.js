@@ -39,18 +39,16 @@ const Tokens = () => {
   return (
     <div>
       <NavBar />
-
-      {/* <div style={{ backgroundColor: "#F3F2F7", padding: "25px 0px 35px" }}>
-        <div className="container">
-          <div className="row">
+ 
+      <div style={{ backgroundColor: "#F3F2F7", padding: "35px 0px 25px" }}>
             <div className="col-12 d-flex justify-content-center align-items-center">
               <a href="https://develocity.finance">
-                <img src={"./930x180.gif"} width={300}/>
+                <img src={"./930x180.gif"} className={styles.ad}/>
               </a>
             </div>
           </div>
-        </div>
-      </div> */}
+
+
 
       <div style={{ backgroundColor: "#FFFFFF", padding: "40px 0px 0px 0px" }}>
         <div className="container">

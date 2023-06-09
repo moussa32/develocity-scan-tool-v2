@@ -170,9 +170,9 @@ const Token = () => {
                 <RugpullCard />
               </div>
               <div className="col-12 col-md-4 ">
-                <div className={`col-12 mt-10 mt-md-0 mx-auto ml-6 margin-right ${styles.marginRight}`}>
+                <div className={`col-12 mt-5 mt-md-0 mx-auto ml-6 margin-right justify-content-center ${styles.marginRight}`}>
                   <a href="https://develocity.finance">
-                    <img src="../ad.gif" className={`${styles.marginRight}`} />
+                    <img src="../250x250.gif" className={`${styles.marginRight } `} />
                   </a>
                 </div>
               </div>
@@ -192,9 +192,9 @@ const Token = () => {
                 <TableLoader />
               </div>
             )}
-            <div className={`mx-auto mr-auto mt-5 ml-5`}>
+            <div className={`mt-3 col-12 d-flex justify-content-center align-items-center`}>
               <a href="https://develocity.finance">
-                <img src="../930x180.gif" width={300} className={`${styles.secondAd}`}/>
+                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`}/>
               </a>
             </div>
           </div>
@@ -247,11 +247,13 @@ const Token = () => {
               <Trading />
               <LiquidityList />
             </div>
-            <div className="d-md-flex justify-content-between" style={{ gap: "20px" }}>
+            <div className="d-md-flex justify-content-between align-items-center" style={{ gap: "20px" }}>
               <Slippage />
-              <a href="https://develocity.finance">
-                <img src="../ad.gif" className={`${styles.marginRight2}`} />
-              </a>
+              <div className={` mx-auto  justify-content-center ${styles.marginRight}`}>
+                <a href="https://develocity.finance">
+                  <img src="../250x250.gif" className={` mt-3  ${styles.marginRight}`}/>
+                </a>
+              </div>
 
             </div>
           </div>
