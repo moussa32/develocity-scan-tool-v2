@@ -235,11 +235,11 @@ const Token = () => {
                         </div>
                     } */}
 
-          <div className="col-lg-6 col-md-12">
+          {/* <div className="col-lg-6 col-md-12">
             <div className="wallets_table">
               <LockedSection />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="row">
           <div className="col-12 col-lg-6 mb-4 d-flex flex-column">

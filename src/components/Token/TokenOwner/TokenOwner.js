@@ -62,7 +62,7 @@ const TokenOwner = ({ ownerInfo }) => {
   const OwnerData = [];
 
   if (ownerInfo) {
-    const address = ownerInfo.ownerAddress.substr(0, 4) + "..." + ownerInfo.ownerAddress.substr(-6);
+    const address = ownerInfo.ownerAddress.substr(0, 4) + "..." + ownerInfo.ownerAddress.substr(-6) || "0x00...000000";
     const renounceOwnership = ownerInfo.renounceOwnership;
     const tokenBalance = ownerInfo.tokenBalance;
     const tokenBalance_percentage = ownerInfo.tokenBalance_percentage.toLocaleString("en-US");
