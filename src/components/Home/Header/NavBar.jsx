@@ -19,9 +19,11 @@ const NavBar = () => {
       <NavDisplay />
       {isChangeLogPage && (
         <div className={styles.reAdv}>
-          {advertisment_Status === "success" && advertisment_code === 200 && (
-            <AdvertismentChangelog getAdvertismentData={getAdvertismentData} />
-          )}
+            <div className={`justify-content-center align-items-center`}>
+              <a href="https://develocity.finance">
+                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`}/>
+              </a>
+            </div>
         </div>
       )}
     </div>
