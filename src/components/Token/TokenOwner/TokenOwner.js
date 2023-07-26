@@ -61,20 +61,20 @@ const TokenOwner = ({ ownerInfo }) => {
   ];
   const OwnerData = [];
 
-  if (ownerInfo) {
-    const address = ownerInfo.ownerAddress.substr(0, 4) + "..." + ownerInfo.ownerAddress.substr(-6);
-    const renounceOwnership = ownerInfo.renounceOwnership;
-    const tokenBalance = ownerInfo.tokenBalance;
-    const tokenBalance_percentage = ownerInfo.tokenBalance_percentage.toLocaleString("en-US");
-    const LPtokenBalance = ownerInfo.LPtokenBalance.toLocaleString("en-US");
-    const LPtokenBalance_percentage = ownerInfo.LPtokenBalance_percentage.toLocaleString("en-US");
-    OwnerData.push({
-      address: address,
-      ownership: renounceOwnership,
-      liquidity: { liquidity: tokenBalance, rate: tokenBalance_percentage },
-      tokens: { tokens: LPtokenBalance, rate: LPtokenBalance_percentage, price: "287,547$" },
-    });
-  }
+ // if (ownerInfo) {
+ //   const address = ownerInfo.ownerAddress.substr(0, 4) + "..." + ownerInfo.ownerAddress.substr(-6) || "0x00...000000";
+  //  const renounceOwnership = ownerInfo.renounceOwnership;
+ //   const tokenBalance = ownerInfo.tokenBalance;
+  //  const tokenBalance_percentage = ownerInfo.tokenBalance_percentage.toLocaleString("en-US");
+  //  const LPtokenBalance = ownerInfo?.LPtokenBalance?.toLocaleString("en-US");
+  //  const LPtokenBalance_percentage = ownerInfo.LPtokenBalance_percentage.toLocaleString("en-US");
+  //  OwnerData.push({
+  //    address: address,
+  //    ownership: renounceOwnership,
+  //    liquidity: { liquidity: tokenBalance, rate: tokenBalance_percentage },
+   //   tokens: { tokens: LPtokenBalance, rate: LPtokenBalance_percentage, price: "287,547$" },
+  //  });
+ // }
 
   return (
     <>

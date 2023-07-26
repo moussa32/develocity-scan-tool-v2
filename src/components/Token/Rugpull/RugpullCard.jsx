@@ -9,8 +9,10 @@ export function RugpullCard() {
   const LPtokenBalance_percentage = useSelector(state => state.tokenOwner.tokenOwner);
   const { t } = useTranslation(["token"]);
 
-  const percentage = Math.round(LPtokenBalance_percentage?.ownerInfo?.LPtokenBalance_percentage);
-
+  let percentage = Math.round(LPtokenBalance_percentage?.ownerInfo?.pairsInfo[0]?.LPtokenBalance_percentage + LPtokenBalance_percentage?.ownerInfo?.pairsInfo[1]?.LPtokenBalance_percentage + LPtokenBalance_percentage?.ownerInfo?.pairsInfo[2]?.LPtokenBalance_percentage);
+if(isNaN(percentage)){
+  percentage = Math.round(LPtokenBalance_percentage?.ownerInfo?.LPtokenBalance_percentage)
+}
   if (bscdata_status === "failed") return <ErrorPart message="Failed to load data from server" />;
 
   return (

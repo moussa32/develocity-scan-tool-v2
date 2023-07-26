@@ -27,3 +27,11 @@
     width: 90%;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .secondAd{
+    width: 500px;
+  }
+  
+}
+
