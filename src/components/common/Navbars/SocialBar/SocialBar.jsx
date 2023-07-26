@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useCallback } from "react";
-import { FaPaperPlane, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { FaPaperPlane, FaFacebookF, FaTwitter , FaYoutube , FaInstagram} from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -89,21 +89,26 @@ const SocialBar = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#https://twitter.com/develocitygroup">
                 <FaTwitter />
               </a>
             </li>
             <li>
-              <a href="#">
-                <FaFacebookF />
+              <a href="https://youtube.com/@develocitygroup">
+                <FaYoutube />
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/develocitygroup">
+                <FaInstagram />
               </a>
             </li>
           </ul>
           {/* start */}
           <ul className={styles.socialBarNav}>
-            <li>
+            {/* <li>
               <a href="#">{t("common:advertise")}</a>
-            </li>
+            </li> */}
             <li>
               <Link to="/Changelog">{t("common:changelog")}</Link>
             </li>

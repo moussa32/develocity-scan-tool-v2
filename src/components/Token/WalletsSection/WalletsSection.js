@@ -13,7 +13,7 @@ const WalletsSection = () => {
 
   const { t } = useTranslation(["token"]);
   let Active =
-    topWalletData?.ownerInfo?.top10LiquidityHolder.length > 0
+    topWalletData?.ownerInfo?.top10LiquidityHolder?.length > 0
       ? "LiquidityWallets"
       : topWalletData?.topTenHolder?.length > 0
       ? "TokenTransactions"
@@ -21,11 +21,11 @@ const WalletsSection = () => {
   return (
     <div className="wallets_table wallet_table_td_width">
       <Tabs defaultActiveKey={Active} id="uncontrolled-tab-example">
-        {walletsData?.ownerInfo?.top10LiquidityHolder.length > 0 && (
+        {/* {walletsData?.ownerInfo?.top10LiquidityHolder.length > 0 && (
           <Tab eventKey="LiquidityWallets" title={t("token:top10liquiditywallets")} className="h-50">
             <WalletsTable walletsData={walletsData} />
           </Tab>
-        )}
+        )} */}
         {topWalletData?.topTenHolder?.length > 0 && (
           <Tab eventKey="TopWallets" title={t("token:top10wallets")}>
             <Wallet10Top topWalletData={topWalletData} />

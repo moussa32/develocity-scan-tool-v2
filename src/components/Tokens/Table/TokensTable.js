@@ -117,9 +117,9 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       render: value => (
         <span
           className={`${styles.tokenRecord_score} ${
-            value.toFixed() >= 85
+            value.toFixed() > 85
               ? styles.tokenRecord_trustScore
-              : value.toFixed() < 85 && value.toFixed() >= 60
+              : value.toFixed() <= 85 && value.toFixed() >= 60
               ? styles.tokenRecord_infoScore
               : styles.tokenRecord_dangerScore
           }`}
