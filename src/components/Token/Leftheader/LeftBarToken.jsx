@@ -14,6 +14,7 @@ import icon from "../../../assets/images/popup.png";
 import SubmitToken from "./Modal/SubmitToken";
 import { convertFromScientificNotation } from "../../../util/scientificNotation";
 import SpacialNumber from "../../common/SpacialNumber";
+import BSCLogo from "../../../assets/images/BSC.png";
 
 function formatNumber(val) {
   return Number(val).toLocaleString("en-US");
@@ -186,6 +187,10 @@ export function LeftBarToken() {
                 />
               </>
             )}
+            <div className={styles.network}>
+              <img className={styles.networkLogo} src={BSCLogo} alt="" title="" />
+              <span className={styles.networkName}>BSC</span>
+            </div>
           </div>
         </div>
         <div className={`d-flex justify-content-between flex-wrap mt-4 mb-4 ${styles.percent}`}>

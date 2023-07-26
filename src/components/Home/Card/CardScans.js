@@ -5,21 +5,62 @@ import CardScansLoader from "./CardScansLoader";
 import Header from "./Header";
 import RowScans from "./RowScans";
 // import logo from "../../../assets/images/tron.png";
+import BSCNetworkIcon from "../../../assets/images/BSC.png";
+import ETHNetworkIcon from "../../../assets/images/eth.png";
+import POLNetworkIcon from "../../../assets/images/polygon.png";
+import { useState } from "react";
+import { useCallback } from "react";
+
+const supportedNetworks = [
+  {
+    id: 1,
+    name: "BSC",
+    icon: BSCNetworkIcon,
+  },
+  {
+    id: 2,
+    name: "MATIC",
+    icon: POLNetworkIcon,
+  },
+  {
+    id: 3,
+    name: "ETH",
+    icon: ETHNetworkIcon,
+  },
+];
 
 const CardScans = ({ data, caption, colSelector, colValueHandler }) => {
+  const [records, setRecords] = useState(
+    data.map(item => ({ ...item, network: supportedNetworks[Math.floor(Math.random() * 3)] }))
+  );
+  const [activeNetwork, setActiveNetwork] = useState(null);
+
+  const handleFilterTokensByNetwork = useCallback(
+    selectedNetwork => {
+      if (activeNetwork === selectedNetwork?.id) {
+        setRecords(data.map(item => ({ ...item, network: supportedNetworks[Math.floor(Math.random() * 3)] })));
+        setActiveNetwork(null);
+      } else {
+        const recordsByNetwork = records.filter(item => item.network?.id === selectedNetwork?.id);
+        setRecords(recordsByNetwork);
+        setActiveNetwork(selectedNetwork?.id);
+      }
+    },
+    [records, activeNetwork]
+  );
+
   return (
     <div className={styles.container_card}>
       <div className={styles.card}>
         <Header caption={caption} />
-        
-        {data.length > 0 ? (
-          data.map((item, index) => {
+
+        {records.length > 0 ? (
+          records.map((item, index) => {
             return (
               <div key={index}>
                 {item?.contractInfo && Object.keys(item.contractInfo).length !== 0 && (
                   <>
                     <RowScans
-                      // key={index}
                       isVerifyed={item.isNotListed}
                       number={index + 1}
                       image={item.contractInfo.logo}
@@ -32,6 +73,9 @@ const CardScans = ({ data, caption, colSelector, colValueHandler }) => {
                       caption={caption}
                       displayValue={colValueHandler ? colValueHandler(item[colSelector]) : item[colSelector]}
                       price={item.price}
+                      network={item?.network}
+                      activeNetwork={activeNetwork}
+                      handleNetwork={handleFilterTokensByNetwork}
                     />
                   </>
                 )}

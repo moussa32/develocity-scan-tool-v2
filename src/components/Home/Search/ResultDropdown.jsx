@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import styles from "./ResultDropdown.module.css";
+import BSCLogo from "../../../assets/images/BSC.png";
 
 const ResultDropdown = ({ contractAddress, logo, name, symbol, contractScan, isScam }) => {
   const handleClickOnResult = event => {
@@ -39,6 +40,11 @@ const ResultDropdown = ({ contractAddress, logo, name, symbol, contractScan, isS
             {contractScan > 84 && (
               <div className={`${styles.scanCard} ${styles.scanGreen}`}>Score:{Math.round(contractScan)}</div>
             )}
+
+            <div className={styles.network}>
+              <img className={styles.networkLogo} src={BSCLogo} alt="" title="" />
+              <span className={styles.networkName}>BSC</span>
+            </div>
           </div>
         </div>
       </div>
