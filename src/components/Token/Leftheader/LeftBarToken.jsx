@@ -21,7 +21,7 @@ function formatNumber(val) {
 }
 
 function formatBigNumbers(number) {
-  const suffixes = ["", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion"];
+  const suffixes = ["", "Thousand", "Million", "Billion", "Trillion", "Quadrillion", "Quintillion","Sextillion","Septillion","Octillion","Nonillion","Decillion","Undecillion","Duodecillion"];
   const suffixIndex = Math.floor(Math.log10(Number(number.replace(/,/g, ""))) / 3);
   const suffix = suffixes[suffixIndex];
 

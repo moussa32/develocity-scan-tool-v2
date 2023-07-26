@@ -10,7 +10,7 @@
   "russian": "Русский",
   "see_less": "меньше",
   "see_more": "подробнее",
-  "see_how_it_works": "как это работает",
+  "see_how_it_works": "ПРЕДПРОДАЖА НАЧАЛАСЬ",
   "log_in": "войти",
   "create_account": "",
   "advertise": "advertise",
@@ -127,7 +127,7 @@
   "check": "введя информацию вы согласны на следующий",
   "terms_conditions": "Положения и условия",
   "privacyPolicy": "Политика конфиденциальности",
-  "copyright": "© 2022 Develocity",
+  "copyright": "© 2023 Develocity",
   "next": "следующий шаг",
   "upload_logo": "Загрузить логотип для токена",
   "browse": "загрузить",
@@ -144,7 +144,7 @@
   "reset": "сброс",
   "enter_token": " Введите имя или адрес токена и нажмите «Сканировать».",
   "sponsered": "спонсируемый",
-  "invest": "начните инвестировать в биткойн всего с 10 $",
+  "invest": "Начните инвестировать в Develocity прямо сейчас.",
   "welcoming_notification": "The Content shared on this website is for technical purposes only and, thus, should not be considered financial advice. Trading/Investing is risky, Cryptocurrencies are risky. You alone assume the sole responsibility of evaluating the merits and risks associated with using any information or other Content on the Site before making any decisions based on such information or other Content",
   "tokens": "Токены"
 }

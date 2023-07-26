@@ -170,10 +170,10 @@ const Token = () => {
                 <RugpullCard />
               </div>
               <div className="col-12 col-md-4 ">
-                <div className="col-12 mt-5 mt-md-0">
-                  {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[0] && (
-                    <AdevertiseTokenOne getAdvertismentData={getAdvertismentData} />
-                  )}
+                <div className={`col-12 mt-5 mt-md-0 mx-auto ml-6 margin-right justify-content-center ${styles.marginRight}`}>
+                  <a href="https://develocity.finance">
+                    <img src="../250x250.gif" className={`${styles.marginRight } `} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -192,10 +192,10 @@ const Token = () => {
                 <TableLoader />
               </div>
             )}
-            <div className="mt-5">
-              {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[1] && (
-                <AdevertiseTokenTwo getAdvertismentData={getAdvertismentData} />
-              )}
+            <div className={`mt-3 col-12 d-flex justify-content-center align-items-center`}>
+              <a href="https://develocity.finance">
+                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`}/>
+              </a>
             </div>
           </div>
         </div>
@@ -247,14 +247,14 @@ const Token = () => {
               <Trading />
               <LiquidityList />
             </div>
-            <div className="d-md-flex justify-content-between" style={{ gap: "20px" }}>
+            <div className="d-md-flex justify-content-between align-items-center" style={{ gap: "20px" }}>
               <Slippage />
+              <div className={` mx-auto  justify-content-center ${styles.marginRight}`}>
+                <a href="https://develocity.finance">
+                  <img src="../250x250.gif" className={` mt-3  ${styles.marginRight}`}/>
+                </a>
+              </div>
 
-              {advertisment_code === 200 && advertisment_Status === "success" && getAdvertismentData[2] && (
-                <div className="mt-5">
-                  <AdevertiseTokenThree getAdvertismentData={getAdvertismentData} />
-                </div>
-              )}
             </div>
           </div>
           <div className="col-12 col-lg-6">

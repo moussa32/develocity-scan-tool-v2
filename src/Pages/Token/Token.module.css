@@ -8,10 +8,17 @@
   width: 100%;
 }
 
+ .marginRight{
+  width: 250px!important;
+}
+
 @media screen and (min-width: 576px) {
   .tokenHeader {
     padding-left: 44px;
     padding-right: 44px;
+  }
+  .secondAd{
+   margin: 30px!important;
   }
 }
 
@@ -27,5 +34,8 @@
   }
   .walletsContainer {
     margin-top: 110px;
+  }
+  .secondAd{
+    width: 500px;
   }
 }
