@@ -86,7 +86,7 @@ const RowScans = ({
           }`}
           onClick={event => handleClickOnNetwork(event, network)}
         >
-          <img className={styles.token_network_logo} src={network?.icon} alt="network name" title="network name" />
+          <img className={styles.token_network_logo} src={network?.icon} alt={network?.name} title={network?.name} />
         </div>
       </div>
 

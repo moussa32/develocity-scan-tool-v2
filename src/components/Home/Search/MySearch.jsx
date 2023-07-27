@@ -9,7 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./Search.module.css";
 import ResultDropdown from "./ResultDropdown";
 import useDebounce from "../../../hooks/useDebounce";
-import { BiUpsideDown , BiBitcoin} from "react-icons/bi";
+import { BiUpsideDown, BiBitcoin } from "react-icons/bi";
+import { getNetworkDetails } from "../../../util/tokenSupportedNetworks";
 
 const notify = message =>
   toast.error(message, {
@@ -145,6 +146,7 @@ const MySearch = () => {
                   symbol={result.contractInfo.symbol}
                   contractScan={result.contractScan}
                   isScam={result.isNotListed}
+                  network={getNetworkDetails(result.network)}
                 />
               ))}
           </div>

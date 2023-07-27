@@ -10,12 +10,22 @@ export const fetchTokenInfoResult = createAsyncThunk(
     });
     const { ip } = fetchIP.data;
 
+    const fetchContractNetwork = await instance.get(`static/getContractNetwork/${contractAddress}`).catch(error => {
+      console.log(error);
+    });
+
     const response = await instance
       .get(`contract/tokenInfo?contractAddress=${contractAddress}&ipAddress=${ip}&contractType=Binance`)
       .catch(error => {
         console.log(error);
       });
-    return response.data;
+
+    const tokenInfo = {
+      ...response.data,
+      result: { ...response.data.result, networks: fetchContractNetwork.data.networks },
+    };
+
+    return tokenInfo;
   }
 );
 

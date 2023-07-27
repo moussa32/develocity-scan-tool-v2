@@ -5,40 +5,18 @@ import CardScansLoader from "./CardScansLoader";
 import Header from "./Header";
 import RowScans from "./RowScans";
 // import logo from "../../../assets/images/tron.png";
-import BSCNetworkIcon from "../../../assets/images/BSC.png";
-import ETHNetworkIcon from "../../../assets/images/eth.png";
-import POLNetworkIcon from "../../../assets/images/polygon.png";
 import { useState } from "react";
 import { useCallback } from "react";
-
-const supportedNetworks = [
-  {
-    id: 1,
-    name: "BSC",
-    icon: BSCNetworkIcon,
-  },
-  {
-    id: 2,
-    name: "MATIC",
-    icon: POLNetworkIcon,
-  },
-  {
-    id: 3,
-    name: "ETH",
-    icon: ETHNetworkIcon,
-  },
-];
+import { getNetworkDetails } from "../../../util/tokenSupportedNetworks";
 
 const CardScans = ({ data, caption, colSelector, colValueHandler }) => {
-  const [records, setRecords] = useState(
-    data.map(item => ({ ...item, network: supportedNetworks[Math.floor(Math.random() * 3)] }))
-  );
+  const [records, setRecords] = useState(data.map(item => ({ ...item, network: getNetworkDetails(item.network) })));
   const [activeNetwork, setActiveNetwork] = useState(null);
 
   const handleFilterTokensByNetwork = useCallback(
     selectedNetwork => {
       if (activeNetwork === selectedNetwork?.id) {
-        setRecords(data.map(item => ({ ...item, network: supportedNetworks[Math.floor(Math.random() * 3)] })));
+        setRecords(data.map(item => ({ ...item, network: getNetworkDetails(item.network) })));
         setActiveNetwork(null);
       } else {
         const recordsByNetwork = records.filter(item => item.network?.id === selectedNetwork?.id);
