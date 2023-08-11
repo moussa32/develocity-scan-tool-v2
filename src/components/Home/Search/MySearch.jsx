@@ -9,8 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import styles from "./Search.module.css";
 import ResultDropdown from "./ResultDropdown";
 import useDebounce from "../../../hooks/useDebounce";
-import { BiUpsideDown, BiBitcoin } from "react-icons/bi";
+import { BiUpsideDown } from "react-icons/bi";
 import { getNetworkDetails } from "../../../util/tokenSupportedNetworks";
+import Sponsored from "./Sponsored";
 
 const notify = message =>
   toast.error(message, {
@@ -158,13 +159,8 @@ const MySearch = () => {
           </div>
         )}
       </div>
-      <div className={styles.searchNote2}>
-        <span className={styles.note}>{t("common:sponsered")}</span>
-        <a className={styles.note2} href="https://develocity.finance">
-          <img src="../../logo.png" className={direction === "rtl" ? styles.bitcoin_rtl : styles.bitcoin_ltr} />
-          {t("common:invest")}
-        </a>
-      </div>
+
+      <Sponsored />
       {/* className= {(searchResults.status === "failed")? styles.searchNotFound:""} */}
     </>
   );
