@@ -15,7 +15,7 @@ export const fetchTokenInfoResult = createAsyncThunk(
     });
 
     const response = await instance
-      .get(`contract/tokenInfo?contractAddress=${contractAddress}&ipAddress=${ip}&contractType=Binance`)
+      .get(`contract/BscTokenInfo?contractAddress=${contractAddress}&ipAddress=${ip}&contractType=Binance`)
       .catch(error => {
         console.log(error);
       });
