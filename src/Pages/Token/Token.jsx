@@ -156,27 +156,28 @@ const Token = () => {
           <BreadCrumbBar />
         </div>
 
-        <div className="row mt-5">
+        <div className={`row ${styles.reportHeader}`}>
           <div className="col-lg-3 col-sm-12">
             <TrustScore />
           </div>
-          <div className="col-12 col-lg-9">
-            <div className="row">
-              <div className="col-12 col-md-4">
+          <div className="col-12 col-lg-6">
+            <div className={`row ${styles.reportHeaderCenter}`}>
+              <div className="col-12 col-md-6">
                 <ContractAnalysisCard />
               </div>
-              <div className="col-12 col-md-4">
+              <div className="col-12 col-md-6">
                 <HoneypotCard />
                 <RugpullCard />
               </div>
-              <div className="col-12 col-md-4 ">
-                <div className={`col-12 mt-5 mt-md-0 mx-auto ml-6 margin-right justify-content-center ${styles.marginRight}`}>
-                  <a href="https://develocity.finance">
-                    <img src="../250x250.gif" className={`${styles.marginRight } `} />
-                  </a>
-                </div>
+              <div className="col-12">
+                <div style={{ height: 118, marginTop: "auto" }}>{/* Locked Tokens table */}</div>
               </div>
             </div>
+          </div>
+          <div className="col-lg-3 col-sm-12">
+            <a href="https://develocity.finance">
+              <img src="../250x250.gif" className={`${styles.marginRight}`} />
+            </a>
           </div>
         </div>
 
@@ -194,7 +195,7 @@ const Token = () => {
             )}
             <div className={`mt-3 col-12 d-flex justify-content-center align-items-center`}>
               <a href="https://develocity.finance">
-                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`}/>
+                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`} />
               </a>
             </div>
           </div>
@@ -251,10 +252,9 @@ const Token = () => {
               <Slippage />
               <div className={` mx-auto  justify-content-center ${styles.marginRight}`}>
                 <a href="https://develocity.finance">
-                  <img src="../250x250.gif" className={` mt-3  ${styles.marginRight}`}/>
+                  <img src="../250x250.gif" className={` mt-3  ${styles.marginRight}`} />
                 </a>
               </div>
-
             </div>
           </div>
           <div className="col-12 col-lg-6">

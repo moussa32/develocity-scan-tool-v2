@@ -11,7 +11,7 @@ import ResultDropdown from "./ResultDropdown";
 import useDebounce from "../../../hooks/useDebounce";
 import { BiUpsideDown } from "react-icons/bi";
 import { getNetworkDetails } from "../../../util/tokenSupportedNetworks";
-import Sponsored from "./Sponsored";
+import NetworkSupported from "./NetworkSupported";
 
 const notify = message =>
   toast.error(message, {
@@ -160,7 +160,7 @@ const MySearch = () => {
         )}
       </div>
 
-      <Sponsored />
+      <NetworkSupported />
       {/* className= {(searchResults.status === "failed")? styles.searchNotFound:""} */}
     </>
   );

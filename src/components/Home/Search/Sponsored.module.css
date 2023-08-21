@@ -4,9 +4,10 @@
   margin-top: 7px;
 }
 
-.note {
-  font-size: 10px;
+.sponsoredTag {
+  font-size: 8px;
   color: #9f4ae8;
+  border-radius: 2px;
   text-transform: uppercase;
   width: 60px;
   height: 20px;
@@ -14,8 +15,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 5px;
   font-family: "SF Pro Display Medium";
+}
+
+.sponsoredTag_rtl {
+  margin-left: 5px;
+}
+
+.sponsoredTag_ltr {
+  margin-right: 5px;
 }
 
 .note2 {
@@ -28,7 +36,7 @@
   text-transform: capitalize;
 }
 
-.bitcoin_ltr {
+.sponsoredIcon_ltr {
   width: 18px;
   height: 18px;
   background-color: #333;
@@ -40,7 +48,7 @@
   margin-right: 5px;
 }
 
-.bitcoin_rtl {
+.sponsoredIcon_rtl {
   width: 18px;
   height: 18px;
   background-color: #333;
