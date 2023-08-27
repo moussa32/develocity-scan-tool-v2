@@ -44,9 +44,7 @@ import ErrorPart from "../../components/common/ErrorPart";
 const Token = () => {
   const dispatch = useDispatch();
   const { contractAddress } = useParams();
-  // calling advertisment
   let { getAdvertismentData, advertisment_Status, advertisment_code } = UseAdvertisment("Report");
-  // const ipAddress = useSelector(state => state.GetIPAddress.data);
   const navigate = useNavigate();
 
   const tokenOwnerLoading = useSelector(state => state.tokenOwner.loading);
@@ -72,18 +70,6 @@ const Token = () => {
   });
   const { t } = useTranslation(["token"]);
 
-  // useEffect(() => {
-  //     let timer = setTimeout(() => {
-  //         if (search_params?.responseCode !==200) {
-  //             navigate('/404')
-  //             }
-  //     }, 2000);
-
-  //     return () => {
-  //         clearTimeout(timer);
-  //       };
-  //   }, [navigate, search_params]);
-
   useEffect(() => {
     if (search_params?.responseCode === 400) {
       navigate("/404");
@@ -91,36 +77,6 @@ const Token = () => {
       return;
     }
   }, [navigate, search_params]);
-
-  // useEffect(() => {
-  //     if (search_params === 'loading' || search_params === null) {
-  //         return
-  //     }
-  //     else if (search_params?.responseCode === 400) {
-  //         navigate('/404')
-  //     }
-  // }, [navigate, search_params]);
-
-  // useEffect(() => {
-  //     if (!/[^0x].{39}$/.test(contractAddress)) {
-  //     navigate('/404')
-  //     console.log("pp")
-  //     }
-  //   }, [navigate, contractAddress]);
-
-  // tokeninfodata?.contractInfo?.name
-  // tokeninfodata?.contractInfo?.logo
-  useEffect(() => {
-    socket.emit("currentLocation", {
-      contractAddress: contractAddress,
-      page: "token",
-      name: tokeninfodata?.contractInfo?.name,
-      logo: tokeninfodata?.contractInfo?.logo,
-    });
-    // return () => {
-    //     socket.emit('leaveTokenPage', { contractAddress: contractAddress });
-    // }
-  }, [contractAddress, tokeninfodata?.contractInfo?.logo, tokeninfodata?.contractInfo?.name]);
 
   useEffect(() => {
     dispatch(fetchSearchParams(contractAddress));
@@ -170,9 +126,11 @@ const Token = () => {
                 <RugpullCard />
               </div>
               <div className="col-12 col-md-4 ">
-                <div className={`col-12 mt-5 mt-md-0 mx-auto ml-6 margin-right justify-content-center ${styles.marginRight}`}>
+                <div
+                  className={`col-12 mt-5 mt-md-0 mx-auto ml-6 margin-right justify-content-center ${styles.marginRight}`}
+                >
                   <a href="https://develocity.finance">
-                    <img src="../250x250.gif" className={`${styles.marginRight } `} />
+                    <img src="../250x250.gif" className={`${styles.marginRight} `} />
                   </a>
                 </div>
               </div>
@@ -194,7 +152,7 @@ const Token = () => {
             )}
             <div className={`mt-3 col-12 d-flex justify-content-center align-items-center`}>
               <a href="https://develocity.finance">
-                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`}/>
+                <img src="../930x180.gif" width={350} className={`${styles.secondAd}`} />
               </a>
             </div>
           </div>
@@ -251,10 +209,9 @@ const Token = () => {
               <Slippage />
               <div className={` mx-auto  justify-content-center ${styles.marginRight}`}>
                 <a href="https://develocity.finance">
-                  <img src="../250x250.gif" className={` mt-3  ${styles.marginRight}`}/>
+                  <img src="../250x250.gif" className={` mt-3  ${styles.marginRight}`} />
                 </a>
               </div>
-
             </div>
           </div>
           <div className="col-12 col-lg-6">
