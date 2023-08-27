@@ -49,11 +49,11 @@ function formatBigNumbers(number) {
 
 export function LeftBarToken() {
   const { contractAddress } = useParams();
-  const tokenData = useSelector(state => state.Gettokeninfodata.data);
-  const tokenStatus = useSelector(state => state.Gettokeninfodata.status);
+  const tokenData = useSelector(state => state.contractInfoDetails.data);
+  const tokenStatus = useSelector(state => state.contractInfoDetails.status);
   const score = useSelector(state => state.Score.data);
-  const bscdata = useSelector(state => state.GetBSCdata.data);
-  const bscstatus = useSelector(state => state.GetBSCdata.status);
+  const bscdata = useSelector(state => state.contractAnalysis.data);
+  const bscstatus = useSelector(state => state.contractAnalysis.status);
   const [copiedAddress, setCopyAddress] = useState("Copy Address");
   const [showModal, setShowModal] = useState(false);
 

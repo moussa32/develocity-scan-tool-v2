@@ -5,7 +5,7 @@ import { Placeholder } from "../../common/Placeholder/Placeholder";
 import ErrorPart from "../../common/ErrorPart";
 
 export function RugpullCard() {
-  const bscdata_status = useSelector(state => state.GetBSCdata.status);
+  const bscdata_status = useSelector(state => state.contractAnalysis.status);
   const LPtokenBalance_percentage = useSelector(state => state.tokenOwner.tokenOwner);
   const { t } = useTranslation(["token"]);
 

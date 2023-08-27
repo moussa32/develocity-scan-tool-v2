@@ -53,7 +53,7 @@ const RowScans = ({
 
   const lang = localStorage.getItem("i18nextLng");
   return (
-    <Link className={`text-decoration-none row ${styles.container_row}`} to={`/token/${contract}`}>
+    <Link className={`text-decoration-none row ${styles.container_row}`} to={`/token/${network.shortName}/${contract}`}>
       <div className={`col-8 ${styles.header}`}>
         <h3 className={lang === "ar" ? styles.header_no_right : styles.header_no_left}>{number}</h3>
         <div className={styles.container_image}>

@@ -27,7 +27,7 @@ export const fetchSearchParams = createAsyncThunk("search/fetchSearchParams", as
 });
 
 const Search = createSlice({
-  name: " search",
+  name: "search",
   reducers: {},
   initialState: {
     data: [],

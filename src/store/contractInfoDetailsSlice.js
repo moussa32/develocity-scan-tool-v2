@@ -2,9 +2,20 @@ import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../config/axiosconfig";
 
-export const fetchTokenInfoResult = createAsyncThunk(
-  "tokeninfo/fetchTokenInfoResult",
-  async (contractAddress, { dispatch, getState }) => {
+export const fetchContractInfoDetails = createAsyncThunk(
+  "contractInfoDetails/fetchContractInfoDetails",
+  async ({ contractAddress, network }) => {
+    const methodByNetwork = () => {
+      switch (network) {
+        case "BSC":
+          return "tokenInfo";
+        case "ETH":
+          return "ethTokenInfo";
+        case "MATIC":
+          return "polygonTokenInfo";
+      }
+    };
+
     const fetchIP = await axios.get("https://api.ipify.org?format=json").catch(error => {
       console.log(error);
     });
@@ -20,34 +31,34 @@ export const fetchTokenInfoResult = createAsyncThunk(
         console.log(error);
       });
 
-    const tokenInfo = {
+    const contractInfoDetails = {
       ...response.data,
       result: { ...response.data.result, networks: fetchContractNetwork.data.networks },
     };
 
-    return tokenInfo;
+    return contractInfoDetails;
   }
 );
 
-const GetTokenInfo = createSlice({
-  name: "tokeninfo",
+const contractInfoDetailsSlice = createSlice({
+  name: "contractInfoDetails",
   reducers: {},
   initialState: {
     data: [],
     status: null,
   },
   extraReducers: {
-    [fetchTokenInfoResult.fulfilled]: (state, { payload }) => {
+    [fetchContractInfoDetails.fulfilled]: (state, { payload }) => {
       state.data = payload;
       state.status = "success";
     },
-    [fetchTokenInfoResult.pending]: state => {
+    [fetchContractInfoDetails.pending]: state => {
       state.status = "loading";
     },
-    [fetchTokenInfoResult.rejected]: state => {
+    [fetchContractInfoDetails.rejected]: state => {
       state.status = "failed";
     },
   },
 });
 
-export default GetTokenInfo.reducer;
+export default contractInfoDetailsSlice.reducer;

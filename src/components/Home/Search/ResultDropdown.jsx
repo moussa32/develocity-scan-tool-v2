@@ -1,12 +1,13 @@
 import { memo } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import styles from "./ResultDropdown.module.css";
-import BSCLogo from "../../../assets/images/BSC.png";
+// import BSCLogo from "../../../assets/images/BSC.png";
 
 const ResultDropdown = ({ contractAddress, logo, name, symbol, contractScan, isScam, network }) => {
+  console.log(network);
   const handleClickOnResult = event => {
     event.preventDefault();
-    window.location.href = `/token/${contractAddress}`;
+    window.location.href = `/token/${network.shortName}/${contractAddress}`;
   };
   const lang = localStorage.getItem("i18nextLng");
 

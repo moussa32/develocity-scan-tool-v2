@@ -1,15 +1,15 @@
 import { Tabs, Tab } from "react-bootstrap";
 import Wallet10Top from "../WalletsTable/Wallet10Top";
-import WalletsTable from "../WalletsTable/WalletsTable";
-import BSCTrasactionTable from "../WalletsTable/BSCTrasactionTable";
+// import WalletsTable from "../WalletsTable/WalletsTable";
+import TransactionTable from "../WalletsTable/TransactionTable";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import "./WalletsSection.css";
 
 const WalletsSection = () => {
   const topWalletData = useSelector(state => state.topWallet.topWallet);
-  const bSCTrasaction = useSelector(state => state.bSCTrasaction.bSCTrasaction);
-  const walletsData = useSelector(state => state.tokenOwner.tokenOwner);
+  const transaction = useSelector(state => state.transaction.transaction);
+  // const walletsData = useSelector(state => state.tokenOwner.tokenOwner);
 
   const { t } = useTranslation(["token"]);
   let Active =
@@ -32,9 +32,9 @@ const WalletsSection = () => {
           </Tab>
         )}
 
-        {bSCTrasaction?.tokenTransaction?.length > 0 && (
+        {transaction?.tokenTransaction?.length > 0 && (
           <Tab eventKey="TokenTransactions" title={t("token:tokenTransactions")}>
-            <BSCTrasactionTable bSCTrasaction={bSCTrasaction} />
+            <TransactionTable transaction={transaction} />
           </Tab>
         )}
       </Tabs>

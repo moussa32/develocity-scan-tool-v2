@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import ErrorPart from "../../common/ErrorPart";
 
 export function ContractAnalysisCard() {
-  const bscdata = useSelector(state => state.GetBSCdata.data);
-  const bscStatus = useSelector(state => state.GetBSCdata.status);
+  const bscdata = useSelector(state => state.contractAnalysis.data);
+  const bscStatus = useSelector(state => state.contractAnalysis.status);
   const { t } = useTranslation(["token"]);
   const lang = localStorage.getItem("i18nextLng");
 
