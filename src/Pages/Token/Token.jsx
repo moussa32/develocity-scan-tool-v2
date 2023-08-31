@@ -11,7 +11,7 @@ import WalletsSection from "../../components/Token/WalletsSection/WalletsSection
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTokenOwner } from "../../store/tokenOwnerSlice";
-import { fetchWallet } from "../../store/topWalletSlice";
+import { fetchTopTenWallets } from "../../store/contractTopTenWalletsSlice";
 import TokenOwner from "../../components/Token/TokenOwner/TokenOwner";
 import LiquiditySection from "../../components/Token/LiquiditySection/LiquiditySection";
 import { Trading } from "../../components/Token/Trading/Trading";
@@ -80,7 +80,7 @@ const Token = () => {
   useEffect(() => {
     dispatch(fetchSearchParams(contractAddress));
     dispatch(fetchTokenOwner(contractAddress));
-    dispatch(fetchWallet(contractAddress));
+    dispatch(fetchTopTenWallets(contractAddress));
     dispatch(fetchTransaction({ contractAddress, network }));
     dispatch(fetchContractAnalysis({ contractAddress, network }));
     dispatch(fetchContractLockedLiquidity(contractAddress));

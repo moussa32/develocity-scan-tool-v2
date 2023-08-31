@@ -9,7 +9,7 @@ import ScoreReducer from "./FetchTrustScoreData";
 import DistReducer from "./FetchDistributionData";
 import lockedLiquidityReducer from "./contractlockedLiquidity";
 import tokenOwnerSlice from "./tokenOwnerSlice";
-import topWalletSlice from "./topWalletSlice";
+import contractTopTenWallets from "./contractTopTenWalletsSlice";
 import liquidityScanSlice from "./liquidityScanSlice";
 import transactionSlice from "./transactionSlice";
 import tokenListSlice from "./tokenListSlice";
@@ -18,13 +18,13 @@ import GetIPReducer from "./FetchIPAddress";
 export const store = configureStore({
   reducer: {
     Search: SearchReducer,
+    contractTopTenWallets: contractTopTenWallets,
     contractInfoDetails: contractInfoDetailsReducer,
     contractAnalysis: contractAnalysisReducer,
     contractTax: contractTaxSliceReducer,
     Score: ScoreReducer,
     Dist: DistReducer,
     tokenOwner: tokenOwnerSlice,
-    topWallet: topWalletSlice,
     liquidityScan: liquidityScanSlice,
     transaction: transactionSlice,
     tokenList: tokenListSlice,

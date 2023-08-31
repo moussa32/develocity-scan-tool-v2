@@ -5,7 +5,6 @@ import { IoCopy } from "react-icons/io5";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { Modal } from "./Modal/Modal";
-// import ModalForm from "../ModalForm/ModalForm";
 import { useTranslation } from "react-i18next";
 import { IconContainer } from "./IconsContainer/IconContainer";
 import VerificationIcon from "../../../assets/images/verification.png";
@@ -93,7 +92,6 @@ export function LeftBarToken() {
 
   return (
     <section className={styles.tokenInfoHeader}>
-      {/* <ModalForm show={showModal} close={() => setShowModal(false)} /> */}
       <SubmitToken showModal={showModal} handleClose={() => setShowModal(false)} />
       {tokenInfoData.contractInfo.logo ? (
         <img className={styles.tokenImg} src={tokenInfoData.contractInfo.logo} alt={tokenInfoData.contractInfo} />

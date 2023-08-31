@@ -7,17 +7,19 @@ import { useSelector } from "react-redux";
 import "./WalletsSection.css";
 
 const WalletsSection = () => {
-  const topWalletData = useSelector(state => state.topWallet.topWallet);
+  const contractTopTenWalletsData = useSelector(state => state.contractTopTenWallets.contractTopTenWallets);
   const transaction = useSelector(state => state.transaction.transaction);
+
+  console.log(contractTopTenWalletsData);
   // const walletsData = useSelector(state => state.tokenOwner.tokenOwner);
 
   const { t } = useTranslation(["token"]);
   let Active =
-    topWalletData?.ownerInfo?.top10LiquidityHolder?.length > 0
+    contractTopTenWalletsData?.ownerInfo?.top10LiquidityHolder?.length > 0
       ? "LiquidityWallets"
-      : topWalletData?.topTenHolder?.length > 0
+      : contractTopTenWalletsData?.topTenHolder?.length > 0
       ? "TokenTransactions"
-      : "TopWallets";
+      : "contractTopTenWalletss";
   return (
     <div className="wallets_table wallet_table_td_width">
       <Tabs defaultActiveKey={Active} id="uncontrolled-tab-example">
@@ -26,9 +28,9 @@ const WalletsSection = () => {
             <WalletsTable walletsData={walletsData} />
           </Tab>
         )} */}
-        {topWalletData?.topTenHolder?.length > 0 && (
-          <Tab eventKey="TopWallets" title={t("token:top10wallets")}>
-            <Wallet10Top topWalletData={topWalletData} />
+        {contractTopTenWalletsData?.topTenHolder?.length > 0 && (
+          <Tab eventKey="contractTopTenWalletss" title={t("token:top10wallets")}>
+            <Wallet10Top contractTopTenWalletsData={contractTopTenWalletsData} />
           </Tab>
         )}
 

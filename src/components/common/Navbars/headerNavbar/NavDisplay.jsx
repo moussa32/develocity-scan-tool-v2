@@ -3,9 +3,14 @@ import { useTranslation } from "react-i18next";
 import styles from "./nav.module.css";
 import logo from "../../../../assets/images/logo.png";
 import { memo } from "react";
+import { useState } from "react";
+import LoginModal from "../../Auth/LoginModal";
+import CreateAccountModal from "../../Auth/CreateAccountModal";
+import CreateAccountUserIcon from "../../../../assets/images/createAccountUserIcon.svg";
 
 const NavDisplay = () => {
   const { t, i18n } = useTranslation(["common"]);
+  const [authModal, setAuthModal] = useState({ type: "", isShow: false });
   const { pathname } = useLocation();
   const direction = i18n.dir();
 
@@ -93,16 +98,37 @@ const NavDisplay = () => {
                 direction === "rtl" ? styles.headerActionButtonContainer_rtl : styles.headerActionButtonContainer_ltr
               }`}
             >
-              <Link className={`${styles.headerActionButton}`} to="/login">
+              <button
+                className={`${styles.headerActionButton}`}
+                onClick={() => setAuthModal({ type: "login", isShow: true })}
+              >
                 {t("log_in")}
-              </Link>
-              <Link className={`${styles.headerActionButton} ${styles.activeHeaderActionButton}`} to="/create-account">
+              </button>
+              <button
+                className={`${styles.headerActionButton} ${styles.activeHeaderActionButton}`}
+                onClick={() => setAuthModal({ type: "createAccount", isShow: true })}
+              >
                 {t("create_account")}
-              </Link>
+              </button>
             </div>
           </div>
         </div>
       </nav>
+      <img src={CreateAccountUserIcon} />
+      {authModal.type === "login" && (
+        <LoginModal
+          showModal={authModal.isShow}
+          changeModalView={setAuthModal}
+          handleClose={() => setAuthModal({ type: "login", isShow: false })}
+        />
+      )}
+      {authModal.type === "createAccount" && (
+        <CreateAccountModal
+          showModal={authModal.isShow}
+          changeModalView={setAuthModal}
+          handleClose={() => setAuthModal({ type: "login", isShow: false })}
+        />
+      )}
       <div className=" container" style={{ marginTop: "-10px" }}>
         <hr className="dropdown-divider container" />
       </div>
