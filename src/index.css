@@ -1,12 +1,3 @@
-@import url(./assets/fonts/SF/stylesheet.css);
-@import url(./assets/fonts/TTNorms/stylesheet.css);
-
-#root {
-  background: linear-gradient(to bottom, #f3f2f7, #ffffff, #ffffff);
-}
-
-@media screen and (min-width: 1200px) {
-  .container {
-    max-width: 1200px !important;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
