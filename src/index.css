@@ -3,6 +3,21 @@
 @tailwind utilities;
 
 @font-face {
+  font-family: "SF Pro Display Bold";
+  src: url("./assets/fonts/SF/SFProDisplay-Bold.eot");
+  src:
+    local("SF Pro Display Bold"),
+    local("./assets/fonts/SF/SFProDisplay-Bold"),
+    url("./assets/fonts/SF/SFProDisplay-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/SF/SFProDisplay-Bold.woff2") format("woff2"),
+    url("./assets/fonts/SF/SFProDisplay-Bold.woff") format("woff"),
+    url("./assets/fonts/SF/SFProDisplay-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "SF Pro Display Medium";
   src: url("./assets/fonts/SF/SFProDisplay-Medium.eot");
   src:
