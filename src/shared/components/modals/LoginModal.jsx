@@ -2,6 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import WelcomeLogo from "@assets/images/welcomeLogo.svg";
 import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
 
 const LoginModal = ({ isOpen, closeModal }) => {
   return (
@@ -52,9 +53,13 @@ const LoginModal = ({ isOpen, closeModal }) => {
                   <div className="flex justify-between mt-[176.6px]">
                     <p className="text-[#888888]">
                       Don't have an account
-                      <Button className="bg-transparent px-0 pl-2 hover:bg-transparent hover:text-white">
+                      <Link
+                        to="/auth/create-account"
+                        onClick={() => closeModal()}
+                        className="bg-transparent px-0 pl-2 hover:bg-transparent hover:text-white"
+                      >
                         Create account
-                      </Button>
+                      </Link>
                     </p>
                     <Button className="text-white w-full max-w-[142px]">
                       Login

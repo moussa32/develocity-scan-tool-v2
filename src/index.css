@@ -37,7 +37,7 @@
   src: url("./assets/fonts/SF/SFProDisplay-Regular.eot");
   src:
     local("SF Pro Display Regular"),
-    local("SFProDisplay-Regular"),
+    local("./assets/fonts/SF/SFProDisplay-Regular"),
     url("./assets/fonts/SF/SFProDisplay-Regular.eot?#iefix")
       format("embedded-opentype"),
     url("./assets/fonts/SF/SFProDisplay-Regular.woff2") format("woff2"),
@@ -136,4 +136,55 @@
   .container {
     max-width: 1320px !important;
   }
+}
+
+.tokenListTable,
+.ant-table,
+.ant-table-cell,
+.ant-table-footer,
+.ant-pagination-item-link {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.ant-pagination .ant-pagination-item-active {
+  background-color: #272b40 !important;
+  border: #272b40 1px solid !important;
+}
+
+.ant-pagination .ant-pagination-item-active a {
+  color: rgb(159, 74, 232);
+}
+
+.ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(
+    .ant-table-row-expand-icon-cell
+  ):not([colspan])::before,
+.ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > td:not(:last-child):not(.ant-table-selection-column):not(
+    .ant-table-row-expand-icon-cell
+  ):not([colspan])::before {
+  display: none;
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th,
+.ant-table-wrapper .ant-table-thead > tr > td {
+  color: #888888 !important;
+  font-family: "SF Pro Display";
+  font-size: 13px;
+}
+
+.ant-table-wrapper .ant-table-filter-trigger,
+.ant-table-wrapper .ant-table-column-sorter {
+  color: #888888;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr:not(:first-child) > th,
+.ant-table-wrapper .ant-table-tbody > tr:not(:first-child) > td {
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
 }

@@ -1,7 +1,9 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { Button } from "../ui/button";
+import { LiaUserCircleSolid } from "react-icons/lia";
 
-const CreateAccountModal = ({ closeModal, isOpen }) => {
+const CreateAccountModal = ({ isOpen, closeModal }) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -18,7 +20,7 @@ const CreateAccountModal = ({ closeModal, isOpen }) => {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+          <div className="flex min-h-full items-center backdrop-blur justify-center p-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -28,25 +30,77 @@ const CreateAccountModal = ({ closeModal, isOpen }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                  Create Account
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We’ve sent you an email with all of the details of
-                    your order.
-                  </p>
-                </div>
-
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    onClick={closeModal}
-                  >
-                    Got it, thanks!
-                  </button>
+              <Dialog.Panel className="w-full min-h-screen bg-[#25293E] min-w-[660px] max-w-md border-t-[21px] border-primary transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl px-[58px] transition-all">
+                <div className="flex flex-col h-full w-full max-w-[660px] mx-auto">
+                  <div className="flex justify-center flex-col items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="102.308"
+                      height="102.308"
+                      viewBox="0 0 102.308 102.308"
+                    >
+                      <path
+                        id="Path_797"
+                        data-name="Path 797"
+                        d="M354.714,285.894a20.173,20.173,0,0,1,18.569-12.288h30.242a20.173,20.173,0,0,1,18.569,12.288M408.565,235.8A20.162,20.162,0,1,1,388.4,215.641,20.162,20.162,0,0,1,408.565,235.8Zm30.242,12.6A50.4,50.4,0,1,1,388.4,198,50.4,50.4,0,0,1,438.808,248.4Z"
+                        transform="translate(-337.25 -197.25)"
+                        fill="none"
+                        stroke="#dfdfe4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                    <h2 className="text-[#888888] text-[17px] font-sf mt-3">
+                      Edit Profile Picture
+                    </h2>
+                  </div>
+                  <div className="grid grid-cols-1 gap-y-[26px] flex-1 mt-[31px]">
+                    <input
+                      className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                      placeholder="User Name"
+                    />
+                    <div className="grid grid-cols-2 gap-x-4">
+                      <input
+                        className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                        placeholder="Frist Name"
+                      />
+                      <input
+                        className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                        placeholder="Last Name"
+                      />
+                    </div>
+                    <input
+                      className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                      placeholder="Email"
+                    />
+                    <div className="flex gap-x-[18px]">
+                      <div className="rounded-lg bg-[#4B4F64] flex items-center justify-center min-w-[105.29px] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC]">
+                        (EG) +20
+                      </div>
+                      <input className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none" />
+                    </div>
+                    <input
+                      className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                      placeholder="Password"
+                    />
+                    <input
+                      className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                      placeholder="New Password"
+                    />
+                    <input
+                      className="h-[59.71px] w-full rounded-[10px] pl-[26px] bg-[#4B4F64] placeholder:text-[#E8EAEC] text-[17px] text-[#E8EAEC] appearance-none outline-none"
+                      placeholder="Confirm New Password"
+                    />
+                    <div className="flex justify-between items-center w-full mt-10">
+                      <button className="min-w-[209px] bg-transparent border-primary text-primary border-1 h-[49px] rounded-[2px]">
+                        Delete Account
+                      </button>
+                      <button className="min-w-[209px] bg-primary text-white border-primary border-1 h-[49px] rounded-[2px]">
+                        Save
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </Dialog.Panel>
             </Transition.Child>
