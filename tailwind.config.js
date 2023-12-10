@@ -7,7 +7,7 @@ module.exports = {
       center: true,
       padding: { DEFAULT: "1.5rem" },
       screens: {
-        "2xl": "1400px",
+        "2xl": "1400px !important",
       },
     },
     extend: {
@@ -80,5 +80,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@headlessui/tailwindcss")],
 };

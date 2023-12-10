@@ -15,11 +15,15 @@ const Navbar = () => {
 
   return (
     <section className="py-8 lg:py-0 lg:h-[172px] bg-primaryLayoutColor flex items-center">
-      <div className="container flex items-center flex-col justify-center gap-y-8  lg:flex-row">
+      <div className="container flex items-center flex-col justify-center gap-y-8 lg:flex-row">
         <img className="lg:ltr:mr-[48px] lg:rtl:ml-[48px]" src={Logo} />
         <nav className="flex items-center gap-x-[35px] font-medium text-semiWhite text-sm">
           <NavLink
-            className={({ isActive }) => `duration-200 ease-in-out transition-all ${isActive ? "text-primary" : ""}`}
+            className={({ isActive }) =>
+              `duration-200 ease-in-out transition-all ${
+                isActive ? "text-primary" : ""
+              }`
+            }
             to="/"
           >
             Home

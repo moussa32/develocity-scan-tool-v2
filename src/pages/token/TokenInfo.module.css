@@ -1,0 +1,14 @@
+.infoWrapper {
+  background-color: #25293e;
+  border-radius: 10px;
+}
+
+.infoHeader {
+  display: flex;
+  padding: 19px 36px;
+}
+
+.ad {
+  background-color: #25293e;
+  border-radius: 10px;
+}

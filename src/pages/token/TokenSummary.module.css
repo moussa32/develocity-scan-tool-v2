@@ -1,0 +1,29 @@
+.tokenName {
+  font-family: "SF Pro Display semiBold";
+  font-size: 32px;
+}
+
+.submitTokenButton {
+  border-radius: 2px;
+  padding: 2px 16px;
+  background-color: #9f4ae8;
+  min-width: fit-content;
+}
+
+.contract {
+  font-family: "SF Pro Display Medium";
+  font-weight: 500;
+  font-size: 14px;
+  color: #2268e1;
+}
+
+.badge {
+  background-color: #272b40;
+  font-family: "SF Pro Display Medium";
+  font-size: 12px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  padding: 2px 6px;
+  height: fit-content;
+}
