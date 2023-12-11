@@ -12,7 +12,7 @@ const TokenContent = () => {
   return (
     <div>
       <section className="bg-[#EFF2F5] h-[1px] w-full my-[50px]"></section>
-      <section className="flex justify-between">
+      <section className="flex flex-col md:flex-row gap-y-8 justify-between">
         <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
           <Tab.List className="bg-[#272B40] rounded-[10px] h-[48.56px] w-full md:w-[400px] items-center flex  justify-between">
             <Tab className="text-white font-semibold text-xs font-segoe h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">

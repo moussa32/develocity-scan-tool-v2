@@ -5,13 +5,15 @@ import styles from "./TokenSummary.module.css";
 
 const TokenSummary = ({ name, ticker }) => {
   return (
-    <div className="flex font-sf items-start text-white">
+    <div className="flex w-full flex-col md:flex-row md:flex-nowrap justify-center items-center flex-wrap font-sf md:items-start text-white">
       <img src={TokenSummaryIcon} alt="" />
-      <div className="flex pl-3 flex-col">
-        <div className="flex items-center gap-3">
-          <h1 className={styles.tokenName}>Bitcoin</h1>
-          <span className={styles.badge}>$BTC</span>
-          <button className={styles.submitTokenButton}>
+      <div className="flex flex-wrap w-full pl-3 flex-col">
+        <div className="flex flex-wrap w-full items-center gap-3">
+          <h1 className={`${styles.tokenName} flex-grow md:flex-grow-0`}>
+            Bitcoin
+          </h1>
+          <span className={`${styles.badge}`}>$BTC</span>
+          <button className={`${styles.submitTokenButton}`}>
             Submit your token
           </button>
           <img src={VerifyIcon} alt="token virefied" />
@@ -125,13 +127,13 @@ const TokenSummary = ({ name, ticker }) => {
             </a>
           </div>
         </div>
-        <p className="text-[#E8EAEC]">
-          Contract Address:
-          <a className={styles.contract} href={``}>
+        <p className="text-[#E8EAEC] flex flex-wrap max-w-full items-center gap-3 my-4 md:my-0 truncate">
+          Contract Address:{" "}
+          <a className={`${styles.contract} truncate`} href={``}>
             0xbCba01f7d6CC0A950464a4b98BA8358c4F6B69a0
           </a>
         </p>
-        <div className="flex gap-3 my-3">
+        <div className="flex flex-wrap gap-3 w-full my-3">
           <div className={styles.badge}>Rank #3</div>
           <div className={styles.badge}>BSC</div>
           <div className={styles.badge}>
@@ -143,6 +145,7 @@ const TokenSummary = ({ name, ticker }) => {
           <div className={styles.badge}>View More</div>
         </div>
         <svg
+          className="hidden md:block"
           xmlns="http://www.w3.org/2000/svg"
           width="484"
           height="90"

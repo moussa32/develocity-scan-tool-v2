@@ -2,7 +2,9 @@ import styles from "./TrustScore.module.css";
 
 const ProblemCard = () => {
   return (
-    <div className={`flex flex-col font-segoe ${styles.problemCard}`}>
+    <div
+      className={`flex flex-col font-segoe lg:max-w-[496px] ${styles.problemCard}`}
+    >
       <h4 className={`${styles.problemCardTitle} text-white text-[21px]`}>
         Lorem ipsum dolor
       </h4>
@@ -15,7 +17,7 @@ const ProblemCard = () => {
 
 const TrustScore = () => {
   return (
-    <div className="flex gap-11">
+    <div className="grid grid-cols-1  lg:flex gap-11">
       <div className="bg-[#25293E] py-[42px] px-[36px] flex items-center justify-center rounded-[10px]">
         <svg
           id="Group_1073"
@@ -300,21 +302,20 @@ const TrustScore = () => {
           </g>
         </svg>
       </div>
-      <div className="w-full max-w-[496px]">
+      <div className="w-full lg:max-w-[496px]">
         <h3 className="font-segoe text-white text-[21px] mb-5">Problem List</h3>
-        <div className="flex flex-col gap-[10px] w-full max-w-[496px]">
+        <div className="flex flex-col gap-[10px] w-full ">
           <ProblemCard />
           <ProblemCard />
           <ProblemCard />
         </div>
       </div>
-      <div>
+      <div className="self-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="448"
-          height="423"
           viewBox="0 0 448 423"
+          className="self-center md:w-[448px] md:h-[423px] mx-auto lg:mx-0"
         >
           <defs>
             <filter

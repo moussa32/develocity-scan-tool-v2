@@ -28,7 +28,7 @@ const AuthButtons = () => {
         <Button
           variant="outline"
           onClick={openLoginModal}
-          className="border-1 border-primary md:ml-auto bg-transparent h-[42px] max-w-[160px] flex font-medium text-sm items-center w-full transition-all duration-200 ease-in-out justify-center text-primary hover:text-semiWhite hover:bg-primary"
+          className="border-1 border-primary lg:ml-auto bg-transparent h-[42px] max-w-[160px] flex font-medium text-sm items-center w-full transition-all duration-200 ease-in-out justify-center text-primary hover:text-semiWhite hover:bg-primary"
         >
           Log In
         </Button>
