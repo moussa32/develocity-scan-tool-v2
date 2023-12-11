@@ -1,4 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import styles from "./TrustScore.module.css";
+import { requestHumanSummary } from "@/api/contractInfo";
+import { useParams } from "react-router-dom";
 
 const ProblemCard = () => {
   return (
@@ -16,10 +19,19 @@ const ProblemCard = () => {
 };
 
 const TrustScore = () => {
+  const { contractAddress } = useParams();
+  const { data } = useQuery({
+    queryKey: ["getHumanSummary"],
+    suspense: true,
+    queryFn: () => requestHumanSummary({ contractAddress }),
+  });
+
+  console.log(data);
+
   return (
     <div className="grid grid-cols-1  lg:flex gap-11">
-      <div className="bg-[#25293E] py-[42px] px-[36px] flex items-center justify-center rounded-[10px]">
-        <svg
+      <div className="bg-[#25293E] flex-col py-[42px] px-[36px] flex items-center justify-center rounded-[10px]">
+        {/* <svg
           id="Group_1073"
           data-name="Group 1073"
           xmlns="http://www.w3.org/2000/svg"
@@ -300,7 +312,32 @@ const TrustScore = () => {
               </g>
             </g>
           </g>
-        </svg>
+        </svg> */}
+        <div className={`${styles.circalWrapper}`}>
+          <div className="font-segoe font-semibold text-[35px]">
+            {data?.result?.contractScan.toFixed(2)}%
+          </div>
+        </div>
+        <h2 className="font-segoe text-left self-start text-sm text-[#9A9A9A] mt-8">
+          Problems detected:
+        </h2>
+        <div className="w-full flex flex-col gap-4 mt-5">
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-[14px] bg-[#EA3943] h-[14px] rounded-full"></div>
+            <h3 className="text-[#9A9A9A] flex-grow">CRITCAL</h3>
+            <span>{data?.result?.numberOfHighIssue}</span>
+          </div>
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-[14px] bg-[#F5A341] h-[14px] rounded-full"></div>
+            <h3 className="text-[#9A9A9A] flex-grow">IMPORTANT</h3>
+            <span>{data?.result?.numberOfMediunIssue}</span>
+          </div>
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-[14px] bg-[#9A9A9A] h-[14px] rounded-full"></div>
+            <h3 className="text-[#9A9A9A] flex-grow">INFORMATIONAL</h3>
+            <span>{data?.result?.numberOfLowIssue}</span>
+          </div>
+        </div>
       </div>
       <div className="w-full lg:max-w-[496px]">
         <h3 className="font-segoe text-white text-[21px] mb-5">Problem List</h3>

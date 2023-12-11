@@ -5,9 +5,18 @@ import ShareIcon from "@assets/images/shareIcon.svg";
 import TokenInfo from "./TokenInfo";
 import TrustScore from "./TrustScore";
 import TokenDetails from "./TokenDetails";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { requestContractInfo } from "@/api/contractInfo";
 
 const TokenContent = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const { network, contractAddress } = useParams();
+  const { data } = useQuery({
+    queryKey: ["getTokenInfo"],
+    suspense: true,
+    queryFn: () => requestContractInfo({ network, contractAddress }),
+  });
 
   return (
     <div>

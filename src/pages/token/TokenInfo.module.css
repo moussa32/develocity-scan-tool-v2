@@ -6,6 +6,15 @@
 .infoHeader {
   display: flex;
   padding: 19px 36px;
+  align-items: center;
+}
+
+.infoBody {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  border-top: 0.5px #9a9a9a solid;
+  border-bottom: 0.5px #9a9a9a solid;
 }
 
 .ad {

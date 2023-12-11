@@ -8,7 +8,8 @@
       "@layout/*": ["./src/shared/layout/*"],
       "@hooks/*": ["./src/shared/hooks/*"],
       "@util/*": ["./src/shared/util/*"],
-      "@assets/*": ["./src/assets/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@images/*": ["./src/assets/images/*"]
     }
   }
 }

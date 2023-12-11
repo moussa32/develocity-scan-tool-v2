@@ -1,0 +1,58 @@
+import axios from "axios";
+import BASE_URL from "./constant";
+import { getContractTypeByName } from "@/shared/util/tokenSupportedNetworks";
+
+const requestSearch = async ({ name }) => {
+  const request = axios
+    .get(`${BASE_URL}/user/suggestion`, {
+      params: {
+        name,
+      },
+    })
+    .then((data) => data.data);
+  return request;
+};
+
+const requestHumanSummary = async ({ contractAddress }) => {
+  const request = axios
+    .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
+    .then((data) => data.data);
+  return request;
+};
+
+const requestIP = async () => {
+  const request = axios
+    .get("https://api.ipify.org?format=json")
+    .then((data) => data.data);
+
+  return request;
+};
+
+const requestContractInfo = async ({ contractAddress, network }) => {
+  const { ip } = await requestIP();
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "bsctokenInfo";
+      case "ETH":
+        return "ethTokenInfo";
+      case "MATIC":
+        return "polygonTokenInfo";
+    }
+  };
+
+  const contractInfo = axios
+    .get(`${BASE_URL}/contract/${methodByNetwork()}`, {
+      params: {
+        contractAddress,
+        contractType: getContractTypeByName(network)?.contractType,
+        ipAddress: ip,
+      },
+    })
+    .then((data) => {
+      return data.data;
+    });
+  return contractInfo;
+};
+
+export { requestSearch, requestContractInfo, requestHumanSummary };

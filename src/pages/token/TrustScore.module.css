@@ -1,3 +1,19 @@
+.circalWrapper {
+  border: #707070ce 4px solid;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.loader {
+  width: 200px;
+  height: 200px;
+}
+
 .problemCard {
   background-color: #25293e;
   border-radius: 10px;
