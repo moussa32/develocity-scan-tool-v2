@@ -19,11 +19,19 @@ const HomeTable = ({ records }) => {
       </div>
       <div className={`${colsWidth.network}`}>
         <div className="bg-[#2F334B] col-span-2 w-[81.86px] text-[#888888] text-lg flex items-center justify-start p-1.5 rounded-sm gap-[9px]">
-          <img width={22.84} height={22.84} src={network?.image} alt={network?.name} title={network?.name} />
+          <img
+            width={22.84}
+            height={22.84}
+            src={network?.image}
+            alt={network?.name}
+            title={network?.name}
+          />
           <span className="text-xs uppercase">{network?.ticker}</span>
         </div>
       </div>
-      <span className={`font-segoe text-lg ${colsWidth.scan}`}>{value.toLocaleString("en-US")}</span>
+      <span className={`font-segoe text-lg ${colsWidth.scan}`}>
+        {value.toLocaleString("en-US")}
+      </span>
       <div className={`${colsWidth.scan}`}>
         <span
           className={`flex items-center justify-center font-medium text-[26px] pt-[4px] pb-[7px] px-[15px] ${
@@ -37,7 +45,7 @@ const HomeTable = ({ records }) => {
   );
 
   return (
-    <div className="text-white overflow-x-scroll lg:overflow-auto">
+    <div className="text-white h-[500px] overflow-x-hidden lg:overflow-y-auto">
       <section className="flex justify-between gap-4 font-segoe mb-8 text-lg">
         <h3 className={colsWidth.token}>Token</h3>
         <h3 className={colsWidth.network}>Network</h3>
@@ -49,12 +57,12 @@ const HomeTable = ({ records }) => {
         records.map((item, index) => (
           <Record
             key={`${index}${item?.name}`}
-            name={item?.name}
-            image={item?.image}
-            ticker={item?.ticker}
+            name={item?.contractInfo?.name}
+            image={item?.contractInfo?.logo}
+            ticker={item?.contractInfo?.symbol}
             score={item?.score}
             network={item?.network}
-            value={item?.value}
+            value={item?.interest}
           />
         ))}
       {(!records || records.length === 0) && (

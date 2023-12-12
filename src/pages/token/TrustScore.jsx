@@ -26,8 +26,6 @@ const TrustScore = () => {
     queryFn: () => requestHumanSummary({ contractAddress }),
   });
 
-  console.log(data);
-
   return (
     <div className="grid grid-cols-1  lg:flex gap-11">
       <div className="bg-[#25293E] flex-col py-[42px] px-[36px] flex items-center justify-center rounded-[10px]">
