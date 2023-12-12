@@ -1,68 +1,108 @@
-.table {
-  font-family: "SF Pro Display Medium";
-  width: 100%;
-}
-
-.table thead {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.table tbody {
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
-.table th {
-  font-family: "SF Pro Display Medium";
-  font-weight: normal;
-  padding: 13px;
-  font-size: 12px;
+.tokenRecord_tokenCell {
   display: flex;
   align-items: center;
 }
 
-.table td {
-  padding: 15px 13px;
-  font-size: 14px;
-  border-bottom: 1px #eff2f5 solid;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.table td:first-of-type {
-  border-left: 1px #eff2f5 solid;
-}
-
-.table td:last-of-type {
-  border-right: 1px #eff2f5 solid;
-}
-
-.table td:first-of-type,
-.table th:first-of-type {
-  padding-left: 20px;
-}
-
-.tableRow:hover {
-  transition: 0.3s all;
-  background-color: #00000013;
-  cursor: pointer;
-}
-
-.columnHeader {
+.tokenRecord_name {
   color: #333333;
-  background-color: #eff2f5;
+  font-family: "SF Pro Display Medium";
+  font-size: 12px;
+  margin-bottom: 0;
 }
 
-@media screen and (min-width: 520px) {
-  .table {
-    table-layout: fixed;
+.tokenRecord_ticker {
+  color: #888888;
+  font-family: "SF Pro Display Medium";
+  font-size: 12px;
+}
+
+.tokenRecord_icon,
+.tokenRecord_iconLetter {
+  flex: 0 1 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.tokenRecord_iconLetter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(159, 74, 232, 0.15);
+  color: #9f4ae8;
+  border-radius: 50%;
+}
+
+.tokenRecord_icon_ltr {
+  margin-right: 7px;
+}
+
+.tokenRecord_icon_rtl {
+  margin-left: 7px;
+}
+
+.tokenRecord_verifyIcon {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.tokenRecord_verifyIcon_ltr {
+  margin-left: 10px;
+}
+
+.tokenRecord_verifyIcon_rtl {
+  margin-right: 10px;
+}
+
+.tokenRecord_score {
+  font-family: "SF Pro Display Medium";
+  font-size: 14px;
+  width: 30px;
+  height: 20px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tokenRecord_dangerScore {
+  color: #ea3943;
+  background-color: rgba(234, 57, 67, 0.2);
+}
+.tokenRecord_infoScore {
+  color: #f5a341;
+  background-color: rgba(245, 163, 65, 0.2);
+}
+.tokenRecord_trustScore {
+  color: #16c784;
+  background-color: rgba(22, 199, 132, 0.2);
+}
+
+.networkCell {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-family: "SF Pro Display Medium";
+}
+
+.tableFooter {
+  font-size: 12px;
+  font-family: "SF Pro Display Medium";
+  color: #888888;
+}
+
+@media screen and (min-width: 576px) {
+  .tokenRecord_ticker {
+    font-size: 14px;
   }
-}
-
-@media screen and (max-width: 520px) {
-  .table td {
-    padding: 15px 7px;
+  .tokenRecord_name {
+    font-size: 14px;
+  }
+  .tokenRecord_icon,
+  .tokenRecord_iconLetter {
+    flex: 0 1 24px;
+    width: 24px;
+    height: 24px;
   }
 }

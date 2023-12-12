@@ -31,6 +31,29 @@ const requestTopTenWallets = async ({ network, contractAddress }) => {
   return response.data.result;
 };
 
+const requestContractOwner = async ({ network, contractAddress }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "getBSCOwnerDetails";
+      case "ETH":
+        return "getETHOwnerDetails";
+      case "MATIC":
+        return "getPolygonOwnerDetails";
+    }
+  };
+
+  const response = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}`,
+    {
+      params: {
+        contractAddress,
+      },
+    }
+  );
+  return response.data.result;
+};
+
 const requestHumanSummary = async ({ contractAddress }) => {
   const request = axios
     .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
@@ -78,4 +101,5 @@ export {
   requestContractInfo,
   requestHumanSummary,
   requestTopTenWallets,
+  requestContractOwner,
 };

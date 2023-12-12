@@ -1,10 +1,15 @@
 import React from "react";
 import LiquidtyTable from "./LiquidtyTable";
 
+import TokenOwner from "./TokenOwner";
+
 const TokenDetails = () => {
   return (
     <>
       <LiquidtyTable />
+      <div className="grid lg:grid-cols-2 grid-cols-1">
+        <TokenOwner />
+      </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"

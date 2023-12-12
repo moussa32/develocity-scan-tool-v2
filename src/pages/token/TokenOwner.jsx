@@ -1,9 +1,18 @@
-import { requestTopTenWallets } from "@/api/contractInfo";
+import { requestContractOwner } from "@/api/contractInfo";
 import TokenTable from "@/pages/token/TokenTable";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 
 const TokenOwner = ({ transaction }) => {
+  const { contractAddress, network } = useParams();
+  const { data } = useQuery({
+    queryKey: ["getOwner"],
+    suspense: true,
+    queryFn: () => requestContractOwner({ contractAddress, network }),
+  });
+
+  console.log(data);
+
   const transactionData = [];
 
   const columns = [
