@@ -1,5 +1,5 @@
-import Table from "@components/Table";
-import styles from "@pages/token/TokenTable.module.css";
+import Table from "@components/Table/Table";
+import styles from "./TokenTable.module.css";
 
 const TokenTable = ({ columns, data, onRowClick = null }) => {
   return (

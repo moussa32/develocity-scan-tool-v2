@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { useTranslation } from "react-i18next";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import { useFlexLayout, usePagination, useTable } from "react-table";
 import styles from "./Table.module.css";
@@ -92,7 +91,7 @@ const Table = ({
           onClick={() => previousPage()}
           disabled={!canPreviousPage}
         >
-          {<MdArrowBackIos />}
+          <MdArrowBackIos />
         </button>
         {pageOptions.map((option) => (
           <button
@@ -108,7 +107,7 @@ const Table = ({
           onClick={() => nextPage()}
           disabled={!canNextPage}
         >
-          {<MdArrowForwardIos />}
+          <MdArrowForwardIos />
         </button>
       </section>
     </>

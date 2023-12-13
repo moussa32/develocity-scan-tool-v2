@@ -26,7 +26,12 @@ const requestTopTenWallets = async ({ network, contractAddress }) => {
   };
 
   const response = await axios.get(
-    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
+    `${BASE_URL}/contract/${methodByNetwork()}`,
+    {
+      params: {
+        contractAddress,
+      },
+    }
   );
   return response.data.result;
 };
