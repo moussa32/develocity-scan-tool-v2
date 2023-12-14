@@ -1,7 +1,8 @@
 import Logo from "@assets/images/deveLogo.png";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import AuthButtons from "./AuthButtons";
+// import AuthButtons from "./AuthButtons";
+import MySearch from "@/shared/components/MySearch";
 
 const Navbar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -32,7 +33,10 @@ const Navbar = () => {
           <NavLink to="/tokens">Tokens</NavLink>
           <NavLink to="/">Contact</NavLink>
         </nav>
-        <AuthButtons />
+        {/* <AuthButtons /> */}
+        <div className="ml-auto w-full md:w-96">
+          <MySearch />
+        </div>
       </div>
     </section>
   );
