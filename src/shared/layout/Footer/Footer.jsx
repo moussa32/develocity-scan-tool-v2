@@ -33,17 +33,17 @@ const Footer = () => {
           </ul>
           <ul className="flex font-medium text-xs gap-[9px]">
             <li className="border-[#888888] rounded-full w-8 h-8 flex items-center justify-center text-lg border-1">
-              <a href="www.facebook.com/123">
+              <a href="https://t.me/develocity/">
                 <BiLogoTelegram size={14} />
               </a>
             </li>
             <li className="border-[#888888] rounded-full w-8 h-8 flex items-center justify-center text-lg border-1">
-              <a href="www.facebook.com/123">
+              <a href="https://x.com/develocitygroup">
                 <RiTwitterXFill size={14} />
               </a>
             </li>
             <li className="border-[#888888] rounded-full w-8 h-8 flex items-center justify-center text-lg border-1">
-              <a href="www.facebook.com/123">
+              <a href="https://facebook.com/develocity">
                 <BiLogoFacebook />
               </a>
             </li>
