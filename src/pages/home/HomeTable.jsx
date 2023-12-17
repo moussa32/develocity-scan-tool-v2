@@ -1,5 +1,7 @@
 import { scoreTypeColor } from "@/shared/util";
+import { getNetworkDetails } from "@/shared/util/tokenSupportedNetworks";
 import BSCIcon from "@assets/images/BSC.png";
+import { Link } from "react-router-dom";
 
 const colsWidth = {
   token: "lg:w-[37%] flex-shrink-0 mr-4-",
@@ -9,10 +11,20 @@ const colsWidth = {
 };
 
 const HomeTable = ({ records }) => {
-  const Record = ({ image, name, ticker, network, score, value }) => (
-    <section className="flex w-full justify-between items-center gap-4 border-[#9A9A9A]/20 [&:not(:last-of-type)]:border-b-[0.5px] py-5">
+  const Record = ({
+    image,
+    name,
+    ticker,
+    contractAddress,
+    network,
+    score,
+    value,
+  }) => (
+    <Link
+      to={`/token/${getNetworkDetails(network)?.shortName}/${contractAddress}`}
+      className="flex w-full justify-between items-center gap-4 border-[#9A9A9A]/20 [&:not(:last-of-type)]:border-b-[0.5px] py-5"
+    >
       <div className={`${colsWidth.token} flex gap-5`}>
-        {console.log(network)}
         {image ? (
           <img
             width={45}
@@ -61,7 +73,7 @@ const HomeTable = ({ records }) => {
           {score}
         </span>
       </div>
-    </section>
+    </Link>
   );
 
   return (
@@ -83,6 +95,7 @@ const HomeTable = ({ records }) => {
             score={item?.score}
             network={item?.network}
             value={item?.interest}
+            contractAddress={item?.contractAddress}
           />
         ))}
       {(!records || records.length === 0) && (

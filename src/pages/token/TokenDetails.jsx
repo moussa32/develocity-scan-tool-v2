@@ -1,7 +1,46 @@
+import { useQuery } from "@tanstack/react-query";
 import Liquidity10Top from "./Liquidity10Top";
 import Wallet10Top from "./Wallet10Top";
+import {
+  requestContractAnalysis,
+  requestContractLiquidity,
+  requestContractTax,
+} from "@/api/contractInfo";
+import { useParams } from "react-router-dom";
 
 const TokenDetails = () => {
+  const { contractAddress, network } = useParams();
+
+  const {
+    data: taxes,
+    isFetching: isTaxesFetching,
+    isSuccess: isTaxesSuccess,
+  } = useQuery({
+    queryKey: ["getTax", contractAddress],
+    suspense: true,
+    queryFn: () => requestContractTax({ contractAddress, network }),
+  });
+
+  const {
+    data: liquidity,
+    isFetching: isLiquidityFetching,
+    isSuccess: isLiquiditySuccess,
+  } = useQuery({
+    queryKey: ["getLiquditiy", contractAddress],
+    suspense: true,
+    queryFn: () => requestContractLiquidity({ contractAddress, network }),
+  });
+
+  const {
+    data: analysis,
+    isFetching: isAnalysisFetching,
+    isSuccess: isAnalysisSuccess,
+  } = useQuery({
+    queryKey: ["getAnalysis", contractAddress],
+    suspense: true,
+    queryFn: () => requestContractAnalysis({ contractAddress, network }),
+  });
+
   return (
     <>
       <svg
@@ -446,6 +485,82 @@ const TokenDetails = () => {
             Locked Tokens
           </h2>
           <Wallet10Top />
+        </div>
+      </div>
+      <div className="h-[1px] bg-[#EFF2F5]/20 my-[30px]"></div>
+      <div className="grid gap-32 lg:grid-cols-2 grid-cols-1">
+        <div className="flex flex-col gap-8">
+          <div>
+            <h2 className="font-semibold font-segoe text-[#E8EAEC] mb-7 text-xl">
+              Gas Fee
+            </h2>
+            <div className="bg-[#25293E] flex flex-col gap-y-4 rounded-md p-8">
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Buy:</h3>
+                <span className="text-green-500">
+                  {taxes?.buyGasFeeUSD.toLocaleString("en-US")} $
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Sell:</h3>
+                <span className="text-green-500">
+                  {taxes?.sellGasFeeUSD.toLocaleString()} $
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Transfer:</h3>
+                <span className="text-green-500">
+                  {taxes?.tranferGasFeeUSD.toLocaleString()} $
+                </span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h2 className="font-semibold font-segoe text-[#E8EAEC] mb-7 text-xl">
+              Slippage
+            </h2>
+            <div className="bg-[#25293E] flex flex-col gap-y-4 rounded-md p-8">
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Buy:</h3>
+                <span className="text-green-500">
+                  {taxes?.buyTax.toLocaleString()} $
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Sell:</h3>
+                <span className="text-green-500">
+                  {" "}
+                  {taxes?.sellTax.toLocaleString()} $
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-8">
+          <div>
+            <h2 className="font-semibold font-segoe text-[#E8EAEC] mb-7 text-xl">
+              Liquidity
+            </h2>
+            <div className="bg-[#25293E] flex flex-col gap-y-4 rounded-md p-8">
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Buy:</h3>
+                <span className="text-green-500">0.21 $</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Sell:</h3>
+                <span className="text-green-500">0.21 $</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <h3 className="font-segoe text-lg text-[#9A9A9A]">Transfer:</h3>
+                <span className="text-green-500">0.21 $</span>
+              </div>
+            </div>
+          </div>
+          <div className="h-full">
+            <div className="bg-[#25293E] justify-center items-center text-white h-full flex flex-col gap-y-4 rounded-md p-8">
+              [ad space]
+            </div>
+          </div>
         </div>
       </div>
     </>

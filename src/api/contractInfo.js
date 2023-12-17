@@ -59,6 +59,65 @@ const requestContractOwner = async ({ network, contractAddress }) => {
   return response.data.result;
 };
 
+const requestContractTax = async ({ network, contractAddress }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "buySellBSCFeePercentage";
+      case "ETH":
+        return "buySellFeeETHPercentage";
+      case "MATIC":
+        return "buySellFeePolygonPercentage";
+    }
+  };
+
+  const response = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}`,
+    {
+      params: {
+        contractAddress,
+      },
+    }
+  );
+  return response.data.result;
+};
+
+const requestContractLiquidity = async ({ network, contractAddress }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "getBscLiquidityScan";
+      case "ETH":
+        return "getETHLiquidityScan";
+      case "MATIC":
+        return "getPoygonLiquidityScan";
+    }
+  };
+
+  const response = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
+  );
+  return response.data.result;
+};
+
+const requestContractAnalysis = async ({ network, contractAddress }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "getBSCContractDetail";
+      case "ETH":
+        return "getETHContractDetails";
+      case "MATIC":
+        return "getPolygonContractDetails";
+    }
+  };
+
+  const response = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
+  );
+  return response.data.result;
+};
+
 const requestHumanSummary = async ({ contractAddress }) => {
   const request = axios
     .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
@@ -107,4 +166,7 @@ export {
   requestHumanSummary,
   requestTopTenWallets,
   requestContractOwner,
+  requestContractTax,
+  requestContractLiquidity,
+  requestContractAnalysis,
 };

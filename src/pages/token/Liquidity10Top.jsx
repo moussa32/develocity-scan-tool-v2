@@ -18,40 +18,27 @@ const Liquidity10Top = () => {
     if (data && data.topTenLiquidityHolder && isSuccess && isFetched) {
       const wallet = [];
       for (let i = 0; i < data.topTenLiquidityHolder.length; i++) {
-        try {
-          let id = i + 1;
-          let walletaddress =
-            data.topTenLiquidityHolder[i].holders[i].TokenHolderAddress;
-          let address =
-            data.topTenLiquidityHolder[i].holders[i].TokenHolderAddress.substr(
-              0,
-              8
-            ) +
-            "..." +
-            data.topTenLiquidityHolder[i].holders[i].TokenHolderAddress.substr(
-              -6
-            );
-          let nameTag = "N/A";
-          let balance = Number(
-            data.topTenLiquidityHolder[i].holders[i].TokenHolderQuantity
-          ).toLocaleString("en-US");
-          let percentage = `${Number(
-            data.topTenLiquidityHolder[i].holders[i].percentage
-          ).toFixed(2)}%`;
-          wallet.push({
-            id,
-            walletaddress,
-            address,
-            nameTag,
-            balance,
-            percentage,
-          });
-        } catch (error) {
-          console.log(
-            `Error holders array empty at holder[${i}]:`,
-            data.topTenLiquidityHolder[i]
-          );
-        }
+        let id = i + 1;
+        let walletaddress = data.topTenLiquidityHolder[i].TokenHolderAddress;
+        let address =
+          data.topTenLiquidityHolder[i].TokenHolderAddress.substr(0, 8) +
+          "..." +
+          data.topTenLiquidityHolder[i].TokenHolderAddress.substr(-6);
+        let nameTag = "N/A";
+        let balance = Number(
+          data.topTenLiquidityHolder[i].TokenHolderQuantity
+        ).toLocaleString("en-US");
+        let percentage = `${Number(
+          data.topTenLiquidityHolder[i].percentage
+        ).toFixed(2)}%`;
+        wallet.push({
+          id,
+          walletaddress,
+          address,
+          nameTag,
+          balance,
+          percentage,
+        });
       }
       setWalletInfo(wallet);
     }

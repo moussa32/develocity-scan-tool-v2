@@ -104,6 +104,8 @@ const Popular = () => {
                 logo={item?.contractInfo?.logo}
                 score={item?.score}
                 scans={item?.contractScan}
+                address={item?.contractAddress}
+                network={item?.network}
               />
             ))}
         </div>
