@@ -29,9 +29,9 @@ const Navbar = () => {
           >
             Home
           </NavLink>
-          <NavLink to="/">About</NavLink>
+          <a href="https://develocity.finance">About</a>
           <NavLink to="/tokens">Tokens</NavLink>
-          <NavLink to="/">Contact</NavLink>
+          <a href="https://develocity.finance/contact-us">Contact</a>
         </nav>
         {/* <AuthButtons /> */}
         <div className="ml-auto w-full md:w-96">

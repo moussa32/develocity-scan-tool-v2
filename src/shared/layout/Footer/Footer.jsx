@@ -21,14 +21,18 @@ const Footer = () => {
   return (
     <footer className="bg-primaryLayoutColor text-white">
       <div className="container pt-[112.6px] pb-[56.8px]">
-        <nav className="flex items-center gap-5">
+        <nav className="flex items-center flex-col md:flex-row gap-5">
           <ul className="flex font-medium text-xs gap-5">
             <li>@ {new Date().getUTCFullYear()} Develocity</li>
             <li>
-              <Link to="/terms-conditions">Terms & Conditions</Link>
+              <a href="https://develocity.finance/terms-and-conditions">
+                Terms & Conditions
+              </a>
             </li>
             <li>
-              <Link to="/terms-conditions">Privacy Policy</Link>
+              <a href="https://develocity.finance/privacy-and-policy">
+                Privacy Policy
+              </a>
             </li>
           </ul>
           <ul className="flex font-medium text-xs gap-[9px]">

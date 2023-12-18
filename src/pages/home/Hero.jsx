@@ -19,16 +19,19 @@ const Hero = () => {
           <p className="text-xl text-[32px] font-segoe text-secondaryText">
             Get real-time insights and maximize your profits effortlessly
           </p>
-          <Link href="https://develocity.finance">
-          <button className="bg-primary text-white py-3.5 px-8 lg:w-[220px] lg:h-[60px] font-medium text-lg lg:text-[22px] mt-8 lg:mt-[97.1px]">
-            Visit Develocity
-          </button>
-          </Link>
+          <a href="https://develocity.finance">
+            <button className="bg-primary text-white py-3.5 px-8 lg:w-[220px] lg:h-[60px] font-medium text-lg lg:text-[22px] mt-8 lg:mt-[97.1px]">
+              Visit Develocity
+            </button>
+          </a>
         </div>
         <div className="mt-10 lg:mt-0 ">
           <video playsInline autoPlay muted>
-            <source src={heroVideoWebm} type='video/webm;' />
-            <source src={heroVideoMp4} type='video/mp4; codecs="avc1.64001E, mp4a.40.2"' />
+            <source src={heroVideoWebm} type="video/webm;" />
+            <source
+              src={heroVideoMp4}
+              type='video/mp4; codecs="avc1.64001E, mp4a.40.2"'
+            />
           </video>
         </div>
       </section>

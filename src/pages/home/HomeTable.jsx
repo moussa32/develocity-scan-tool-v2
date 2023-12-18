@@ -22,9 +22,9 @@ const HomeTable = ({ records }) => {
   }) => (
     <Link
       to={`/token/${getNetworkDetails(network)?.shortName}/${contractAddress}`}
-      className="flex w-full justify-between items-center gap-4 border-[#9A9A9A]/20 [&:not(:last-of-type)]:border-b-[0.5px] py-5"
+      className="flex w-full md:flex-nowrap flex-wrap justify-between items-center gap-4 border-[#9A9A9A]/20 [&:not(:last-of-type)]:border-b-[0.5px] py-5"
     >
-      <div className={`${colsWidth.token} flex gap-5`}>
+      <div className={`${colsWidth.token} w-1/2 flex gap-5`}>
         {image ? (
           <img
             width={45}
@@ -34,7 +34,7 @@ const HomeTable = ({ records }) => {
             title={name}
           />
         ) : (
-          <h3 className="w-12 h-12 flex items-center rounded-full justify-center bg-primary/50">
+          <h3 className="w-12 h-12 flex flex-shrink-0 items-center rounded-full justify-center bg-primary/50">
             {name?.charAt(1).toUpperCase()}
           </h3>
         )}
@@ -62,7 +62,7 @@ const HomeTable = ({ records }) => {
         </div>
       </div>
       <span className={`font-segoe text-base font-semibold ${colsWidth.scan}`}>
-        {value.toLocaleString("en-US")}
+        {Number(value.toLocaleString("en-US")).toFixed()}
       </span>
       <div className={`${colsWidth.scan}`}>
         <span
@@ -70,7 +70,7 @@ const HomeTable = ({ records }) => {
             scoreTypeColor(score).bg
           } bg-opacity-20 ${scoreTypeColor(score).text} rounded-sm`}
         >
-          {score}
+          {Number(score.toLocaleString("en-US")).toFixed()}
         </span>
       </div>
     </Link>
