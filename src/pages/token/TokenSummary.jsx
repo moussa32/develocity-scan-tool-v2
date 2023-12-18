@@ -15,11 +15,17 @@ const TokenSummary = () => {
 
   return (
     <div className="flex w-full flex-col md:flex-row md:flex-nowrap justify-center items-center flex-wrap font-sf md:items-start text-white">
-      <img
-        src={data?.result?.contractInfo?.logo}
-        alt={data?.result?.contractInfo?.name}
-        width={64}
-      />
+      {data?.result?.contractInfo?.logo ? (
+        <img
+          src={data?.result?.contractInfo?.logo}
+          alt={data?.result?.contractInfo?.name}
+          width={64}
+        />
+      ) : (
+        <h2 className="flex items-center justify-center w-20 text-xl h-[4.5rem] rounded-full bg-primary/90">
+          {data?.result?.contractInfo?.name[0]}
+        </h2>
+      )}
       <div className="flex flex-wrap w-full pl-3 flex-col">
         <div className="flex flex-wrap w-full items-center gap-3">
           <h1 className={`${styles.tokenName} flex-grow md:flex-grow-0`}>

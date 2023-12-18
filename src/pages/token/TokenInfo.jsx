@@ -20,12 +20,19 @@ const TokenInfo = () => {
           <div className={styles.infoWrapper}>
             <div className={styles.infoHeader}>
               <div className={`flex gap-6 items-center`}>
-                <img
-                  width={55}
-                  height={55}
-                  src={data?.result?.contractInfo?.logo}
-                  alt={data?.result?.contractInfo?.name}
-                />
+                {data?.result?.contractInfo?.logo ? (
+                  <img
+                    width={55}
+                    height={55}
+                    src={data?.result?.contractInfo?.logo}
+                    alt={data?.result?.contractInfo?.name}
+                  />
+                ) : (
+                  <h2 className="w-[55px] h-[55px] bg-primary rounded-full flex items-center justify-center font-semibold text-white">
+                    {data?.result?.contractInfo?.name[0]}
+                  </h2>
+                )}
+
                 <div className="flex flex-col">
                   <h3
                     className={` font-segoe text-[20px] font-bold text-[#E8EAEC]`}

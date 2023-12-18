@@ -36,6 +36,29 @@ const requestTopTenWallets = async ({ network, contractAddress }) => {
   return response.data.result;
 };
 
+const requestContractLiquidity = async ({ network, contractAddress }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "getBSCTop10";
+      case "ETH":
+        return "getETHTop10";
+      case "MATIC":
+        return "getPolygonTop10";
+    }
+  };
+
+  const response = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}`,
+    {
+      params: {
+        contractAddress,
+      },
+    }
+  );
+  return response.data.result;
+};
+
 const requestContractOwner = async ({ network, contractAddress }) => {
   const methodByNetwork = () => {
     switch (network) {
@@ -78,24 +101,6 @@ const requestContractTax = async ({ network, contractAddress }) => {
         contractAddress,
       },
     }
-  );
-  return response.data.result;
-};
-
-const requestContractLiquidity = async ({ network, contractAddress }) => {
-  const methodByNetwork = () => {
-    switch (network) {
-      case "BSC":
-        return "getBscLiquidityScan";
-      case "ETH":
-        return "getETHLiquidityScan";
-      case "MATIC":
-        return "getPoygonLiquidityScan";
-    }
-  };
-
-  const response = await axios.get(
-    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
   );
   return response.data.result;
 };
