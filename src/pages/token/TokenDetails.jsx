@@ -7,6 +7,7 @@ import {
   requestContractTax,
 } from "@/api/contractInfo";
 import { useParams } from "react-router-dom";
+import Liquidity from "./Liquidity";
 
 const TokenDetails = () => {
   const { contractAddress, network } = useParams();
@@ -40,8 +41,6 @@ const TokenDetails = () => {
     suspense: true,
     queryFn: () => requestContractAnalysis({ contractAddress, network }),
   });
-
-  console.log(analysis);
 
   return (
     <>
@@ -389,9 +388,9 @@ const TokenDetails = () => {
       <div className="grid gap-32 lg:grid-cols-2 grid-cols-1">
         <div>
           <h2 className="font-semibold font-segoe text-[#E8EAEC] mb-7 text-xl">
-            Locked Tokens
+            Liquidity
           </h2>
-          <Wallet10Top />
+          <Liquidity />
         </div>
       </div>
       <div className="h-[1px] bg-[#EFF2F5]/20 my-[30px]"></div>
@@ -444,7 +443,7 @@ const TokenDetails = () => {
           </div>
         </div>
         <div className="flex flex-col gap-8">
-          <div>
+          {/* <div>
             <h2 className="font-semibold font-segoe text-[#E8EAEC] mb-7 text-xl">
               Liquidity
             </h2>
@@ -462,7 +461,7 @@ const TokenDetails = () => {
                 <span className="text-green-500">0.21 $</span>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="h-full">
             <div className="bg-[#25293E] justify-center items-center text-white h-full flex flex-col gap-y-4 rounded-md p-8">
               [ad space]

@@ -40,21 +40,16 @@ const requestContractLiquidity = async ({ network, contractAddress }) => {
   const methodByNetwork = () => {
     switch (network) {
       case "BSC":
-        return "getBSCTop10";
+        return "getBscLiquidityScan";
       case "ETH":
-        return "getETHTop10";
+        return "getETHLiquidityScan";
       case "MATIC":
-        return "getPolygonTop10";
+        return "getPoygonLiquidityScan";
     }
   };
 
   const response = await axios.get(
-    `${BASE_URL}/contract/${methodByNetwork()}`,
-    {
-      params: {
-        contractAddress,
-      },
-    }
+    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
   );
   return response.data.result;
 };

@@ -14,42 +14,14 @@ const Liquidity = () => {
   });
   const [walletInfo, setWalletInfo] = useState([]);
 
-  const liquditiy = data?.liquidityInfo?.map((item) => ({
-    addLiquidity: item?.addLiquidityBal,
-    removeLiquidity: item?.removeLiquidityBal,
-    burnLiquidityPer: item?.burnLiquidityPer,
+  const liquditiy = data?.liquidityInfo?.map((item, index) => ({
+    id: index,
+    addLiquidity: item?.addLiquidityBal.toFixed(),
+    removeLiquidity: item?.removeLiquidityBal.toFixed(),
+    burnLiquidityPer: item?.burnLiquidityPer.toFixed(),
   }));
 
   console.log(liquditiy);
-
-  // useEffect(() => {
-  //   if (data && data.topTenLiquidityHolder && isSuccess && isFetched) {
-  //     const wallet = [];
-  //     for (let i = 0; i < data.topTenLiquidityHolder.length; i++) {
-  //       let id = i + 1;
-  //       let walletaddress = data.topTenLiquidityHolder[i].TokenHolderAddress;
-  //       let address =
-  //         data.topTenLiquidityHolder[i].TokenHolderAddress.substr(0, 8) +
-  //         "..." +
-  //         data.topTenLiquidityHolder[i].TokenHolderAddress.substr(-6);
-  //       let balance = Number(
-  //         data.topTenLiquidityHolder[i].TokenHolderQuantity
-  //       ).toLocaleString("en-US");
-  //       let percentage = `${Number(
-  //         data.topTenLiquidityHolder[i].percentage
-  //       ).toFixed(2)}%`;
-  //       wallet.push({
-  //         id,
-  //         walletaddress,
-  //         address,
-  //         nameTag,
-  //         balance,
-  //         percentage,
-  //       });
-  //     }
-  //     setWalletInfo(wallet);
-  //   }
-  // }, [data]);
 
   const columns = [
     {
@@ -58,43 +30,29 @@ const Liquidity = () => {
       width: 25,
     },
     {
-      accessor: "address",
-      Header: "address",
-      render: () => {
-        return <span style={{ color: "#3861fb" }}></span>;
-      },
-      minWidth: 42,
-      maxWidth: 60,
-    },
-    {
-      accessor: "balance",
-      Header: "balance",
+      accessor: "addLiquidity",
+      Header: "Add Liquidity",
       minWidth: 42,
       maxWidth: 73,
     },
     {
-      accessor: "percentage",
-      Header: "percentage",
+      accessor: "burnLiquidityPer",
+      Header: "Burned Liquidity",
+      minWidth: 42,
+      maxWidth: 70,
+    },
+    {
+      accessor: "removeLiquidity",
+      Header: "Removed Liquidity",
       minWidth: 42,
       maxWidth: 70,
     },
   ];
 
-  const selectRow = (row) => {
-    window.open(
-      `https://bscscan.com/token/${contractAddress}?a=${row.walletaddress}`,
-      "_blank"
-    );
-  };
-
   return (
     <>
-      {walletInfo && walletInfo.length > 0 && (
-        <TokenTable
-          columns={columns}
-          data={walletInfo}
-          onRowClick={selectRow}
-        />
+      {liquditiy && liquditiy.length > 0 && (
+        <TokenTable columns={columns} data={liquditiy} />
       )}
     </>
   );
