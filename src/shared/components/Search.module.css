@@ -3,7 +3,7 @@
   color: #888;
   display: flex;
   align-items: center;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   margin-bottom: 9px;
 }
 
@@ -61,7 +61,7 @@
   position: absolute;
   border: 0;
   top: 5px;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   cursor: pointer;
 }
 
@@ -104,7 +104,7 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   color: #e13232;
   padding: 10px;
 }

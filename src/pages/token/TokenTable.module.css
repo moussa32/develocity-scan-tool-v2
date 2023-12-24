@@ -1,5 +1,5 @@
 .table {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   width: 100%;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .table th {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-weight: normal;
   padding: 13px;
   font-size: 12px;
@@ -23,7 +23,7 @@
 }
 
 .table td {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-weight: 500;
   padding: 15px 13px;
   font-size: 12px;

@@ -1,5 +1,5 @@
 .tokenName {
-  font-family: "SF Pro Display semiBold";
+  font-family: "SFProDisplaySemibold";
   font-size: 32px;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .contract {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-weight: 500;
   font-size: 14px;
   color: #2268e1;
@@ -19,7 +19,7 @@
 
 .badge {
   background-color: #272b40;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-size: 12px;
   border-radius: 2px;
   display: flex;

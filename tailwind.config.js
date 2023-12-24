@@ -72,7 +72,7 @@ module.exports = {
       },
       fontFamily: {
         segoe: "Segoe UI",
-        sf: "SF Pro Display",
+        sf: "SFProDisplay",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

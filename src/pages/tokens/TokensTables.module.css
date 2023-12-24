@@ -5,14 +5,14 @@
 
 .tokenRecord_name {
   color: white;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-size: 15px;
   margin-bottom: 0;
 }
 
 .tokenRecord_ticker {
   color: #888888;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-size: 12px;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .tokenRecord_score {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   font-size: 14px;
   width: 30px;
   height: 20px;
@@ -84,12 +84,12 @@
   align-items: center;
   gap: 5px;
   font-size: 14px;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
 }
 
 .tableFooter {
   font-size: 12px;
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   color: #888888;
 }
 

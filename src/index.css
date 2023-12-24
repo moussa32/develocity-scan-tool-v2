@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "SF Pro Display Bold";
+  font-family: "SFProDisplayBold";
   src: url("./assets/fonts/SF/SFProDisplay-Bold.eot");
   src:
-    local("SF Pro Display Bold"),
+    local("SFProDisplayBold"),
     local("./assets/fonts/SF/SFProDisplay-Bold"),
     url("./assets/fonts/SF/SFProDisplay-Bold.eot?#iefix")
       format("embedded-opentype"),
@@ -18,10 +18,10 @@
 }
 
 @font-face {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   src: url("./assets/fonts/SF/SFProDisplay-Medium.eot");
   src:
-    local("SF Pro Display Medium"),
+    local("SFProDisplayMedium"),
     local("SFProDisplay-Medium"),
     url("./assets/fonts/SF/SFProDisplay-Medium.eot?#iefix")
       format("embedded-opentype"),
@@ -33,7 +33,7 @@
 }
 
 @font-face {
-  font-family: "SF Pro Display";
+  font-family: "SFProDisplay";
   src: url("./assets/fonts/SF/SFProDisplay-Regular.eot");
   src:
     local("SF Pro Display Regular"),
@@ -48,10 +48,10 @@
 }
 
 @font-face {
-  font-family: "SF Pro Display Semibold";
+  font-family: "SFProDisplaySemibold";
   src: url("./assets/fonts/SF/SFProDisplay-Semibold.eot");
   src:
-    local("SF Pro Display Semibold"),
+    local("SFProDisplaySemibold"),
     local("./assets/fonts/SF/SFProDisplay-Semibold"),
     url("./assets/fonts/SF/SFProDisplay-Semibold.eot?#iefix")
       format("embedded-opentype"),
@@ -127,7 +127,7 @@
 
 @layer base {
   * {
-    font-family: "SF Pro Display";
+    font-family: "SFProDisplay";
     @apply border-border;
   }
   body {
@@ -174,7 +174,7 @@
 .ant-table-wrapper .ant-table-thead > tr > th,
 .ant-table-wrapper .ant-table-thead > tr > td {
   color: #888888 !important;
-  font-family: "SF Pro Display";
+  font-family: "SFProDisplay";
   font-size: 13px;
 }
 

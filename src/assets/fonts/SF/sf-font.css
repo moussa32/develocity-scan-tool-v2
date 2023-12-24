@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "SF Pro Display Medium";
+  font-family: "SFProDisplayMedium";
   src: url("SFProDisplay-Medium.eot");
   src:
-    local("SF Pro Display Medium"),
+    local("SFProDisplayMedium"),
     local("SFProDisplay-Medium"),
     url("SFProDisplay-Medium.eot?#iefix") format("embedded-opentype"),
     url("SFProDisplay-Medium.woff2") format("woff2"),
@@ -97,10 +97,10 @@
 }
 
 @font-face {
-  font-family: "SF Pro Display Bold";
+  font-family: "SFProDisplayBold";
   src: url("SFProDisplay-Bold.eot");
   src:
-    local("SF Pro Display Bold"),
+    local("SFProDisplayBold"),
     local("SFProDisplay-Bold"),
     url("SFProDisplay-Bold.eot?#iefix") format("embedded-opentype"),
     url("SFProDisplay-Bold.woff2") format("woff2"),
