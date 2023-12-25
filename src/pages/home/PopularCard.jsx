@@ -20,7 +20,7 @@ const PopularCard = ({
       <div className="flex text-white grow shrink-0 w-[200px]">
         <img
           className="ltr:mr-4 rtl:ml-4 w-16 h-16 lg:w-14 lg:h-14 xl:w-[50px] xl:h-[50px]"
-          src={logo ? logo : "/src/assets/images/No_image_available.png"}
+          src={logo ? logo : "/src/assets/images/No_image.png"}
           alt={name}
           title={name}
         />
