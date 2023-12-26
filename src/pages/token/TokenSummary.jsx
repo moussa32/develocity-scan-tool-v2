@@ -179,7 +179,7 @@ const TokenSummary = () => {
             href={data?.result?.contractInfo?.whitepaper}
             className={styles.badge}
           >
-            View More
+            View More 
           </a>
         </div>
         <svg

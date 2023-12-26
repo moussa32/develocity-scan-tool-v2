@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BiLogoFacebook, BiLogoTelegram } from "react-icons/bi";
+import { BiLogoFacebook, BiLogoTelegram, BiLogoInstagram } from "react-icons/bi";
 import { RiTwitterXFill } from "react-icons/ri";
 import {
   DropdownMenu,
@@ -42,13 +42,18 @@ const Footer = () => {
               </a>
             </li>
             <li className="border-[#888888] rounded-full w-8 h-8 flex items-center justify-center text-lg border-1">
-              <a href="https://x.com/develocitygroup">
+              <a href="https://x.com/develocitygroup?s=21">
                 <RiTwitterXFill size={14} />
               </a>
             </li>
             <li className="border-[#888888] rounded-full w-8 h-8 flex items-center justify-center text-lg border-1">
-              <a href="https://facebook.com/develocity">
+              <a href="https://www.facebook.com/groups/6243075862449827/?ref=share_group_link">
                 <BiLogoFacebook />
+              </a>
+            </li>
+            <li className="border-[#888888] rounded-full w-8 h-8 flex items-center justify-center text-lg border-1">
+              <a href="https://www.instagram.com/develocitygroup?igsh=bGFoNG84dXJoanl5&utm_source=qr">
+                <BiLogoInstagram />
               </a>
             </li>
           </ul>
