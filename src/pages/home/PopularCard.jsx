@@ -1,7 +1,7 @@
-import BSC from "@assets/images/bsc.svg";
 import { scoreTypeColor } from "@/shared/util";
 import { Link } from "react-router-dom";
 import { getNetworkDetails } from "@/shared/util/tokenSupportedNetworks";
+import NoImageAvailable from "@images/No_image_available.png";
 
 const PopularCard = ({
   score,
@@ -20,7 +20,7 @@ const PopularCard = ({
       <div className="flex text-white grow shrink-0 w-[200px]">
         <img
           className="ltr:mr-4 rtl:ml-4 w-16 h-16 lg:w-14 lg:h-14 xl:w-[50px] xl:h-[50px]"
-          src={logo ? logo : "/src/assets/images/No_image_available.png"}
+          src={logo ? logo : NoImageAvailable}
           alt={name}
           title={name}
         />

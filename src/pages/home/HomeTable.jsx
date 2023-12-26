@@ -4,10 +4,10 @@ import BSCIcon from "@assets/images/BSC.png";
 import { Link } from "react-router-dom";
 
 const colsWidth = {
-  token: "lg:w-[37%] flex-shrink-0 mr-4-",
-  network: " flex-shrink-0",
-  scan: "lg:w-[62px] flex-shrink-0 mr-4",
-  score: "lg:w-[59px] flex-shrink-0 mr-4",
+  token: "lg:w-[37%] flex-grow flex-shrink-0 mr-4-",
+  network: "flex-shrink-0",
+  scan: "w-[62px] flex-shrink-0 mr-4",
+  score: "lg:w-[59px] flex-shrink-0 mx-auto mr-4",
 };
 
 const HomeTable = ({ records }) => {

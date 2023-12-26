@@ -429,14 +429,14 @@ const TokenDetails = () => {
               <div className="flex justify-between items-center">
                 <h3 className="font-segoe text-lg text-[#9A9A9A]">Buy:</h3>
                 <span className="text-green-500">
-                  {taxes?.buyTax.toLocaleString()} $
+                  {taxes?.buyTax.toLocaleString()} %
                 </span>
               </div>
               <div className="flex justify-between items-center">
                 <h3 className="font-segoe text-lg text-[#9A9A9A]">Sell:</h3>
                 <span className="text-green-500">
                   {" "}
-                  {taxes?.sellTax.toLocaleString()} $
+                  {taxes?.sellTax.toLocaleString()} %
                 </span>
               </div>
             </div>

@@ -1,47 +1,14 @@
 import { Link } from "react-router-dom";
 import PopularCard from "@pages/home/PopularCard";
 import HomeTable from "@pages/home/HomeTable";
-import BitcoinBlue from "@assets/images/bitcoinBlue.png";
-import Ripple from "@assets/images/ripple.png";
-import EthereumLight from "@assets/images/etherumLight.png";
-import BSC from "@assets/images/bsc.svg";
 import { useEffect, useState } from "react";
 import { socket } from "@util/socket";
-
-const records = [
-  {
-    name: "bitcoin",
-    ticker: "btc",
-    image: BitcoinBlue,
-    network: { name: "binance", ticker: "bsc", image: BSC },
-    value: 107,
-    score: 94,
-  },
-  {
-    name: "ripple",
-    ticker: "xrp",
-    image: Ripple,
-    network: { name: "binance", ticker: "bsc", image: BSC },
-    value: 1052,
-    score: 74,
-  },
-  {
-    name: "ethereum",
-    ticker: "eth",
-    image: EthereumLight,
-    network: { name: "binance", ticker: "bsc", image: BSC },
-    value: 5095002,
-    score: 67,
-  },
-];
 
 const Popular = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [popularScan, setPopularScan] = useState([]);
   const [highScore, setHighScore] = useState([]);
   const [latestScan, setLatestScan] = useState([]);
-
-  console.log(highScore, latestScan);
 
   useEffect(() => {
     function onConnect() {
