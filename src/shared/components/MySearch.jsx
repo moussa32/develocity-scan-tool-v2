@@ -11,6 +11,7 @@ import { getNetworkDetails } from "@util/tokenSupportedNetworks";
 // import NetworkSupported from "./NetworkSupported";
 import { useQuery } from "@tanstack/react-query";
 import { requestSearch } from "@/api/contractInfo";
+import { ErrorBoundary } from "react-error-boundary";
 
 const notify = (type, message) =>
   toast[type](message, {
@@ -160,16 +161,22 @@ const MySearch = () => {
             }
           >
             {results?.result?.map((result, index) => (
-              <ResultDropdown
-                key={index}
-                contractAddress={result.contractAddress}
-                logo={result.contractInfo.logo}
-                name={result.contractInfo.name}
-                symbol={result.contractInfo.symbol}
-                contractScan={result.contractScan}
-                isScam={result.isNotListed}
-                network={getNetworkDetails(result.network)}
-              />
+              <>
+                {console.log(result.network)}
+                <ResultDropdown
+                  key={index}
+                  contractAddress={
+                    result?.contractAddress || result?.value?.address
+                  }
+                  logo={result?.contractInfo?.logo}
+                  name={result?.contractInfo?.name || result?.value?.title}
+                  symbol={result?.contractInfo?.symbol}
+                  contractScan={result?.contractScan}
+                  isScam={result?.isNotListed}
+                  // network={getNetworkDetails(result.network || result.category)}
+                  network={getNetworkDetails(result.network)}
+                />
+              </>
             ))}
           </div>
         )}
@@ -180,7 +187,6 @@ const MySearch = () => {
           </div>
         )}
       </div>
-
       {/* <NetworkSupported /> */}
     </div>
   );

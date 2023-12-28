@@ -25,7 +25,7 @@ const ResultDropdown = ({
         ) : (
           //create a new image with the first letter of the name token
           <div className={styles.icon_token_letter}>
-            <h6 className={styles.icon_token_text}>{name.charAt(0)}</h6>
+            <h6 className={styles.icon_token_text}>{name?.charAt(0)}</h6>
           </div>
         )}
 
@@ -50,9 +50,9 @@ const ResultDropdown = ({
           </div>
           <div className={styles.resultTokenDetails}>
             <div className={styles.address}>
-              {contractAddress.slice(0, 8) +
+              {contractAddress?.slice(0, 8) +
                 "..." +
-                contractAddress.slice(31, 41)}
+                contractAddress?.slice(31, 41)}
             </div>
 
             {contractScan <= 59 && (
