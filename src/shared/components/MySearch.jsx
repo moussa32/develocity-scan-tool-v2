@@ -165,12 +165,10 @@ const MySearch = () => {
                 {console.log(result.network)}
                 <ResultDropdown
                   key={index}
-                  contractAddress={
-                    result?.contractAddress || result?.value?.address
-                  }
-                  logo={result?.contractInfo?.logo}
-                  name={result?.contractInfo?.name || result?.value?.title}
-                  symbol={result?.contractInfo?.symbol}
+                  contractAddress={result?.contractAddress}
+                  logo={result?.logo}
+                  name={result?.name}
+                  symbol={result?.symbol}
                   contractScan={result?.contractScan}
                   isScam={result?.isNotListed}
                   // network={getNetworkDetails(result.network || result.category)}
