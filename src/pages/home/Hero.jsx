@@ -26,7 +26,7 @@ const Hero = () => {
           </a>
         </div>
         <div className="mt-10 lg:mt-0 ">
-          <video playsInline autoPlay muted>
+          <video muted playsInline preload="auto" autoPlay controls={false}>
             <source src={heroVideoWebm} type="video/webm;" />
             <source
               src={heroVideoMp4}
