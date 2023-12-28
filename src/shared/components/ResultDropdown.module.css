@@ -109,7 +109,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "SF Pro Display Regular";
+  font-family: "SFProDisplay";
   width: 60px;
   height: 20px;
 }
@@ -152,7 +152,7 @@
   padding: 4px 10px;
   max-width: 123px;
   width: 100%;
-  font-family: "SF Pro Display Regular";
+  font-family: "SFProDisplay";
   height: 20px;
 }
 .address button {
@@ -171,7 +171,7 @@
   font-size: 10px;
   padding: 6px 8px;
   text-align: center;
-  font-family: "SF Pro Display Regular";
+  font-family: "SFProDisplay";
 }
 .isNotScam {
   color: #16c784;
@@ -181,7 +181,7 @@
   border-radius: 2px;
   padding: 6px 8px;
   text-align: center;
-  font-family: "SF Pro Display Regular";
+  font-family: "SFProDisplay";
 }
 
 .arrowBtn_rtl,
@@ -218,7 +218,7 @@
 
 .networkName {
   font-size: 9px;
-  font-family: "SF Pro Display Regular";
+  font-family: "SFProDisplay";
   color: #888888;
 }
 

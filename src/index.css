@@ -36,7 +36,7 @@
   font-family: "SFProDisplay";
   src: url("./assets/fonts/SF/SFProDisplay-Regular.eot");
   src:
-    local("SF Pro Display Regular"),
+    local("SFProDisplay"),
     local("./assets/fonts/SF/SFProDisplay-Regular"),
     url("./assets/fonts/SF/SFProDisplay-Regular.eot?#iefix")
       format("embedded-opentype"),

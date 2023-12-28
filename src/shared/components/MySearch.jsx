@@ -161,20 +161,16 @@ const MySearch = () => {
             }
           >
             {results?.result?.map((result, index) => (
-              <>
-                {console.log(result.network)}
-                <ResultDropdown
-                  key={index}
-                  contractAddress={result?.contractAddress}
-                  logo={result?.logo}
-                  name={result?.name}
-                  symbol={result?.symbol}
-                  contractScan={result?.contractScan}
-                  isScam={result?.isNotListed}
-                  // network={getNetworkDetails(result.network || result.category)}
-                  network={getNetworkDetails(result.network)}
-                />
-              </>
+              <ResultDropdown
+                key={index}
+                contractAddress={result?.contractAddress}
+                logo={result?.logo}
+                name={result?.name}
+                symbol={result?.symbol}
+                contractScan={result?.contractScan}
+                isScam={result?.isNotListed}
+                network={getNetworkDetails(result.network)}
+              />
             ))}
           </div>
         )}
