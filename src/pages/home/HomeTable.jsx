@@ -10,7 +10,8 @@ const colsWidth = {
   score: "lg:w-[59px] flex-shrink-0 mx-auto mr-4",
 };
 
-const HomeTable = ({ records }) => {
+const HomeTable = ({ records }) => { 
+  
   const Record = ({
     image,
     name,
@@ -47,17 +48,17 @@ const HomeTable = ({ records }) => {
           </span>
         </div>
       </div>
-      <div className={`${colsWidth.network}`}>
-        <div className="bg-[#2F334B] col-span-2 px-5 text-[#888888] text-lg flex items-center justify-between p-1.5 rounded-sm gap-2">
+      <div className={`${colsWidth.network} `}>
+        <div className="bg-[#2F334B] col-span-2 px-2 text-[#888888] text-lg flex items-center justify-between p-1 rounded-sm gap-2">
           <img
             width={20}
             height={20}
-            src={BSCIcon}
+            src={getNetworkDetails(network)?.icon}
             alt={network}
             title={network}
           />
           <span className="text-xs font-medium font-segoe uppercase">
-            {network}
+            {getNetworkDetails(network)?.shortName}
           </span>
         </div>
       </div>
