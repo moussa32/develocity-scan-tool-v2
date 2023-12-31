@@ -48,7 +48,6 @@ module.exports = {
         },
         danger: "#EA3943",
         success: "#16C784",
-        blue: "#2268E1",
         semiWhite: "#EFF2F5",
         warning: "#F5A341",
       },

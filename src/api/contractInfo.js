@@ -130,9 +130,9 @@ const requestHumanSummary = async ({ contractAddress, network }) => {
     }
   };
 
-  const request = await axios.get(
-    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
-  );
+  const request = await axios
+    .get(`${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`)
+    .then((data) => data?.data);
 
   return request;
 };

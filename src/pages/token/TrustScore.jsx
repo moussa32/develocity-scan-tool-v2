@@ -332,6 +332,16 @@ const TrustScore = () => {
             <span>{data?.result?.numberOfMediunIssue}</span>
           </div>
           <div className="flex items-center gap-2 text-white">
+            <div className="w-[14px] bg-slate-300 h-[14px] rounded-full"></div>
+            <h3 className="text-[#9A9A9A] flex-grow uppercase">low</h3>
+            <span>{data?.result?.numberOfLowIssue}</span>
+          </div>
+          <div className="flex items-center gap-2 text-white">
+            <div className="w-[14px] bg-emerald-500 h-[14px] rounded-full"></div>
+            <h3 className="text-[#9A9A9A] flex-grow uppercase">Optimization</h3>
+            <span>{data?.result?.numberOfOptimizationIssue}</span>
+          </div>
+          <div className="flex items-center gap-2 text-white">
             <div className="w-[14px] bg-[#9A9A9A] h-[14px] rounded-full"></div>
             <h3 className="text-[#9A9A9A] flex-grow">INFORMATIONAL</h3>
             <span>{data?.result?.numberOfLowIssue}</span>
