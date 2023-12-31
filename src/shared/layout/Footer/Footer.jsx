@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import { BiLogoFacebook, BiLogoTelegram, BiLogoInstagram } from "react-icons/bi";
+import {
+  BiLogoFacebook,
+  BiLogoTelegram,
+  BiLogoInstagram,
+} from "react-icons/bi";
 import { RiTwitterXFill } from "react-icons/ri";
 import {
   DropdownMenu,
@@ -61,12 +65,10 @@ const Footer = () => {
         <DropdownMenu>
           <DropdownMenuTrigger>English</DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Billing</DropdownMenuItem>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuItem>العربية</DropdownMenuItem>
+            <DropdownMenuItem>Русский</DropdownMenuItem>
+            <DropdownMenuItem>中國人</DropdownMenuItem>
+            <DropdownMenuItem>भारतीय</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

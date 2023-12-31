@@ -19,11 +19,11 @@ const ProblemCard = () => {
 };
 
 const TrustScore = () => {
-  const { contractAddress } = useParams();
+  const { contractAddress, network } = useParams();
   const { data } = useQuery({
     queryKey: ["getHumanSummary"],
     suspense: true,
-    queryFn: () => requestHumanSummary({ contractAddress }),
+    queryFn: () => requestHumanSummary({ contractAddress, network }),
   });
 
   return (

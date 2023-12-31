@@ -118,12 +118,31 @@ const requestContractAnalysis = async ({ network, contractAddress }) => {
   return response.data.result;
 };
 
-const requestHumanSummary = async ({ contractAddress }) => {
-  const request = axios
-    .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
-    .then((data) => data.data);
+const requestHumanSummary = async ({ contractAddress, network }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "bscHumanSummary";
+      case "ETH":
+        return "ethHumanSummary";
+      case "MATIC":
+        return "polygonHumanSummary";
+    }
+  };
+
+  const request = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`
+  );
+
   return request;
 };
+
+// const requestHumanSummary = async ({ contractAddress }) => {
+//   const request = axios
+//     .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
+//     .then((data) => data.data);
+//   return request;
+// };
 
 const requestIP = async () => {
   const request = axios
