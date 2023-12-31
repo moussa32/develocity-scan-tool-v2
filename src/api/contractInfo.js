@@ -122,7 +122,7 @@ const requestHumanSummary = async ({ contractAddress, network }) => {
   const methodByNetwork = () => {
     switch (network) {
       case "BSC":
-        return "bscHumanSummary";
+        return "humanSummary";
       case "ETH":
         return "ethHumanSummary";
       case "MATIC":
