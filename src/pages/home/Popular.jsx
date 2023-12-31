@@ -3,6 +3,7 @@ import PopularCard from "@pages/home/PopularCard";
 import HomeTable from "@pages/home/HomeTable";
 import { useEffect, useState } from "react";
 import { socket } from "@util/socket";
+import Skeleton from "react-loading-skeleton";
 
 const Popular = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -60,7 +61,16 @@ const Popular = () => {
             See All
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[640px] overflow-y-auto  custom-scroll gap-8">
+          {(!isConnected || popularScan.length == 0) &&
+            [...new Array(8)].map(() => (
+              <Skeleton
+                className="w-full"
+                height={132}
+                highlightColor="#ffffff2e"
+                baseColor="#2b2e3f"
+              />
+            ))}
           {isConnected &&
             popularScan.length > 0 &&
             popularScan?.map((item, index) => (
@@ -82,13 +92,13 @@ const Popular = () => {
           <h2 className="bg-[#2F334B] py-5 rounded-sm capitalize flex items-center justify-center text-white font-semibold font-segoe mb-[30px]">
             Score
           </h2>
-          <HomeTable records={highScore} />
+          <HomeTable records={highScore} isConnected={isConnected} />
         </div>
         <div>
           <h2 className="bg-[#2F334B] py-5 rounded-sm capitalize flex items-center justify-center text-white font-semibold font-segoe mb-[30px]">
             last scan
           </h2>
-          <HomeTable records={latestScan} />
+          <HomeTable records={latestScan} isConnected={isConnected} />
         </div>
       </section>
     </>

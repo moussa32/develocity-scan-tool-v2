@@ -1,6 +1,8 @@
 import { scoreTypeColor } from "@/shared/util";
 import { getNetworkDetails } from "@/shared/util/tokenSupportedNetworks";
 import BSCIcon from "@assets/images/BSC.png";
+import clsx from "clsx";
+import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
 
 const colsWidth = {
@@ -10,8 +12,7 @@ const colsWidth = {
   score: "lg:w-[59px] flex-shrink-0 mx-auto mr-4",
 };
 
-const HomeTable = ({ records }) => { 
-  
+const HomeTable = ({ records, tableClassNames, isConnected }) => {
   const Record = ({
     image,
     name,
@@ -78,7 +79,12 @@ const HomeTable = ({ records }) => {
   );
 
   return (
-    <div className="text-white h-[500px] overflow-x-hidden lg:overflow-y-auto custom-scroll">
+    <div
+      className={clsx(
+        "text-white h-[500px] overflow-x-hidden lg:overflow-y-auto custom-scroll",
+        tableClassNames
+      )}
+    >
       <section className="flex justify-between gap-4 font-segoe mb-2 text-lg">
         <h3 className={colsWidth.token}>Token</h3>
         <h3 className={colsWidth.network}>Network</h3>
@@ -99,11 +105,19 @@ const HomeTable = ({ records }) => {
             contractAddress={item?.contractAddress}
           />
         ))}
-      {(!records || records.length === 0) && (
-        <span className="font-segoe font-semibold text-3xl text-center mx-auto block mt-16 capitalize text-opacity-20">
-          No data found
-        </span>
-      )}
+      {!isConnected ||
+        (records.length == 0 && (
+          <div className="grid grid-cols-1 gap-4">
+            {[...new Array(6)].map(() => (
+              <Skeleton
+                className="w-full"
+                height={50}
+                highlightColor="#ffffff2e"
+                baseColor="#2b2e3f"
+              />
+            ))}
+          </div>
+        ))}
     </div>
   );
 };
