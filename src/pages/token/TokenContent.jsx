@@ -5,18 +5,20 @@ import ShareIcon from "@assets/images/shareIcon.svg";
 import TokenInfo from "./TokenInfo";
 import TrustScore from "./TrustScore";
 import TokenDetails from "./TokenDetails";
-import { useParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { requestContractInfo } from "@/api/contractInfo";
+import ErrorCoverageWrapper from "@/shared/components/ErrorCoverageWrapper";
+
+// import { useParams } from "react-router-dom";
+// import { useQuery } from "@tanstack/react-query";
+// import { requestContractInfo } from "@/api/contractInfo";
 
 const TokenContent = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const { network, contractAddress } = useParams();
-  const { data } = useQuery({
-    queryKey: ["getTokenInfo"],
-    suspense: true,
-    queryFn: () => requestContractInfo({ network, contractAddress }),
-  });
+  // const { network, contractAddress } = useParams();
+  // const { data } = useQuery({
+  //   queryKey: ["getTokenInfo"],
+  //   suspense: true,
+  //   queryFn: () => requestContractInfo({ network, contractAddress }),
+  // });
 
   return (
     <div>
@@ -49,9 +51,21 @@ const TokenContent = () => {
         </div>
       </section>
       <section className="mt-[50px]">
-        {selectedIndex === 0 && <TrustScore />}
-        {selectedIndex === 1 && <TokenDetails />}
-        {selectedIndex === 2 && <TokenInfo />}
+        {selectedIndex === 0 && (
+          <ErrorCoverageWrapper>
+            <TrustScore />
+          </ErrorCoverageWrapper>
+        )}
+        {selectedIndex === 1 && (
+          <ErrorCoverageWrapper>
+            <TokenDetails />
+          </ErrorCoverageWrapper>
+        )}
+        {selectedIndex === 2 && (
+          <ErrorCoverageWrapper>
+            <TokenInfo />
+          </ErrorCoverageWrapper>
+        )}
       </section>
     </div>
   );

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import styles from "./TrustScore.module.css";
 import { requestHumanSummary } from "@/api/contractInfo";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProblemCard = () => {
   return (
