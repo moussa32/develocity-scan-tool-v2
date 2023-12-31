@@ -105,19 +105,18 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
             contractAddress={item?.contractAddress}
           />
         ))}
-      {!isConnected ||
-        (records.length == 0 && (
-          <div className="grid grid-cols-1 gap-4">
-            {[...new Array(6)].map(() => (
-              <Skeleton
-                className="w-full"
-                height={50}
-                highlightColor="#ffffff2e"
-                baseColor="#2b2e3f"
-              />
-            ))}
-          </div>
-        ))}
+      {(!isConnected || records.length == 0) && (
+        <div className="grid grid-cols-1 gap-4">
+          {[...new Array(6)].map(() => (
+            <Skeleton
+              className="w-full"
+              height={50}
+              highlightColor="#ffffff2e"
+              baseColor="#2b2e3f"
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
