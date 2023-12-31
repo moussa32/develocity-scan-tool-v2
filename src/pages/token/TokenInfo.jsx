@@ -2,14 +2,16 @@ import { useParams } from "react-router-dom";
 import styles from "./TokenInfo.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { requestContractInfo } from "@/api/contractInfo";
+import clsx from "clsx";
 
 const TokenInfo = () => {
   const { network, contractAddress } = useParams();
   const { data } = useQuery({
-    queryKey: ["getTokenInfo"],
+    queryKey: ["getTokenInfo", contractAddress],
     suspense: true,
     queryFn: () => requestContractInfo({ network, contractAddress }),
   });
+
   return (
     <>
       <section>
@@ -18,41 +20,44 @@ const TokenInfo = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-[70px]">
           <div className={styles.infoWrapper}>
-            <div className={styles.infoHeader}>
+            <div className={clsx(styles.infoHeader, "gap-4")}>
               <div className={`flex gap-6 items-center`}>
                 {data?.result?.contractInfo?.logo ? (
                   <img
                     width={55}
                     height={55}
+                    className="flex-shrink-0"
                     src={data?.result?.contractInfo?.logo}
                     alt={data?.result?.contractInfo?.name}
                   />
                 ) : (
-                  <h2 className="w-[55px] h-[55px] bg-primary rounded-full flex items-center justify-center font-semibold text-white">
+                  <h2 className="w-[55px] h-[55px] flex-shrink-0 bg-primary rounded-full flex items-center justify-center font-semibold text-white">
                     {data?.result?.contractInfo?.name[0]}
                   </h2>
                 )}
 
                 <div className="flex flex-col">
                   <h3
-                    className={` font-segoe text-[20px] font-bold text-[#E8EAEC]`}
+                    className={` font-segoe text-base font-bold text-[#E8EAEC]`}
                   >
                     {data?.result?.contractInfo?.name}
                   </h3>
-                  <span className={` font-segoe text-xl text-[#9A9A9A]`}>
+                  <span className={` font-segoe text-sm text-[#9A9A9A]`}>
                     ${data?.result?.contractInfo?.symbol}
                   </span>
                 </div>
               </div>
               <div className="flex items-end font-segoe text-[#E8EAEC]">
                 Total Supply :{" "}
-                {(data?.result?.contractInfo?.total_supply).toLocaleString(
-                  "en-US"
-                )}
+                {Number(
+                  (data?.result?.contractInfo?.total_supply).toLocaleString(
+                    "en-US"
+                  )
+                ).toFixed(14)}
                 $
               </div>
               <span className={`font-segoe text-[42px] font-bold text-white`}>
-                {Number(data?.result?.contractInfo?.tokenPriceUSD).toFixed(6)}
+                {Number(data?.result?.contractInfo?.tokenPriceUSD).toFixed(4)}
               </span>
             </div>
             <div className={styles.infoBody}>

@@ -22,7 +22,7 @@ const ProblemCard = () => {
 const TrustScore = () => {
   const { contractAddress, network } = useParams();
   const { data } = useQuery({
-    queryKey: ["getHumanSummary"],
+    queryKey: ["getHumanSummary", contractAddress],
     suspense: true,
     queryFn: () => requestHumanSummary({ contractAddress, network }),
   });
