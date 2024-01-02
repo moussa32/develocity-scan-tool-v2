@@ -12,7 +12,7 @@ import ErrorCoverageWrapper from "@/shared/components/ErrorCoverageWrapper";
 // import { requestContractInfo } from "@/api/contractInfo";
 
 const TokenContent = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(1);
   // const { network, contractAddress } = useParams();
   // const { data } = useQuery({
   //   queryKey: ["getTokenInfo"],

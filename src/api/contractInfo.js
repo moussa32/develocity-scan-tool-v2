@@ -118,7 +118,31 @@ const requestContractAnalysis = async ({ network, contractAddress }) => {
   return response.data.result;
 };
 
+const requestContractHolders = async ({ network, contractAddress }) => {
+  const methodByNetwork = () => {
+    switch (network) {
+      case "BSC":
+        return "BSCholderScan";
+      case "ETH":
+        return "ETHholderScan";
+      case "MATIC":
+        return "polygonHolderScan";
+    }
+  };
+
+  const response = await axios.get(
+    `${BASE_URL}/contract/${methodByNetwork()}`,
+    {
+      params: {
+        contractAddress,
+      },
+    }
+  );
+  return response.data.result;
+};
+
 const requestHumanSummary = async ({ contractAddress, network }) => {
+  let request;
   const methodByNetwork = () => {
     switch (network) {
       case "BSC":
@@ -130,9 +154,17 @@ const requestHumanSummary = async ({ contractAddress, network }) => {
     }
   };
 
-  const request = await axios
-    .get(`${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`)
-    .then((data) => data?.data);
+  if (network === "ETH" || network === "MATIC") {
+    request = await axios
+      .post(`${BASE_URL}/contract/${methodByNetwork()}`, {
+        contractAddress,
+      })
+      .then((data) => data?.data);
+  } else {
+    request = await axios
+      .get(`${BASE_URL}/contract/${methodByNetwork()}/${contractAddress}`)
+      .then((data) => data?.data);
+  }
 
   return request;
 };
@@ -187,5 +219,6 @@ export {
   requestContractOwner,
   requestContractTax,
   requestContractLiquidity,
+  requestContractHolders,
   requestContractAnalysis,
 };
