@@ -62,7 +62,7 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger>English</DropdownMenuTrigger>
           <DropdownMenuContent>
             <DropdownMenuItem>العربية</DropdownMenuItem>
@@ -70,7 +70,7 @@ const Footer = () => {
             <DropdownMenuItem>中國人</DropdownMenuItem>
             <DropdownMenuItem>भारतीय</DropdownMenuItem>
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
       </div>
     </footer>
   );

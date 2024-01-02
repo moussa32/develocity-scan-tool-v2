@@ -37,7 +37,7 @@ const TokenContent = () => {
             </Tab>
           </Tab.List>
         </Tab.Group>
-        <div className="flex gap-[10px]">
+        {/* <div className="flex gap-[10px]">
           <Button
             variant="outline"
             className="border-1 min-w-fit border-primary bg-transparent h-[42px] max-w-[160px] flex font-medium text-sm items-center w-full transition-all duration-200 ease-in-out justify-center text-primary hover:text-semiWhite hover:bg-primary"
@@ -48,7 +48,7 @@ const TokenContent = () => {
             Share
             <img src={ShareIcon} alt="Share" />
           </Button>
-        </div>
+        </div> */}
       </section>
       <section className="mt-[50px]">
         {selectedIndex === 0 && (
