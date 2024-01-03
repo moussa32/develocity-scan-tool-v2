@@ -166,21 +166,22 @@ const TokenSummary = () => {
             {contractAddress}
           </a>
         </p>
+        {console.log()}
         <div className="flex flex-wrap gap-3 w-full my-3">
           <div className={styles.badge}>Rank #{data?.result?.interest}</div>
           <div className={styles.badge}>{data?.result?.contractType}</div>
           <div className={styles.badge}>
-            Total Scans - {(data?.result?.contractInfo).toLocaleString("en-US")}
+            Total Scans - {(data?.result?.interest).toLocaleString("en-US")}
           </div>
-          <div className={styles.badge}>
+          {/* <div className={styles.badge}>
             Average Score - {(82).toLocaleString("en-US")}
-          </div>
-          <a
+          </div> */}
+          {/* <a
             href={data?.result?.contractInfo?.whitepaper}
             className={styles.badge}
           >
             View More 
-          </a>
+          </a> */}
         </div>
         <svg
           className="hidden md:block"

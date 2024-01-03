@@ -50,23 +50,23 @@ const Popular = () => {
   return (
     <>
       <section className="container py-[59.3px] border-b-[0.5px] border-[#4f4b4b]">
-        <div className="flex justify-between mb-5 text-2xl">
-          <h2 className="text-secondaryText font-semibold font-segoe">
+        <div className="flex justify-between mb-5 text-lg md:text-2xl">
+          <h2 className="text-secondaryText text-xl md:text-2xl font-semibold font-segoe">
             Popular Today
           </h2>
           <Link
-            className="text-white font-segoe underline-offset-2 underline"
+            className="text-white font-segoe text-base md:text-2xl underline-offset-2 underline"
             to="/tokens"
           >
             See All
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 h-[640px] overflow-y-auto  custom-scroll gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[640px] overflow-y-auto  custom-scroll gap-5">
           {(!isConnected || popularScan.length == 0) &&
             [...new Array(8)].map(() => (
               <Skeleton
                 className="w-full"
-                height={132}
+                height={100}
                 highlightColor="#ffffff2e"
                 baseColor="#2b2e3f"
               />

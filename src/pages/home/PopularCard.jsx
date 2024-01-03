@@ -15,7 +15,7 @@ const PopularCard = ({
   return (
     <Link
       to={`/token/${getNetworkDetails(network)?.shortName}/${address}`}
-      className="bg-[#272B40] rounded-lg py-7 px-6 flex justify-between flex-wrap lg:flex-nowrap items-center"
+      className="bg-[#272B40] rounded-lg py-5 px-6 flex justify-between flex-wrap lg:flex-nowrap items-center"
     >
       <div className="flex text-white grow shrink-0 w-[200px]">
         <img
