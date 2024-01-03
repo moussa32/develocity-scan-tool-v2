@@ -1,7 +1,5 @@
 import MySearch from "@/shared/components/MySearch";
 import TokenSummary from "./TokenSummary";
-import { ErrorBoundary } from "react-error-boundary";
-import { MdOutlineReplay } from "react-icons/md";
 import ErrorCoverageWrapper from "@/shared/components/ErrorCoverageWrapper";
 
 const TokenHeader = () => {

@@ -1,6 +1,6 @@
 .tokenName {
   font-family: "SFProDisplaySemibold";
-  font-size: 32px;
+  @apply text-lg md:text-3xl;
 }
 
 .submitTokenButton {

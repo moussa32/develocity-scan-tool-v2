@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 const TokenSummary = () => {
   const { network, contractAddress } = useParams();
   const { data } = useQuery({
-    queryKey: ["getTokenInfo"],
+    queryKey: ["getTokenInfo", contractAddress],
     suspense: true,
     queryFn: () => requestContractInfo({ network, contractAddress }),
   });
@@ -22,7 +22,7 @@ const TokenSummary = () => {
           width={64}
         />
       ) : (
-        <h2 className="flex items-center justify-center w-20 text-xl h-[4.5rem] rounded-full bg-primary/90">
+        <h2 className="flex items-center justify-center w-20 text-xl h-20 mb-2 md:mb-0 rounded-full bg-primary/90">
           {data?.result?.contractInfo?.name[0]}
         </h2>
       )}
