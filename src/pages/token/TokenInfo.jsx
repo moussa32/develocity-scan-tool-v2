@@ -2,12 +2,15 @@ import { useParams } from "react-router-dom";
 import styles from "./TokenInfo.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { requestContractInfo } from "@/api/contractInfo";
-import copy from "copy-to-clipboard";
+import { useMemeo } from "react";
 
 import clsx from "clsx";
 import { toast } from "react-toastify";
 import CopyToClipboard from "react-copy-to-clipboard";
 import dayjs from "dayjs";
+import SpacialNumber from "@/shared/components/SpacialNumber";
+import { convertFromScientificNotation } from "@/shared/util/helpers";
+// import { convertFromScientificNotation } from "@/shared/util/helpers";
 
 const TokenInfo = () => {
   const { network, contractAddress } = useParams();
@@ -17,6 +20,32 @@ const TokenInfo = () => {
     queryFn: () => requestContractInfo({ network, contractAddress }),
   });
 
+  const tokenValue = () => {
+    const digits = 6;
+    const stringNumber = data?.result?.contractInfo?.tokenPriceUSD.toString();
+
+    const { zeroCounts, numbersAfterZero, parsedNumber } =
+      convertFromScientificNotation(stringNumber);
+
+    if (stringNumber.includes("e") || zeroCounts > 2) {
+      return (
+        <SpacialNumber
+          numbersAfterZero={numbersAfterZero}
+          zeroCounts={zeroCounts}
+          parsedNumber={parsedNumber}
+          digits={digits}
+        />
+      );
+    } else {
+      if (Number(data?.result?.contractInfo?.tokenPriceUSD) > 0) {
+        return Number(data?.result?.contractInfo?.tokenPriceUSD)
+          .toFixed(digits)
+          .toString();
+      } else {
+        return stringNumber;
+      }
+    }
+  };
   return (
     <>
       <section>
@@ -51,18 +80,19 @@ const TokenInfo = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-end font-segoe text-[#E8EAEC]">
-                Total Supply :{" "}
-                {Number(
-                  (data?.result?.contractInfo?.total_supply).toLocaleString(
-                    "en-US"
-                  )
-                ).toFixed(14)}
-                $
-              </div>
-              <span className={`font-segoe text-[42px] font-bold text-white`}>
-                {Number(data?.result?.contractInfo?.tokenPriceUSD).toFixed(4)}
+              <span
+                className={`font-segoe flex items-center gap-2 text-center justify-center md:justify-end md:text-right text-2xl md:text-4xl font-bold text-white`}
+              >
+                {tokenValue()} <span>$</span>
               </span>
+            </div>
+            <div className="flex items-end font-segoe justify-center md:justify-start text-center md:text-right text-[#E8EAEC] pb-4 px-5">
+              Total Supply :{" "}
+              {Number(
+                (data?.result?.contractInfo?.total_supply).toLocaleString(
+                  "en-US"
+                )
+              ).toFixed(0)}
             </div>
             <div className={styles.infoBody}>
               <div className="flex justify-between font-segoe text-[#9A9A9A] px-4 md:px-9 pt-5">
