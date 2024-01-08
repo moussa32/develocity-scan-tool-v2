@@ -121,7 +121,6 @@ const MySearch = () => {
       navigate(`/token/${query}`);
     }
   };
-  return Error("asdas");
 
   return (
     <div className={styles.searchWrapper}>
