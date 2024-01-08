@@ -11,7 +11,6 @@ import { getNetworkDetails } from "@util/tokenSupportedNetworks";
 // import NetworkSupported from "./NetworkSupported";
 import { useQuery } from "@tanstack/react-query";
 import { requestSearch } from "@/api/contractInfo";
-import { ErrorBoundary } from "react-error-boundary";
 
 const notify = (type, message) =>
   toast[type](message, {
@@ -36,6 +35,7 @@ const MySearch = () => {
     data: results,
     isSuccess,
     isError,
+    error: responseError,
     isFetched,
     isLoading,
     isInitialLoading,
@@ -81,7 +81,7 @@ const MySearch = () => {
         "This contract address is not registered yet start scan"
       );
     } else if (isError >= 400) {
-      // setError(search?.data?.payload?.responseMessage);
+      setError(responseError?.data?.payload?.responseMessage);
     } else {
       setError(null);
     }
@@ -121,6 +121,7 @@ const MySearch = () => {
       navigate(`/token/${query}`);
     }
   };
+  return Error("asdas");
 
   return (
     <div className={styles.searchWrapper}>
