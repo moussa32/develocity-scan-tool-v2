@@ -125,7 +125,10 @@ const TokenInfo = () => {
               <CopyToClipboard
                 text={contractAddress}
                 onCopy={() =>
-                  toast.success("تم نسخ العقد بنجاح", { id: "successCopy" })
+                  toast.success(
+                    "Contract address has been copied successfully",
+                    { id: "successCopy" }
+                  )
                 }
               >
                 <svg
