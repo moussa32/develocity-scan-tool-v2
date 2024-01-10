@@ -3,7 +3,7 @@ import Popular from "./Popular";
 
 const HomePage = () => {
   return (
-    <section className="bg-primaryBg pt-20 lg:pt-[140px]">
+    <section className="bg-primaryBg pt-10 lg:pt-[140px]">
       <Hero />
       <Popular />
     </section>
