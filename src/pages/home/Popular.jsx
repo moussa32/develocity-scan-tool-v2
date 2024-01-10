@@ -61,7 +61,7 @@ const Popular = () => {
             See All
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 h-[660px] overflow-y-auto custom-scroll gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[660px] overflow-y-auto custom-scroll gap-4 lg:gap-5">
           {(!isConnected || popularScan.length == 0) &&
             [...new Array(10)].map(() => (
               <Skeleton

@@ -73,6 +73,9 @@ module.exports = {
         segoe: "Segoe UI",
         sf: "SFProDisplay",
       },
+      fontSize: {
+        xs: "0.7rem",
+      },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
