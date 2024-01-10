@@ -269,7 +269,7 @@ const TokenDetails = () => {
               options={options}
               series={chartData.series}
               type="donut"
-              width={500}
+              className="w-full lg:w-[500px] flex items-center justify-center"
               height={320}
             />
           )}

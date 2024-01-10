@@ -76,7 +76,7 @@ module.exports = {
         inter: ['"Inter"', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        xs: "0.7rem",
+        xs: "0.8rem",
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
