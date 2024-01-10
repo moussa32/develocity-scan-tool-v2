@@ -25,14 +25,14 @@ const PopularCard = ({
           title={name}
         />
         <div className="flex flex-col justify-center gap-[1px]">
-          <h2 className="font-bold font-segoe text-xs lg:text-md">{name}</h2>
-          <span className="flex-initial font-segoe text-xs lg:text-md">
+          <h2 className="font-bold font-inter text-xs lg:text-md">{name}</h2>
+          <span className="flex-initial font-inter text-xs lg:text-md">
             {symbol}
           </span>
         </div>
       </div>
       <div className="flex mt-4 lg:mt-0 flex-row-reverse flex-grow-0 flex-shrink justify-between lg:flex-col gap-3 order-3 lg:order-2 items-center w-full">
-        <span className="font-segoe text-white text-xs lg:text-md lg:text-md">
+        <span className="font-inter text-white text-xs lg:text-md lg:text-md">
           Scan: {Number(scans).toFixed(0)}
         </span>
         <div className="bg-[#2F334B] text-[#888888] text-xs lg:text-md flex items-center justify-center py-1 lg:py-2 px-[7px] rounded-sm gap-2">

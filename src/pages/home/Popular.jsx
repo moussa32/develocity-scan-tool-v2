@@ -51,11 +51,11 @@ const Popular = () => {
     <>
       <section className="container py-[59.3px] border-b-[0.5px] border-[#4f4b4b]">
         <div className="flex justify-between mb-5 text-lg md:text-2xl">
-          <h2 className="text-secondaryText text-xl md:text-2xl font-semibold font-segoe">
+          <h2 className="text-secondaryText text-xl md:text-2xl font-semibold font-inter">
             Popular Today
           </h2>
           <Link
-            className="text-white font-segoe text-base md:text-2xl underline-offset-2 underline"
+            className="text-white font-inter text-base md:text-2xl underline-offset-2 underline"
             to="/tokens"
           >
             See All
@@ -89,13 +89,13 @@ const Popular = () => {
       </section>
       <section className="container py-[59.3px] grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
-          <h2 className="bg-[#2F334B] py-5 rounded-sm capitalize flex items-center justify-center text-white font-semibold font-segoe mb-[30px]">
+          <h2 className="bg-[#2F334B] py-5 rounded-sm capitalize flex items-center justify-center text-white font-semibold font-inter mb-[30px]">
             Score
           </h2>
           <HomeTable records={highScore} isConnected={isConnected} />
         </div>
         <div>
-          <h2 className="bg-[#2F334B] py-5 rounded-sm capitalize flex items-center justify-center text-white font-semibold font-segoe mb-[30px]">
+          <h2 className="bg-[#2F334B] py-5 rounded-sm capitalize flex items-center justify-center text-white font-semibold font-inter mb-[30px]">
             last scan
           </h2>
           <HomeTable records={latestScan} isConnected={isConnected} />

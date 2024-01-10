@@ -89,7 +89,7 @@ const Liquidity10Top = () => {
           onRowClick={selectRow}
         />
       ) : (
-        <p className="text-white/50 font-semibold text-2xl flex items-center justify-center font-segoe h-full">
+        <p className="text-white/50 font-semibold text-2xl flex items-center justify-center font-inter h-full">
           There are no walltes
         </p>
       )}

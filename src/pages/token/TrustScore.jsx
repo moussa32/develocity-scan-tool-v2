@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const ProblemCard = () => {
   return (
     <div
-      className={`flex flex-col font-segoe lg:max-w-[496px] ${styles.problemCard}`}
+      className={`flex flex-col font-inter lg:max-w-[496px] ${styles.problemCard}`}
     >
       <h4 className={`${styles.problemCardTitle} text-white text-[21px]`}>
         Lorem ipsum dolor
@@ -30,11 +30,11 @@ const TrustScore = () => {
     <div className="grid grid-cols-1  lg:flex gap-11">
       <div className="bg-[#25293E] flex-col py-[42px] px-[36px] flex items-center justify-center rounded-[10px]">
         <div className={`${styles.circalWrapper}`}>
-          <div className="font-segoe font-semibold text-[35px]">
+          <div className="font-inter font-semibold text-[35px]">
             {data?.result?.contractScan.toFixed(2)}%
           </div>
         </div>
-        <h2 className="font-segoe text-left self-start text-sm text-[#9A9A9A] mt-8">
+        <h2 className="font-inter text-left self-start text-sm text-[#9A9A9A] mt-8">
           Problems detected:
         </h2>
         <div className="w-full flex flex-col gap-4 mt-5">
@@ -66,7 +66,7 @@ const TrustScore = () => {
         </div>
       </div>
       <div className="w-full lg:max-w-[496px]">
-        {/* <h3 className="font-segoe text-white text-[21px] mb-5">Problem List</h3>
+        {/* <h3 className="font-inter text-white text-[21px] mb-5">Problem List</h3>
         <div className="flex flex-col gap-[10px] w-full ">
           <ProblemCard />
           <ProblemCard />

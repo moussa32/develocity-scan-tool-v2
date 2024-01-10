@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   darkMode: ["class"],
   content: ["./src/**/*.{js,jsx}"],
@@ -70,8 +72,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        segoe: "Segoe UI",
         sf: "SFProDisplay",
+        inter: ['"Inter"', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         xs: "0.7rem",

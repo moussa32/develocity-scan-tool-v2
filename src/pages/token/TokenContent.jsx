@@ -24,13 +24,13 @@ const TokenContent = () => {
       <section className="flex flex-col md:flex-row gap-y-8 justify-between">
         <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
           <Tab.List className="bg-[#272B40] rounded-[10px] h-[48.56px] w-full md:w-[400px] items-center flex  justify-between">
-            <Tab className="text-white font-semibold text-xs font-segoe h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">
+            <Tab className="text-white font-semibold text-xs font-inter h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">
               Trust Score
             </Tab>
-            <Tab className="text-white font-semibold text-xs font-segoe h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">
+            <Tab className="text-white font-semibold text-xs font-inter h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">
               Details
             </Tab>
-            <Tab className="text-white font-semibold text-xs font-segoe h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">
+            <Tab className="text-white font-semibold text-xs font-inter h-full ui-selected:bg-[#2F334B] rounded-[10px] px-8">
               Token Information
             </Tab>
           </Tab.List>

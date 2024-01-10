@@ -49,7 +49,7 @@ const TokenInfo = () => {
   return (
     <>
       <section>
-        <h2 className="font-segoe text-[21px] font-semibold text-[#E8EAEC] mb-[28.8px]">
+        <h2 className="font-inter text-[21px] font-semibold text-[#E8EAEC] mb-[28.8px]">
           General Informations
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-[70px]">
@@ -71,22 +71,22 @@ const TokenInfo = () => {
                 )}
                 <div className="flex flex-col">
                   <h3
-                    className={` font-segoe text-base font-bold text-[#E8EAEC]`}
+                    className={` font-inter text-base font-bold text-[#E8EAEC]`}
                   >
                     {data?.result?.contractInfo?.name}
                   </h3>
-                  <span className={` font-segoe text-sm text-[#9A9A9A]`}>
+                  <span className={` font-inter text-sm text-[#9A9A9A]`}>
                     ${data?.result?.contractInfo?.symbol}
                   </span>
                 </div>
               </div>
               <span
-                className={`font-segoe flex items-center gap-2 text-center justify-center md:justify-end md:text-right text-2xl md:text-4xl font-bold text-white`}
+                className={`font-inter flex items-center gap-2 text-center justify-center md:justify-end md:text-right text-2xl md:text-4xl font-bold text-white`}
               >
                 {tokenValue()} <span>$</span>
               </span>
             </div>
-            <div className="flex items-end font-segoe justify-center md:justify-start text-center md:text-right text-[#E8EAEC] pb-4 px-5">
+            <div className="flex items-end font-inter justify-center md:justify-start text-center md:text-right text-[#E8EAEC] pb-4 px-5">
               Total Supply :{" "}
               {Number(
                 (data?.result?.contractInfo?.total_supply).toLocaleString(
@@ -95,21 +95,21 @@ const TokenInfo = () => {
               ).toFixed(0)}
             </div>
             <div className={styles.infoBody}>
-              <div className="flex justify-between font-segoe text-[#9A9A9A] px-4 md:px-9 pt-5">
+              <div className="flex justify-between font-inter text-[#9A9A9A] px-4 md:px-9 pt-5">
                 <span className="text-base md:text-xl">Total Scans:</span>
                 <span className="text-white text-lg">
                   {data?.result?.interest}
                 </span>
               </div>
-              <div className="flex justify-between font-segoe text-[#9A9A9A] px-4  md:px-9">
+              <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9">
                 <span className="text-base md:text-xl">Average Score:</span>
                 <span className="text-white text-lg">0</span>
               </div>
-              <div className="flex justify-between font-segoe text-[#9A9A9A] px-4  md:px-9 ">
+              <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9 ">
                 <span className="text-base md:text-xl">Launched:</span>
                 <span className="text-white text-lg">{0}</span>
               </div>
-              <div className="flex justify-between font-segoe text-[#9A9A9A] px-4  md:px-9 pb-5">
+              <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9 pb-5">
                 <span className="text-base md:text-xl">Added:</span>
                 <span className="text-white text-lg">
                   {dayjs(data?.result?.createdAt).format("DD MMM YYYY")}
@@ -119,7 +119,7 @@ const TokenInfo = () => {
             <div
               className={`${styles.infoFooter} flex justify-between px-4  md:px-9 py-5`}
             >
-              <h3 className="text-white font-bold font-segoe">
+              <h3 className="text-white font-bold font-inter">
                 Copy Contract Address
               </h3>
               <CopyToClipboard

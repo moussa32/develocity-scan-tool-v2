@@ -40,10 +40,10 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
           </h3>
         )}
         <div className="flex items-start justify-center flex-col">
-          <h3 className="uppercase text-xs lg:text-sm font-bold text-gray-200 font-segoe">
+          <h3 className="uppercase text-xs lg:text-sm font-semibold text-gray-200 font-inter">
             {name}
           </h3>
-          <span className="uppercase font-segoe text-xs mt-1 text-stone-400">
+          <span className="uppercase font-inter text-xs text-stone-400">
             {ticker}
           </span>
         </div>
@@ -56,12 +56,12 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
             alt={network}
             title={network}
           />
-          <span className="text-xs font-medium font-segoe uppercase">
+          <span className="text-xs font-medium font-inter uppercase">
             {getNetworkDetails(network)?.shortName}
           </span>
         </div>
       </div>
-      <span className={`font-segoe text-sm font-semibold ${colsWidth.scan}`}>
+      <span className={`font-inter text-sm font-semibold ${colsWidth.scan}`}>
         {Number(value.toLocaleString("en-US")).toFixed()}
       </span>
       <div className={`${colsWidth.scan}`}>
@@ -78,13 +78,13 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
 
   return (
     <div className={clsx("text-white", tableClassNames)}>
-      <section className="hidden lg:flex flex-nowrap justify-between gap-4 font-segoe mb-2 text-lg">
+      <section className="hidden lg:flex flex-nowrap justify-between gap-4 font-inter mb-2 text-lg">
         <h3 className={colsWidth.token}>Token</h3>
         <h3 className={colsWidth.network}>Network</h3>
         <h3 className={colsWidth.scan}>Scan</h3>
         <h3 className={colsWidth.score}>Score</h3>
       </section>
-      <section className="grid grid-cols-1 gap-4 font-segoe mb-2 text-lg h-[500px] overflow-x overflow-y-auto custom-scroll">
+      <section className="grid grid-cols-1 gap-4 font-inter mb-2 text-lg h-[500px] overflow-x overflow-y-auto custom-scroll">
         {records &&
           records.length > 0 &&
           records.map((item, index) => (

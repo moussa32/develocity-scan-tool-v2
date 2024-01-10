@@ -127,7 +127,7 @@
 
 @layer base {
   * {
-    font-family: "SFProDisplay";
+    font-family: "Inter", sans-serif;
     @apply border-border;
   }
   body {
