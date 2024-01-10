@@ -1,19 +1,14 @@
 import Logo from "@assets/images/deveLogo.png";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 // import AuthButtons from "./AuthButtons";
 import MySearch from "@/shared/components/MySearch";
 import ErrorCoverageWrapper from "@/shared/components/ErrorCoverageWrapper";
 
 const Navbar = () => {
-  const [showSearchBar, setShowSearchBar] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    if (location.pathname === "/") {
-      setShowSearchBar(true);
-    }
-  }, [location.pathname]);
+  const showSearch = useMemo(() => location.pathname === "/", [location]);
 
   return (
     <section className="py-8 lg:py-0 lg:h-[172px] bg-primaryLayoutColor flex items-center">
@@ -35,7 +30,7 @@ const Navbar = () => {
           <a href="https://develocity.finance/contact-us">Contact</a>
         </nav>
         {/* <AuthButtons /> */}
-        {showSearchBar && (
+        {showSearch && (
           <div className="ml-auto w-full md:w-96">
             <ErrorCoverageWrapper message="Contract responded with wrong fit">
               <MySearch />

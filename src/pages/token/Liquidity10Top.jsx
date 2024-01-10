@@ -82,12 +82,16 @@ const Liquidity10Top = () => {
 
   return (
     <>
-      {walletInfo && walletInfo.length > 0 && (
+      {walletInfo && walletInfo.length > 0 ? (
         <TokenTable
           columns={columns}
           data={walletInfo}
           onRowClick={selectRow}
         />
+      ) : (
+        <p className="text-white/50 font-semibold text-2xl flex items-center justify-center font-segoe h-full">
+          There are no walltes
+        </p>
       )}
     </>
   );

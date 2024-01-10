@@ -1,7 +1,5 @@
-import { Button } from "@/shared/components/ui/button";
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
-import ShareIcon from "@assets/images/shareIcon.svg";
 import TokenInfo from "./TokenInfo";
 import TrustScore from "./TrustScore";
 import TokenDetails from "./TokenDetails";

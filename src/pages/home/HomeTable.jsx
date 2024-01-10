@@ -1,6 +1,5 @@
 import { scoreTypeColor } from "@/shared/util";
 import { getNetworkDetails } from "@/shared/util/tokenSupportedNetworks";
-import BSCIcon from "@assets/images/BSC.png";
 import clsx from "clsx";
 import Skeleton from "react-loading-skeleton";
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import { Link } from "react-router-dom";
 const colsWidth = {
   token: "lg:w-[37%] flex-grow flex-shrink-0 mr-4-",
   network: "flex-shrink-0",
-  scan: "w-[62px] flex-shrink-0 mr-4",
+  scan: "lg:w-[62px] flex-shrink-0 mr-4",
   score: "lg:w-[59px] flex-shrink-0 mx-auto mr-4",
 };
 
@@ -24,24 +23,24 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
   }) => (
     <Link
       to={`/token/${getNetworkDetails(network)?.shortName}/${contractAddress}`}
-      className="flex w-full md:flex-nowrap flex-wrap justify-between items-center gap-4 border-[#9A9A9A]/20 [&:not(:last-of-type)]:border-b-[0.5px] py-5"
+      className="flex w-full flex-wrap lg:flex-nowrap justify-between items-center gap-4 border-[#9A9A9A]/20 [&:not(:last-of-type)]:border-b-[0.5px] py-4 lg:py-5"
     >
-      <div className={`${colsWidth.token} w-1/2 flex gap-5`}>
+      <div className={`${colsWidth.token} w-full lg:w-1/2 flex gap-5`}>
         {image ? (
           <img
-            width={45}
             style={{ objectFit: "cover", height: 45, borderRadius: "50%" }}
+            className="w-9 lg:w-11"
             src={image}
             alt={name}
             title={name}
           />
         ) : (
-          <h3 className="w-12 h-12 flex flex-shrink-0 items-center rounded-full justify-center bg-primary/50">
+          <h3 className="w-9 h-9 lg:w-11 lg:h-11 flex flex-shrink-0 items-center rounded-full justify-center bg-primary/50">
             {name?.charAt(1).toUpperCase()}
           </h3>
         )}
         <div className="flex items-start justify-center flex-col">
-          <h3 className="uppercase text-sm font-bold text-gray-200 font-segoe">
+          <h3 className="uppercase text-xs lg:text-sm font-bold text-gray-200 font-segoe">
             {name}
           </h3>
           <span className="uppercase font-segoe text-xs mt-1 text-stone-400">
@@ -52,8 +51,7 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
       <div className={`${colsWidth.network} `}>
         <div className="bg-[#2F334B] col-span-2 px-2 text-[#888888] text-lg flex items-center justify-between p-1 rounded-sm gap-2">
           <img
-            width={20}
-            height={20}
+            className="w-4 lg:w-5 h-4 lg:h-5"
             src={getNetworkDetails(network)?.icon}
             alt={network}
             title={network}
@@ -63,12 +61,12 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
           </span>
         </div>
       </div>
-      <span className={`font-segoe text-base font-semibold ${colsWidth.scan}`}>
+      <span className={`font-segoe text-sm font-semibold ${colsWidth.scan}`}>
         {Number(value.toLocaleString("en-US")).toFixed()}
       </span>
       <div className={`${colsWidth.scan}`}>
         <span
-          className={`flex items-center justify-center font-medium text-base pt-[4px] pb-[7px] px-[15px] ${
+          className={`flex items-center justify-center font-medium text-sm pt-[4px] pb-[7px] px-[15px] ${
             scoreTypeColor(score).bg
           } bg-opacity-20 ${scoreTypeColor(score).text} rounded-sm`}
         >
@@ -79,32 +77,30 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
   );
 
   return (
-    <div
-      className={clsx(
-        "text-white h-[500px] overflow-x-hidden lg:overflow-y-auto custom-scroll",
-        tableClassNames
-      )}
-    >
-      <section className="flex justify-between gap-4 font-segoe mb-2 text-lg">
+    <div className={clsx("text-white", tableClassNames)}>
+      <section className="hidden lg:flex flex-nowrap justify-between gap-4 font-segoe mb-2 text-lg">
         <h3 className={colsWidth.token}>Token</h3>
         <h3 className={colsWidth.network}>Network</h3>
         <h3 className={colsWidth.scan}>Scan</h3>
         <h3 className={colsWidth.score}>Score</h3>
       </section>
-      {records &&
-        records.length > 0 &&
-        records.map((item, index) => (
-          <Record
-            key={`${index}${item?.name}`}
-            name={item?.contractInfo?.name}
-            image={item?.contractInfo?.logo}
-            ticker={item?.contractInfo?.symbol}
-            score={item?.score}
-            network={item?.network}
-            value={item?.interest}
-            contractAddress={item?.contractAddress}
-          />
-        ))}
+      <section className="grid grid-cols-1 gap-4 font-segoe mb-2 text-lg h-[500px] overflow-x overflow-y-auto custom-scroll">
+        {records &&
+          records.length > 0 &&
+          records.map((item, index) => (
+            <Record
+              key={`${index}${item?.name}`}
+              name={item?.contractInfo?.name}
+              image={item?.contractInfo?.logo}
+              ticker={item?.contractInfo?.symbol}
+              score={item?.score}
+              network={item?.network}
+              value={item?.interest}
+              contractAddress={item?.contractAddress}
+            />
+          ))}
+      </section>
+
       {(!isConnected || records.length == 0) && (
         <div className="grid grid-cols-1 gap-4">
           {[...new Array(6)].map(() => (
