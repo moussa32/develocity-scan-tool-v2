@@ -81,7 +81,7 @@ const Liquidity10Top = () => {
   };
 
   return (
-    <>
+    <div className="my-10">
       {walletInfo && walletInfo.length > 0 ? (
         <TokenTable
           columns={columns}
@@ -90,10 +90,10 @@ const Liquidity10Top = () => {
         />
       ) : (
         <p className="text-white/50 font-semibold text-2xl flex items-center justify-center font-inter h-full">
-          There are no walltes
+          There are no liquidity wallets
         </p>
       )}
-    </>
+    </div>
   );
 };
 

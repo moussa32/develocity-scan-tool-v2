@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import TokenTable from "./TokenTable";
 import { useQuery } from "@tanstack/react-query";
@@ -12,14 +12,17 @@ const Liquidity = () => {
     suspense: true,
     queryFn: () => requestContractLiquidity({ network, contractAddress }),
   });
-  const [walletInfo, setWalletInfo] = useState([]);
 
-  const liquditiy = data?.liquidityInfo?.map((item, index) => ({
-    id: index,
-    addLiquidity: item?.addLiquidityBal.toFixed(),
-    removeLiquidity: item?.removeLiquidityBal.toFixed(),
-    burnLiquidityPer: item?.burnLiquidityPer.toFixed(),
-  }));
+  const liquditiy = useMemo(
+    () =>
+      data?.liquidityInfo?.map((item, index) => ({
+        id: index,
+        addLiquidity: item?.addLiquidityBal.toFixed(),
+        removeLiquidity: item?.removeLiquidityBal.toFixed(),
+        burnLiquidityPer: item?.burnLiquidityPer.toFixed(),
+      })) ?? [],
+    [data]
+  );
 
   console.log(liquditiy);
 
@@ -50,11 +53,16 @@ const Liquidity = () => {
   ];
 
   return (
-    <>
+    <div className="my-10">
       {liquditiy && liquditiy.length > 0 && (
         <TokenTable columns={columns} data={liquditiy} />
       )}
-    </>
+      {liquditiy?.length === 0 && (
+        <p className="text-white/50 font-semibold text-xl flex items-center justify-center font-inter h-full">
+          There are no liquidity wallets
+        </p>
+      )}
+    </div>
   );
 };
 

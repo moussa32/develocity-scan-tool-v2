@@ -282,7 +282,7 @@ const TokenDetails = () => {
           </h2>
           <Wallet10Top />
         </div>
-        <div>
+        <div className="flex flex-col lg:block">
           <h2 className="font-semibold font-inter text-[#E8EAEC] mb-7 text-xl">
             Top 10 Liquidity Wallets
           </h2>

@@ -61,12 +61,12 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
           </span>
         </div>
       </div>
-      <span className={`font-inter text-sm font-semibold ${colsWidth.scan}`}>
+      <span className={`font-inter text-xs font-semibold ${colsWidth.scan}`}>
         {Number(value.toLocaleString("en-US")).toFixed()}
       </span>
       <div className={`${colsWidth.scan}`}>
         <span
-          className={`flex items-center justify-center font-medium text-sm pt-[4px] pb-[7px] px-[15px] ${
+          className={`flex items-center justify-center font-medium text-xs pt-[4px] pb-[7px] px-[15px] ${
             scoreTypeColor(score).bg
           } bg-opacity-20 ${scoreTypeColor(score).text} rounded-sm`}
         >

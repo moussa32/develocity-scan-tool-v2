@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import styles from "./TokenInfo.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { requestContractInfo } from "@/api/contractInfo";
-import { useMemeo } from "react";
 
 import clsx from "clsx";
 import { toast } from "react-toastify";
@@ -127,7 +126,7 @@ const TokenInfo = () => {
                 onCopy={() =>
                   toast.success(
                     "Contract address has been copied successfully",
-                    { id: "successCopy" }
+                    { toastId: "successCopy" }
                   )
                 }
               >
