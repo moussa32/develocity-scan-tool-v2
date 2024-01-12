@@ -49,7 +49,7 @@ const TokenInfo = () => {
     <>
       <section>
         <h2 className="font-inter text-[21px] font-semibold text-[#E8EAEC] mb-[28.8px]">
-          General Informations
+          General Information
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-[70px]">
           <div className={styles.infoWrapper}>

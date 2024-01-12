@@ -213,7 +213,8 @@ const TokenSummary = () => {
             letter-spacing="0.022em"
           >
             <tspan x="0" y="0">
-              ${data?.result?.contractInfo?.market_cap.toLocaleString("en-US")}
+              ${Number(data?.result?.contractInfo?.market_cap
+              ).toFixed(0).toLocaleString("en-US")}
             </tspan>
           </text>
           <text
@@ -245,8 +246,8 @@ const TokenSummary = () => {
           >
             <tspan x="0" y="0">
               {Number(
-                data?.result?.contractInfo?.total_supply.toLocaleString("en-US")
-              ).toFixed(2)}
+                data?.result?.contractInfo?.total_supply
+              ).toFixed(0).toLocaleString("en-US")}
             </tspan>
           </text>
           <text
