@@ -18,7 +18,8 @@ const TokenInfo = () => {
     suspense: true,
     queryFn: () => requestContractInfo({ network, contractAddress }),
   });
-
+  console.log(Number(data?.result?.contractInfo?.total_supply* 10**30));
+  console.log(data?.result?.contractInfo?.imgUrl);
   const tokenValue = () => {
     const digits = 6;
     const stringNumber = data?.result?.contractInfo?.tokenPriceUSD.toString();
@@ -55,12 +56,12 @@ const TokenInfo = () => {
           <div className={styles.infoWrapper}>
             <div className={clsx(styles.infoHeader, "gap-4")}>
               <div className={`flex gap-6 items-center`}>
-                {data?.result?.contractInfo?.logo ? (
+                {data?.result?.contractInfo?.imgURL ? (
                   <img
                     width={55}
                     height={55}
                     className="flex-shrink-0"
-                    src={data?.result?.contractInfo?.logo}
+                    src={data?.result?.contractInfo?.imgURL}
                     alt={data?.result?.contractInfo?.name}
                   />
                 ) : (

@@ -15,9 +15,9 @@ const TokenSummary = () => {
 
   return (
     <div className="flex w-full flex-col md:flex-row md:flex-nowrap justify-center items-center flex-wrap font-sf md:items-start text-white">
-      {data?.result?.contractInfo?.logo ? (
+      {data?.result?.contractInfo?.imgURL ? (
         <img
-          src={data?.result?.contractInfo?.logo}
+          src={data?.result?.contractInfo?.imgURL}
           alt={data?.result?.contractInfo?.name}
           width={64}
         />
