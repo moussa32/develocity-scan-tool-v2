@@ -44,7 +44,7 @@ const requestContractLiquidity = async ({ network, contractAddress }) => {
       case "ETH":
         return "getETHLiquidityScan";
       case "MATIC":
-        return "getPoygonLiquidityScan";
+        return "getPolygonLiquidityScan";
     }
   };
 

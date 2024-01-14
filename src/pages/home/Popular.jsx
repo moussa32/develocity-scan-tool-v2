@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PopularCard from "@pages/home/PopularCard";
 import HomeTable from "@pages/home/HomeTable";
 import { useEffect, useState } from "react";
@@ -54,12 +54,12 @@ const Popular = () => {
           <h2 className="text-secondaryText text-xl md:text-2xl font-semibold font-inter">
             Popular Today
           </h2>
-          <Link
+          {/* <Link
             className="text-white font-inter text-base md:text-2xl underline-offset-2 underline"
             to="/tokens"
           >
             See All
-          </Link>
+          </Link> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 h-[660px] overflow-y-auto custom-scroll gap-4 lg:gap-5">
           {(!isConnected || popularScan.length == 0) &&

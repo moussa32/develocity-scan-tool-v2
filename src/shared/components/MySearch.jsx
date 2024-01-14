@@ -47,6 +47,8 @@ const MySearch = () => {
   });
   const navigate = useNavigate();
 
+  console.log(error, isError);
+
   //Send new request to the server after 500ms form last character user has entered
   useEffect(() => {
     if (debouncedValue.length > 0) {
@@ -116,11 +118,11 @@ const MySearch = () => {
     }
   };
 
-  const searchContractAddress = () => {
-    if (!isDisabled) {
-      navigate(`/token/${query}`);
-    }
-  };
+  // const searchContractAddress = () => {
+  //   if (!isDisabled) {
+  //     navigate(`/token/${query}`);
+  //   }
+  // };
 
   return (
     <div className={styles.searchWrapper}>
@@ -148,9 +150,8 @@ const MySearch = () => {
           value={query === null ? "" : query}
         />
         <button
-          onClick={searchContractAddress}
           className={`${styles.searchBtn} ${styles.searchBtn_ltr}`}
-          disabled={isDisabled}
+          disabled={true}
         >
           {isInitialLoading ? "loading..." : "Scan"}
         </button>
