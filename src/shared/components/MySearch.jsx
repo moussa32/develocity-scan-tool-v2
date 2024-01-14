@@ -47,7 +47,7 @@ const MySearch = () => {
   });
   const navigate = useNavigate();
 
-  console.log(error, isError);
+  console.log(results);
 
   //Send new request to the server after 500ms form last character user has entered
   useEffect(() => {
@@ -175,10 +175,10 @@ const MySearch = () => {
             ))}
           </div>
         )}
-        {isSuccess && error && (
+        {isFetched && (error || results?.responseCode == 400) && (
           <div className={`${styles.searchBlock} ${styles.notFoundData}`}>
             <BiUpsideDown size={18} />
-            {error}
+            {error || results?.responseMessage}
           </div>
         )}
       </div>
