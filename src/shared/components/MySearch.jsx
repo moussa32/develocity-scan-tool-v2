@@ -139,7 +139,7 @@ const MySearch = () => {
       />
       <span className={styles.searchNote}>
         <FaCircle className={`${styles.dot} ${styles.dot_ltr}`} />
-        Enter the token name and click scan
+        Enter the token name or contract address and click scan
       </span>
 
       <div className={styles.searchSection}>
