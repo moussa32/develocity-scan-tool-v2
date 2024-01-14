@@ -20,7 +20,7 @@ const requestTopTenWallets = async ({ network, contractAddress }) => {
         return "getBSCTop10";
       case "ETH":
         return "getETHTop10";
-      case "MATIC":
+      case "Polygon":
         return "getPolygonTop10";
     }
   };
@@ -169,12 +169,12 @@ const requestHumanSummary = async ({ contractAddress, network }) => {
   return request;
 };
 
-// const requestHumanSummary = async ({ contractAddress }) => {
-//   const request = axios
-//     .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
-//     .then((data) => data.data);
-//   return request;
-// };
+const requestTokens = async ({ contractAddress }) => {
+  const request = axios
+    .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
+    .then((data) => data.data);
+  return request;
+};
 
 const requestIP = async () => {
   const request = axios
