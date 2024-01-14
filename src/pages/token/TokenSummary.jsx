@@ -17,9 +17,9 @@ const TokenSummary = () => {
 
   return (
     <div className="flex w-full flex-col md:flex-row md:flex-nowrap justify-center items-center flex-wrap font-sf md:items-start text-white">
-      {data?.result?.contractInfo?.imgURL ? (
+      {data?.result?.contractInfo?.logo ? (
         <img
-          src={data?.result?.contractInfo?.imgURL}
+          src={data?.result?.contractInfo?.logo}
           alt={data?.result?.contractInfo?.name}
           width={64}
         />
@@ -215,7 +215,12 @@ const TokenSummary = () => {
             letter-spacing="0.022em"
           >
             <tspan x="0" y="0">
-              ${Number(Number(data?.result?.contractInfo?.market_cap)).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").toLocaleString("en-US")}
+              $
+              {Number(Number(data?.result?.contractInfo?.market_cap))
+                .toFixed(0)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                .toLocaleString("en-US")}
             </tspan>
           </text>
           <text
