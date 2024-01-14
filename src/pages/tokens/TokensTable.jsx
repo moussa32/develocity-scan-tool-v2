@@ -11,13 +11,13 @@ import { Table, ConfigProvider } from "antd";
 // import ru_RU from "antd/es/locale/ru_RU";
 import styles from "./TokensTables.module.css";
 
-const TableFooter = ({ renderPerPage = 0, maxCount = 0 }) => {
-  return (
-    <div className={styles.tableFooter}>
-      Showing {renderPerPage} out of {maxCount}
-    </div>
-  );
-};
+// const TableFooter = ({ renderPerPage = 0, maxCount = 0 }) => {
+//   return (
+//     <div className={styles.tableFooter}>
+//       Showing {renderPerPage} out of {maxCount}
+//     </div>
+//   );
+// };
 
 const TokensTable = ({
   tokenList,
@@ -269,6 +269,7 @@ const TokensTable = ({
               pagination={{
                 showSizeChanger: false,
                 current: currentPage,
+                showQuickJumper: false,
                 defaultPageSize: 5,
                 size: 5,
                 onChange: (page) => onChangePage(page),
@@ -276,12 +277,12 @@ const TokensTable = ({
               }}
               className="tokenListTable"
               scroll={{ x: window.innerWidth < 500 ? "100%" : "900px" }}
-              footer={() => (
-                <TableFooter
-                  renderPerPage={renderedItems}
-                  maxCount={tokenList.length}
-                />
-              )}
+              // footer={() => (
+              //   <TableFooter
+              //     renderPerPage={renderedItems}
+              //     maxCount={tokenList.length}
+              //   />
+              // )}
             />
           </ConfigProvider>
         )}
