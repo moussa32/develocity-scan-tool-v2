@@ -196,3 +196,11 @@
 .custom-scroll::-webkit-scrollbar-thumb {
   border-radius: 6px;
 }
+
+.tokenListTable .ant-pagination-item a {
+  color: #fff;
+}
+
+.ant-pagination .ant-pagination-item-active a {
+  @apply text-primary;
+}

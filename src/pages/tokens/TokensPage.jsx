@@ -1,4 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import TokensTable from "./TokensTable";
+import { requestTokens } from "@/api/contractInfo";
+import { useState } from "react";
 
 const tokenList = [
   {
@@ -70,13 +73,25 @@ const tokenList = [
 const isVerifyied = "all";
 
 const TokensPage = () => {
+  const [page, setPage] = useState(1);
+  const { data, refetch } = useQuery({
+    queryKey: ["getTokens", page],
+    queryFn: () => requestTokens({ page }),
+    enabled: true,
+  });
+
+  console.log(data?.contracts);
+
   return (
     <div className="min-h-[calc(100vh_-_397px)] bg-primaryBg">
       <div className="container bg-primaryBg">
         <div className="pt-24">
-          <h1 className="font-['Oxygen'] text-white text-[39px]">Tokens</h1>
+          <h1 className="text-white text-[39px]">Tokens</h1>
           <TokensTable
-            tokenList={tokenList ? tokenList : null}
+            currentPage={page}
+            tokenList={data?.contracts ? data?.contracts : null}
+            counts={data?.contractsCount}
+            onChangePage={setPage}
             isVerifyied={isVerifyied}
           />
         </div>

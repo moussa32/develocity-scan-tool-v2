@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Table, ConfigProvider } from "antd";
@@ -10,7 +10,6 @@ import { Table, ConfigProvider } from "antd";
 // import es_ES from "antd/es/locale/es_ES";
 // import ru_RU from "antd/es/locale/ru_RU";
 import styles from "./TokensTables.module.css";
-import { useCallback } from "react";
 
 const TableFooter = ({ renderPerPage = 0, maxCount = 0 }) => {
   return (
@@ -20,9 +19,16 @@ const TableFooter = ({ renderPerPage = 0, maxCount = 0 }) => {
   );
 };
 
-const TokensTable = ({ tokenList, isVerifyied }) => {
-  let [arr, setArr] = useState([]);
+const TokensTable = ({
+  tokenList,
+  isVerifyied,
+  counts,
+  onChangePage,
+  currentPage,
+}) => {
+  // let [arr, setArr] = useState([]);
   const [renderedItems, setRenderedItems] = useState(50);
+
   //   const { i18n } = useTranslation();
   //   const direction = i18n.dir();
 
@@ -46,23 +52,23 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
   //     }
   //   }, [i18n]);
 
-  const filters = {
-    all: (tokenList) => tokenList,
-    verified: (tokenList) => tokenList?.filter((item) => item.isNotListed),
-    notVerified: (tokenList) => tokenList?.filter((item) => !item.isNotListed),
-  };
-  function filteredTokenList() {
-    if (isVerifyied == true) {
-      setArr(filters["verified"](tokenList));
-    } else if (isVerifyied == false) {
-      setArr(filters["notVerified"](tokenList));
-    } else {
-      setArr(filters["all"](tokenList));
-    }
-  }
-  useEffect(() => {
-    filteredTokenList();
-  }, [isVerifyied]);
+  // const filters = {
+  //   all: (tokenList) => tokenList,
+  //   verified: (tokenList) => tokenList?.filter((item) => item.isNotListed),
+  //   notVerified: (tokenList) => tokenList?.filter((item) => !item.isNotListed),
+  // };
+  // function filteredTokenList() {
+  //   if (isVerifyied == true) {
+  //     setArr(filters["verified"](tokenList));
+  //   } else if (isVerifyied == false) {
+  //     setArr(filters["notVerified"](tokenList));
+  //   } else {
+  //     setArr(filters["all"](tokenList));
+  //   }
+  // }
+  // useEffect(() => {
+  //   filteredTokenList();
+  // }, [isVerifyied]);
 
   const columns = [
     {
@@ -74,21 +80,21 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       width: window.innerWidth < 400 ? 150 : 222,
       render: (value, record) => (
         <div className={styles.tokenRecord_tokenCell}>
-          {value.logo ? (
+          {value?.logo ? (
             <img
               className={`${styles.tokenRecord_icon} ${styles.tokenRecord_icon_ltr}`}
-              src={value.logo}
-              alt={value.name}
+              src={value?.logo}
+              alt={value?.name}
             />
           ) : (
             <span
               className={`${styles.tokenRecord_iconLetter} ${styles.tokenRecord_icon_ltr}`}
             >
-              {value.name.charAt(0)}
+              {value?.name?.charAt(0)}
             </span>
           )}
-          <h3 className={styles.tokenRecord_name}>{value.name}</h3>
-          {record.isNotListed && (
+          <h3 className={styles.tokenRecord_name}>{value?.name}</h3>
+          {record?.isNotListed && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -110,9 +116,9 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       render: (value) => (
         <span
           className={`${styles.tokenRecord_score} ${
-            value.toFixed() > 85
+            value?.toFixed() > 85
               ? styles.tokenRecord_trustScore
-              : value.toFixed() <= 85 && value.toFixed() >= 60
+              : value?.toFixed() <= 85 && value?.toFixed() >= 60
               ? styles.tokenRecord_infoScore
               : styles.tokenRecord_dangerScore
           }`}
@@ -121,7 +127,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
         </span>
       ),
       sorter: (a, b) => {
-        return a.contractScan - b.contractScan;
+        return a?.contractScan - b?.contractScan;
       },
     },
     {
@@ -135,26 +141,26 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
         return a?.interest - b?.interest;
       },
     },
-    {
-      title: "Rank",
-      width: 99,
-      dataIndex: "rank",
-      render: (value) => {
-        return <div># {value}</div>;
-      },
-    },
+    // {
+    //   title: "Rank",
+    //   width: 99,
+    //   dataIndex: "rank",
+    //   render: (value) => {
+    //     return <div># {value}</div>;
+    //   },
+    // },
     {
       title: "Price",
       width: 136,
       dataIndex: "contractInfo",
       dataIndex: "contractInfo",
       sorter: (a, b) => {
-        return a.contractInfo.current_price - b.contractInfo.current_price;
+        return a?.contractInfo.current_price - b?.contractInfo.current_price;
       },
       render: (value) => {
         const numberConverter = new Intl.NumberFormat("en", {
           currency: "USD",
-        }).format(value.current_price);
+        }).format(value?.current_price);
         return <>${numberConverter}</>;
       },
     },
@@ -163,12 +169,12 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       width: 160,
       dataIndex: "contractInfo",
       sorter: (a, b) => {
-        return a.contractInfo.market_cap - b.contractInfo.market_cap;
+        return a?.contractInfo.market_cap - b?.contractInfo.market_cap;
       },
       render: (value) => {
         const numberConverter = new Intl.NumberFormat("en", {
           currency: "USD",
-        }).format(value.market_cap);
+        }).format(value?.market_cap);
         return <>${numberConverter}</>;
       },
     },
@@ -177,7 +183,7 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
       width: 136,
       dataIndex: "contractInfo",
       render: (value, record, index) => (
-        <>{Number(value.totalSupply).toFixed(2)}</>
+        <>{Number(value?.totalSupply).toFixed(2)}</>
       ),
     },
     {
@@ -251,31 +257,35 @@ const TokensTable = ({ tokenList, isVerifyied }) => {
     },
   ];
 
-  const onPaginationChange = (current, size) => {
-    setRenderedItems(current * size);
-    return { current, size };
-  };
-
   return (
     <>
-      {arr && arr.length > 0 && (
-        <ConfigProvider direction="ltr">
-          <Table
-            bordered={false}
-            dataSource={arr}
-            columns={columns}
-            pagination={{ defaultPageSize: 50, onChange: onPaginationChange }}
-            className="tokenListTable"
-            scroll={{ x: window.innerWidth < 500 ? "100%" : "900px" }}
-            footer={() => (
-              <TableFooter
-                renderPerPage={renderedItems}
-                maxCount={tokenList.length}
-              />
-            )}
-          />
-        </ConfigProvider>
-      )}
+      <div className="pb-10">
+        {tokenList && tokenList.length > 0 && (
+          <ConfigProvider direction="ltr">
+            <Table
+              bordered={false}
+              dataSource={tokenList}
+              columns={columns}
+              pagination={{
+                showSizeChanger: false,
+                current: currentPage,
+                defaultPageSize: 5,
+                size: 5,
+                onChange: (page) => onChangePage(page),
+                total: counts,
+              }}
+              className="tokenListTable"
+              scroll={{ x: window.innerWidth < 500 ? "100%" : "900px" }}
+              footer={() => (
+                <TableFooter
+                  renderPerPage={renderedItems}
+                  maxCount={tokenList.length}
+                />
+              )}
+            />
+          </ConfigProvider>
+        )}
+      </div>
     </>
   );
 };

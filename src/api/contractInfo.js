@@ -169,9 +169,13 @@ const requestHumanSummary = async ({ contractAddress, network }) => {
   return request;
 };
 
-const requestTokens = async ({ contractAddress }) => {
+const requestTokens = async ({ page = 1 } = {}) => {
   const request = axios
-    .get(`${BASE_URL}/contract/humanSummary/${contractAddress}`)
+    .get(`${BASE_URL}/static/getAllContracts`, {
+      params: {
+        page,
+      },
+    })
     .then((data) => data.data);
   return request;
 };
@@ -220,5 +224,6 @@ export {
   requestContractTax,
   requestContractLiquidity,
   requestContractHolders,
+  requestTokens,
   requestContractAnalysis,
 };
