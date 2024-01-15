@@ -90,8 +90,7 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
         <h3 className={colsWidth.score}>Score</h3>
       </section>
       <section className="grid grid-cols-1 gap-4 font-inter mb-2 text-lg h-[500px] overflow-x overflow-y-auto custom-scroll">
-        {records &&
-          records.length > 0 &&
+        {records && records.length > 0 ? (
           records.map((item, index) => (
             <Record
               key={`${index}${item?.name}`}
@@ -103,21 +102,24 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
               value={item?.interest}
               contractAddress={item?.contractAddress}
             />
-          ))}
+          ))
+        ) : (
+          <>
+            {(!isConnected || records.length == 0) && (
+              <div className="grid grid-cols-1 gap-4">
+                {[...new Array(6)].map(() => (
+                  <Skeleton
+                    className="w-full"
+                    height={50}
+                    highlightColor="#ffffff2e"
+                    baseColor="#2b2e3f"
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
       </section>
-
-      {(!isConnected || records.length == 0) && (
-        <div className="grid grid-cols-1 gap-4">
-          {[...new Array(6)].map(() => (
-            <Skeleton
-              className="w-full"
-              height={50}
-              highlightColor="#ffffff2e"
-              baseColor="#2b2e3f"
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 };
