@@ -204,3 +204,7 @@
 .ant-pagination .ant-pagination-item-active a {
   @apply text-primary;
 }
+
+.ant-table-cell-fix-left {
+  @apply bg-black !important;
+}

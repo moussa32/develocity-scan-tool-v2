@@ -74,7 +74,7 @@ const isVerifyied = "all";
 
 const TokensPage = () => {
   const [page, setPage] = useState(1);
-  const { data, refetch } = useQuery({
+  const { data, refetch, isFetched, isSuccess } = useQuery({
     queryKey: ["getTokens", page],
     queryFn: () => requestTokens({ page }),
     enabled: true,
@@ -87,13 +87,15 @@ const TokensPage = () => {
       <div className="container bg-primaryBg">
         <div className="pt-24">
           <h1 className="text-white text-[39px]">Tokens</h1>
-          <TokensTable
-            currentPage={page}
-            tokenList={data?.contracts ? data?.contracts : null}
-            counts={data?.contractsCount}
-            onChangePage={setPage}
-            isVerifyied={isVerifyied}
-          />
+          {isFetched && isSuccess && data?.contracts && (
+            <TokensTable
+              currentPage={page}
+              tokenList={data?.contracts ? data?.contracts : null}
+              counts={data?.contractsCount}
+              onChangePage={setPage}
+              isVerifyied={isVerifyied}
+            />
+          )}
         </div>
       </div>
     </div>

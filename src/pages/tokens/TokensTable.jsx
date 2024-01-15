@@ -10,6 +10,7 @@ import { Table, ConfigProvider } from "antd";
 // import es_ES from "antd/es/locale/es_ES";
 // import ru_RU from "antd/es/locale/ru_RU";
 import styles from "./TokensTables.module.css";
+import { getNetworkDetails } from "@/shared/util/tokenSupportedNetworks";
 
 // const TableFooter = ({ renderPerPage = 0, maxCount = 0 }) => {
 //   return (
@@ -28,6 +29,8 @@ const TokensTable = ({
 }) => {
   // let [arr, setArr] = useState([]);
   const [renderedItems, setRenderedItems] = useState(50);
+
+  console.log(getNetworkDetails(tokenList[0]?.network?.name));
 
   //   const { i18n } = useTranslation();
   //   const direction = i18n.dir();
@@ -74,10 +77,10 @@ const TokensTable = ({
     {
       title: "Token",
       dataIndex: "contractInfo",
-      fixed: "left",
-      filters: [{ text: "Verified Tokens", value: true }],
+      // fixed: "left",
+      // filters: [{ text: "Verified Tokens", value: true }],
       onFilter: (value, record) => record.isNotListed === value,
-      width: window.innerWidth < 400 ? 150 : 222,
+      // width: window.innerWidth < 400 ? 150 : 222,
       render: (value, record) => (
         <div className={styles.tokenRecord_tokenCell}>
           {value?.logo ? (
@@ -192,42 +195,14 @@ const TokensTable = ({
       dataIndex: "contractInfo",
       render: (value, record, index) => (
         <div className={styles.networkCell}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16.183"
-            height="16.185"
-            viewBox="0 0 16.183 16.185"
-          >
-            <g
-              id="Binance_Coin_BNB_"
-              data-name="Binance Coin (BNB)"
-              transform="translate(0)"
-            >
-              <path
-                id="Binance_Coin_BNB_2"
-                data-name="Binance Coin (BNB)"
-                d="M15.941,10.05A8.089,8.089,0,1,1,10.048.242a8.09,8.09,0,0,1,5.893,9.808h0Z"
-                transform="translate(0 0)"
-                fill="#2b2e35"
-              />
-              <path
-                id="Binance_Coin_BNB_3"
-                data-name="Binance Coin (BNB)"
-                d="M2.095,7.528l0,0L3.323,6.3h0l2.11,2.11L7.544,6.3,8.773,7.526h0L5.433,10.866ZM8.41,5.434,9.638,4.206l1.228,1.228L9.638,6.661ZM0,5.433,1.228,4.2,2.456,5.433,1.228,6.661ZM5.433,2.456l-2.11,2.11h0L2.095,3.338,5.433,0,8.772,3.339,7.544,4.567Z"
-                transform="translate(2.587 2.731)"
-                fill="#fcc513"
-              />
-              <path
-                id="Binance_Coin_BNB_4"
-                data-name="Binance Coin (BNB)"
-                d="M2.474,1.237h0L1.238,0,.323.914h0l-.105.105L0,1.236l0,0,0,0L1.238,2.476,2.475,1.238h0"
-                transform="translate(6.855 6.854)"
-                fill="#fcc513"
-              />
-            </g>
-          </svg>
+          {record?.network ? (
+            <img
+              className="w-4 h-4 rounded-full"
+              src={getNetworkDetails(record?.network?.name)?.icon}
+            />
+          ) : null}
 
-          <span>BSC</span>
+          <span>{getNetworkDetails(record?.network?.name)?.shortName}</span>
         </div>
       ),
     },
@@ -237,7 +212,12 @@ const TokensTable = ({
       dataIndex: "contractAddress",
       render: (contractAddress, record) => (
         <>
-          <Link className={styles.fullReport} to={`/token/${contractAddress}`}>
+          <Link
+            className={styles.fullReport}
+            to={`/token/${
+              getNetworkDetails(record?.network?.name)?.shortName
+            }/${record?.contractInfo?.contractAddress}`}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="9.56"
