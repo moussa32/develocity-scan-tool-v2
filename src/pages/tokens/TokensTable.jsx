@@ -83,16 +83,16 @@ const TokensTable = ({
       onFilter: (value, record) => record.isNotListed === value,
       // width: window.innerWidth < 400 ? 150 : 222,
       render: (value, record) => (
-        <div className={styles.tokenRecord_tokenCell}>
+        <div className={`${styles.tokenRecord_tokenCell} gap-2`}>
           {value?.logo ? (
             <img
-              className={`${styles.tokenRecord_icon} ${styles.tokenRecord_icon_ltr}`}
+              className={`${styles.tokenRecord_icon} ${styles.tokenRecord_icon_ltr} w-7 h-7 flex-[0_0_28px]`}
               src={value?.logo}
               alt={value?.name}
             />
           ) : (
             <span
-              className={`${styles.tokenRecord_iconLetter} ${styles.tokenRecord_icon_ltr}`}
+              className={`${styles.tokenRecord_iconLetter} ${styles.tokenRecord_icon_ltr} w-7 h-7 flex-[0_0_28px]`}
             >
               {value?.name?.charAt(0)}
             </span>

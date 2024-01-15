@@ -18,11 +18,8 @@
 
 .tokenRecord_icon,
 .tokenRecord_iconLetter {
-  flex: 0 1 20px;
-  width: 20px;
-  height: 20px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .tokenRecord_iconLetter {
