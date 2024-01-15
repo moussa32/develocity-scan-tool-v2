@@ -23,7 +23,6 @@ const TokenInfo = () => {
   const tokenValue = () => {
     const digits = 6;
     const stringNumber = data?.result?.contractInfo?.tokenPriceUSD.toString();
-
     const { zeroCounts, numbersAfterZero, parsedNumber } =
       convertFromScientificNotation(stringNumber);
 
@@ -84,7 +83,7 @@ const TokenInfo = () => {
               <span
                 className={`font-inter flex items-center gap-2 text-center justify-center md:justify-end md:text-right text-2xl md:text-4xl font-bold text-white`}
               >
-                {tokenValue()} <span>$</span>
+                {contractAddress == "0x00f9928315196cdfbee0205520a8ebe60d9172f0" ? 0 : tokenValue()} <span>$</span>
               </span>
             </div>
             {isFetched && isSuccess ? (
