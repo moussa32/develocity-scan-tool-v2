@@ -83,7 +83,7 @@ const Popular = () => {
                 symbol={item?.contractInfo?.symbol}
                 logo={item?.contractInfo?.logo}
                 score={item?.score}
-                scans={item?.contractScan}
+                scans={item?.interest}
                 address={item?.contractAddress}
                 network={item?.network}
               />
