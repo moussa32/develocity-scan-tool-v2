@@ -254,7 +254,7 @@ const TokenDetails = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-8">
+        {/* <div className="flex flex-col gap-8">
           <h2 className="font-semibold font-inter text-[#E8EAEC] mb-7 text-xl">
             Holders Distribution
           </h2>
@@ -273,7 +273,7 @@ const TokenDetails = () => {
               height={320}
             />
           )}
-        </div>
+        </div> */}
       </div>
       <div className="grid gap-32 lg:grid-cols-2 grid-cols-1">
         <div>
