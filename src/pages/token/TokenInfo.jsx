@@ -107,22 +107,44 @@ const TokenInfo = () => {
             <div className={styles.infoBody}>
               <div className="flex justify-between font-inter text-[#9A9A9A] px-4 md:px-9 pt-5">
                 <span className="text-base md:text-xl">Total Scans:</span>
-                <span className="text-white text-lg">
+                <span className="text-white text-base">
                   {data?.result?.interest}
                 </span>
               </div>
-              <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9">
+              {/* <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9">
                 <span className="text-base md:text-xl">Average Score:</span>
-                <span className="text-white text-lg">0</span>
-              </div>
+                <span className="text-white text-base">0</span>
+              </div> */}
               <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9 ">
                 <span className="text-base md:text-xl">Launched:</span>
-                <span className="text-white text-lg">{0}</span>
+                {isFetched && isSuccess ? (
+                  <span className="text-white text-base">
+                    {dayjs(data?.result?.contractInfo?.age).fromNow()}
+                  </span>
+                ) : (
+                  <Skeleton
+                    className="w-full mx-5"
+                    height={20}
+                    highlightColor="#ffffff2e"
+                    baseColor="#63636324"
+                  />
+                )}
               </div>
               <div className="flex justify-between font-inter text-[#9A9A9A] px-4  md:px-9 pb-5">
                 <span className="text-base md:text-xl">Added:</span>
-                <span className="text-white text-lg">
-                  {dayjs(data?.result?.createdAt).format("DD MMM YYYY")}
+                <span className="text-white text-base">
+                  {isFetched && isSuccess ? (
+                    <span className="text-white text-base">
+                      {dayjs(data?.result?.createdAt).format("DD MMM YYYY")}
+                    </span>
+                  ) : (
+                    <Skeleton
+                      className="w-full mx-5"
+                      height={20}
+                      highlightColor="#ffffff2e"
+                      baseColor="#63636324"
+                    />
+                  )}
                 </span>
               </div>
             </div>
