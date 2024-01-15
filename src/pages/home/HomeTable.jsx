@@ -28,8 +28,13 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
       <div className={`${colsWidth.token} w-full lg:w-1/2 flex gap-5`}>
         {image ? (
           <img
-            style={{ objectFit: "cover", height: 45, borderRadius: "50%" }}
-            className="w-9 lg:w-11"
+            style={{
+              objectFit: "cover",
+              height: 45,
+              borderRadius: "50%",
+              flex: "0 1 45px",
+            }}
+            className="w-9 lg:w-11 flex-[0_1_36px] lg:flex-[0_1_45px]"
             src={image}
             alt={name}
             title={name}
