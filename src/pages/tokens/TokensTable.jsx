@@ -1,5 +1,5 @@
 // import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Table, ConfigProvider } from "antd";
 // import { useTranslation } from "react-i18next";
@@ -29,6 +29,7 @@ const TokensTable = ({
 }) => {
   // let [arr, setArr] = useState([]);
   const [renderedItems, setRenderedItems] = useState(50);
+  const navigate = useNavigate();
 
   console.log(getNetworkDetails(tokenList[0]?.network?.name));
 
@@ -254,6 +255,16 @@ const TokensTable = ({
                 size: 5,
                 onChange: (page) => onChangePage(page),
                 total: counts,
+              }}
+              onRow={(record, rowIndex) => {
+                return {
+                  onClick: (event) =>
+                    navigate(
+                      `/token/${
+                        getNetworkDetails(record?.network?.name)?.shortName
+                      }/${record?.contractInfo?.contractAddress}`
+                    ),
+                };
               }}
               className="tokenListTable"
               scroll={{ x: window.innerWidth < 500 ? "100%" : "900px" }}
