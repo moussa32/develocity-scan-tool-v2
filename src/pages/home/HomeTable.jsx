@@ -34,13 +34,13 @@ const HomeTable = ({ records, tableClassNames, isConnected }) => {
               borderRadius: "50%",
               flex: "0 1 45px",
             }}
-            className="w-9 lg:w-11 flex-[0_1_36px] lg:flex-[0_1_45px]"
+            className="w-9 h-9 lg:h-11 lg:w-11 flex-[0_1_36px] lg:flex-[0_1_45px]"
             src={image}
             alt={name}
             title={name}
           />
         ) : (
-          <h3 className="w-9 h-9 lg:w-11 lg:h-11 flex flex-shrink-0 items-center rounded-full justify-center bg-primary/50">
+          <h3 className="w-9 h-9 flex-[0_1_36px] lg:flex-[0_1_45px] lg:w-11 lg:h-11 flex flex-shrink-0 items-center rounded-full justify-center bg-primary/50">
             {name?.charAt(1).toUpperCase()}
           </h3>
         )}
