@@ -10,16 +10,16 @@ import dayjs from "dayjs";
 import SpacialNumber from "@/shared/components/SpacialNumber";
 import { convertFromScientificNotation } from "@/shared/util/helpers";
 // import { convertFromScientificNotation } from "@/shared/util/helpers";
+import Skeleton from "react-loading-skeleton";
 
 const TokenInfo = () => {
   const { network, contractAddress } = useParams();
-  const { data } = useQuery({
+  const { data, isFetched, isSuccess } = useQuery({
     queryKey: ["getTokenInfo", contractAddress],
     suspense: true,
     queryFn: () => requestContractInfo({ network, contractAddress }),
   });
-  console.log(Number(data?.result?.contractInfo?.total_supply* 10**30));
-  console.log(data?.result?.contractInfo?.imgUrl);
+
   const tokenValue = () => {
     const digits = 6;
     const stringNumber = data?.result?.contractInfo?.tokenPriceUSD.toString();
@@ -46,6 +46,7 @@ const TokenInfo = () => {
       }
     }
   };
+
   return (
     <>
       <section>
@@ -86,14 +87,23 @@ const TokenInfo = () => {
                 {tokenValue()} <span>$</span>
               </span>
             </div>
-            <div className="flex items-end font-inter justify-center md:justify-start text-center md:text-right text-[#E8EAEC] pb-4 px-5">
-              Total Supply :{" "}
-              {Number(
-                (data?.result?.contractInfo?.total_supply).toLocaleString(
-                  "en-US"
-                )
-              ).toFixed(0)}
-            </div>
+            {isFetched && isSuccess ? (
+              <div className="flex items-end font-inter justify-center md:justify-start text-center md:text-right text-[#E8EAEC] pb-4 px-5">
+                Total Supply :{" "}
+                {Number(
+                  data?.result?.contractInfo?.total_supply?.toLocaleString(
+                    "en-US"
+                  )
+                ).toFixed(0)}
+              </div>
+            ) : (
+              <Skeleton
+                className="max-w-[200px] mx-5 mb-4"
+                height={20}
+                highlightColor="#ffffff2e"
+                baseColor="#63636324"
+              />
+            )}
             <div className={styles.infoBody}>
               <div className="flex justify-between font-inter text-[#9A9A9A] px-4 md:px-9 pt-5">
                 <span className="text-base md:text-xl">Total Scans:</span>
