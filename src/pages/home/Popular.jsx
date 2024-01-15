@@ -44,6 +44,9 @@ const Popular = () => {
       socket.off("popularScan", onPopularScan);
       socket.off("highScore", onHighScore);
       socket.off("latestScan", onLatestScan);
+      setPopularScan([]);
+      setHighScore([]);
+      setLatestScan([]);
     };
   }, []);
 
