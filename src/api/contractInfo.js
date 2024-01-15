@@ -20,7 +20,7 @@ const requestTopTenWallets = async ({ network, contractAddress }) => {
         return "getBSCTop10";
       case "ETH":
         return "getETHTop10";
-      case "Polygon":
+      case "MATIC":
         return "getPolygonTop10";
     }
   };
